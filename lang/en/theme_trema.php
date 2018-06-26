@@ -20,6 +20,7 @@ $string['configtitle'] = 'Trema';
 $string['pluginname'] = 'trema';
 $string['privacy:metadata'] = 'The Trema theme does not store any individual user data.';
 $string['region-side-pre'] = 'Right';
+$string['styleguide'] = 'Style Guide';
 
 
 // Strings copied from Boost

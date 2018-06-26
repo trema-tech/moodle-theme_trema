@@ -23,6 +23,7 @@
 defined('MOODLE_INTERNAL') || die();
 
 if ($ADMIN->fulltree) {
+    require_once ('trema_admin_settings_styleguide.php');
     $settings = new theme_boost_admin_settingspage_tabs('themesettingtrema', get_string('configtitle', 'theme_trema'));
     $page = new admin_settingpage('theme_trema_general', get_string('generalsettings', 'theme_trema'));
 
@@ -90,6 +91,14 @@ if ($ADMIN->fulltree) {
     $setting = new admin_setting_scsscode('theme_trema/scss', get_string('rawscss', 'theme_trema'),
         get_string('rawscss_desc', 'theme_trema'), '', PARAM_RAW);
     $setting->set_updatedcallback('theme_reset_all_caches');
+    $page->add($setting);
+
+    // Style Guide.
+    $page = new admin_settingpage('theme_trema_styleguide', get_string('styleguide', 'theme_trema'));
+
+    // Raw Bootstrap HTML to show the options of theme.
+    $setting = new trema_admin_settings_styleguide('theme_trema_styleguide',
+        get_string('styleguide', 'theme_trema'));
     $page->add($setting);
 
     $settings->add($page);
