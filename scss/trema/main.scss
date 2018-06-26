@@ -15,3 +15,15 @@ body {
 .userpicture {
     border-radius: 50%;
 }
+
+//Admin Blocks
+.side-admin-blocks {
+    width: 90%;
+    float: none;
+
+    #block-region-side-admin {
+        min-height: 150px;
+        height: 100%;
+        width: 100%;
+    }
+}

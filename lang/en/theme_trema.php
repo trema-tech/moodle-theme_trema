@@ -14,11 +14,13 @@
 defined('MOODLE_INTERNAL') || die();
 
 // Theme strings.
+$string['adminarea'] = 'Just Administrators can see this area.';
 $string['choosereadme'] = 'Trema is built on to the new Moodle Boost theme, using Bootstrap4 and Mustache templates.';
 $string['configtitle'] = 'Trema';
 $string['pluginname'] = 'trema';
-$string['region-side-pre'] = 'Right';
 $string['privacy:metadata'] = 'The Trema theme does not store any individual user data.';
+$string['region-side-pre'] = 'Right';
+
 
 // Strings copied from Boost
 $string['advancedsettings'] = 'Advanced settings';
