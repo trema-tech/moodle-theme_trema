@@ -70,7 +70,7 @@ $THEME->layouts = [
     // Main course page.
     'course' => array(
         'file' => 'columns2.php',
-        'regions' => array('side-pre', 'side-admin'),
+        'regions' => array('side-pre'),
         'defaultregion' => 'side-pre',
         'options' => array('langmenu' => true),
     ),
@@ -82,12 +82,12 @@ $THEME->layouts = [
     // Part of course, typical for modules - default page layout if $cm specified in require_login().
     'incourse' => array(
         'file' => 'columns2.php',
-        'regions' => array('side-pre', 'side-admin'),
+        'regions' => array('side-pre'),
         'defaultregion' => 'side-pre',
     ),
     // The site home page.
     'frontpage' => array(
-        'file' => 'columns2.php',
+        'file' => 'frontpage.php',
         'regions' => array('side-pre', 'side-admin'),
         'defaultregion' => 'side-pre',
         'options' => array('nonavbar' => true),
@@ -100,7 +100,7 @@ $THEME->layouts = [
     ),
     // My dashboard page.
     'mydashboard' => array(
-        'file' => 'columns2.php',
+        'file' => 'mydashboard.php',
         'regions' => array('side-pre', 'side-admin'),
         'defaultregion' => 'side-pre',
         'options' => array('nonavbar' => true, 'langmenu' => true),

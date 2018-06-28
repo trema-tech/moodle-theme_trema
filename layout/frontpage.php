@@ -15,7 +15,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Config file.
+ * Frontpage file.
  *
  * @package    theme_trema
  * @copyright  2018 Trevor Furtado e Rodrigo Mady
@@ -23,6 +23,7 @@
  */
 
 defined('MOODLE_INTERNAL') || die();
+//TODO: add custom HTML area
 
 user_preference_allow_ajax_update('drawer-open-nav', PARAM_ALPHA);
 require_once($CFG->libdir . '/behat/lib.php');
@@ -40,13 +41,16 @@ if ($navdraweropen) {
 $bodyattributes = $OUTPUT->body_attributes($extraclasses);
 $blockshtml = $OUTPUT->blocks('side-pre');
 $hasblocks = strpos($blockshtml, 'data-block=') !== false;
+$adminblockshtml = $OUTPUT->blocks('side-admin');
 
 $regionmainsettingsmenu = $OUTPUT->region_main_settings_menu();
 $templatecontext = [
     'sitename' => format_string($SITE->shortname, true, ['context' => context_course::instance(SITEID), "escape" => false]),
     'output' => $OUTPUT,
     'sidepreblocks' => $blockshtml,
+    'sideadminblocks' => $adminblockshtml,
     'hasblocks' => $hasblocks,
+    'hasadminblocks' => is_siteadmin(),
     'bodyattributes' => $bodyattributes,
     'navdraweropen' => $navdraweropen,
     'regionmainsettingsmenu' => $regionmainsettingsmenu,
@@ -54,5 +58,5 @@ $templatecontext = [
 ];
 
 $templatecontext['flatnavigation'] = $PAGE->flatnav;
-echo $OUTPUT->render_from_template('theme_trema/columns2', $templatecontext);
+echo $OUTPUT->render_from_template('theme_trema/frontpage', $templatecontext);
 
