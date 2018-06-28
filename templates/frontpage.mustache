@@ -74,10 +74,18 @@
 </div>
 
 {{#hasadminblocks}}
-    <section data-region="blocks-column" class="side-admin-blocks d-print-none m-3 p-3 border-top">
-        <h3>{{#str}}adminarea, theme_trema{{/str}}</h3>
-        {{{ sideadminblocks }}}
-    </section>
+    <div id="side-admin-blocks">
+        <div class="row">
+             <div class="col-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <h3>{{#str}}adminarea, theme_trema{{/str}}</h3>
+                            {{{ sideadminblocks }}}
+                        </div>
+                    </div>
+             </div>
+         </div>
+    </div>
 {{/hasadminblocks}}
 
 {{> theme_trema/footer }}
