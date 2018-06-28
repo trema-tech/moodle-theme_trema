@@ -24,7 +24,7 @@
 defined('MOODLE_INTERNAL') || die();
 
 // Advanced settings.
-$page = new admin_settingpage('theme_trema_frontpagecontent', get_string('frontpagecontent', 'theme_trema'));
+$page = new admin_settingpage('theme_trema_frontpagecontent', get_string('content', 'theme_trema'));
 
 // HTML to include in the main content of frontpage.
 $setting = new admin_setting_confightmleditor('theme_trema/defaultfrontpagebody',
@@ -39,8 +39,20 @@ $footer_html = '<div class="container container-fluid">
                 <div class="footer-item">
                     <h3 class="-align-center">Trema Soluções em Tecnologia</h3>
     </div></div></div></div>';
-$setting = new admin_setting_confightmleditor('theme_trema/defaultfrontpagefooter',
-    get_string('defaultfrontpagefooter', 'theme_trema'), get_string('defaultfrontpagefooter_desc', 'theme_trema'), $footer_html, PARAM_RAW);
+$setting = new admin_setting_confightmleditor('theme_trema/defaultfooter',
+    get_string('defaultfooter', 'theme_trema'), get_string('defaultfooter_desc', 'theme_trema'), $footer_html, PARAM_RAW);
+$page->add($setting);
+
+// Raw SCSS to include before the content.
+$setting = new admin_setting_scsscode('theme_trema/scsspre',
+    get_string('rawscsspre', 'theme_trema'), get_string('rawscsspre_desc', 'theme_trema'), '', PARAM_RAW);
+$setting->set_updatedcallback('theme_reset_all_caches');
+$page->add($setting);
+
+// Raw SCSS to include after the content.
+$setting = new admin_setting_scsscode('theme_trema/scss', get_string('rawscss', 'theme_trema'),
+    get_string('rawscss_desc', 'theme_trema'), '', PARAM_RAW);
+$setting->set_updatedcallback('theme_reset_all_caches');
 $page->add($setting);
 
 $settings->add($page);
