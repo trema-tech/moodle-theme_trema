@@ -17,9 +17,8 @@ body {
 }
 
 //Admin Blocks
-.side-admin-blocks {
-    width: 90%;
-    float: none;
+#side-admin-blocks {
+    padding: 0 15px 15px 15px;
 
     #block-region-side-admin {
         min-height: 150px;
