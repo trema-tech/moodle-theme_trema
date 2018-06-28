@@ -15,6 +15,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
+ * Style Guide settings
  * @package   theme_trema
  * @copyright 2018 Trevor Furtado e Rodrigo Mady
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
@@ -22,9 +23,16 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-if ($ADMIN->fulltree) {
-    $settings = new theme_boost_admin_settingspage_tabs('themesettingtrema', get_string('configtitle', 'theme_trema'));
-    require_once ('settings/general_settings.php');
-    require_once ('settings/frontpage_settings.php');
-    require_once ('settings/styleguide_settings.php');
-}
+global $CFG;
+
+require_once($CFG->dirroot . '/theme/trema/trema_admin_settings_styleguide.php');
+
+// Style Guide.
+$page = new admin_settingpage('theme_trema_styleguide', get_string('styleguide', 'theme_trema'));
+
+// Raw Bootstrap HTML to show the options of theme.
+$setting = new trema_admin_settings_styleguide('theme_trema_styleguide',
+    get_string('styleguide', 'theme_trema'));
+$page->add($setting);
+
+$settings->add($page);
