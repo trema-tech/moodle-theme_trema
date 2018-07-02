@@ -40,6 +40,7 @@ if ($navdraweropen) {
 $bodyattributes = $OUTPUT->body_attributes($extraclasses);
 $blockshtml = $OUTPUT->blocks('side-pre');
 $hasblocks = strpos($blockshtml, 'data-block=') !== false;
+$pluginsettings = get_config("theme_trema");
 
 $regionmainsettingsmenu = $OUTPUT->region_main_settings_menu();
 $templatecontext = [
@@ -50,7 +51,8 @@ $templatecontext = [
     'bodyattributes' => $bodyattributes,
     'navdraweropen' => $navdraweropen,
     'regionmainsettingsmenu' => $regionmainsettingsmenu,
-    'hasregionmainsettingsmenu' => !empty($regionmainsettingsmenu)
+    'hasregionmainsettingsmenu' => !empty($regionmainsettingsmenu),
+    'defaultfrontpagefooter' => $pluginsettings->defaultfrontpagefooter
 ];
 
 $templatecontext['flatnavigation'] = $PAGE->flatnav;
