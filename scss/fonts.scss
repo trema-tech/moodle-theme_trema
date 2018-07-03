@@ -1,0 +1,96 @@
+@charset "utf-8";
+/*
+** Padrao do site www.brasil.gov.br
+*/
+
+@font-face {
+    font-weight: normal;
+    font-style: normal;
+    font-family: "open_sans_light";
+    src: url([[font:theme|opensans-300-webfont.eot]]);
+    src: url([[font:theme|/opensans-300-webfont.eot?#iefix]]) format("embedded-opentype"),
+    url([[font:theme|opensans-300-webfont.woff]]) format("woff"),
+    url([[font:theme|opensans-300-webfont.ttf]]) format("truetype"),
+    url([[font:theme|opensans-300-webfont.svg#open_sanslight]]) format("svg");
+}
+
+@font-face {
+    font-weight: normal;
+    font-style: normal;
+    font-family: "open_sans_regular";
+    src: url([[font:theme|opensans-400-webfont.eot]]);
+    src: url([[font:theme|opensans-400-webfont.eot?#iefix]]) format("embedded-opentype"),
+    url([[font:theme|opensans-400-webfont.woff]]) format("woff"),
+    url([[font:theme|opensans-400-webfont.ttf]]) format("truetype"),
+    url([[font:theme|opensans-400-webfont.svg#open_sansregular]]) format("svg");
+}
+
+@font-face {
+    font-weight: normal;
+    font-style: normal;
+    font-family: "open_sanssemibold";
+    src: url([[font:theme|opensans-600-webfont.eot]]);
+    src: url([[font:theme|opensans-600-webfont.eot?#iefix]]) format("embedded-opentype"),
+    url([[font:theme|opensans-600-webfont.woff]]) format("woff"),
+    url([[font:theme|opensans-600-webfont.ttf]]) format("truetype"),
+    url([[font:theme|opensans-600-webfont.svg#open_sanssemibold]]) format("svg");
+}
+
+@font-face {
+    font-weight: normal;
+    font-style: normal;
+    font-family: "open_sansbold";
+    src: url([[font:theme|opensans-700-webfont.eot]]);
+    src: url([[font:theme|/opensans-700-webfont.eot?#iefix]]) format("embedded-opentype"),
+    url([[font:theme|opensans-700-webfont.woff]]) format("woff"),
+    url([[font:theme|opensans-700-webfont.ttf]]) format("truetype"),
+    url([[font:theme|opensans-700-webfont.svg#open_sansbold]]) format("svg");
+}
+
+@font-face {
+    font-weight: normal;
+    font-style: normal;
+    font-family: "open_sansextrabold";
+    src: url([[font:theme|opensans-800-webfont.eot]]);
+    src: url([[font:theme|opensans-800-webfont.eot?#iefix]]) format("embedded-opentype"),
+    url([[font:theme|opensans-800-webfont.woff]]) format("woff"),
+    url([[font:theme|opensans-800-webfont.ttf]]) format("truetype"),
+    url([[font:theme|opensans-800-webfont.svg#open_sansextrabold]]) format("svg")
+}
+
+/********* Style for FontAwesome icons ***********/
+
+i.icon {
+    &.fa-file-word-o:before {
+        color: #2e3192;
+    }
+
+    &.fa-file-excel-o:before {
+        color: #009245;
+    }
+
+    &.fa-file-pdf-o:before {
+        color: #ff1d25;
+    }
+
+    &.fa-file-powerpoint-o:before {
+        color: #f15a24;
+    }
+
+    &.fa-file-image-o:before {
+        color: #00a99d;
+    }
+
+    &.fa-file-archive-o:before {
+        color: #fbb03b;
+    }
+
+    &.fa-file-audio-o:before {
+        color: #0071bc;
+    }
+
+    &.fa-file-video-o:before {
+        color: #ed1c24;
+    }
+}
+
