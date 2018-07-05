@@ -57,7 +57,7 @@ $templatecontext = [
     'regionmainsettingsmenu' => $regionmainsettingsmenu,
     'hasregionmainsettingsmenu' => !empty($regionmainsettingsmenu),
     'defaultfrontpagebody' => $pluginsettings->defaultfrontpagebody,
-    'defaultfrontpagefooter' => $pluginsettings->defaultfrontpagefooter
+    'defaultfrontpagefooter' => $pluginsettings->defaultfooter
 ];
 
 $templatecontext['flatnavigation'] = $PAGE->flatnav;

@@ -7,55 +7,36 @@
     font-weight: normal;
     font-style: normal;
     font-family: "open_sans_light";
-    src: url([[font:theme|opensans-300-webfont.eot]]);
-    src: url([[font:theme|/opensans-300-webfont.eot?#iefix]]) format("embedded-opentype"),
-    url([[font:theme|opensans-300-webfont.woff]]) format("woff"),
-    url([[font:theme|opensans-300-webfont.ttf]]) format("truetype"),
-    url([[font:theme|opensans-300-webfont.svg#open_sanslight]]) format("svg");
+    src: url([[font:theme|OpenSans-Light.ttf]]) format("truetype");
 }
 
 @font-face {
     font-weight: normal;
     font-style: normal;
     font-family: "open_sans_regular";
-    src: url([[font:theme|opensans-400-webfont.eot]]);
-    src: url([[font:theme|opensans-400-webfont.eot?#iefix]]) format("embedded-opentype"),
-    url([[font:theme|opensans-400-webfont.woff]]) format("woff"),
-    url([[font:theme|opensans-400-webfont.ttf]]) format("truetype"),
-    url([[font:theme|opensans-400-webfont.svg#open_sansregular]]) format("svg");
+    src: url([[font:theme|OpenSans-Regular.ttf]]) format("truetype");
 }
 
 @font-face {
     font-weight: normal;
     font-style: normal;
     font-family: "open_sanssemibold";
-    src: url([[font:theme|opensans-600-webfont.eot]]);
-    src: url([[font:theme|opensans-600-webfont.eot?#iefix]]) format("embedded-opentype"),
-    url([[font:theme|opensans-600-webfont.woff]]) format("woff"),
-    url([[font:theme|opensans-600-webfont.ttf]]) format("truetype"),
-    url([[font:theme|opensans-600-webfont.svg#open_sanssemibold]]) format("svg");
+    src: url([[font:theme|OpenSans-Semibold.ttf]]) format("truetype");
+
 }
 
 @font-face {
     font-weight: normal;
     font-style: normal;
     font-family: "open_sansbold";
-    src: url([[font:theme|opensans-700-webfont.eot]]);
-    src: url([[font:theme|/opensans-700-webfont.eot?#iefix]]) format("embedded-opentype"),
-    url([[font:theme|opensans-700-webfont.woff]]) format("woff"),
-    url([[font:theme|opensans-700-webfont.ttf]]) format("truetype"),
-    url([[font:theme|opensans-700-webfont.svg#open_sansbold]]) format("svg");
+    src: url([[font:theme|OpenSans-Bold.ttf]]) format("truetype");
 }
 
 @font-face {
     font-weight: normal;
     font-style: normal;
     font-family: "open_sansextrabold";
-    src: url([[font:theme|opensans-800-webfont.eot]]);
-    src: url([[font:theme|opensans-800-webfont.eot?#iefix]]) format("embedded-opentype"),
-    url([[font:theme|opensans-800-webfont.woff]]) format("woff"),
-    url([[font:theme|opensans-800-webfont.ttf]]) format("truetype"),
-    url([[font:theme|opensans-800-webfont.svg#open_sansextrabold]]) format("svg")
+    src: url([[font:theme|OpenSans-ExtraBold.ttf]]) format("truetype");
 }
 
 /********* Style for FontAwesome icons ***********/
