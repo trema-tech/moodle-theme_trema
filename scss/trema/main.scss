@@ -1,14 +1,40 @@
+.card {
+    border: none;
+}
+
 body {
     -webkit-font-smoothing: antialiased;
     background: #f7f7f7;
 
     #page {
         margin-top: 65px;
-    }
-}
+        padding-top: 1.5em;
 
-.navbar {
-    box-shadow: 0 2px 4px rgba(0, 0, 0, .08);
+        #page-header .card {
+
+            &:before {
+                background-color: rgba(144, 144, 144, 0.35);
+                content: '';
+                display: block;
+                height: 50px;
+                position: absolute;
+                right: 50%;
+                top: -50px;
+                width: 1px;
+            }
+            &:after {
+                background: linear-gradient(to right, #fd647a 50%, #00b49e 50%);
+                top: 0;
+                content: '';
+                display: block;
+                height: 4px;
+                position: absolute;
+                right: 0;
+                width: 100%;
+            }
+        }
+
+    }
 }
 
 .filemanager-container,
