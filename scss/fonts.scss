@@ -1,7 +1,4 @@
 @charset "utf-8";
-/*
-** Padrao do site www.brasil.gov.br
-*/
 
 @font-face {
     font-weight: normal;
@@ -38,40 +35,3 @@
     font-family: "open_sansextrabold";
     src: url([[font:theme|OpenSans-ExtraBold.ttf]]) format("truetype");
 }
-
-/********* Style for FontAwesome icons ***********/
-
-i.icon {
-    &.fa-file-word-o:before {
-        color: #2e3192;
-    }
-
-    &.fa-file-excel-o:before {
-        color: #009245;
-    }
-
-    &.fa-file-pdf-o:before {
-        color: #ff1d25;
-    }
-
-    &.fa-file-powerpoint-o:before {
-        color: #f15a24;
-    }
-
-    &.fa-file-image-o:before {
-        color: #00a99d;
-    }
-
-    &.fa-file-archive-o:before {
-        color: #fbb03b;
-    }
-
-    &.fa-file-audio-o:before {
-        color: #0071bc;
-    }
-
-    &.fa-file-video-o:before {
-        color: #ed1c24;
-    }
-}
-
