@@ -1,0 +1,34 @@
+body#page-site-index {
+	
+    #frontpage-banner {
+        position: relative;
+	    height: calc(100vh - 4.5em);
+	    margin-left: -15px;
+	    margin-right: -15px;
+        background-image: url([[pix:theme|frontpage/overlay]]), url([[pix:theme|frontpage/banner]]);
+	    background-attachment: scroll, fixed;
+	    background-position: center center;
+	    background-size: cover;
+	    color: #ffffff;
+	    
+	    #frontpage-banner-content {       
+		    position: absolute;
+		    top: 50%;
+		    left: 50%;
+		    transform: translate(-50%,-50%);
+            text-align: center;
+		    
+		    h2 {
+                border-bottom: solid 1px rgba(255, 255, 255, 0.5);		    
+		    }
+	    }
+	    
+	    #frontpage-settings-menu {
+	        position: absolute;
+		    top: 30px;
+		    right: 15px;
+	    }
+	}
+	
+
+}
