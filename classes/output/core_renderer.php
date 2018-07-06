@@ -24,6 +24,8 @@
 
 namespace theme_trema\output;
 
+use stdClass;
+
 defined('MOODLE_INTERNAL') || die;
 
 require_once($CFG->dirroot."/course/format/lib.php");
@@ -41,5 +43,16 @@ class core_renderer extends \theme_boost\output\core_renderer {
         } else {
             return $favicon;
         }
+    }
+    
+    /**
+     * Return the frontpage settings menu.
+     *
+     * @return string HTML to display the main header.
+     */
+    public function frontpage_settings_menu() {        
+        $header = new stdClass();
+        $header->settingsmenu = $this->context_header_settings_menu();
+        return $this->render_from_template('theme_trema/frontpage_settings_menu', $header);
     }
 }
