@@ -1,17 +1,41 @@
-<footer id="page-footer" class="py-3 bg-dark text-light">
+<footer id="page-footer">
     <div class="container">
-        {{{defaultfrontpagefooter}}}
+        <div class="row gtr-200 gtr-uniform">
+            <section class="col-12 text-center col-12-medium col-12-xsmall footer-info">
+                <div class="tool_usertours-resettourcontainer"></div>
+                <nav class="nav navbar-nav d-md-none">
+                    {{# output.custom_menu_flat }}
+                        <ul class="list-unstyled pt-3">
+                            {{> theme_boost/custom_menu_footer }}
+                        </ul>
+                    {{/ output.custom_menu_flat }}
+                </nav>
+            </section>
 
-        {{{ output.login_info }}}
-        <div class="tool_usertours-resettourcontainer"></div>
-        <nav class="nav navbar-nav d-md-none">
-            {{# output.custom_menu_flat }}
-                <ul class="list-unstyled pt-3">
-                    {{> theme_boost/custom_menu_footer }}
+            <section class="col-8 col-12-medium footer-info">
+                {{{defaultfrontpagefooter}}}
+            </section>
+
+            <section class="col-4 col-12-medium footer-info">
+                <h3>Contact Us</h3>
+                <ul class="labeled-icons">
+                    <li><h4 class="icon fa fa-home"></h4> 1234 Somewhere in Brazil</li>
+                    <li><h4 class="icon fa fa-phone"></h4> (55) 555-0000 12345</li>
+                    <li><h4 class="icon fa fa-envelope"></h4><a
+                            style="cursor: pointer;">hello@trema.it</a></li>
+                    <li><h4 class="icon fa fa-facebook"></h4><a
+                            style="cursor: pointer;">facebook.com/trema-it</a></li>
+                    <li><h4 class="icon fa fa-twitter"></h4><a
+                            style="cursor: pointer;">twitter.com/trema.it</a></li>
                 </ul>
-            {{/ output.custom_menu_flat }}
-        </nav>
-        {{{ output.standard_footer_html }}}
-        {{{ output.standard_end_of_body_html }}}
+            </section>
+
+            <section class="col-12 text-center col-12-medium col-12-xsmall footer-info smalltext">
+                {{{ output.login_info }}}
+                {{{ output.standard_footer_html }}}
+                {{{ output.standard_end_of_body_html }}}
+            </section>
+        </div>
     </div>
+    <div class="copyleft"><span>&copy;</span>Trema IT 2018</div>
 </footer>
