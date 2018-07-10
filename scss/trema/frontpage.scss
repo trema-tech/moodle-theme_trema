@@ -1,11 +1,14 @@
 body#page-site-index {
 	
+    #page {
+        padding-top: 0;
+    }
+	
     #frontpage-banner {
         position: relative;
 	    height: calc(100vh - 4.5em);
 	    margin-left: -15px;
 	    margin-right: -15px;
-        background-image: url([[pix:theme|frontpage/overlay]]), url([[pix:theme|frontpage/banner]]);
 	    background-attachment: scroll, fixed;
 	    background-position: center center;
 	    background-size: cover;
@@ -29,6 +32,5 @@ body#page-site-index {
 		    right: 15px;
 	    }
 	}
-	
 
 }

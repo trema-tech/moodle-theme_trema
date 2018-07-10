@@ -32,7 +32,13 @@ function theme_trema_get_main_scss_content($theme) {
     $scss .= file_get_contents($CFG->dirroot . '/theme/trema/scss/defaultvariables.scss');
 
     $scss .= file_get_contents($CFG->dirroot . '/theme/trema/scss/styles.scss');
-
+    
+    if($frontpagebannerurl = $theme->setting_file_url('frontpagebanner', 'frontpagebanner')) {
+        $scss .= "#frontpage-banner {background-image: url([[pix:theme|frontpage/overlay]]), url('$frontpagebannerurl');}";
+    } else {
+        $scss .= "#frontpage-banner {background-image: url([[pix:theme|frontpage/overlay]]), url([[pix:theme|frontpage/banner]]);}";
+    }
+    
     return $scss;
 }
 
@@ -50,7 +56,7 @@ function theme_trema_get_main_scss_content($theme) {
  * @return bool
  */
 function theme_trema_pluginfile($course, $cm, $context, $filearea, $args, $forcedownload, array $options = array()) {
-    if ($context->contextlevel == CONTEXT_SYSTEM && ($filearea === 'logo' || $filearea === 'backgroundimage' || $filearea === 'favicon')) {
+    if ($context->contextlevel == CONTEXT_SYSTEM && ($filearea === 'logo' || $filearea === 'backgroundimage' || $filearea === 'favicon' || $filearea === 'frontpagebanner')) {
         $theme = theme_config::load('trema');
         // By default, theme files must be cache-able by both browsers and proxies.
         if (!array_key_exists('cacheability', $options)) {

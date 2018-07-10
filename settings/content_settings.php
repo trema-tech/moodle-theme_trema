@@ -26,6 +26,21 @@ defined('MOODLE_INTERNAL') || die();
 // Advanced settings.
 $page = new admin_settingpage('theme_trema_frontpagecontent', get_string('content', 'theme_trema'));
 
+// Frontpage banner.
+$name = 'theme_trema/frontpagebanner';
+$title = get_string('frontpagebanner', 'theme_trema');
+$description = get_string('frontpagebanner_desc', 'theme_trema');
+$setting = new admin_setting_configstoredfile($name, $title, $description, 'frontpagebanner');
+$setting->set_updatedcallback('theme_reset_all_caches');
+$page->add($setting);
+
+// Frontpage title
+$page->add(new admin_setting_configtext('theme_trema/frontpagetitle', new lang_string('frontpagetitle', 'theme_trema'), '', 'Lorem ipsum, dolor sit amet'));
+
+// Frontpage subtitle
+$page->add(new admin_setting_configtext('theme_trema/frontpagesubtitle', new lang_string('frontpagesubtitle', 'theme_trema'), '', 'Ut enim ad minim veniam,<br> quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'));
+
+
 // HTML to include in the main content of frontpage.
 $setting = new admin_setting_confightmleditor('theme_trema/defaultfrontpagebody',
     get_string('defaultfrontpagebody', 'theme_trema'), get_string('defaultfrontpagebody_desc', 'theme_trema'), '', PARAM_RAW);
