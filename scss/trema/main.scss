@@ -14,6 +14,14 @@ body {
         margin-top: 4.5em;
         padding-top: 1.5em;
 
+        .atto_group button {
+            color: #000;
+            background-color: #fff;
+            padding: 4px 9px;
+            margin: 0;
+            height: 30px;
+        }
+
         #page-header .card {
 
             &:before {

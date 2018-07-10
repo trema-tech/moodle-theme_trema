@@ -151,6 +151,10 @@ body #page {
         line-height: 3.1em;
     }
 
+    .btn-link {
+        background: none;
+    }
+
     input[type="submit"].btn-primary, input[type="reset"].btn-primary,
     input[type="button"].btn-primary, button.btn-primary, .btn.btn-primary {
         background-color: $primary;
