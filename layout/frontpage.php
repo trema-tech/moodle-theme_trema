@@ -57,8 +57,11 @@ $templatecontext = [
     'regionmainsettingsmenu' => $regionmainsettingsmenu,
     'hasregionmainsettingsmenu' => !empty($regionmainsettingsmenu),
     'defaultfrontpagebody' => $pluginsettings->defaultfrontpagebody,
-    'defaultfrontpagefooter' => $pluginsettings->defaultfooter
+    'defaultfrontpagefooter' => $pluginsettings->defaultfooter,
+    'frontpagetitle' => $pluginsettings->frontpagetitle,
+    'frontpagesubtitle' => $pluginsettings->frontpagesubtitle,
 ];
+
 
 $templatecontext['flatnavigation'] = $PAGE->flatnav;
 echo $OUTPUT->render_from_template('theme_trema/frontpage', $templatecontext);
