@@ -60,6 +60,9 @@ $templatecontext = [
     'defaultfrontpagefooter' => $pluginsettings->defaultfooter,
     'frontpagetitle' => $pluginsettings->frontpagetitle,
     'frontpagesubtitle' => $pluginsettings->frontpagesubtitle,
+    'frontpagebuttontext' => $pluginsettings->frontpagebuttontext,
+    'frontpagebuttonclass' => $pluginsettings->frontpagebuttonclass,
+    'frontpagebuttonhref' => $pluginsettings->frontpagebuttonhref
 ];
 
 

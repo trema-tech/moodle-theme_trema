@@ -40,6 +40,26 @@ $page->add(new admin_setting_configtext('theme_trema/frontpagetitle', new lang_s
 // Frontpage subtitle
 $page->add(new admin_setting_configtext('theme_trema/frontpagesubtitle', new lang_string('frontpagesubtitle', 'theme_trema'), '', 'Ut enim ad minim veniam,<br> quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'));
 
+// Frontpage button text
+$page->add(new admin_setting_configtext('theme_trema/frontpagebuttontext', new lang_string('frontpagebuttontext', 'theme_trema'), '', 'Learn more'));
+
+// Frontpage button href
+$page->add(new admin_setting_configtext('theme_trema/frontpagebuttonhref', new lang_string('frontpagebuttonhref', 'theme_trema'), new lang_string('frontpagebuttonhref_desc', 'theme_trema'), '#page-content'));
+
+// Frontpage button class
+$choices = array(
+    "btn-primary" => "btn-primary",
+    "btn-secondary" => "btn-secondary",
+    "btn-success" => "btn-success",
+    "btn-danger" => "btn-danger",
+    "btn-warning" => "btn-warning",
+    "btn-info" => "btn-info",
+    "btn-light" => "btn-light",
+    "btn-dark" => "btn-dark"
+);
+$setting = new admin_setting_configselect('theme_trema/frontpagebuttonclass', new lang_string('frontpagebuttonclass', 'theme_trema'), new lang_string('frontpagebuttonclass_desc', 'theme_trema'), 'btn-primary', $choices);
+$setting->set_updatedcallback('theme_reset_all_caches');
+$page->add($setting);
 
 // HTML to include in the main content of frontpage.
 $setting = new admin_setting_confightmleditor('theme_trema/defaultfrontpagebody',
