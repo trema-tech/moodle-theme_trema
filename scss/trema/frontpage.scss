@@ -27,10 +27,18 @@ body#page-site-index {
 	    }
 	    
 	    #frontpage-settings-menu {
-	        position: absolute;
+            position: absolute;
 		    top: 30px;
 		    right: 15px;
 	    }
-	}
-
+    }
+	
+	#frontpage-cards-title {
+		@extend	%border-frequency;
+		
+		&:before {
+            height: 3rem;
+            top: -3rem;
+        }
+    }
 }
