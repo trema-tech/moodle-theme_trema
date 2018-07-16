@@ -58,7 +58,6 @@ $choices = array(
     "btn-dark" => "btn-dark"
 );
 $setting = new admin_setting_configselect('theme_trema/frontpagebuttonclass', new lang_string('frontpagebuttonclass', 'theme_trema'), new lang_string('frontpagebuttonclass_desc', 'theme_trema'), 'btn-primary', $choices);
-$setting->set_updatedcallback('theme_reset_all_caches');
 $page->add($setting);
 
 // HTML to include in the main content of frontpage.
