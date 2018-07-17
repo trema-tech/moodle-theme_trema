@@ -60,6 +60,10 @@ body {
                 color: darken($primary, 30%);
                 text-decoration: underline;
             }
+            
+            &.dropdown-toggle:hover {
+                text-decoration: none;
+            }
         }
     }
 }

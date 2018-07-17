@@ -2,6 +2,12 @@ body#page-site-index {
 	
     #page {
         padding-top: 0;
+        
+        h2 {
+            font-family: "open_sans_bold";
+            text-transform: uppercase;
+            border-bottom: solid 1px rgba(255, 255, 255, 0.5);          
+        }
     }
 	
     #frontpage-banner {
@@ -20,16 +26,22 @@ body#page-site-index {
 		    left: 50%;
 		    transform: translate(-50%,-50%);
             text-align: center;
-		    
-		    h2 {
-                border-bottom: solid 1px rgba(255, 255, 255, 0.5);		    
-		    }
 	    }
 	    
 	    #frontpage-settings-menu {
-            position: absolute;
-		    top: 30px;
+	        position: fixed;
+            top: 5.5em;
 		    right: 15px;
+		    background-color: rgba(255, 255, 255, .2);
+		    z-index: 10000;
+		    
+		    .context-header-settings-menu {
+		        height: auto;
+		    }
+		    
+		    .dropdown-toggle .icon {
+                margin-right: 0;
+		    }
 	    }
     }
 	
@@ -39,6 +51,10 @@ body#page-site-index {
 		&:before {
             height: 3rem;
             top: -3rem;
+        }
+        
+        h2 {
+            display: inline-block;
         }
     }
 }
