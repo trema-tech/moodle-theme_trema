@@ -69,25 +69,6 @@ body #page {
         }
     }
 
-    //icons
-    ul.icons {
-        cursor: default;
-        list-style: none;
-        padding-left: 0;
-        li {
-            display: inline-block;
-            padding: 0 1em 0 0;
-            .fa {
-                text-decoration: none;
-                border-bottom: none;
-                position: relative;
-            }
-            .fa.style2:before {
-                color: #56b6da;
-            }
-        }
-    }
-
     //buttons
     ul.actions {
         display: flex;

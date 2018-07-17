@@ -66,13 +66,25 @@ $setting = new admin_setting_confightmleditor('theme_trema/defaultfrontpagebody'
 $page->add($setting);
 
 // HTML to include in the footer content of frontpage.
-$footer_html = '<div class="container container-fluid">
-    <div class="row">
-        <div class="col-lg-12">
-            <div id="footer-col1" class="col-lg-4 footer-col">
-                <div class="footer-item">
-                    <h3 class="-align-center">Trema Soluções em Tecnologia</h3>
-    </div></div></div></div>';
+$footer_html = '<div class="row">
+	<div class="col-md-8">
+		<h3 class="-align-center">Trema Soluções em Tecnologia</h3>
+
+	</div>
+	<div class="col-md-4">
+		<h3>Contact Us</h3>
+
+		<ul class="labeled-icons">
+			<li><span class="fa fa-home fa-2x"></span>
+				<p>1234 Somewhere in Brazil</p></li>
+			<li><span class="fa fa-phone fa-2x"></span>
+				<p>(55) 555-0000 12345</p></li>
+			<li><span class="fa fa-envelope fa-2x"></span><a style="cursor: pointer;"><p>hello@trema.it</p></a></li>
+			<li><span class="fa fa-facebook fa-2x"></span><a style="cursor: pointer;"><p>facebook.com/trema-it</p></a></li>
+			<li><span class="fa fa-twitter fa-2x"></span><a style="cursor: pointer;"><p>twitter.com/trema.it</p></a></li>
+		</ul>
+	</div>
+</div>';
 $setting = new admin_setting_confightmleditor('theme_trema/defaultfooter',
     get_string('defaultfooter', 'theme_trema'), get_string('defaultfooter_desc', 'theme_trema'), $footer_html, PARAM_RAW);
 $page->add($setting);

@@ -2,3 +2,14 @@
     border: none;
     border-top: 2px solid #2ea5d7;
 }
+
+//Admin Blocks
+#side-admin-blocks {
+    padding: 0 15px 15px 15px;
+
+    #block-region-side-admin {
+        min-height: 150px;
+        height: 100%;
+        width: 100%;
+    }
+}

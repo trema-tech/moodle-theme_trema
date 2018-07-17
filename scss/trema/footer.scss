@@ -19,17 +19,6 @@
         text-decoration: none;
     }
 
-    .icon {
-        color: #afb1b0;
-        cursor: default;
-        display: block;
-        font-size: 2em;
-        left: 0;
-        line-height: 1;
-        position: absolute;
-        top: 0;
-    }
-
     .row.gtr-uniform > * > :last-child {
         margin-bottom: 0;
     }
@@ -37,12 +26,19 @@
     ul.labeled-icons {
         list-style: none;
         padding-left: 0;
-    }
-
-    ul.labeled-icons li {
-        margin-bottom: 1.5em;
-        padding-left: 4em;
-        position: relative;
+        
+        li {
+            margin-bottom: 1.5em;
+            position: relative;
+            
+            span {
+                width: 1.5em;   
+            }
+            
+	        p {
+	            display: inline;
+	        }
+        }
     }
 
     .smalltext {
