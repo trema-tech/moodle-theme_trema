@@ -62,9 +62,12 @@ $templatecontext = [
     'frontpagesubtitle' => $pluginsettings->frontpagesubtitle,
     'frontpagebuttontext' => $pluginsettings->frontpagebuttontext,
     'frontpagebuttonclass' => $pluginsettings->frontpagebuttonclass,
-    'frontpagebuttonhref' => $pluginsettings->frontpagebuttonhref
+    'frontpagebuttonhref' => $pluginsettings->frontpagebuttonhref, 
+    'hascards' => $pluginsettings->frontpageenablecards,
+    'cardstitle' => $pluginsettings->frontpagecardstitle,    
+    'cardssubtitle' => $pluginsettings->frontpagecardssubtitle,    
+    'cardssettings' => theme_trema_get_cards_settings()
 ];
-
 
 $templatecontext['flatnavigation'] = $PAGE->flatnav;
 echo $OUTPUT->render_from_template('theme_trema/frontpage', $templatecontext);

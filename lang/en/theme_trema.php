@@ -15,6 +15,13 @@ defined('MOODLE_INTERNAL') || die();
 
 // Theme strings.
 $string['adminarea'] = 'Just Administrators can see this area.';
+$string['card'] = 'Card';
+$string['cardicon'] = 'Card icon';
+$string['cardicon_desc'] = 'See here the list of all Font Awesome available icons: <a href="https://fontawesome.com/v4.7.0/icons/" target="_blank">https://fontawesome.com/v4.7.0/icons/</a>';
+$string['cardiconcolor'] = 'Card icon color';
+$string['cardlink'] = 'Card link';
+$string['cardsubtitle'] = 'Card subtitle';
+$string['cardtitle'] = 'Card title';
 $string['choosereadme'] = 'Trema is built on to the new Moodle Boost theme, using Bootstrap4 and Mustache templates.';
 $string['configtitle'] = 'Trema';
 $string['defaultfrontpagebody'] = 'Frontpage Body';
@@ -33,14 +40,19 @@ $string['frontpagebuttonclass'] = 'Frontpage button HTML class';
 $string['frontpagebuttonclass_desc'] = 'You can change the style of the button choosing another class.';
 $string['frontpagebuttonhref'] = 'Frontpage button href';
 $string['frontpagebuttonhref_desc'] = 'Choose the value of the button\'s href attribute.';
+$string['frontpagecards'] = 'Frontpage cards';
 $string['frontpagecontent'] = 'Frontpage Content';
+$string['frontpageenablecards'] = 'Enable frontpage cards';
+$string['frontpageenablecards_desc'] = 'Uncheck if you want to hide the area below: <img class="img-responsive" src="/theme/trema/pix/examples/cards.png"/>';
 $string['frontpagesubtitle'] = 'Frontpage subtitle.';
 $string['frontpagetitle'] = 'Frontpage title.';
-$string['pluginname'] = 'trema';
+$string['numberofcards'] = 'Number of cards';
+$string['pluginname'] = 'Trema';
 $string['privacy:metadata'] = 'The Trema theme does not store any individual user data.';
 $string['region-side-pre'] = 'Right';
 $string['styleguide'] = 'Style Guide';
-
+$string['title'] = 'Title';
+$string['subtitle'] = 'Subtitle';
 
 // Strings copied from Boost
 $string['advancedsettings'] = 'Advanced settings';

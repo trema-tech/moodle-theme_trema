@@ -48,47 +48,26 @@
             {{{ output.frontpage_settings_menu }}}
         </div>   
         
+        {{#hascards}}
         <div id="frontpage-cards-title" class="row mx-3 mt-5 text-center">
 			<div class="col-12 pt-3 pb-3">
-				<h2 class="border-bottom px-3 m-2">Magna etiam adipiscing</h2>
+				<h2 class="border-bottom px-3 m-2">{{{cardstitle}}}</h2>
 				<p>
-					Consequat sed ultricies rutrum. Sed adipiscing eu amet utem
-					accusantium<br> interdum lorem blandit vis ac commodo
-					aliquet vulputate.
+					{{{cardssubtitle}}}
 				</p>
 			</div>
 		</div>
 		
 		<div id="frontpage-cards-content" class="row mx-3">
+		  {{#cardssettings}}
            <div class="frontpage-card col-sm-6 pt-3 pb-3 text-center border">
-				<span class="fa fa-paper-plane fa-4x"></span>
-				<h3>Magna Etiam</h3>
-				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-					Autem accusantium incidunt blanditiis reprehenderit! Harum illo
-					aperiam optio, volup.</p>
+                {{#cardlink}}<a href="{{cardlink}}">{{/cardlink}}<span class="fa {{cardicon}} fa-4x" style="color: {{cardiconcolor}};"></span>{{#cardlink}}</a>{{/cardlink}}
+				{{#cardlink}}<a href="{{cardlink}}">{{/cardlink}}<h3>{{cardtitle}}</h3>{{#cardlink}}</a>{{/cardlink}}
+				{{#cardlink}}<a href="{{cardlink}}">{{/cardlink}}<p>{{cardsubtitle}}</p>{{#cardlink}}</a>{{/cardlink}}
 			</div>
-            <div class="frontpage-card col-sm-6 pt-3 pb-3 text-center border">
-                <span class="fa fa-paper-plane fa-4x"></span>
-                <h3>Magna Etiam</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                    Autem accusantium incidunt blanditiis reprehenderit! Harum illo
-                    aperiam optio, volup.</p>
-            </div>
-            <div class="frontpage-card col-sm-6 pt-3 pb-3 text-center border">
-                <span class="fa fa-paper-plane fa-4x"></span>
-                <h3>Magna Etiam</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                    Autem accusantium incidunt blanditiis reprehenderit! Harum illo
-                    aperiam optio, volup.</p>
-            </div>
-            <div class="frontpage-card col-sm-6 pt-3 pb-3 text-center border">
-                <span class="fa fa-paper-plane fa-4x"></span>
-                <h3>Magna Etiam</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                    Autem accusantium incidunt blanditiis reprehenderit! Harum illo
-                    aperiam optio, volup.</p>
-            </div>
+            {{/cardssettings}}
         </div>
+        {{/hascards}}
 
         <div id="page-content" class="row">
             <div id="region-main-box" class="col-12">
