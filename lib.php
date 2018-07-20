@@ -68,3 +68,31 @@ function theme_trema_pluginfile($course, $cm, $context, $filearea, $args, $force
         send_file_not_found();
     }
 }
+
+/**
+ * Return a array of objects containing all cards settings.
+ *
+ * @return array of objects
+ */
+function theme_trema_get_cards_settings() {
+    $theme = theme_config::load('trema');
+    $cards_settings = array();
+    
+    $numberofcards = get_config('theme_trema', 'numberofcards');
+    if(get_config('theme_trema', 'frontpageenablecards') &&  $numberofcards > 1) {
+        for ($i = 1; $i <= $numberofcards; $i++) {
+            $card_settings = new stdClass();
+            $card_settings->cardicon = $theme->settings->{'cardicon'.$i};
+            $card_settings->cardiconcolor = $theme->settings->{'cardiconcolor'.$i};
+            $card_settings->cardtitle = $theme->settings->{'cardtitle'.$i};
+            $card_settings->cardsubtitle = $theme->settings->{'cardsubtitle'.$i};
+            $card_settings->cardlink = $theme->settings->{'cardlink'.$i};
+            
+            $cards_settings[] = $card_settings;
+        }
+        
+        return $cards_settings;
+    } else {
+        return false;
+    } 
+}
