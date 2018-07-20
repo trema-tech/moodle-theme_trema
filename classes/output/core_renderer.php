@@ -24,7 +24,9 @@
 
 namespace theme_trema\output;
 
+use custom_menu;
 use stdClass;
+use moodle_url;
 
 defined('MOODLE_INTERNAL') || die;
 
@@ -44,15 +46,69 @@ class core_renderer extends \theme_boost\output\core_renderer {
             return $favicon;
         }
     }
-    
+
     /**
      * Return the frontpage settings menu.
      *
      * @return string HTML to display the main header.
      */
-    public function frontpage_settings_menu() {        
+    public function frontpage_settings_menu() {
         $header = new stdClass();
         $header->settingsmenu = $this->context_header_settings_menu();
         return $this->render_from_template('theme_trema/frontpage_settings_menu', $header);
+    }
+
+    /**
+     * Renders the lang menu
+     *
+     * @return mixed
+     */
+    public function render_lang_menu() {
+        $langs = get_string_manager()->get_list_of_translations();
+        $haslangmenu = $this->lang_menu() != '';
+        $menu = new custom_menu;
+
+        if ($haslangmenu) {
+            $strlang = get_string('language');
+            $currentlang = current_language();
+            if (isset($langs[$currentlang])) {
+                $currentlang = $langs[$currentlang];
+            } else {
+                $currentlang = $strlang;
+            }
+            $this->language = $menu->add($currentlang, new moodle_url('#'), $strlang, 10000);
+            foreach ($langs as $langtype => $langname) {
+                $this->language->add($langname, new moodle_url($this->page->url, array('lang' => $langtype)), $langname);
+            }
+
+            foreach ($menu->get_children() as $item) {
+                $context = $item->export_for_template($this);
+            }
+
+            if (isset($context)) {
+                return $this->render_from_template('theme_trema/lang_menu', $context);
+            }
+        }
+    }
+    
+    /*
+     * Overriding the custom_menu function ensures the custom menu is
+     * always shown, even if no menu items are configured in the global
+     * theme settings page.
+     */
+    protected function render_custom_menu(custom_menu $menu) {
+        global $CFG;
+        
+        if (!$menu->has_children()) {
+            return '';
+        }
+        
+        $content = '';
+        foreach ($menu->get_children() as $item) {
+            $context = $item->export_for_template($this);
+            $content .= $this->render_from_template('core/custom_menu_item', $context);
+        }
+        
+        return $content;
     }
 }
