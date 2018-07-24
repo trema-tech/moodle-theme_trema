@@ -44,7 +44,7 @@ $page->add(new admin_setting_configtext('theme_trema/frontpagesubtitle', new lan
 $page->add(new admin_setting_configtext('theme_trema/frontpagebuttontext', new lang_string('frontpagebuttontext', 'theme_trema'), '', 'Learn more'));
 
 // Frontpage button href
-$page->add(new admin_setting_configtext('theme_trema/frontpagebuttonhref', new lang_string('frontpagebuttonhref', 'theme_trema'), new lang_string('frontpagebuttonhref_desc', 'theme_trema'), '#page-content'));
+$page->add(new admin_setting_configtext('theme_trema/frontpagebuttonhref', new lang_string('frontpagebuttonhref', 'theme_trema'), new lang_string('frontpagebuttonhref_desc', 'theme_trema'), '#frontpage-cards-title'));
 
 // Frontpage button class
 $choices = array(
