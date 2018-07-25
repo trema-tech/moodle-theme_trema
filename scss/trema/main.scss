@@ -65,6 +65,10 @@ body {
                 text-decoration: none;
             }
         }
+
+        .tab-pane .nav-link.active {
+            color: $white;
+        }
     }
 }
 
