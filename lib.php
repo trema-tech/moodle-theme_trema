@@ -42,6 +42,37 @@ function theme_trema_get_main_scss_content($theme) {
     return $scss;
 }
 
+/**
+ * Get SCSS to prepend.
+ *
+ * @param theme_config $theme The theme config object.
+ * @return array
+ */
+function theme_trema_get_pre_scss($theme) {    
+    $scss = '';
+    $configurable = [
+        // Config key => [variableName, ...].
+        'primarycolor' => 'primary',
+        'secondarycolor' => 'secondary'
+    ];
+    
+    // Prepend variables first.
+    foreach ($configurable as $configkey => $target) {
+        $value = isset($theme->settings->{$configkey}) ? $theme->settings->{$configkey} : null;
+        if (empty($value)) {
+            continue;
+        }        
+        $scss .= '$' . $target . ': ' . $value . ";\n";            
+    }
+    
+    // Prepend pre-scss.
+    if (!empty($theme->settings->scsspre)) {
+        $scss .= $theme->settings->scsspre;
+    }
+    
+    return $scss;
+}
+
 
 /**
  * Serves any files associated with the theme settings.

@@ -56,14 +56,6 @@ $setting = new admin_setting_configstoredfile($name, $title, $description, 'pres
     array('maxfiles' => 20, 'accepted_types' => array('.scss')));
 $page->add($setting);
 
-// Background image setting.
-$name = 'theme_trema/backgroundimage';
-$title = get_string('backgroundimage', 'theme_trema');
-$description = get_string('backgroundimage_desc', 'theme_trema');
-$setting = new admin_setting_configstoredfile($name, $title, $description, 'backgroundimage');
-$setting->set_updatedcallback('theme_reset_all_caches');
-$page->add($setting);
-
 // Favicon image setting.
 $name = 'theme_trema/favicon';
 $title = get_string('favicon', 'theme_trema');
@@ -72,11 +64,18 @@ $setting = new admin_setting_configstoredfile($name, $title, $description, 'favi
 $setting->set_updatedcallback('theme_reset_all_caches');
 $page->add($setting);
 
-// Variable $body-color.
-// We use an empty default value because the default colour should come from the preset.
-$name = 'theme_trema/brandcolor';
-$title = get_string('brandcolor', 'theme_trema');
-$description = get_string('brandcolor_desc', 'theme_trema');
+// We use an empty default value because the default colour is defined in scss/defaultvariables.
+$name = 'theme_trema/primarycolor';
+$title = get_string('primarycolor', 'theme_trema');
+$description = get_string('primarycolor_desc', 'theme_trema');
+$setting = new admin_setting_configcolourpicker($name, $title, $description, '');
+$setting->set_updatedcallback('theme_reset_all_caches');
+$page->add($setting);
+
+// We use an empty default value because the default colour is defined in scss/defaultvariables.
+$name = 'theme_trema/secondarycolor';
+$title = get_string('secondarycolor', 'theme_trema');
+$description = get_string('secondarycolor_desc', 'theme_trema');
 $setting = new admin_setting_configcolourpicker($name, $title, $description, '');
 $setting->set_updatedcallback('theme_reset_all_caches');
 $page->add($setting);

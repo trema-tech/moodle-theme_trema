@@ -56,10 +56,10 @@ $string['subtitle'] = 'Subtitle';
 
 // Strings copied from Boost
 $string['advancedsettings'] = 'Advanced settings';
-$string['backgroundimage'] = 'Background image';
-$string['backgroundimage_desc'] = 'The image to display as a background of the site. The background image you upload here will override the background image in your theme preset files.';
-$string['brandcolor'] = 'Brand colour';
-$string['brandcolor_desc'] = 'The accent colour.';
+$string['primarycolor'] = 'Primary colour';
+$string['primarycolor_desc'] = 'The main colour.';
+$string['secondarycolor'] = 'Secondary colour';
+$string['secondarycolor_desc'] = 'The secondary colour.';
 $string['bootswatch'] = 'Bootswatch';
 $string['bootswatch_desc'] = 'A bootswatch is a set of Bootstrap variables and css to style Bootstrap';
 $string['currentinparentheses'] = '(current)';

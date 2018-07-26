@@ -165,3 +165,6 @@ $THEME->layouts = [
         'defaultregion' => 'side-pre'
     )
 ];
+
+$THEME->prescsscallback = 'theme_trema_get_pre_scss';
+
