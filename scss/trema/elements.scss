@@ -183,7 +183,7 @@ body #page {
         }
 
         input[type="text"], input[type="password"], input[type="email"], select {
-            height: 2.75em;
+            height: 2.75rem;
         }
     }
     
@@ -193,6 +193,19 @@ body #page {
 	    background-repeat: no-repeat;
 	    background-position: calc(100% - 1rem) center;
     }
-    
-    
+
+    //style for search with downarrow
+    .form-autocomplete-downarrow {
+        float: right;
+        top: -2rem;
+    }
+
+    .form-autocomplete-suggestions {
+        width: 97%;
+        padding: 0.5rem 1rem;
+    }
+
+    .page-item.active .page-link {
+        color: choose-contrast-color($primary);
+    }
 }
