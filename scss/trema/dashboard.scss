@@ -4,4 +4,13 @@ body.pagelayout-mydashboard {
         padding: 0
     }
 
+    #mydashboard-admin {
+        .card-body {
+
+            .fa {
+                color: rgba($primary, 0.15);
+            }
+        }
+    }
+
 }

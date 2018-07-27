@@ -4,27 +4,25 @@ body #page {
         color: $gray-700;
         font-family: "open_sanssemibold";
         border: none;
+        line-height: 1.5rem;
     }
 
     h2 {
         font-size: 1.75rem;
-        line-height: 1.5rem;
     }
     h3 {
         font-size: 1.25rem;
-        line-height: 1.5rem;
     }
     h4 {
         font-size: 1.1rem;
-        line-height: 1.5rem;
     }
     h5 {
         font-size: 0.9rem;
-        line-height: 1.5rem;
+        line-height: 1rem;
     }
     h6 {
         font-size: 0.7rem;
-        line-height: 1.5rem;
+        line-height: 1rem;
     }
 
     //blockquote
