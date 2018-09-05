@@ -117,10 +117,10 @@ class course_renderer extends \core_course_renderer {
         }
 
         $coursecount = 1;
-        $content .= html_writer::start_tag('div', array('class' => 'row'));
+        $content .= html_writer::start_tag('div', array('class' => 'row my-4'));
         foreach ($courses as $course) {
             //TODO: make variable in settings with 3 and 4 courseboxes
-            $content .= $this->coursecat_coursebox($chelper, $course, 'col-md-4 p-3');
+            $content .= $this->coursecat_coursebox($chelper, $course, 'col-md-3');
 
             if ($coursecount % 3 == 0) {
                 $content .= html_writer::end_tag('div');
@@ -229,7 +229,7 @@ class course_renderer extends \core_course_renderer {
             $content .= html_writer::start_tag('div', array('class' => 'row course-card-text'));
             $content .= html_writer::start_tag('div', array('class' => 'col-12 p-3 text-truncate'));
             $content .= $chelper->get_course_formatted_summary($course,
-                    array('overflowdiv' => true, 'noclean' => true, 'para' => false));
+                    array('noclean' => true, 'para' => false));
             $content .= html_writer::end_tag('div'); 
             $content .= html_writer::end_tag('div'); // End summary.
         }

@@ -76,20 +76,9 @@ body#page-site-index {
 
 .courses {
     .course-card {
-        
-        &:after {
-            background-color: $primary;
-            content: '';
-            display: block;
-            height: 4px;
-            position: absolute;
-            right: 0;
-            width: 100%;
-            bottom: 0;
-        }
-
+        box-shadow: 5px 5px 9px -4px rgba($primary,.1);
+        border-bottom: solid 3px $primary;
         .course-card-img {
-            max-width: 370px;
             width: 100%;
             overflow: hidden;
             height: 170px;

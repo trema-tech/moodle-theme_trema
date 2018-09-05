@@ -13,4 +13,24 @@ body.pagelayout-mydashboard {
         }
     }
 
+    .progress-text.has-percent {
+        font-size: 15px;
+    }
+    
+    .block_myoverview {
+        .courses-view-course-item.card {
+            max-width: 275px;
+            box-shadow: 5px 5px 9px -4px rgba($primary,.1);
+            border-bottom: solid 3px $primary;
+
+            .card-img-top {
+                height: 100px;
+            }
+            
+            .courseimage {
+                background-position: center right;
+            }
+        }
+    }
+
 }
