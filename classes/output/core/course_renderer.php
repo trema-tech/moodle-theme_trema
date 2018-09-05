@@ -120,7 +120,7 @@ class course_renderer extends \core_course_renderer {
         $content .= html_writer::start_tag('div', array('class' => 'row'));
         foreach ($courses as $course) {
             //TODO: make variable in settings with 3 and 4 courseboxes
-            $content .= $this->coursecat_coursebox($chelper, $course, 'col-md-4');
+            $content .= $this->coursecat_coursebox($chelper, $course, 'col-md-4 p-3');
 
             if ($coursecount % 3 == 0) {
                 $content .= html_writer::end_tag('div');
@@ -171,7 +171,7 @@ class course_renderer extends \core_course_renderer {
         }
         $content = html_writer::start_tag('div', array('class' => $additionalclasses));
 
-        $classes = trim('card clearfix');
+        $classes = trim('course-card clearfix');
         if ($chelper->get_show_courses() >= self::COURSECAT_SHOW_COURSES_EXPANDED) {
             $nametag = 'h3';
         } else {
@@ -215,19 +215,23 @@ class course_renderer extends \core_course_renderer {
         // Course name.
         $coursename = $chelper->get_course_formatted_name($course);
         $coursenamelink = html_writer::link(new moodle_url('/course/view.php', array('id' => $course->id)),
-                                            $coursename, array('class' => $course->visible ? '' : 'dimmed'));
+        $coursename, array('class' => $course->visible ? '' : 'dimmed'));
 
-        $content = $this->get_course_summary_image($course);
+        $content = html_writer::start_tag('div',  array('class' => 'course-card-img'));
+        $content .= $this->get_course_summary_image($course);
+        $content .= html_writer::end_tag('div');
 
         $content .= html_writer::start_tag('div', array('class' => 'card-block'));
-        $content .= "<h4 class='card-title'>". $coursenamelink ."</h4>";
+        $content .= "<h3 class='card-title text-center text-uppercase m-1'>". $coursenamelink ."</h3>";
 
         // Display course summary.
         if ($course->has_summary()) {
-            $content .= html_writer::start_tag('p', array('class' => 'card-text'));
+            $content .= html_writer::start_tag('div', array('class' => 'row course-card-text'));
+            $content .= html_writer::start_tag('div', array('class' => 'col-12 p-3 text-truncate'));
             $content .= $chelper->get_course_formatted_summary($course,
                     array('overflowdiv' => true, 'noclean' => true, 'para' => false));
-            $content .= html_writer::end_tag('p'); // End summary.
+            $content .= html_writer::end_tag('div'); 
+            $content .= html_writer::end_tag('div'); // End summary.
         }
 
         $content .= html_writer::end_tag('div');
@@ -242,8 +246,6 @@ class course_renderer extends \core_course_renderer {
         }
 
         $content .= html_writer::start_tag('div', array('class' => 'pull-right'));
-        $content .= html_writer::link(new moodle_url('/course/view.php', array('id' => $course->id)),
-                            get_string('access', 'theme_trema'), array('class' => 'card-link btn btn-primary'));
         $content .= html_writer::end_tag('div'); // End pull-right.
 
         $content .= html_writer::end_tag('div'); // End card-block.
@@ -303,7 +305,7 @@ class course_renderer extends \core_course_renderer {
         if (empty($contentimage)) {
             $pattern = new \core_geopattern();
             $pattern->setColor($this->coursecolor($course->id));
-            $pattern->patternbyid($courseid);
+            $pattern->patternbyid($course->id);
             $contentimage = html_writer::empty_tag('img', array('src' => $pattern->datauri(), 'alt' => 'Course Image '. $course->fullname,
             'class' => 'card-img-top w-100'));
         }

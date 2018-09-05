@@ -73,3 +73,39 @@ body#page-site-index {
         }
     }
 }
+
+.courses {
+    .course-card {
+        
+        &:after {
+            background-color: $primary;
+            content: '';
+            display: block;
+            height: 4px;
+            position: absolute;
+            right: 0;
+            width: 100%;
+            bottom: 0;
+        }
+
+        .course-card-img {
+            max-width: 370px;
+            width: 100%;
+            overflow: hidden;
+            height: 170px;
+            margin: 0 auto;
+        }
+
+        .card-title {
+            font-weight: 600;
+            letter-spacing: 0.1em;
+        }
+
+        .course-card-text {
+            color: #777;
+            padding: 0 1rem;
+            height: 4rem;
+            overflow: hidden;           
+        }
+    }
+}

@@ -51,13 +51,22 @@ $templatecontext = [
     'sidepreblocks' => $blockshtml,
     'sideadminblocks' => $adminblockshtml,
     'hasblocks' => $hasblocks,
-    'hasadminblocks' => is_siteadmin(),
+    'isadmin' => is_siteadmin(),
     'bodyattributes' => $bodyattributes,
     'navdraweropen' => $navdraweropen,
     'regionmainsettingsmenu' => $regionmainsettingsmenu,
     'hasregionmainsettingsmenu' => !empty($regionmainsettingsmenu),
     'defaultfrontpagefooter' => $pluginsettings->defaultfooter
 ];
+
+if (is_siteadmin()) {
+    $templatecontext['disk'] = get_disk_usage();
+    $templatecontext['totalcourses'] = count_courses();
+    $templatecontext['activecourses'] = get_active_courses();
+    $templatecontext['activeenrolments'] = count_active_enrolments();
+    $templatecontext['enrolments'] = count_user_enrolments();
+    $templatecontext['issuestatus'] = get_environment_issues();
+}
 
 $templatecontext['flatnavigation'] = $PAGE->flatnav;
 echo $OUTPUT->render_from_template('theme_trema/mydashboard', $templatecontext);

@@ -127,3 +127,108 @@ function theme_trema_get_cards_settings() {
         return false;
     } 
 }
+
+/**
+ * Get the disk usage.
+ *
+ * @return string disk usage plus unit
+ */
+function get_disk_usage() {
+    global $DB, $CFG;
+
+    $cache = cache::make('theme_trema', 'dashboardadmin');
+    $totaldisk = $cache->get('totaldisk');
+
+    if (!$totaldisk) {
+        $total = get_directory_size($CFG->dataroot);
+        $totaldisk = number_format(ceil($total / 1048576));
+
+        $cache->set('totaldisk', $totaldisk);
+    }
+
+    $usageunit = ' MB';
+    if ($totaldisk > 1024) {
+        $usageunit = ' GB';
+    }
+
+    return $totaldisk . $usageunit;;
+}
+
+/**
+ * Get active courses with status 1 and startdate less than today
+ *
+ * @return int number of active courses
+ */
+function get_active_courses() {
+    global $DB;
+    $today = time();
+    $sql = "SELECT COUNT(1) FROM {course} WHERE visible = 1 AND (enddate >= {$today} OR enddate = 0)";
+
+    return $DB->count_records_sql($sql);
+}
+
+/**
+ * Get all courses excepect course 1 -->  frontpage
+ */
+function count_courses() {
+    global $DB;
+    return $DB->count_records('course') - 1;
+}
+
+/**
+ * Get all active enrolments
+ *
+ * @return void
+ */
+function count_active_enrolments() {
+    global $DB;
+    $today = time();
+    $sql = "SELECT COUNT(1) FROM {user_enrolments} WHERE status = 0 AND (timeend >= {$today} OR timeend = 0)";
+
+    return $DB->count_records_sql($sql);
+}
+
+/**
+ * Get all active enrolments
+ *
+ * @return void
+ */
+function count_user_enrolments() {
+    global $DB;
+    return $DB->count_records('user_enrolments');
+}
+
+function get_environment_issues() {
+    global $CFG;
+    require_once($CFG->dirroot."/report/performance/locallib.php");
+    $lib = new report_performance();
+    $issues = [];
+    $issues['themedesignermode'] = $lib->report_performance_check_themedesignermode();
+    $issues['cachejs'] = $lib->report_performance_check_cachejs();
+    $issues['debugmsg'] = $lib->report_performance_check_debugmsg();
+    $issues['automatic_backup'] = $lib->report_performance_check_automatic_backup();
+    $issues['enablestats'] = $lib->report_performance_check_enablestats();
+    
+    //prevent warnings
+    $status["ok"] = 0;
+    $status["warning"] = 0;
+    $status["serious"] = 0;
+    $status["critical"] = 0;
+    foreach ($issues as $issue) {
+        switch($issue->status) {
+            case 'ok':
+                $status["ok"]++;
+                break;
+            case 'warning':
+                $status['warning']++;
+                break;
+            case 'serious':
+                $status['serious']++;
+                break;
+            case 'critical':
+                $status['critical']++;
+                break;
+        }
+    }
+    return $status;
+}

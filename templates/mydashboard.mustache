@@ -40,8 +40,9 @@
 
     <div id="page" class="container-fluid">
         {{{ output.full_header }}}
-
-        {{>theme_trema/mydashboard_admin}}
+        {{#isadmin}}
+            {{>theme_trema/mydashboard_admin}}
+        {{/isadmin}}
 
         <div id="page-content" class="row">
             <div id="region-main-box" class="col-12">
@@ -74,7 +75,7 @@
     {{> theme_boost/nav-drawer }}
 </div>
 
-{{#hasadminblocks}}
+{{#isadmin}}
     <div id="side-admin-blocks">
         <div class="row">
             <div class="col-12">
@@ -87,7 +88,7 @@
             </div>
         </div>
     </div>
-{{/hasadminblocks}}
+{{/isadmin}}
 
 {{> theme_trema/footer }}
 
