@@ -229,4 +229,69 @@ body #page {
         }
     }
 
+    ul.nav-tabs {
+        border: none;
+
+        li.nav-item {
+            border: none;
+            border-bottom: 1px solid $primary;
+
+            a.nav-link {
+                border: none;
+
+                &.active {
+                    color: $primary;
+                    border: none;
+                    border-bottom: 3px solid $primary;
+                    font-weight: bolder;
+                }
+
+                &:hover {
+                    text-decoration: none;
+                }
+            }
+        }
+    }
+
+    ul.nav-pills {
+        border: none;
+
+        li.nav-item {
+            border: none;
+
+            a.nav-link {
+                border: 1px solid $primary;
+                border-right: none; 
+                background-color: $white;
+                color: $primary;
+                border-radius: 0;
+
+                &.active {
+                    color: $white;
+                    background-color: $primary; 
+                    
+                    &:hover {
+                        background-color: $primary;
+                    }
+                }
+
+                &:hover {
+                    background-color: rgba($primary, 0.1);
+                    text-decoration: none;
+                }
+            }
+            
+            &:first-child a {
+                border-top-left-radius: 0.25rem;
+                border-bottom-left-radius: 0.25rem;
+            }
+
+            &:last-child a {
+                border: 1px solid $primary;
+                border-top-right-radius: 0.25rem;
+                border-bottom-right-radius: 0.25rem;
+            }
+        }
+    }
+
 }
