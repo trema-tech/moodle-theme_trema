@@ -14,7 +14,10 @@
 defined('MOODLE_INTERNAL') || die();
 
 // Theme strings.
+$string['activecourses'] = 'Active Courses';
+$string['activeenrollments'] = 'Active Enrollments';
 $string['adminarea'] = 'Just Administrators can see this area.';
+$string['alert'] = 'Alert';
 $string['card'] = 'Card';
 $string['cardicon'] = 'Card icon';
 $string['cardicon_desc'] = 'See here the list of all Font Awesome available icons: <a href="https://fontawesome.com/v4.7.0/icons/" target="_blank">https://fontawesome.com/v4.7.0/icons/</a>';
@@ -28,6 +31,7 @@ $string['defaultfrontpagebody'] = 'Frontpage Body';
 $string['defaultfrontpagebody_desc'] = 'Default content from frontpage body';
 $string['defaultfooter'] = 'Footer';
 $string['defaultfooter_desc'] = 'Default content from footer';
+$string['diskusage'] = 'Disk usage in moodledata';
 $string['content'] = 'Content';
 $string['defaultfrontpagefooter'] = 'Frontpage Footer';
 $string['defaultfrontpagefooter_desc'] = 'Default content from frontpage footer';
@@ -50,8 +54,11 @@ $string['numberofcards'] = 'Number of cards';
 $string['pluginname'] = 'Trema';
 $string['privacy:metadata'] = 'The Trema theme does not store any individual user data.';
 $string['region-side-pre'] = 'Right';
+$string['rememberusername'] = 'Remember user';
 $string['styleguide'] = 'Style Guide';
+$string['systemsecurity'] = 'System Security';
 $string['title'] = 'Title';
+$string['total'] = 'Total';
 $string['subtitle'] = 'Subtitle';
 
 // Strings copied from Boost

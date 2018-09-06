@@ -212,22 +212,10 @@ function get_environment_issues() {
     //prevent warnings
     $status["ok"] = 0;
     $status["warning"] = 0;
-    $status["serious"] = 0;
-    $status["critical"] = 0;
     foreach ($issues as $issue) {
-        switch($issue->status) {
-            case 'ok':
-                $status["ok"]++;
-                break;
-            case 'warning':
-                $status['warning']++;
-                break;
-            case 'serious':
-                $status['serious']++;
-                break;
-            case 'critical':
-                $status['critical']++;
-                break;
+        if($issue->status == 'serious' || $issue->status == 
+                'critical' || $issue->status == 'warning') {
+            $status['warning']++;
         }
     }
     return $status;
