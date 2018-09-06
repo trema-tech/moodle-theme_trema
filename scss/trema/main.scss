@@ -35,7 +35,16 @@ body {
 body {
     -webkit-font-smoothing: antialiased;
     background: #f7f7f7;
-
+    
+    #page-wrapper {
+        height: auto;    
+    }
+    
+    #region-main {
+        border: none;
+        padding-top: 0;
+    }
+    
     #page {
         margin-top: 4.5em;
         padding-top: 1.5em;

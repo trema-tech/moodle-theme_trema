@@ -2,5 +2,11 @@ body#page-login-index {
     .card {
         @extend %border-frequency;
     }
+    
+    canvas.particles-js-canvas-el {
+	    position: absolute;
+	    top: 0;
+	    z-index: -1;
+	}
 }
 
