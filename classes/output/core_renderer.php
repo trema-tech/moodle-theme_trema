@@ -48,6 +48,17 @@ class core_renderer extends \theme_boost\output\core_renderer {
     }
 
     /**
+     *
+     * Always show the compact logo when its defined.
+     * 
+     * @return bool
+     */
+    public function should_display_navbar_logo() {
+        $logo = $this->get_compact_logo_url();
+        return !empty($logo);
+    }
+
+    /**
      * Return the frontpage settings menu.
      *
      * @return string HTML to display the main header.
