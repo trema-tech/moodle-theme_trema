@@ -53,7 +53,8 @@ function theme_trema_get_pre_scss($theme) {
     $configurable = [
         // Config key => [variableName, ...].
         'primarycolor' => 'primary',
-        'secondarycolor' => 'secondary'
+        'secondarycolor' => 'secondary',
+        'particles_backgroundcolor' => 'particles-bg'
     ];
     
     // Prepend variables first.

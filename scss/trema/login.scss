@@ -1,6 +1,27 @@
 body#page-login-index {
+    
+    #page-wrapper {
+        position: relative;
+    }
+    
+    #card-login,
+    #card-login-instructions {
+        margin-top: 50px;
+    }
+    
     .card {
         @extend %border-frequency;
     }
+    
+    .card-header {
+        background-color: transparent;
+    }
+    
+    canvas.particles-js-canvas-el {
+	    position: absolute;
+	    top: 0;
+	    z-index: -1;
+	    background-color: $particles-bg;
+	}
 }
 

@@ -15,6 +15,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
+ * Login settings
  * @package   theme_trema
  * @copyright 2018 Trevor Furtado e Rodrigo Mady
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
@@ -22,10 +23,22 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-if ($ADMIN->fulltree) {
-    $settings = new theme_boost_admin_settingspage_tabs('themesettingtrema', get_string('configtitle', 'theme_trema'));
-    require_once ('settings/general_settings.php');
-    require_once ('settings/content_settings.php');
-    require_once ('settings/login_settings.php');
-    require_once ('settings/styleguide_settings.php');
-}
+$page = new admin_settingpage('theme_trema_login', get_string('login', 'theme_trema'));
+
+// Background color
+$name = 'theme_trema/particles_backgroundcolor';
+$title = get_string('backgroundcolor', 'theme_trema');
+$description = '';
+$setting = new admin_setting_configcolourpicker($name, $title, $description, '#020221');
+$setting->set_updatedcallback('theme_reset_all_caches');
+$page->add($setting);
+
+// Circles color
+$name = 'theme_trema/particles_circlescolor';
+$title = get_string('circlescolor', 'theme_trema');
+$description = '';
+$setting = new admin_setting_configcolourpicker($name, $title, $description, '#FFFFFF');
+$setting->set_updatedcallback('theme_reset_all_caches');
+$page->add($setting);
+
+$settings->add($page);

@@ -18,5 +18,10 @@ $templatecontext = [
     'bodyattributes' => $bodyattributes
 ];
 
+$particles_config = json_decode(file_get_contents("$CFG->wwwroot/theme/trema/particles.json"));
+$particles_config->particles->color->value = get_config("theme_trema", "particles_circlescolor");
+
+$PAGE->requires->js_call_amd('theme_trema/tremaparticles', 'init', array(json_encode(($particles_config))));
+
 echo $OUTPUT->render_from_template('theme_trema/login', $templatecontext);
 
