@@ -2,31 +2,36 @@ body #page {
     //heading
     h1, h2, h3, h4, h5, h6 {
         color: $gray-700;
-        font-family: "open_sanssemibold";
         border: none;
         line-height: 1.5rem;
     }
     
     h1 {
         line-height: 2.85rem;
+        font-weight: bold;
     }
     
     h2 {
+        font-weight: normal;
         font-size: 1.75rem;
     }
     h3 {
+        font-weight: normal;
         font-size: 1.25rem;
     }
     h4 {
         font-size: 1.1rem;
+        font-weight: lighter;
     }
     h5 {
         font-size: 0.9rem;
         line-height: 1rem;
+        font-weight: lighter;
     }
     h6 {
         font-size: 0.7rem;
         line-height: 1rem;
+        font-weight: lighter;
     }
 
     //blockquote

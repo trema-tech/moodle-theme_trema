@@ -4,7 +4,7 @@
     box-shadow: 0px 0.0375em 0.125em 0px rgba(0, 0, 0, 0.05);
     color: #484b49;
     cursor: default;
-    font-family: "open_sans_light";
+    font-weight: lighter;
     height: 4.5em;
     max-height: 4.5em;
     left: 0;
@@ -15,9 +15,8 @@
     z-index: 10000;
 
     .site-name {
-        font-family: "open_sansbold";
         color: #484b49;
-        font-weight: 700;
+        font-weight: bold;
         letter-spacing: 0.9px;
         height: inherit;
         left: 1.25em;
