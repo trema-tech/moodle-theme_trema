@@ -32,6 +32,10 @@ body {
 	}
 }
 
+.border-trema {
+    @extend	%border-frequency;
+}
+
 body {
     -webkit-font-smoothing: antialiased;
     background: #f7f7f7;

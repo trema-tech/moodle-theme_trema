@@ -3,6 +3,22 @@ body#page-site-index {
     #page {
         padding-top: 0;
     }
+
+    #page-content {
+        margin-top: 3rem;
+        position: relative;
+
+        &:before { 
+            background-color:rgba(144, 144, 144, 0.35);
+            content: '';
+            display: block;
+            height: 50px;
+            position: absolute;
+            right: 50%;
+            top: -50px;
+           width: 1px;
+        }
+    }
 	
     #frontpage-banner {
         position: relative;
@@ -54,51 +70,62 @@ body#page-site-index {
 		    }
 	    }
     }
-	
-	#frontpage-cards-title {
-		@extend	%border-frequency;
-		
-		&:before {
-            height: 3rem;
-            top: -3rem;
-        }
+	#frontpage-cards {
+        @extend	%border-frequency;
+        background: $white;
         
-        h2 {
-            display: inline-block;
-        }
-        
-        &:target {
-            padding-top: 5rem!important;
-            margin-top: 0!important;
+        #frontpage-cards-title {
             
             &:before {
-	            margin-top: 5rem!important;
-                height: 5rem;
-                top: -5rem;
+                height: 3rem;
+                top: -3rem;
             }
             
+            h2 {
+                display: inline-block;
+            }
+            
+            &:target {
+                padding-top: 5rem!important;
+                margin-top: 0!important;
+                
+                &:before {
+                    margin-top: 5rem!important;
+                    height: 5rem;
+                    top: -5rem;
+                }
+                
+                &:after {
+                    margin-top: 5rem !important;
+                }     
+            }
+        }
+
+        #frontpage-cards-content {
+
+            .frontpage-card {
+                padding: 6rem 7rem 4rem;
+                border-top: 1px solid $gray-300;
+            }
+
+            .frontpage-card:nth-child(odd) {
+                border-right: 1px solid $gray-300;
+            }
+
+            a:hover {
+                text-decoration: none;
+            }
+
             &:after {
-                margin-top: 5rem !important;
-            }     
-        }
-    }
-
-    #frontpage-cards-content {
-        margin: 0 4rem;
-
-        .frontpage-card {
-            border-bottom: 1px solid $gray-300;
-        }
-
-        .frontpage-card:nth-child(odd) {
-            border-right: 1px solid $gray-300;
-        }
-        .frontpage-card:last-child, .frontpage-card:nth-last-child(2) {
-            border-bottom: none;
-        }
-
-        a:hover {
-            text-decoration: none;
+                background: linear-gradient(to right, $primary 50%, $secondary 50%);
+                bottom: 0;
+                content: '';
+                display: block;
+                height: 4px;
+                position: absolute;
+                right: 0;
+                width: 100%;
+            }
         }
     }
 }
