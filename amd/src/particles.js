@@ -1529,6 +1529,7 @@ define([], function() {
 	    if(xhr.readyState == 4){
 	      if(xhr.status == 200){
 	        var params = JSON.parse(data.currentTarget.response);
+	        console.log(params);
 	        window.particlesJS(tag_id, params);
 	        if(callback) callback();
 	      }else{
