@@ -7,6 +7,7 @@ body#page-site-index {
     #page-content {
         margin-top: 3rem;
         position: relative;
+        background-color: $white;
 
         &:before { 
             background-color:rgba(144, 144, 144, 0.35);

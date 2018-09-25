@@ -1,0 +1,30 @@
+body.path-course,
+body#page-site-index {
+   .course-card-view {
+        max-width: 17rem;
+        box-shadow: 5px 5px 9px -4px rgba($black,.1);
+        padding-bottom: 4rem;
+   
+        .course-card-img div {
+            height: 6.5rem;
+            background-position: top right;
+            background-size: cover;
+        }
+
+        .card-see-more {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+
+            .btn {
+                width: 90%;
+            }
+        }
+    }
+}
+
+body#page-site-index {
+   .course-card-view {
+        max-width: 16rem;
+    }
+}

@@ -34,10 +34,10 @@ use stdClass;
 use course_in_list;
 
 /**
- * Renderers to prettyfy Trema's coursebox
+ * Renderizador para estilizar as caixas de cursos da Enovus
  */
 class course_renderer extends \core_course_renderer {
-
+    
     /**
      * Renders the list of courses for frontpage and /course
      *
@@ -53,16 +53,16 @@ class course_renderer extends \core_course_renderer {
      */
     protected function coursecat_courses(coursecat_helper $chelper, $courses, $totalcount = null) {
         global $CFG;
-
+        
         if ($totalcount === null) {
             $totalcount = count($courses);
         }
-
+        
         if (!$totalcount) {
             // Courses count is cached during courses retrieval.
             return '';
         }
-
+        
         if ($chelper->get_show_courses() == self::COURSECAT_SHOW_COURSES_AUTO) {
             // In 'auto' course display mode we analyse if number of courses is more or less than $CFG->courseswithsummarieslimit.
             if ($totalcount <= $CFG->courseswithsummarieslimit) {
@@ -71,7 +71,7 @@ class course_renderer extends \core_course_renderer {
                 $chelper->set_show_courses(self::COURSECAT_SHOW_COURSES_COLLAPSED);
             }
         }
-
+        
         // Prepare content of paging bar if it is needed.
         $paginationurl = $chelper->get_courses_display_option('paginationurl');
         $paginationallowall = $chelper->get_courses_display_option('paginationallowall');
@@ -82,16 +82,16 @@ class course_renderer extends \core_course_renderer {
                 $perpage = $chelper->get_courses_display_option('limit', $CFG->coursesperpage);
                 $page = $chelper->get_courses_display_option('offset') / $perpage;
                 $pagingbar = $this->paging_bar($totalcount, $page, $perpage,
-                        $paginationurl->out(false, array('perpage' => $perpage)));
+                    $paginationurl->out(false, array('perpage' => $perpage)));
                 if ($paginationallowall) {
                     $pagingbar .= html_writer::tag('div', html_writer::link($paginationurl->out(false, array('perpage' => 'all')),
-                            get_string('showall', '', $totalcount)), array('class' => 'paging paging-showall'));
+                        get_string('showall', '', $totalcount)), array('class' => 'paging paging-showall'));
                 }
             } else if ($viewmoreurl = $chelper->get_courses_display_option('viewmoreurl')) {
                 // The option for 'View more' link was specified, display more link.
                 $viewmoretext = $chelper->get_courses_display_option('viewmoretext', new \lang_string('viewmore'));
                 $morelink = html_writer::tag('div', html_writer::link($viewmoreurl, $viewmoretext),
-                        array('class' => 'paging paging-morelink'));
+                    array('class' => 'paging paging-morelink'));
             }
         } else if (($totalcount > $CFG->coursesperpage) && $paginationurl && $paginationallowall) {
             // There are more than one page of results and we are in 'view all' mode, suggest to go back to paginated view mode.
@@ -101,49 +101,42 @@ class course_renderer extends \core_course_renderer {
                     $paginationurl->out(
                         false,
                         array('perpage' => $CFG->coursesperpage)
-                    ),
+                        ),
                     get_string('showperpage', '', $CFG->coursesperpage)
-                ),
+                    ),
                 array('class' => 'paging paging-showperpage')
-            );
+                );
         }
-
+        
         // Display list of courses.
         $attributes = $chelper->get_and_erase_attributes('courses');
         $content = html_writer::start_tag('div', $attributes);
-
+        
         if (!empty($pagingbar)) {
             $content .= $pagingbar;
         }
-
+        
         $coursecount = 1;
-        $content .= html_writer::start_tag('div', array('class' => 'row my-4'));
+        $content .= html_writer::start_tag('div', array('class' => ' row card-deck my-4'));
         foreach ($courses as $course) {
-            //TODO: make variable in settings with 3 and 4 courseboxes
-            $content .= $this->coursecat_coursebox($chelper, $course, 'col-md-3');
-
-            if ($coursecount % 3 == 0) {
-                $content .= html_writer::end_tag('div');
-                $content .= html_writer::start_tag('div', array('class' => 'row'));
-            }
-
+            $content .= $this->coursecat_coursebox($chelper, $course, 'card mb-3 course-card-view');
             $coursecount ++;
         }
-
+        
         $content .= html_writer::end_tag('div');
-
+        
         if (!empty($pagingbar)) {
             $content .= $pagingbar;
         }
-
+        
         if (!empty($morelink)) {
             $content .= $morelink;
         }
-
+        
         $content .= html_writer::end_tag('div'); // End courses.
         return $content;
     }
-
+    
     /**
      * Displays one course in the list of courses.
      *
@@ -158,7 +151,7 @@ class course_renderer extends \core_course_renderer {
      */
     protected function coursecat_coursebox(coursecat_helper $chelper, $course, $additionalclasses = '') {
         global $CFG;
-
+        
         if (!isset($this->strings->summary)) {
             $this->strings->summary = get_string('summary');
         }
@@ -170,31 +163,31 @@ class course_renderer extends \core_course_renderer {
             $course = new course_in_list($course);
         }
         $content = html_writer::start_tag('div', array('class' => $additionalclasses));
-
-        $classes = trim('course-card clearfix');
+        
+        $classes = '';
         if ($chelper->get_show_courses() >= self::COURSECAT_SHOW_COURSES_EXPANDED) {
-            $nametag = 'h3';
+            $nametag = 'h5';
         } else {
             $classes .= ' collapsed';
             $nametag = 'div';
         }
-
+        
         // End coursebox.
         $content .= html_writer::start_tag('div', array(
             'class' => $classes,
             'data-courseid' => $course->id,
             'data-type' => self::COURSECAT_TYPE_COURSE,
         ));
-
+        
         $content .= $this->coursecat_coursebox_content($chelper, $course);
-
+        
         $content .= html_writer::end_tag('div'); // End coursebox.
-
+        
         $content .= html_writer::end_tag('div'); // End col-md-4.
-
+        
         return $content;
     }
-
+    
     /**
      * Returns HTML to display course content (summary, course contacts and optionally category name)
      *
@@ -206,80 +199,82 @@ class course_renderer extends \core_course_renderer {
      */
     protected function coursecat_coursebox_content(coursecat_helper $chelper, $course) {
         global $CFG;
-
+        
         if ($course instanceof stdClass) {
             require_once($CFG->libdir. '/coursecatlib.php');
             $course = new course_in_list($course);
         }
-
+        
         // Course name.
         $coursename = $chelper->get_course_formatted_name($course);
         $coursenamelink = html_writer::link(new moodle_url('/course/view.php', array('id' => $course->id)),
-        $coursename, array('class' => $course->visible ? '' : 'dimmed'));
-
-        $content = html_writer::start_tag('div',  array('class' => 'course-card-img'));
+            $coursename, array('class' => $course->visible ? '' : 'dimmed'));
+        
+        $content = html_writer::start_tag('a', array ('href' => '/course/view.php?id='.$course->id, 'class' => 'course-card-img'));
         $content .= $this->get_course_summary_image($course);
+        $content .= html_writer::end_tag('a');
+        
+        $content .= html_writer::start_tag('div', array('class' => 'card-body'));
+        $content .= "<h5 class='card-title text-center m-1'>". $coursenamelink ."</h5>";
         $content .= html_writer::end_tag('div');
-
-        $content .= html_writer::start_tag('div', array('class' => 'card-block'));
-        $content .= "<h3 class='card-title text-center text-uppercase m-1'>". $coursenamelink ."</h3>";
-
-        // Display course summary.
-        if ($course->has_summary()) {
-            $content .= html_writer::start_tag('div', array('class' => 'row course-card-text'));
-            $content .= html_writer::start_tag('div', array('class' => 'col-12 p-3 text-truncate'));
-            $content .= $chelper->get_course_formatted_summary($course,
-                    array('noclean' => true, 'para' => false));
-            $content .= html_writer::end_tag('div'); 
-            $content .= html_writer::end_tag('div'); // End summary.
-        }
-
-        $content .= html_writer::end_tag('div');
-
-        $content .= html_writer::start_tag('div', array('class' => 'card-block'));
-
+        
+        $content .= html_writer::start_tag('div', array('class' => 'card-block text-center'));
+        
         // Print enrolmenticons.
         if ($icons = enrol_get_course_info_icons($course)) {
             foreach ($icons as $pixicon) {
                 $content .= $this->render($pixicon);
             }
         }
-
+        
         $content .= html_writer::start_tag('div', array('class' => 'pull-right'));
         $content .= html_writer::end_tag('div'); // End pull-right.
-
+        
         $content .= html_writer::end_tag('div'); // End card-block.
-
+        
         // Display course contacts. See course_in_list::get_course_contacts().
         if ($course->has_course_contacts()) {
             $content .= html_writer::start_tag('div', array('class' => 'card-footer teachers'));
             $content .= html_writer::start_tag('ul');
             foreach ($course->get_course_contacts() as $userid => $coursecontact) {
                 $name = $coursecontact['rolename'].': '.
-                        html_writer::link(new moodle_url('/user/view.php',
-                                array('id' => $userid, 'course' => SITEID)),
-                            $coursecontact['username']);
-                $content .= html_writer::tag('li', $name);
+                    html_writer::link(new moodle_url('/user/view.php',
+                        array('id' => $userid, 'course' => SITEID)),
+                        $coursecontact['username']);
+                    $content .= html_writer::tag('li', $name);
             }
             $content .= html_writer::end_tag('ul'); // End teachers.
             $content .= html_writer::end_tag('div'); // End teachers.
         }
-
+        
         // Display course category if necessary (for example in search results).
         if ($chelper->get_show_courses() == self::COURSECAT_SHOW_COURSES_EXPANDED_WITH_CAT) {
             require_once($CFG->libdir. '/coursecatlib.php');
             if ($cat = coursecat::get($course->category, IGNORE_MISSING)) {
-                $content .= html_writer::start_tag('div', array('class' => 'coursecat'));
+                $content .= html_writer::start_tag('div', array('class' => 'coursecat text-center'));
                 $content .= get_string('category').': '.
-                        html_writer::link(new moodle_url('/course/index.php', array('categoryid' => $cat->id)),
-                                $cat->get_formatted_name(), array('class' => $cat->visible ? '' : 'dimmed'));
-                $content .= html_writer::end_tag('div'); // End coursecat.
+                    html_writer::link(new moodle_url('/course/index.php', array('categoryid' => $cat->id)),
+                        $cat->get_formatted_name(), array('class' => $cat->visible ? '' : 'dimmed'));
+                    $content .= html_writer::end_tag('div'); // End coursecat.
             }
         }
-
+        
+        // Display course summary.
+        if ($course->has_summary()) {
+            $content .= html_writer::start_tag('div', array('class' => 'card-see-more text-center'));
+            $content .= html_writer::start_tag('div', array('class' => 'btn btn-secondary m-2',
+                'id' => "course-popover-{$course->id}", 'role' => 'button', 'data-region'=>'popover-region-toggle',
+                'data-toggle'=>'popover', 'data-placement' =>'right',
+                'data-content'=> $chelper->get_course_formatted_summary($course,
+                    array('noclean' => true, 'para' => false)),'data-html'=>'true', 'tabindex'=>'0', 'data-trigger'=>'focus'));
+            $content .=  "Saiba Mais";
+            $content .= html_writer::end_tag('div');
+            $content .= html_writer::end_tag('div'); // End summary.
+        }
+        
         return $content;
     }
-
+    
     /**
      * Returns the first course's summary issue
      *
@@ -288,32 +283,34 @@ class course_renderer extends \core_course_renderer {
      */
     protected function get_course_summary_image($course) {
         global $CFG;
-
+        
         $contentimage = '';
         foreach ($course->get_course_overviewfiles() as $file) {
             $isimage = $file->is_valid_image();
             $url = file_encode_url("$CFG->wwwroot/pluginfile.php",
-                    '/'. $file->get_contextid(). '/'. $file->get_component(). '/'.
-                    $file->get_filearea(). $file->get_filepath(). $file->get_filename(), !$isimage);
+                '/'. $file->get_contextid(). '/'. $file->get_component(). '/'.
+                $file->get_filearea(). $file->get_filepath(). $file->get_filename(), !$isimage);
             if ($isimage) {
-                    $contentimage = html_writer::empty_tag('img', array('src' => $url, 'alt' => 'Course Image '. $course->fullname,
-                        'class' => 'card-img-top w-100'));
-                    break;
+                $contentimage = html_writer::start_tag('div', array('style' => "background-image:url('$url')",
+                    'class' => 'card-img-top'));
+                $contentimage .= html_writer::end_tag('div');
+                break;
             }
         }
-
+        
         if (empty($contentimage)) {
             $pattern = new \core_geopattern();
             $pattern->setColor($this->coursecolor($course->id));
             $pattern->patternbyid($course->id);
-            $contentimage = html_writer::empty_tag('img', array('src' => $pattern->datauri(), 'alt' => 'Course Image '. $course->fullname,
-            'class' => 'card-img-top w-100'));
+            $contentimage = html_writer::start_tag('div', array('style' => "background-image:url('{$pattern->datauri()}')",
+            'class' => 'card-img-top'));
+            $contentimage .= html_writer::end_tag('div');
         }
-
+        
         return $contentimage;
     }
-
-     /**
+    
+    /**
      * Generate a semi-random color based on the courseid number (so it will always return
      * the same color for a course)
      *
@@ -323,7 +320,7 @@ class course_renderer extends \core_course_renderer {
     protected function coursecolor($courseid) {
         // The colour palette is hardcoded for now. It would make sense to combine it with theme settings.
         $basecolors = ['#81ecec', '#74b9ff', '#a29bfe', '#dfe6e9', '#00b894', '#0984e3', '#b2bec3', '#fdcb6e', '#fd79a8', '#6c5ce7'];
-
+        
         $color = $basecolors[$courseid % 10];
         return $color;
     }
