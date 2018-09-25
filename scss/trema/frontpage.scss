@@ -78,6 +78,10 @@ body#page-site-index {
         &:target {
             padding-top: 2rem!important;
             margin-top: 3rem!important;
+
+            &:before {
+                margin-top: 0;
+            }
         }
         
         #frontpage-cards-title {
