@@ -73,6 +73,11 @@ body#page-site-index {
 	#frontpage-cards {
         @extend	%border-frequency;
         background: $white;
+
+        &:target {
+            padding-top: 2rem!important;
+            margin-top: 3rem!important;
+        }
         
         #frontpage-cards-title {
             
@@ -83,21 +88,6 @@ body#page-site-index {
             
             h2 {
                 display: inline-block;
-            }
-            
-            &:target {
-                padding-top: 5rem!important;
-                margin-top: 0!important;
-                
-                &:before {
-                    margin-top: 5rem!important;
-                    height: 5rem;
-                    top: -5rem;
-                }
-                
-                &:after {
-                    margin-top: 5rem !important;
-                }     
             }
         }
 

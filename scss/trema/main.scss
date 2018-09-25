@@ -10,22 +10,22 @@ body {
     position: relative;
     
     &:before { 
-        background-color:rgba(144, 144, 144, 0.35);
 		content: '';
+        background-color:rgba(144, 144, 144, 0.35);
 		display: block;
-		height: 50px;
+		height: 3rem;
 		position: absolute;
 		right: 50%;
-		top: -50px;
-	   width: 1px;
+		top: -3rem;
+	    width: 1px;
 	}
 		
 	&:after {
+		content: '';
 		background: linear-gradient(to right, $primary 50%, $secondary 50%);
 		top: 0;
-		content: '';
 		display: block;
-		height: 4px;
+        height: .25rem;
 		position: absolute;
 		right: 0;
 		width: 100%;
