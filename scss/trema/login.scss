@@ -1,5 +1,4 @@
-body#page-login-index {
-    
+body#page-login-index {    
     #page-wrapper {
         position: relative;
     }
@@ -17,11 +16,21 @@ body#page-login-index {
         background-color: transparent;
     }
     
-    canvas.particles-js-canvas-el {
-	    position: absolute;
-	    top: 0;
-	    z-index: -1;
-	    background-color: $particles-bg;
-	}
+    &.style-particles {
+        canvas.particles-js-canvas-el {
+            position: absolute;
+            top: 0;
+            z-index: -1;
+            background-color: $particles-bg;
+        }    
+    }
+    
+    &.style-image {
+        #page-wrapper {
+            background: url($login-backgroundimage) top center no-repeat;
+            background-size: cover;
+            height: auto;
+        }   
+    }
 }
 
