@@ -7,17 +7,21 @@ body#page-site-index {
     #page-content {
         margin-top: 3rem;
         position: relative;
-        background-color: $white;
+
+        .card {
+            background-color: #f7f7f7;
+        }
 
         &:before { 
             background-color:rgba(144, 144, 144, 0.35);
             content: '';
             display: block;
-            height: 50px;
+            height: 50%;
             position: absolute;
             right: 50%;
             top: -50px;
-           width: 1px;
+            width: 1px;
+            z-index: 1;
         }
     }
 	
@@ -121,6 +125,35 @@ body#page-site-index {
                 right: 0;
                 width: 100%;
             }
+        }
+    }
+
+    .card-box {
+        padding: 3em 2em 1em 2em;
+        background-color: $white;
+        margin-bottom: 2em;
+        position: relative;
+        z-index: 10;
+
+        &.style1:after {
+            background-color: $secondary;
+        }
+
+        &.style2:after {
+            background-color: $primary;
+        }
+
+        &:after {
+            bottom: 0;
+        }
+
+        &:before, &:after {
+            content: '';
+            display: block;
+            height: 4px;
+            position: absolute;
+            right: 0;
+            width: 100%;
         }
     }
 }
