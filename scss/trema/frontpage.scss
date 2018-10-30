@@ -5,23 +5,8 @@ body#page-site-index {
     }
 
     #page-content {
-        margin-top: 3rem;
-        position: relative;
-
         .card {
             background-color: #f7f7f7;
-        }
-
-        &:before { 
-            background-color:rgba(144, 144, 144, 0.35);
-            content: '';
-            display: block;
-            height: 50%;
-            position: absolute;
-            right: 50%;
-            top: -50px;
-            width: 1px;
-            z-index: 1;
         }
     }
 	
@@ -128,32 +113,51 @@ body#page-site-index {
         }
     }
 
-    .card-box {
-        padding: 3em 2em 1em 2em;
-        background-color: $white;
-        margin-bottom: 2em;
+
+    #defaultfrontpagebody {
+        padding-top: 3rem;
         position: relative;
-        z-index: 10;
-
-        &.style1:after {
-            background-color: $secondary;
-        }
-
-        &.style2:after {
-            background-color: $primary;
-        }
-
-        &:after {
-            bottom: 0;
-        }
-
-        &:before, &:after {
-            content: '';
+        
+        &:before { 
+            content: "";
+            background-color: rgba(144,144,144,.35);
             display: block;
-            height: 4px;
+            height: 100%;
             position: absolute;
-            right: 0;
-            width: 100%;
+            right: 50%;
+            top: 0;
+            width: 1px;
+            z-index: 10;
+        }
+
+        .card-box {
+            padding: 3em 2em 1em 2em;
+            background-color: $white;
+            margin-bottom: 2em;
+            position: relative;
+            z-index: 10;
+            flex: 1 1 0rem;
+
+            &.style1:after {
+                background-color: $secondary;
+            }
+
+            &.style2:after {
+                background-color: $primary;
+            }
+
+            &:after {
+                bottom: 0;
+            }
+
+            &:before, &:after {
+                content: '';
+                display: block;
+                height: 4px;
+                position: absolute;
+                right: 0;
+                width: 100%;
+            }
         }
     }
 }

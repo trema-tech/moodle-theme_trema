@@ -72,28 +72,24 @@
         </div>
         {{/hascards}}
 
-        <div id="page-content" class="container">
-            <div id="region-main-box" class="row col-12">
+        <div id="page-content" class="container p-0">
+            <div id="region-main-box" class="row col-12 p-0">
                 {{#hasregionmainsettingsmenu}}
                 <div id="region-main-settings-menu" class="d-print-none {{#hasblocks}}has-blocks{{/hasblocks}}">
                     <div> {{{ output.region_main_settings_menu }}} </div>
                 </div>
                 {{/hasregionmainsettingsmenu}}
                 <section id="region-main" {{#hasblocks}}class="has-blocks mb-3"{{/hasblocks}}>
-                    <div class="card">
-                        <div class="card-body">
-                            {{#hasregionmainsettingsmenu}}
-                                <div class="region_main_settings_menu_proxy"></div>
-                            {{/hasregionmainsettingsmenu}}
-                            <div id="defaultfrontpagebody">
-                                {{{defaultfrontpagebody}}}
-                            </div>
-                            {{{ output.course_content_header }}}
-                            {{{ output.main_content }}}
-                            {{{ output.activity_navigation }}}
-                            {{{ output.course_content_footer }}}
-                        </div>
+                    {{#hasregionmainsettingsmenu}}
+                        <div class="region_main_settings_menu_proxy"></div>
+                    {{/hasregionmainsettingsmenu}}
+                    <div id="defaultfrontpagebody" class="mb-4">
+                        {{{defaultfrontpagebody}}}
                     </div>
+                    {{{ output.course_content_header }}}
+                    {{{ output.main_content }}}
+                    {{{ output.activity_navigation }}}
+                    {{{ output.course_content_footer }}}
                 </section>
                 {{#hasblocks}}
                 <section data-region="blocks-column" class="d-print-none">
