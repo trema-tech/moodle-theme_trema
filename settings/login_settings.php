@@ -25,20 +25,39 @@ defined('MOODLE_INTERNAL') || die();
 
 $page = new admin_settingpage('theme_trema_login', get_string('login', 'theme_trema'));
 
-// Background color
-$name = 'theme_trema/particles_backgroundcolor';
-$title = get_string('backgroundcolor', 'theme_trema');
-$description = '';
-$setting = new admin_setting_configcolourpicker($name, $title, $description, '#020221');
-$setting->set_updatedcallback('theme_reset_all_caches');
+// Login page style
+$choices = array(
+    "particle-circles" => "particle-circles",
+    "image" => "image"
+);
+$setting = new admin_setting_configselect('theme_trema/loginpagestyle', new lang_string('loginpagestyle', 'theme_trema'), '', 'particle-circles', $choices);
 $page->add($setting);
 
-// Circles color
-$name = 'theme_trema/particles_circlescolor';
-$title = get_string('circlescolor', 'theme_trema');
-$description = '';
-$setting = new admin_setting_configcolourpicker($name, $title, $description, '#FFFFFF');
-$setting->set_updatedcallback('theme_reset_all_caches');
-$page->add($setting);
+
+if(get_config('theme_trema', 'loginpagestyle') == "particle-circles") {
+    // Background color
+    $name = 'theme_trema/particles_backgroundcolor';
+    $title = get_string('backgroundcolor', 'theme_trema');
+    $description = '';
+    $setting = new admin_setting_configcolourpicker($name, $title, $description, '#020221');
+    $setting->set_updatedcallback('theme_reset_all_caches');
+    $page->add($setting);
+    
+    // Circles color
+    $name = 'theme_trema/particles_circlescolor';
+    $title = get_string('circlescolor', 'theme_trema');
+    $description = '';
+    $setting = new admin_setting_configcolourpicker($name, $title, $description, '#FFFFFF');
+    $setting->set_updatedcallback('theme_reset_all_caches');
+    $page->add($setting);
+} else if(get_config('theme_trema', 'loginpagestyle') == "image") {
+    // Login background image.
+    $name = 'theme_trema/loginbackgroundimage';
+    $title = get_string('loginbackgroundimage', 'theme_trema');
+    $description = '';
+    $setting = new admin_setting_configstoredfile($name, $title, $description, 'loginbackgroundimage');
+    $setting->set_updatedcallback('theme_reset_all_caches');
+    $page->add($setting);
+}
 
 $settings->add($page);
