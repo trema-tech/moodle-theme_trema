@@ -16,11 +16,11 @@
 
 /**
  * Frontpage settings and HTML
- * @package   theme_trema
+ *
+ * @package theme_trema
  * @copyright 2018 Trevor Furtado e Rodrigo Mady
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 defined('MOODLE_INTERNAL') || die();
 
 // Advanced settings.
@@ -34,19 +34,27 @@ $setting = new admin_setting_configstoredfile($name, $title, $description, 'fron
 $setting->set_updatedcallback('theme_reset_all_caches');
 $page->add($setting);
 
-// Frontpage title
-$page->add(new admin_setting_configtext('theme_trema/frontpagetitle', new lang_string('frontpagetitle', 'theme_trema'), '', 'Lorem ipsum, dolor sit amet'));
+// Frontpage title.
+$page->add(
+    new admin_setting_configtext('theme_trema/frontpagetitle', new lang_string('frontpagetitle', 'theme_trema'), '',
+        'Lorem ipsum, dolor sit amet'));
 
-// Frontpage subtitle
-$page->add(new admin_setting_configtext('theme_trema/frontpagesubtitle', new lang_string('frontpagesubtitle', 'theme_trema'), '', 'Ut enim ad minim veniam,<br> quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'));
+// Frontpage subtitle.
+$page->add(
+    new admin_setting_configtext('theme_trema/frontpagesubtitle', new lang_string('frontpagesubtitle', 'theme_trema'), '',
+        'Ut enim ad minim veniam,<br> quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'));
 
-// Frontpage button text
-$page->add(new admin_setting_configtext('theme_trema/frontpagebuttontext', new lang_string('frontpagebuttontext', 'theme_trema'), '', 'Learn more'));
+// Frontpage button text.
+$page->add(
+    new admin_setting_configtext('theme_trema/frontpagebuttontext', new lang_string('frontpagebuttontext', 'theme_trema'), '',
+        'Learn more'));
 
-// Frontpage button href
-$page->add(new admin_setting_configtext('theme_trema/frontpagebuttonhref', new lang_string('frontpagebuttonhref', 'theme_trema'), new lang_string('frontpagebuttonhref_desc', 'theme_trema'), '#frontpage-cards'));
+// Frontpage button href.
+$page->add(
+    new admin_setting_configtext('theme_trema/frontpagebuttonhref', new lang_string('frontpagebuttonhref', 'theme_trema'),
+        new lang_string('frontpagebuttonhref_desc', 'theme_trema'), '#frontpage-cards'));
 
-// Frontpage button class
+// Frontpage button class.
 $choices = array(
     "btn-primary" => "btn-primary",
     "btn-secondary" => "btn-secondary",
@@ -57,16 +65,18 @@ $choices = array(
     "btn-light" => "btn-light",
     "btn-dark" => "btn-dark"
 );
-$setting = new admin_setting_configselect('theme_trema/frontpagebuttonclass', new lang_string('frontpagebuttonclass', 'theme_trema'), new lang_string('frontpagebuttonclass_desc', 'theme_trema'), 'btn-primary', $choices);
+$setting = new admin_setting_configselect('theme_trema/frontpagebuttonclass',
+    new lang_string('frontpagebuttonclass', 'theme_trema'), new lang_string('frontpagebuttonclass_desc', 'theme_trema'),
+    'btn-primary', $choices);
 $page->add($setting);
 
 // HTML to include in the main content of frontpage.
-$setting = new admin_setting_confightmleditor('theme_trema/defaultfrontpagebody',
-    get_string('defaultfrontpagebody', 'theme_trema'), get_string('defaultfrontpagebody_desc', 'theme_trema'), '', PARAM_RAW);
+$setting = new admin_setting_confightmleditor('theme_trema/defaultfrontpagebody', get_string('defaultfrontpagebody', 'theme_trema'),
+    get_string('defaultfrontpagebody_desc', 'theme_trema'), '', PARAM_RAW);
 $page->add($setting);
 
 // HTML to include in the footer content of frontpage.
-$footer_html = '<div class="row">
+$footerhtml = '<div class="row">
 	<div class="col-md-8">
 		<h3 class="-align-center">Trema Soluções em Tecnologia</h3>
 
@@ -85,13 +95,13 @@ $footer_html = '<div class="row">
 		</ul>
 	</div>
 </div>';
-$setting = new admin_setting_confightmleditor('theme_trema/defaultfooter',
-    get_string('defaultfooter', 'theme_trema'), get_string('defaultfooter_desc', 'theme_trema'), $footer_html, PARAM_RAW);
+$setting = new admin_setting_confightmleditor('theme_trema/defaultfooter', get_string('defaultfooter', 'theme_trema'),
+    get_string('defaultfooter_desc', 'theme_trema'), $footerhtml, PARAM_RAW);
 $page->add($setting);
 
 // Raw SCSS to include before the content.
-$setting = new admin_setting_scsscode('theme_trema/scsspre',
-    get_string('rawscsspre', 'theme_trema'), get_string('rawscsspre_desc', 'theme_trema'), '', PARAM_RAW);
+$setting = new admin_setting_scsscode('theme_trema/scsspre', get_string('rawscsspre', 'theme_trema'),
+    get_string('rawscsspre_desc', 'theme_trema'), '', PARAM_RAW);
 $setting->set_updatedcallback('theme_reset_all_caches');
 $page->add($setting);
 
@@ -101,12 +111,10 @@ $setting = new admin_setting_scsscode('theme_trema/scss', get_string('rawscss', 
 $setting->set_updatedcallback('theme_reset_all_caches');
 $page->add($setting);
 
-// Frontpage cards
-$page->add(new admin_setting_heading('theme_trema_cards',
-    get_string('frontpagecards', 'theme_trema'),
-    '', FORMAT_MARKDOWN));
+// Frontpage cards.
+$page->add(new admin_setting_heading('theme_trema_cards', get_string('frontpagecards', 'theme_trema'), '', FORMAT_MARKDOWN));
 
-// Enable/disable frontpage cards
+// Enable/disable frontpage cards.
 $name = 'theme_trema/frontpageenablecards';
 $title = get_string('frontpageenablecards', 'theme_trema');
 $description = get_string('frontpageenablecards_desc', 'theme_trema');
@@ -114,20 +122,22 @@ $default = true;
 $setting = new admin_setting_configcheckbox($name, $title, $description, $default, true, false);
 $page->add($setting);
 
-if(get_config('theme_trema', 'frontpageenablecards')) {    
-    // Title
+if (get_config('theme_trema', 'frontpageenablecards')) {
+    // Title.
     $name = 'theme_trema/frontpagecardstitle';
     $title = get_string('title', 'theme_trema');
     $description = '';
     $page->add(new admin_setting_configtext($name, $title, $description, 'MAGNA ETIAM ADIPISCING'));
-    
-    // Subtitle
+
+    // Subtitle.
     $name = 'theme_trema/frontpagecardssubtitle';
     $title = get_string('subtitle', 'theme_trema');
     $description = '';
-    $page->add(new admin_setting_configtext($name, $title, $description, 'Consequat sed ultricies rutrum. Sed adipiscing eu amet utem accusantium interdum lorem blandit vis ac commodo aliquet vulputate.'));
-    
-    // Number of cards
+    $page->add(
+        new admin_setting_configtext($name, $title, $description,
+            'Consequat sed ultricies rutrum. Sed adipiscing eu amet utem blandit vis ac commodo aliquet vulputate.'));
+
+    // Number of cards.
     $name = 'theme_trema/numberofcards';
     $title = get_string('numberofcards', 'theme_trema');
     $description = '';
@@ -138,44 +148,45 @@ if(get_config('theme_trema', 'frontpageenablecards')) {
         6 => '6'
     );
     $page->add(new admin_setting_configselect($name, $title, $description, $default, $choices));
-    
+
     $numberofcards = get_config('theme_trema', 'numberofcards');
-    for ($i = 1; $i <= $numberofcards; $i++) { 
-        // Card header
-        $page->add(new admin_setting_heading('theme_trema_card'.$i,
-            get_string('card', 'theme_trema').$i, ''));
-        
-        // Card icon
-        $name = 'theme_trema/cardicon'.$i;
-        $title = get_string('cardicon', 'theme_trema').$i;
+    for ($i = 1; $i <= $numberofcards; $i ++) {
+        // Card header.
+        $page->add(new admin_setting_heading('theme_trema_card' . $i, get_string('card', 'theme_trema') . $i, ''));
+
+        // Card icon.
+        $name = 'theme_trema/cardicon' . $i;
+        $title = get_string('cardicon', 'theme_trema') . $i;
         $description = get_string('cardicon_desc', 'theme_trema');
         $page->add(new admin_setting_configtext($name, $title, $description, 'fa-paper-plane'));
-        
-        // Card icon color
-        $name = 'theme_trema/cardiconcolor'.$i;
-        $title = get_string('cardiconcolor', 'theme_trema').$i;
+
+        // Card icon color.
+        $name = 'theme_trema/cardiconcolor' . $i;
+        $title = get_string('cardiconcolor', 'theme_trema') . $i;
         $description = '';
         $setting = new admin_setting_configcolourpicker($name, $title, $description, '#000000');
         $setting->set_updatedcallback('theme_reset_all_caches');
         $page->add($setting);
-        
-        // Card title
-        $name = 'theme_trema/cardtitle'.$i;
-        $title = get_string('cardtitle', 'theme_trema').$i;
+
+        // Card title.
+        $name = 'theme_trema/cardtitle' . $i;
+        $title = get_string('cardtitle', 'theme_trema') . $i;
         $description = '';
         $page->add(new admin_setting_configtext($name, $title, $description, 'MAGNA ETIAM'));
-        
-        // Card description
-        $name = 'theme_trema/cardsubtitle'.$i;
-        $title = get_string('cardsubtitle', 'theme_trema').$i;
+
+        // Card description.
+        $name = 'theme_trema/cardsubtitle' . $i;
+        $title = get_string('cardsubtitle', 'theme_trema') . $i;
         $description = '';
-        $page->add(new admin_setting_configtext($name, $title, $description, 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem accusantium incidunt blanditiis reprehenderit! Harum illo aperiam optio, volup.'));
-        
-        // Card link
-        $name = 'theme_trema/cardlink'.$i;
-        $title = get_string('cardlink', 'theme_trema').$i;
+        $page->add(
+            new admin_setting_configtext($name, $title, $description,
+                'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem accusantium! Harum optio, volup.'));
+
+        // Card link.
+        $name = 'theme_trema/cardlink' . $i;
+        $title = get_string('cardlink', 'theme_trema') . $i;
         $description = '';
-        $page->add(new admin_setting_configtext($name, $title, $description, ''));        
+        $page->add(new admin_setting_configtext($name, $title, $description, ''));
     }
 }
 

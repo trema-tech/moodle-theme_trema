@@ -16,41 +16,41 @@
 
 /**
  * Login settings
- * @package   theme_trema
+ *
+ * @package theme_trema
  * @copyright 2018 Trevor Furtado e Rodrigo Mady
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 defined('MOODLE_INTERNAL') || die();
 
 $page = new admin_settingpage('theme_trema_login', get_string('login', 'theme_trema'));
 
-// Login page style
+// Login page style.
 $choices = array(
     "particle-circles" => "particle-circles",
     "image" => "image"
 );
-$setting = new admin_setting_configselect('theme_trema/loginpagestyle', new lang_string('loginpagestyle', 'theme_trema'), '', 'particle-circles', $choices);
+$setting = new admin_setting_configselect('theme_trema/loginpagestyle', new lang_string('loginpagestyle', 'theme_trema'), '',
+    'particle-circles', $choices);
 $page->add($setting);
 
-
-if(get_config('theme_trema', 'loginpagestyle') == "particle-circles") {
-    // Background color
+if (get_config('theme_trema', 'loginpagestyle') == "particle-circles") {
+    // Background color.
     $name = 'theme_trema/particles_backgroundcolor';
     $title = get_string('backgroundcolor', 'theme_trema');
     $description = '';
     $setting = new admin_setting_configcolourpicker($name, $title, $description, '#020221');
     $setting->set_updatedcallback('theme_reset_all_caches');
     $page->add($setting);
-    
-    // Circles color
+
+    // Circles color.
     $name = 'theme_trema/particles_circlescolor';
     $title = get_string('circlescolor', 'theme_trema');
     $description = '';
     $setting = new admin_setting_configcolourpicker($name, $title, $description, '#FFFFFF');
     $setting->set_updatedcallback('theme_reset_all_caches');
     $page->add($setting);
-} else if(get_config('theme_trema', 'loginpagestyle') == "image") {
+} else if (get_config('theme_trema', 'loginpagestyle') == "image") {
     // Login background image.
     $name = 'theme_trema/loginbackgroundimage';
     $title = get_string('loginbackgroundimage', 'theme_trema');

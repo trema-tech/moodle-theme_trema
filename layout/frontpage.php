@@ -17,13 +17,12 @@
 /**
  * Frontpage file.
  *
- * @package    theme_trema
- * @copyright  2018 Trevor Furtado e Rodrigo Mady
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package theme_trema
+ * @copyright 2018 Trevor Furtado e Rodrigo Mady
+ * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 defined('MOODLE_INTERNAL') || die();
-//TODO: add custom HTML area
+// TODO: add custom HTML area.
 
 user_preference_allow_ajax_update('drawer-open-nav', PARAM_ALPHA);
 require_once($CFG->libdir . '/behat/lib.php');
@@ -46,7 +45,10 @@ $pluginsettings = get_config("theme_trema");
 
 $regionmainsettingsmenu = $OUTPUT->region_main_settings_menu();
 $templatecontext = [
-    'sitename' => format_string($SITE->shortname, true, ['context' => context_course::instance(SITEID), "escape" => false]),
+    'sitename' => format_string($SITE->shortname, true, [
+        'context' => context_course::instance(SITEID),
+        "escape" => false
+    ]),
     'output' => $OUTPUT,
     'sidepreblocks' => $blockshtml,
     'sideadminblocks' => $adminblockshtml,
@@ -55,17 +57,17 @@ $templatecontext = [
     'bodyattributes' => $bodyattributes,
     'navdraweropen' => $navdraweropen,
     'regionmainsettingsmenu' => $regionmainsettingsmenu,
-    'hasregionmainsettingsmenu' => !empty($regionmainsettingsmenu),
+    'hasregionmainsettingsmenu' => ! empty($regionmainsettingsmenu),
     'defaultfrontpagebody' => $pluginsettings->defaultfrontpagebody,
     'defaultfrontpagefooter' => $pluginsettings->defaultfooter,
     'frontpagetitle' => $pluginsettings->frontpagetitle,
     'frontpagesubtitle' => $pluginsettings->frontpagesubtitle,
     'frontpagebuttontext' => $pluginsettings->frontpagebuttontext,
     'frontpagebuttonclass' => $pluginsettings->frontpagebuttonclass,
-    'frontpagebuttonhref' => $pluginsettings->frontpagebuttonhref, 
+    'frontpagebuttonhref' => $pluginsettings->frontpagebuttonhref,
     'hascards' => $pluginsettings->frontpageenablecards,
-    'cardstitle' => $pluginsettings->frontpagecardstitle,    
-    'cardssubtitle' => $pluginsettings->frontpagecardssubtitle,    
+    'cardstitle' => $pluginsettings->frontpagecardstitle,
+    'cardssubtitle' => $pluginsettings->frontpagecardssubtitle,
     'cardssettings' => theme_trema_get_cards_settings()
 ];
 

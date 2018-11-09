@@ -17,11 +17,10 @@
 /**
  * Lib file.
  *
- * @package    theme_trema
- * @copyright  2018 Trevor Furtado e Rodrigo Mady
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package theme_trema
+ * @copyright 2018 Trevor Furtado e Rodrigo Mady
+ * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 defined('MOODLE_INTERNAL') || die();
 
 function theme_trema_get_main_scss_content($theme) {
@@ -32,8 +31,8 @@ function theme_trema_get_main_scss_content($theme) {
     $scss .= file_get_contents($CFG->dirroot . '/theme/trema/scss/defaultvariables.scss');
 
     $scss .= file_get_contents($CFG->dirroot . '/theme/trema/scss/styles.scss');
-    
-    if($frontpagebannerurl = $theme->setting_file_url('frontpagebanner', 'frontpagebanner')) {
+
+    if ($frontpagebannerurl = $theme->setting_file_url('frontpagebanner', 'frontpagebanner')) {
         $scss .= "#frontpage-banner {background-image: url([[pix:theme|frontpage/overlay]]), url('$frontpagebannerurl');}";
     } else {
         $scss .= "#frontpage-banner {background-image: url([[pix:theme|frontpage/overlay]]), url([[pix:theme|frontpage/banner]]);}";
@@ -44,10 +43,11 @@ function theme_trema_get_main_scss_content($theme) {
 /**
  * Get SCSS to prepend.
  *
- * @param theme_config $theme The theme config object.
+ * @param theme_config $theme
+ *            The theme config object.
  * @return array
  */
-function theme_trema_get_pre_scss($theme) {    
+function theme_trema_get_pre_scss($theme) {
     $scss = '';
     $configurable = [
         // Config key => [variableName, ...].
@@ -56,26 +56,26 @@ function theme_trema_get_pre_scss($theme) {
         'particles_backgroundcolor' => 'particles-bg',
         'loginbackgroundimage' => 'login-backgroundimage'
     ];
-    
+
     // Prepend variables first.
     foreach ($configurable as $configkey => $target) {
         $value = isset($theme->settings->{$configkey}) ? $theme->settings->{$configkey} : null;
         if (empty($value)) {
             continue;
-        } else if ($configkey == 'loginbackgroundimage' and !empty($theme->setting_file_url('loginbackgroundimage', 'loginbackgroundimage'))) {
-            $scss .= '$' . $target . ": '" . $theme->setting_file_url('loginbackgroundimage', 'loginbackgroundimage') . "';\n"; 
-            continue;            
+        } else if ($configkey == 'loginbackgroundimage' and
+                    ! empty($theme->setting_file_url('loginbackgroundimage', 'loginbackgroundimage'))) {
+            $scss .= '$' . $target . ": '" . $theme->setting_file_url('loginbackgroundimage', 'loginbackgroundimage') . "';\n";
+            continue;
         }
-        $scss .= '$' . $target . ': ' . $value . ";\n";            
+        $scss .= '$' . $target . ': ' . $value . ";\n";
     }
-    
+
     // Prepend pre-scss.
-    if (!empty($theme->settings->scsspre)) {
+    if (! empty($theme->settings->scsspre)) {
         $scss .= $theme->settings->scsspre;
     }
     return $scss;
 }
-
 
 /**
  * Serves any files associated with the theme settings.
@@ -89,12 +89,12 @@ function theme_trema_get_pre_scss($theme) {
  * @param array $options
  * @return bool
  */
-function theme_trema_pluginfile($course, $cm, $context, $filearea, $args, $forcedownload, array $options = array()) {
-//    if ($context->contextlevel == CONTEXT_SYSTEM && ($filearea === 'logo' || $filearea === 'backgroundimage' || $filearea === 'favicon' || $filearea === 'frontpagebanner')) {
-    if ($context->contextlevel == CONTEXT_SYSTEM ) {
+function theme_trema_pluginfile($course, $cm, $context, $filearea,
+                                    $args, $forcedownload, array $options = array()) {
+    if ($context->contextlevel == CONTEXT_SYSTEM) {
         $theme = theme_config::load('trema');
         // By default, theme files must be cache-able by both browsers and proxies.
-        if (!array_key_exists('cacheability', $options)) {
+        if (! array_key_exists('cacheability', $options)) {
             $options['cacheability'] = 'public';
         }
         return $theme->setting_file_serve($filearea, $args, $forcedownload, $options);
@@ -110,24 +110,24 @@ function theme_trema_pluginfile($course, $cm, $context, $filearea, $args, $force
  */
 function theme_trema_get_cards_settings() {
     $theme = theme_config::load('trema');
-    $cards_settings = array();
-    
+    $cardssettings = array();
+
     $numberofcards = get_config('theme_trema', 'numberofcards');
-    if(get_config('theme_trema', 'frontpageenablecards') &&  $numberofcards > 1) {
-        for ($i = 1; $i <= $numberofcards; $i++) {
-            $card_settings = new stdClass();
-            $card_settings->cardicon = $theme->settings->{'cardicon'.$i};
-            $card_settings->cardiconcolor = $theme->settings->{'cardiconcolor'.$i};
-            $card_settings->cardtitle = $theme->settings->{'cardtitle'.$i};
-            $card_settings->cardsubtitle = $theme->settings->{'cardsubtitle'.$i};
-            $card_settings->cardlink = $theme->settings->{'cardlink'.$i};
-            
-            $cards_settings[] = $card_settings;
+    if (get_config('theme_trema', 'frontpageenablecards') && $numberofcards > 1) {
+        for ($i = 1; $i <= $numberofcards; $i ++) {
+            $cardsettings = new stdClass();
+            $cardsettings->cardicon = $theme->settings->{'cardicon' . $i};
+            $cardsettings->cardiconcolor = $theme->settings->{'cardiconcolor' . $i};
+            $cardsettings->cardtitle = $theme->settings->{'cardtitle' . $i};
+            $cardsettings->cardsubtitle = $theme->settings->{'cardsubtitle' . $i};
+            $cardsettings->cardlink = $theme->settings->{'cardlink' . $i};
+
+            $cardssettings[] = $cardsettings;
         }
-        return $cards_settings;
+        return $cardssettings;
     } else {
         return false;
-    } 
+    }
 }
 
 /**
@@ -141,7 +141,7 @@ function get_disk_usage() {
     $cache = cache::make('theme_trema', 'dashboardadmin');
     $totaldisk = $cache->get('totaldisk');
 
-    if (!$totaldisk) {
+    if (! $totaldisk) {
         $total = get_directory_size($CFG->dataroot);
         $totaldisk = number_format(ceil($total / 1048576));
 
@@ -152,7 +152,8 @@ function get_disk_usage() {
     if ($totaldisk > 1024) {
         $usageunit = ' GB';
     }
-    return $totaldisk . $usageunit;;
+    return $totaldisk . $usageunit;
+    ;
 }
 
 /**
@@ -163,8 +164,8 @@ function get_disk_usage() {
 function get_active_courses() {
     global $DB;
     $today = time();
-    $sql = "SELECT id 
-            FROM {course} 
+    $sql = "SELECT id
+            FROM {course}
             WHERE visible = 1 AND startdate <= {$today} AND (enddate > {$today} OR enddate = 0) AND format != 'site'";
     return $DB->get_fieldset_sql($sql);
 }
@@ -175,15 +176,15 @@ function get_active_courses() {
  * @return int number of active courses
  */
 function count_active_courses() {
-    return count(get_active_courses()); 
+    return count(get_active_courses());
 }
 
 /**
- * Get all courses excepect course 1 -->  frontpage
+ * Get all courses excepect course 1 --> frontpage
  */
 function count_courses() {
     global $DB;
-    return $DB->count_records('course') - 1; //delete course site
+    return $DB->count_records('course') - 1; // Delete course site.
 }
 
 /**
@@ -195,9 +196,9 @@ function count_active_enrolments() {
     global $DB;
     $today = time();
     $activecourses = implode(', ', (array) get_active_courses());
-    $sql = "SELECT COUNT(1) 
-            FROM {user_enrolments} ue 
-            INNER JOIN {enrol} e ON ue.enrolid = e.id 
+    $sql = "SELECT COUNT(1)
+            FROM {user_enrolments} ue
+            INNER JOIN {enrol} e ON ue.enrolid = e.id
             WHERE ue.status = 0 AND (ue.timeend >= {$today} OR ue.timeend = 0) AND e.courseid IN ({$activecourses})";
     return $DB->count_records_sql($sql);
 }
@@ -214,7 +215,7 @@ function count_user_enrolments() {
 
 function get_environment_issues() {
     global $CFG;
-    require_once($CFG->dirroot."/report/performance/locallib.php");
+    require_once($CFG->dirroot . "/report/performance/locallib.php");
     $lib = new report_performance();
     $issues = [];
     $issues['themedesignermode'] = $lib->report_performance_check_themedesignermode();
@@ -222,14 +223,13 @@ function get_environment_issues() {
     $issues['debugmsg'] = $lib->report_performance_check_debugmsg();
     $issues['automatic_backup'] = $lib->report_performance_check_automatic_backup();
     $issues['enablestats'] = $lib->report_performance_check_enablestats();
-    
-    //prevent warnings
+
+    // Prevent warnings.
     $status["ok"] = 0;
     $status["warning"] = 0;
     foreach ($issues as $issue) {
-        if($issue->status == 'serious' || $issue->status == 
-                'critical' || $issue->status == 'warning') {
-            $status['warning']++;
+        if ($issue->status == 'serious' || $issue->status == 'critical' || $issue->status == 'warning') {
+            $status['warning'] ++;
         }
     }
     return $status;

@@ -77,7 +77,7 @@ $string['title'] = 'Title';
 $string['total'] = 'Total';
 $string['subtitle'] = 'Subtitle';
 
-// Strings copied from Boost
+// Strings copied from Boost.
 $string['advancedsettings'] = 'Advanced settings';
 $string['primarycolor'] = 'Primary colour';
 $string['primarycolor_desc'] = 'The main colour.';
