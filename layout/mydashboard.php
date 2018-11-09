@@ -62,7 +62,7 @@ $templatecontext = [
 if (is_siteadmin()) {
     $templatecontext['disk'] = get_disk_usage();
     $templatecontext['totalcourses'] = count_courses();
-    $templatecontext['activecourses'] = get_active_courses();
+    $templatecontext['activecourses'] = count_active_courses();
     $templatecontext['activeenrolments'] = count_active_enrolments();
     $templatecontext['enrolments'] = count_user_enrolments();
     $templatecontext['issuestatus'] = get_environment_issues();

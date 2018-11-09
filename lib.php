@@ -38,7 +38,6 @@ function theme_trema_get_main_scss_content($theme) {
     } else {
         $scss .= "#frontpage-banner {background-image: url([[pix:theme|frontpage/overlay]]), url([[pix:theme|frontpage/banner]]);}";
     }
-    
     return $scss;
 }
 
@@ -74,7 +73,6 @@ function theme_trema_get_pre_scss($theme) {
     if (!empty($theme->settings->scsspre)) {
         $scss .= $theme->settings->scsspre;
     }
-    
     return $scss;
 }
 
@@ -126,7 +124,6 @@ function theme_trema_get_cards_settings() {
             
             $cards_settings[] = $card_settings;
         }
-        
         return $cards_settings;
     } else {
         return false;
@@ -155,7 +152,6 @@ function get_disk_usage() {
     if ($totaldisk > 1024) {
         $usageunit = ' GB';
     }
-
     return $totaldisk . $usageunit;;
 }
 
@@ -167,9 +163,19 @@ function get_disk_usage() {
 function get_active_courses() {
     global $DB;
     $today = time();
-    $sql = "SELECT COUNT(1) FROM {course} WHERE visible = 1 AND (enddate >= {$today} OR enddate = 0)";
+    $sql = "SELECT id 
+            FROM {course} 
+            WHERE visible = 1 AND startdate <= {$today} AND (enddate > {$today} OR enddate = 0) AND format != 'site'";
+    return $DB->get_fieldset_sql($sql);
+}
 
-    return $DB->count_records_sql($sql);
+/**
+ * Count active courses with status 1 and startdate less than today
+ *
+ * @return int number of active courses
+ */
+function count_active_courses() {
+    return count(get_active_courses()); 
 }
 
 /**
@@ -177,19 +183,22 @@ function get_active_courses() {
  */
 function count_courses() {
     global $DB;
-    return $DB->count_records('course') - 1;
+    return $DB->count_records('course') - 1; //delete course site
 }
 
 /**
- * Get all active enrolments
+ * Get all active enrolments from actives courses
  *
  * @return void
  */
 function count_active_enrolments() {
     global $DB;
     $today = time();
-    $sql = "SELECT COUNT(1) FROM {user_enrolments} WHERE status = 0 AND (timeend >= {$today} OR timeend = 0)";
-
+    $activecourses = implode(', ', (array) get_active_courses());
+    $sql = "SELECT COUNT(1) 
+            FROM {user_enrolments} ue 
+            INNER JOIN {enrol} e ON ue.enrolid = e.id 
+            WHERE ue.status = 0 AND (ue.timeend >= {$today} OR ue.timeend = 0) AND e.courseid IN ({$activecourses})";
     return $DB->count_records_sql($sql);
 }
 
