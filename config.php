@@ -42,13 +42,8 @@ $THEME->scss = function($theme) {
 // Docking is not currently supported in Boost family themes.
 $THEME->enable_dock = false;
 
-// Call css/scss processing functions and renderers.
-//$THEME->csstreepostprocessor = 'theme_waxed_css_tree_post_processor';
-//$THEME->prescsscallback = 'theme_waxed_get_pre_scss';
-//$THEME->extrascsscallback = 'theme_waxed_get_extra_scss';
+// Override renderes from core.
 $THEME->rendererfactory = 'theme_overridden_renderer_factory';
-
-//$THEME->addblockposition = BLOCK_ADDBLOCK_POSITION_FLATNAV;
 
 // Additional theme options.
 $THEME->supportscssoptimisation = false;

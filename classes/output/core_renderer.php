@@ -50,7 +50,6 @@ class core_renderer extends \theme_boost\output\core_renderer {
     /**
      *
      * Always show the compact logo when its defined.
-     * 
      * @return bool
      */
     public function should_display_navbar_logo() {
@@ -101,7 +100,7 @@ class core_renderer extends \theme_boost\output\core_renderer {
             }
         }
     }
-    
+
     /*
      * Overriding the custom_menu function ensures the custom menu is
      * always shown, even if no menu items are configured in the global
@@ -109,17 +108,17 @@ class core_renderer extends \theme_boost\output\core_renderer {
      */
     protected function render_custom_menu(custom_menu $menu) {
         global $CFG;
-        
+
         if (!$menu->has_children()) {
             return '';
         }
-        
+
         $content = '';
         foreach ($menu->get_children() as $item) {
             $context = $item->export_for_template($this);
             $content .= $this->render_from_template('core/custom_menu_item', $context);
         }
-        
+
         return $content;
     }
 }

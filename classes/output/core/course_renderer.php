@@ -37,7 +37,6 @@ use course_in_list;
  * Renderizador para estilizar as caixas de cursos da Enovus
  */
 class course_renderer extends \core_course_renderer {
-    
     /**
      * Renders the list of courses for frontpage and /course
      *
@@ -53,16 +52,14 @@ class course_renderer extends \core_course_renderer {
      */
     protected function coursecat_courses(coursecat_helper $chelper, $courses, $totalcount = null) {
         global $CFG;
-        
+
         if ($totalcount === null) {
             $totalcount = count($courses);
         }
-        
         if (!$totalcount) {
             // Courses count is cached during courses retrieval.
             return '';
         }
-        
         if ($chelper->get_show_courses() == self::COURSECAT_SHOW_COURSES_AUTO) {
             // In 'auto' course display mode we analyse if number of courses is more or less than $CFG->courseswithsummarieslimit.
             if ($totalcount <= $CFG->courseswithsummarieslimit) {
@@ -71,7 +68,7 @@ class course_renderer extends \core_course_renderer {
                 $chelper->set_show_courses(self::COURSECAT_SHOW_COURSES_COLLAPSED);
             }
         }
-        
+
         // Prepare content of paging bar if it is needed.
         $paginationurl = $chelper->get_courses_display_option('paginationurl');
         $paginationallowall = $chelper->get_courses_display_option('paginationallowall');
@@ -107,36 +104,34 @@ class course_renderer extends \core_course_renderer {
                 array('class' => 'paging paging-showperpage')
                 );
         }
-        
         // Display list of courses.
         $attributes = $chelper->get_and_erase_attributes('courses');
         $content = html_writer::start_tag('div', $attributes);
-        
+
         if (!empty($pagingbar)) {
             $content .= $pagingbar;
         }
-        
+
         $coursecount = 1;
         $content .= html_writer::start_tag('div', array('class' => ' row card-deck my-4'));
         foreach ($courses as $course) {
             $content .= $this->coursecat_coursebox($chelper, $course, 'card mb-3 course-card-view');
             $coursecount ++;
         }
-        
+
         $content .= html_writer::end_tag('div');
-        
         if (!empty($pagingbar)) {
             $content .= $pagingbar;
         }
-        
+
         if (!empty($morelink)) {
             $content .= $morelink;
         }
-        
+
         $content .= html_writer::end_tag('div'); // End courses.
         return $content;
     }
-    
+
     /**
      * Displays one course in the list of courses.
      *
@@ -151,7 +146,6 @@ class course_renderer extends \core_course_renderer {
      */
     protected function coursecat_coursebox(coursecat_helper $chelper, $course, $additionalclasses = '') {
         global $CFG;
-        
         if (!isset($this->strings->summary)) {
             $this->strings->summary = get_string('summary');
         }
@@ -163,7 +157,6 @@ class course_renderer extends \core_course_renderer {
             $course = new course_in_list($course);
         }
         $content = html_writer::start_tag('div', array('class' => $additionalclasses));
-        
         $classes = '';
         if ($chelper->get_show_courses() >= self::COURSECAT_SHOW_COURSES_EXPANDED) {
             $nametag = 'h5';
@@ -171,23 +164,20 @@ class course_renderer extends \core_course_renderer {
             $classes .= ' collapsed';
             $nametag = 'div';
         }
-        
         // End coursebox.
         $content .= html_writer::start_tag('div', array(
             'class' => $classes,
             'data-courseid' => $course->id,
             'data-type' => self::COURSECAT_TYPE_COURSE,
         ));
-        
         $content .= $this->coursecat_coursebox_content($chelper, $course);
-        
-        $content .= html_writer::end_tag('div'); // End coursebox.
-        
-        $content .= html_writer::end_tag('div'); // End col-md-4.
-        
+        $content .= html_writer::end_tag('div');
+        // End coursebox.
+        $content .= html_writer::end_tag('div');
+        // End col-md-4.
         return $content;
     }
-    
+
     /**
      * Returns HTML to display course content (summary, course contacts and optionally category name)
      *
@@ -199,39 +189,39 @@ class course_renderer extends \core_course_renderer {
      */
     protected function coursecat_coursebox_content(coursecat_helper $chelper, $course) {
         global $CFG;
-        
+
         if ($course instanceof stdClass) {
             require_once($CFG->libdir. '/coursecatlib.php');
             $course = new course_in_list($course);
         }
-        
+
         // Course name.
         $coursename = $chelper->get_course_formatted_name($course);
         $coursenamelink = html_writer::link(new moodle_url('/course/view.php', array('id' => $course->id)),
             $coursename, array('class' => $course->visible ? '' : 'dimmed'));
-        
+
         $content = html_writer::start_tag('a', array ('href' => '/course/view.php?id='.$course->id, 'class' => 'course-card-img'));
         $content .= $this->get_course_summary_image($course);
         $content .= html_writer::end_tag('a');
-        
+
         $content .= html_writer::start_tag('div', array('class' => 'card-body'));
         $content .= "<h5 class='card-title text-center m-1'>". $coursenamelink ."</h5>";
         $content .= html_writer::end_tag('div');
-        
+
         $content .= html_writer::start_tag('div', array('class' => 'card-block text-center'));
-        
+
         // Print enrolmenticons.
         if ($icons = enrol_get_course_info_icons($course)) {
             foreach ($icons as $pixicon) {
                 $content .= $this->render($pixicon);
             }
         }
-        
+
         $content .= html_writer::start_tag('div', array('class' => 'pull-right'));
         $content .= html_writer::end_tag('div'); // End pull-right.
-        
+
         $content .= html_writer::end_tag('div'); // End card-block.
-        
+
         // Display course contacts. See course_in_list::get_course_contacts().
         if ($course->has_course_contacts()) {
             $content .= html_writer::start_tag('div', array('class' => 'card-footer teachers'));
@@ -246,7 +236,7 @@ class course_renderer extends \core_course_renderer {
             $content .= html_writer::end_tag('ul'); // End teachers.
             $content .= html_writer::end_tag('div'); // End teachers.
         }
-        
+
         // Display course category if necessary (for example in search results).
         if ($chelper->get_show_courses() == self::COURSECAT_SHOW_COURSES_EXPANDED_WITH_CAT) {
             require_once($CFG->libdir. '/coursecatlib.php');
@@ -258,23 +248,23 @@ class course_renderer extends \core_course_renderer {
                     $content .= html_writer::end_tag('div'); // End coursecat.
             }
         }
-        
+
         // Display course summary.
         if ($course->has_summary()) {
             $content .= html_writer::start_tag('div', array('class' => 'card-see-more text-center'));
             $content .= html_writer::start_tag('div', array('class' => 'btn btn-secondary m-2',
-                'id' => "course-popover-{$course->id}", 'role' => 'button', 'data-region'=>'popover-region-toggle',
-                'data-toggle'=>'popover', 'data-placement' =>'right',
-                'data-content'=> $chelper->get_course_formatted_summary($course,
-                    array('noclean' => true, 'para' => false)),'data-html'=>'true', 'tabindex'=>'0', 'data-trigger'=>'focus'));
-            $content .=  "Saiba Mais";
+                'id' => "course-popover-{$course->id}", 'role' => 'button', 'data-region' => 'popover-region-toggle',
+                'data-toggle' => 'popover', 'data-placement' => 'right',
+                'data-content' => $chelper->get_course_formatted_summary($course,
+                array('noclean' => true, 'para' => false)), 'data-html' => 'true', 'tabindex' => '0', 'data-trigger' => 'focus'));
+            $content .= "Saiba Mais";
             $content .= html_writer::end_tag('div');
             $content .= html_writer::end_tag('div'); // End summary.
         }
-        
+
         return $content;
     }
-    
+
     /**
      * Returns the first course's summary issue
      *
@@ -283,7 +273,7 @@ class course_renderer extends \core_course_renderer {
      */
     protected function get_course_summary_image($course) {
         global $CFG;
-        
+
         $contentimage = '';
         foreach ($course->get_course_overviewfiles() as $file) {
             $isimage = $file->is_valid_image();
@@ -297,7 +287,7 @@ class course_renderer extends \core_course_renderer {
                 break;
             }
         }
-        
+
         if (empty($contentimage)) {
             $pattern = new \core_geopattern();
             $pattern->setColor($this->coursecolor($course->id));
@@ -306,10 +296,10 @@ class course_renderer extends \core_course_renderer {
             'class' => 'card-img-top'));
             $contentimage .= html_writer::end_tag('div');
         }
-        
+
         return $contentimage;
     }
-    
+
     /**
      * Generate a semi-random color based on the courseid number (so it will always return
      * the same color for a course)
@@ -319,8 +309,9 @@ class course_renderer extends \core_course_renderer {
      */
     protected function coursecolor($courseid) {
         // The colour palette is hardcoded for now. It would make sense to combine it with theme settings.
-        $basecolors = ['#81ecec', '#74b9ff', '#a29bfe', '#dfe6e9', '#00b894', '#0984e3', '#b2bec3', '#fdcb6e', '#fd79a8', '#6c5ce7'];
-        
+        $basecolors = ['#81ecec', '#74b9ff', '#a29bfe', '#dfe6e9', '#00b894', '#0984e3', '#b2bec3',
+                        '#fdcb6e', '#fd79a8', '#6c5ce7'];
+
         $color = $basecolors[$courseid % 10];
         return $color;
     }
