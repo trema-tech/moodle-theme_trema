@@ -27,13 +27,15 @@
         {{#issuestatus.warning}}
         <div class="col-sm-3">
             <div class="card-body">
-                    <i class="fa fa-4x fa-ambulance float-right p-1"></i>
-                    <div class="m-2 position-relative">   
-                    <b class="text-uppercase">{{#str}}alert, theme_trema{{/str}}</b>
-                        <span class="count-container badge-danger" data-region="count-container" 
-                        style="top: -.5rem; right: auto;" title="{{#str}}alert, theme_trema{{/str}}">{{issuestatus.warning}}</span>
+                <i class="fa fa-4x fa-ambulance float-right p-1"></i>
+                <a href="{{config.wwwroot}}/report/performance/index.php">
+                    <div class="m-2 position-relative">
+                        <b class="text-uppercase">{{#str}}alert, theme_trema{{/str}}</b>
+                            <span class="count-container badge-danger" data-region="count-container"
+                            style="top: -.5rem; right: auto;" title="{{#str}}alert, theme_trema{{/str}}">{{issuestatus.warning}}</span>
                     </div>
-                <h6>{{#str}}systemsecurity, theme_trema{{/str}}</h6>
+                    <h6>{{#str}}systemsecurity, theme_trema{{/str}}</h6>
+                </a>
             </div>
         </div>
         {{/issuestatus.warning}}

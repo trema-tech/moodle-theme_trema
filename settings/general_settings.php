@@ -49,6 +49,12 @@ $setting = new admin_setting_configcolourpicker($name, $title, $description, '')
 $setting->set_updatedcallback('theme_reset_all_caches');
 $page->add($setting);
 
+$name = 'theme_trema/enableadmindashboard';
+$title = get_string('enableadmindashboard', 'theme_trema');
+$description = get_string('enableadmindashboard_desc', 'theme_trema', "$CFG->wwwroot/theme/trema/pix/examples/admindashboard.png");
+$setting = new admin_setting_configcheckbox($name, $title, $description, '1');
+$page->add($setting);
+
 // Must add the page after definiting all the settings!
 $settings->add($page);
 

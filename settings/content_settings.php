@@ -117,7 +117,7 @@ $page->add(new admin_setting_heading('theme_trema_cards', get_string('frontpagec
 // Enable/disable frontpage cards.
 $name = 'theme_trema/frontpageenablecards';
 $title = get_string('frontpageenablecards', 'theme_trema');
-$description = get_string('frontpageenablecards_desc', 'theme_trema');
+$description = get_string('frontpageenablecards_desc', 'theme_trema',"$CFG->wwwroot/theme/trema/pix/examples/cards.png");
 $default = true;
 $setting = new admin_setting_configcheckbox($name, $title, $description, $default, true, false);
 $page->add($setting);
