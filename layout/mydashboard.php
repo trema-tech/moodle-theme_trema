@@ -64,7 +64,7 @@ if (is_siteadmin()) {
     $templatecontext['totalcourses'] = count_courses();
     $templatecontext['activecourses'] = count_active_courses();
     $templatecontext['activeenrolments'] = count_active_enrolments();
-    $templatecontext['enrolments'] = count_user_enrolments();
+    $templatecontext['enrolments'] = count_users_enrolments();
     $templatecontext['issuestatus'] = get_environment_issues();
 }
 
