@@ -5,13 +5,13 @@ body #page {
         border: none;
         line-height: 1.5rem;
     }
-    
+
     h1 {
         line-height: 2.85rem;
         font-weight: 600;
         line-height: 2rem;
     }
-    
+
     h2 {
         font-weight: normal;
         font-size: 1.75rem;
@@ -64,6 +64,11 @@ body #page {
         padding: 0.25em 0.65em;
     }
 
+    .dropdown-item.active, .dropdown-item:active {
+        color: choose-contrast-color($primary);
+        background-color: lighten($primary, 20%);
+    }
+
     //lists
     ul.alt {
         list-style: none;
@@ -101,15 +106,18 @@ body #page {
         cursor: pointer;
         display: inline-block;
         font-weight: 600;
-        height: 3.1em;
-        letter-spacing: 0.08em;
-        padding: 0 1.5em;
+        font-size: 0.9rem;
+        letter-spacing: 0.08rem;
+        margin: 0.5rem;
+        padding: 0 0.9rem;
         text-align: center;
         text-decoration: none;
         text-transform: uppercase;
         white-space: nowrap;
 
         &:hover {
+            background-color: rgba($gray-800, 0.8);
+            color: $white;
             text-decoration: none;
         }
 
@@ -140,7 +148,7 @@ body #page {
     .btn {
         line-height: 3.1em;
     }
-    
+
     //Correct the alignment of the help icon with popover
     a.btn[data-toggle="popover"] {
         line-height: 1.5;
@@ -201,11 +209,11 @@ body #page {
             height: 2.75rem;
         }
     }
-    
+
     .form-group {
         margin-bottom: 0.8rem;
     }
-    
+
     select {
         background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPSc0MCcgaGVpZ2h0PSc0MCcgcHJlc2VydmVBc3BlY3RSYXRpbz0nbm9uZScgdmlld0JveD0nMCAwIDQwIDQwJz48cGF0aCBkPSdNOS40LDEyLjNsMTAuNCwxMC40bDEwLjQtMTAuNGMwLjItMC4yLDAuNS0wLjQsMC45LTAuNGMwLjMsMCwwLjYsMC4xLDAuOSwwLjRsMy4zLDMuM2MwLjIsMC4yLDAuNCwwLjUsMC40LDAuOSBjMCwwLjQtMC4xLDAuNi0wLjQsMC45TDIwLjcsMzEuOWMtMC4yLDAuMi0wLjUsMC40LTAuOSwwLjRjLTAuMywwLTAuNi0wLjEtMC45LTAuNEw0LjMsMTcuM2MtMC4yLTAuMi0wLjQtMC41LTAuNC0wLjkgYzAtMC40LDAuMS0wLjYsMC40LTAuOWwzLjMtMy4zYzAuMi0wLjIsMC41LTAuNCwwLjktMC40UzkuMSwxMi4xLDkuNCwxMi4zeicgZmlsbD0ncmdiYSgxNDQsIDE0NCwgMTQ0LCAwLjM1KScgLz48L3N2Zz4=");
 	    background-size: 1.25rem;
@@ -228,7 +236,7 @@ body #page {
     .page-item.active .page-link {
         color: choose-contrast-color($primary);
     }
-    
+
     #coursesearch {
         #coursesearchbox {
             width: auto;
@@ -268,15 +276,15 @@ body #page {
 
             a.nav-link {
                 border: 1px solid $primary;
-                border-right: none; 
+                border-right: none;
                 background-color: $white;
                 color: $primary;
                 border-radius: 0;
 
                 &.active {
                     color: $white;
-                    background-color: $primary; 
-                    
+                    background-color: $primary;
+
                     &:hover {
                         background-color: $primary;
                     }
@@ -287,7 +295,7 @@ body #page {
                     text-decoration: none;
                 }
             }
-            
+
             &:first-child a {
                 border-top-left-radius: 0.25rem;
                 border-bottom-left-radius: 0.25rem;

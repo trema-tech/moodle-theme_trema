@@ -33,4 +33,14 @@ body.pagelayout-mydashboard {
         }
     }
 
+    #page .btn.btn-outline-secondary {
+        color: $gray-800;
+        background-color: transparent;
+        &:hover, &:focus {
+            color: $gray-600;
+            outline: none;
+            box-shadow: none;
+        }
+    }
+
 }
