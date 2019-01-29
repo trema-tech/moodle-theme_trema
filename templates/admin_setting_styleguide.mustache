@@ -4,7 +4,8 @@
     <section><h3>Text</h3>
         <p>This is <b>bold</b> and this is <strong>strong</strong>. This is <i>italic</i> and this is
             <em>emphasized</em>. This is <sup>superscript</sup> text and this is <sub>subscript</sub> text. This is <u>underlined</u>
-            and this is code: <code>for (;;) { ... }</code>. Finally, <a style="cursor: pointer;" href="#">this is a link</a>.
+            and this is code: <code>for (;;) { ... }</code>. Finally, <a style="cursor: pointer;" href="#">this is a
+                link</a>.
         </p>
         <hr>
         <h2>Heading Level 2</h2>
@@ -55,22 +56,13 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
             </div>
         </div>
         <h4>Icons</h4>
-        <ul class="icons">
-            <li><a class="fa fa-twitter" style="cursor: pointer;"></a></li>
-            <li><a class="fa fa-facebook" style="cursor: pointer;"></a></li>
-            <li><a class="fa fa-instagram" style="cursor: pointer;"></a></li>
-            <li><a class="fa fa-github" style="cursor: pointer;"></a></li>
-            <li><a class="fa fa-dribbble" style="cursor: pointer;"></a></li>
-            <li><a class="fa fa-tumblr" style="cursor: pointer;"></a></li>
-        </ul>
-        <ul class="icons">
-            <li><a class="fa style2 fa-twitter" style="cursor: pointer;"></a></li>
-            <li><a class="fa style2 fa-facebook" style="cursor: pointer;"></a></li>
-            <li><a class="fa style2 fa-instagram" style="cursor: pointer;"></a>
-            </li>
-            <li><a class="fa style2 fa-github" style="cursor: pointer;"></a></li>
-            <li><a class="fa style2 fa-dribbble" style="cursor: pointer;"></a></li>
-            <li><a class="fa style2 fa-tumblr" style="cursor: pointer;"></a></li>
+        <ul class="d-inline list-unstyled">
+            <li class="d-inline m-r-1"><a class="fa fa-2x fa-twitter" style="cursor: pointer;"></a></li>
+            <li class="d-inline m-r-1"><a class="fa fa-2x fa-facebook" style="cursor: pointer;"></a></li>
+            <li class="d-inline m-r-1"><a class="fa fa-2x fa-instagram" style="cursor: pointer;"></a></li>
+            <li class="d-inline m-r-1"><a class="fa fa-2x fa-github" style="cursor: pointer;"></a></li>
+            <li class="d-inline m-r-1"><a class="fa fa-2x fa-dribbble" style="cursor: pointer;"></a></li>
+            <li class="d-inline m-r-1"><a class="fa fa-2x fa-tumblr" style="cursor: pointer;"></a></li>
         </ul>
         <h4>Actions</h4>
         <ul class="actions">
@@ -83,10 +75,34 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
             <li><a class="btn small" style="cursor: pointer;">Small</a></li>
             <li><a class="btn btn-secondary small" style="cursor: pointer;">Small</a></li>
         </ul>
+        <h3>Buttons</h3>
+        <ul class="actions">
+            <li><a class="btn btn-primary large" style="cursor: pointer;">Large</a></li>
+            <li><a class="btn" style="cursor: pointer;">Default</a></li>
+            <li><a class="btn btn-secondary small" style="cursor: pointer;">Small</a></li>
+        </ul>
+        <div class="row">
+            <div class="col-6 col-12-xsmall">
+                <ul class="actions fit small">
+                    <li><a class="btn fit small" style="cursor: pointer;">Fit + Small</a></li>
+                    <li><a class="btn btn-secondary fit small" style="cursor: pointer;">Fit + Small</a></li>
+                </ul>
+            </div>
+        </div>
+        <ul class="actions">
+            <li><a class="btn btn-primary fa fa-download" style="cursor: pointer;">Icon</a></li>
+            <li><a class="btn fa fa-download" style="cursor: pointer;">Icon</a></li>
+            <li><a class="btn btn-secondary fa fa-download" style="cursor: pointer;">Icon</a></li>
+        </ul>
+        <ul class="actions">
+            <li><span class="btn primary disabled">Primary</span></li>
+            <li><span class="btn disabled">Default</span></li>
+            <li><span class="btn btn-secondary disabled">Alternate</span></li>
+        </ul>
     </section>
     <section><h3>Table</h3><h4>Default</h4>
         <div class="table-wrapper">
-            <table class="table table-striped">
+            <table class="table">
                 <thead>
                 <tr>
                     <th>Name</th>
@@ -123,7 +139,7 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
                 </tbody>
                 <tfoot>
                 <tr>
-                    <td colspan="2"></td>
+                    <td colspan="2">Total</td>
                     <td>100.00</td>
                 </tr>
                 </tfoot>
@@ -168,78 +184,146 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
                 </tbody>
                 <tfoot>
                 <tr>
-                    <td colspan="2"></td>
+                    <td colspan="2">Total</td>
                     <td>100.00</td>
                 </tr>
                 </tfoot>
             </table>
         </div>
     </section>
-    <section><h3>Buttons</h3>
-        <ul class="actions">
-            <li><a class="btn btn-primary" style="cursor: pointer;">Primary</a></li>
-            <li><a class="btn" style="cursor: pointer;">Default</a></li>
-            <li><a class="btn btn-secondary" style="cursor: pointer;">Secondary</a></li>
-        </ul>
-        <ul class="actions">
-            <li><a class="btn btn-primary large" style="cursor: pointer;">Large</a></li>
-            <li><a class="btn" style="cursor: pointer;">Default</a></li>
-            <li><a class="btn btn-secondary small" style="cursor: pointer;">Small</a></li>
-        </ul>
-        <div class="row">
-            <div class="col-6 col-12-xsmall">
-                <ul class="actions fit small">
-                    <li><a class="btn fit small" style="cursor: pointer;">Fit + Small</a></li>
-                    <li><a class="btn btn-secondary fit small" style="cursor: pointer;">Fit + Small</a></li>
-                </ul>
-            </div>
-        </div>
-        <ul class="actions">
-            <li><a class="btn primary fa fa-download" style="cursor: pointer;">Icon</a></li>
-            <li><a class="btn fa fa-download" style="cursor: pointer;">Icon</a></li>
-            <li><a class="btn btn-secondary fa fa-download" style="cursor: pointer;">Icon</a></li>
-        </ul>
-        <ul class="actions">
-            <li><span class="btn primary disabled">Primary</span></li>
-            <li><span class="btn disabled">Default</span></li>
-            <li><span class="btn btn-secondary disabled">Alternate</span></li>
-        </ul>
-    </section>
     <section><h3>Form</h3>
-        <form method="post" action="#">
-            <div class="row gtr-uniform gtr-50">
-                <div class="col-6 col-12-xsmall"><input type="text" name="name" id="name" value="" placeholder="Name">
+        <form method="post" action="#" class="mform">
+            <fieldset class="clearfix collapsible" id="id_moodle">
+                <div class="fcontainer clearfix">
+                    <div id="fitem_id_username" class="form-group row  fitem   ">
+                        <div class="col-md-3">
+                        <span class="float-sm-right text-nowrap">
+                            <a class="btn btn-link p-0" role="button" data-container="body" data-toggle="popover"
+                               data-placement="right"
+                               data-content="<div class=&quot;no-overflow&quot;><p>Lembre-se de que</p></div>"
+                               data-html="true"
+                               tabindex="0" data-trigger="focus">
+                              <i class="icon fa fa-question-circle text-info fa-fw " aria-hidden="true"
+                                 title="Ajuda com Identificação de usuário"></i>
+                            </a>
+                        </span>
+                            <label class="col-form-label d-inline " for="id_username">
+                                Identificação de usuário
+                            </label>
+                        </div>
+                        <div class="col-md-9 form-inline felement" data-fieldtype="text">
+                            <input type="text" class="form-control " name="username" id="id_username" value="admin"
+                                   size="20">
+                            <div class="form-control-feedback invalid-feedback" id="id_error_username"></div>
+                        </div>
+                    </div>
+                    <div id="fitem_id_newpassword" class="form-group row  fitem   ">
+                        <div class="col-md-3">
+                            <label class="col-form-label d-inline " for="id_newpassword">
+                                Nova senha
+                            </label>
+                        </div>
+                        <div class="col-md-9 form-inline felement" data-fieldtype="passwordunmask">
+                            <span data-passwordunmask="wrapper" data-passwordunmaskid="id_newpassword">
+                                <span data-passwordunmask="editor">
+                                    <input type="hidden" name="newpassword" id="id_newpassword" value=""
+                                           class="form-control d-inline-block" data-size="20">
+                                </span>
+                                <a href="#" data-passwordunmask="edit" title="">
+                                    <span data-passwordunmask="displayvalue"><span>
+                                        <em>Clique para inserir texto</em>
+                                    </span></span>
+                                    <i class="icon fa fa-pencil fa-fw " aria-hidden="true" title="Editar senha"
+                                       aria-label="Editar senha"></i>
+                                </a>
+                                <a href="#" data-passwordunmask="unmask" title="">
+                                    <i class="icon fa fa-eye fa-fw " aria-hidden="true" title="Mostrar"
+                                       aria-label="Mostrar"></i>
+                                </a>
+                                <span data-passwordunmask="instructions" class="form-text text-muted"
+                                      style="display: none;"
+                                      id="id_newpassword_instructions">
+                                    Pressione a tecla enter para gravar as alterações
+                                </span>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="form-group row  fitem  ">
+                        <div class="col-md-3">
+                        </div>
+                    </div>
+                    <div id="fitem_id_maildisplay" class="form-group row  fitem   ">
+                        <div class="col-md-3">
+                            <label class="col-form-label d-inline " for="id_maildisplay">
+                                Mostrar endereço de email
+                            </label>
+                        </div>
+                        <div class="col-md-9 form-inline felement" data-fieldtype="select">
+                            <select class="custom-select" name="maildisplay" id="id_maildisplay">
+                                <option value="0">Esconder o meu endereço de email completamente</option>
+                                <option value="1" selected="">Permitir que todos vejam o meu endereço de email</option>
+                                <option value="2">Apenas os participantes do curso podem ver o meu endereço de email
+                                </option>
+                            </select>
+                            <div class="form-control-feedback invalid-feedback" id="id_error_maildisplay">
+
+                            </div>
+                        </div>
+                    </div>
+                    <div id="fitem_id_city" class="form-group row  fitem   ">
+                        <div class="col-md-3">
+                            <label class="col-form-label d-inline " for="id_city">
+                                Cidade/Município
+                            </label>
+                        </div>
+                        <div class="col-md-9 form-inline felement" data-fieldtype="text">
+                            <input type="text" class="form-control " name="city" id="id_city" value="" size="21"
+                                   maxlength="120">
+                        </div>
+                    </div>
+                    <div id="fitem_id_country" class="form-group row  fitem   ">
+                        <div class="col-md-3">
+                            <label class="col-form-label d-inline " for="id_country">
+                                Selecione um país
+                            </label>
+                        </div>
+                        <div class="col-md-9 form-inline felement" data-fieldtype="select">
+                            <select class="custom-select
+
+                       " name="country" id="id_country">
+                                <option value="" selected="">Selecione um país...</option>
+                                <option value="AF">Afeganistão</option>
+                                <option value="ZA">África do Sul</option>
+                                <option value="AL">Albânia</option>
+                                <option value="DE">Alemanha, República Federal da</option>
+                                <option value="AD">Andorra</option>
+                                <option value="AO">Angola</option>
+                                <option value="AI">Anguilla</option>
+                                <option value="AQ">Antártida</option>
+                                <option value="AG">Antígua e Barbuda</option>
+                            </select>
+                            <div class="form-control-feedback invalid-feedback" id="id_error_country">
+
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="col-6 col-12-xsmall"><input type="email" name="email" id="email" value=""
-                                                        placeholder="Email"></div>
-                <div class="col-12">
-                    <div class="select-wrapper"><select name="category" id="category">
-                        <option value="">- Category -</option>
-                        <option value="1">Manufacturing</option>
-                        <option value="1">Shipping</option>
-                        <option value="1">Administration</option>
-                        <option value="1">Human Resources</option>
-                    </select></div>
+                <div class="col-md-9 form-inline felement" data-fieldtype="group">
+                    <div class="form-group  fitem  ">
+                        <span data-fieldtype="submit">
+                        <input type="submit" class="btn btn-primary" name="submitbutton" id="id_submitbutton"
+                               value="Atualizar perfil">
+                        </span>
+                    </div>
+
+                    <div class="form-group  fitem   btn-cancel">
+                        <label class="col-form-label " for="id_cancel"></label>
+                        <span data-fieldtype="submit">
+                            <input type="submit" class="btn btn-secondary" name="cancel" id="id_cancel"
+                                   value="Cancelar"></span>
+                    </div>
                 </div>
-                <div class="col-4 col-12-xsmall"><input type="radio" id="priority-low" name="priority" checked=""><label
-                        for="priority-low">Low Priority</label></div>
-                <div class="col-4 col-12-xsmall"><input type="radio" id="priority-normal" name="priority"><label
-                        for="priority-normal">Normal Priority</label></div>
-                <div class="col-4 col-12-xsmall"><input type="radio" id="priority-high" name="priority"><label
-                        for="priority-high">High Priority</label></div>
-                <div class="col-6 col-12-small"><input type="checkbox" id="copy" name="copy"><label for="copy">Email me
-                    a copy of this message</label></div>
-                <div class="col-6 col-12-small"><input type="checkbox" id="human" name="human" checked=""><label
-                        for="human">I am a human and not a robot</label></div>
-                <div class="col-12"><textarea name="message" id="message" placeholder="Enter your message"
-                                              rows="6"></textarea></div>
-                <div class="col-12">
-                    <ul class="actions">
-                        <li><input type="submit" value="Send Message" class="btn-primary"></li>
-                        <li><input type="reset" value="Reset"></li>
-                    </ul>
-                </div>
-            </div>
+            </fieldset>
         </form>
     </section>
 </div>
