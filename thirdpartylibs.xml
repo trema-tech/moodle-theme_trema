@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<libraries>
+    <library>
+        <location>amd/src/particles.js</location>
+        <name>particles.js</name>
+        <license>MIT</license>
+        <version>2.0.0</version>
+        <licenseversion>1.0</licenseversion>
+    </library>
+</libraries>

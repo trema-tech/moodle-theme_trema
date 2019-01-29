@@ -23,7 +23,6 @@
  */
 
 defined('MOODLE_INTERNAL') || die();
-// TODO: add custom admin area with charts.
 
 user_preference_allow_ajax_update('drawer-open-nav', PARAM_ALPHA);
 require_once($CFG->libdir . '/behat/lib.php');
@@ -45,13 +44,14 @@ $adminblockshtml = $OUTPUT->blocks('side-admin');
 $pluginsettings = get_config("theme_trema");
 
 $regionmainsettingsmenu = $OUTPUT->region_main_settings_menu();
+
 $templatecontext = [
     'sitename' => format_string($SITE->shortname, true, ['context' => context_course::instance(SITEID), "escape" => false]),
     'output' => $OUTPUT,
     'sidepreblocks' => $blockshtml,
     'sideadminblocks' => $adminblockshtml,
     'hasblocks' => $hasblocks,
-    'isadmin' => is_siteadmin(),
+    'showdashboardadmin' => false,
     'bodyattributes' => $bodyattributes,
     'navdraweropen' => $navdraweropen,
     'regionmainsettingsmenu' => $regionmainsettingsmenu,
@@ -59,12 +59,13 @@ $templatecontext = [
     'defaultfrontpagefooter' => $pluginsettings->defaultfooter
 ];
 
-if (is_siteadmin()) {
+if (is_siteadmin() && $pluginsettings->enableadmindashboard) {
+    $templatecontext['showdashboardadmin'] = true;
     $templatecontext['disk'] = get_disk_usage();
     $templatecontext['totalcourses'] = count_courses();
     $templatecontext['activecourses'] = count_active_courses();
     $templatecontext['activeenrolments'] = count_active_enrolments();
-    $templatecontext['enrolments'] = count_user_enrolments();
+    $templatecontext['enrolments'] = count_users_enrolments();
     $templatecontext['issuestatus'] = get_environment_issues();
 }
 

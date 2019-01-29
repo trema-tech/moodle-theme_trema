@@ -27,10 +27,8 @@ function theme_trema_get_main_scss_content($theme) {
     global $CFG;
 
     $scss = '';
-
-    $scss .= file_get_contents($CFG->dirroot . '/theme/trema/scss/defaultvariables.scss');
-
-    $scss .= file_get_contents($CFG->dirroot . '/theme/trema/scss/styles.scss');
+    $scss .= file_get_contents("$CFG->dirroot/theme/trema/scss/defaultvariables.scss");
+    $scss .= file_get_contents("$CFG->dirroot/theme/trema/scss/styles.scss");
 
     if ($frontpagebannerurl = $theme->setting_file_url('frontpagebanner', 'frontpagebanner')) {
         $scss .= "#frontpage-banner {background-image: url([[pix:theme|frontpage/overlay]]), url('$frontpagebannerurl');}";
@@ -89,8 +87,7 @@ function theme_trema_get_pre_scss($theme) {
  * @param array $options
  * @return bool
  */
-function theme_trema_pluginfile($course, $cm, $context, $filearea,
-                                    $args, $forcedownload, array $options = array()) {
+function theme_trema_pluginfile($course, $cm, $context, $filearea, $args, $forcedownload, array $options = array()) {
     if ($context->contextlevel == CONTEXT_SYSTEM) {
         $theme = theme_config::load('trema');
         // By default, theme files must be cache-able by both browsers and proxies.
@@ -131,20 +128,19 @@ function theme_trema_get_cards_settings() {
 }
 
 /**
- * Get the disk usage.
+ * Get the disk usage - Cached.
  *
  * @return string disk usage plus unit
  */
 function get_disk_usage() {
-    global $DB, $CFG;
+    global $CFG;
 
     $cache = cache::make('theme_trema', 'dashboardadmin');
     $totaldisk = $cache->get('totaldisk');
 
-    if (! $totaldisk) {
+    if (!$totaldisk) {
         $total = get_directory_size($CFG->dataroot);
         $totaldisk = number_format(ceil($total / 1048576));
-
         $cache->set('totaldisk', $totaldisk);
     }
 
@@ -153,84 +149,128 @@ function get_disk_usage() {
         $usageunit = ' GB';
     }
     return $totaldisk . $usageunit;
-    ;
 }
 
 /**
- * Get active courses with status 1 and startdate less than today
+ * Count active courses with status 1 and startdate less than today - Cached.
+ *
+ * @return int number of active courses
+ */
+function count_active_courses() {
+    global $DB;
+    $cache = cache::make('theme_trema', 'dashboardadmin');
+    $activecourses = $cache->get('countactivecourses');
+    if(!$activecourses) {
+        $today = time();
+        $sql = "SELECT COUNT(id) FROM {course}
+            WHERE visible = 1 AND startdate <= {$today} AND (enddate > {$today} OR enddate = 0) AND format != 'site'";
+        $activecourses = $DB->count_records_sql($sql);
+        $cache->set('countactivecourses', $activecourses);
+    }
+    return $activecourses;
+}
+
+/**
+ * Count all courses - Cached.
+ *
+ * @return  int number of all courses
+ */
+function count_courses() {
+    global $DB;
+    $cache = cache::make('theme_trema', 'dashboardadmin');
+    $courses = $cache->get('courses');
+    if(!$courses) {
+        $courses = $DB->count_records('course') - 1; // Delete course site.
+        $cache->set('courses', $courses);
+    }
+    return $courses;
+}
+
+/**
+ * Get active courses with status 1 and startdate less than today - Cached.
  *
  * @return int number of active courses
  */
 function get_active_courses() {
     global $DB;
-    $today = time();
-    $sql = "SELECT id
-            FROM {course}
+    $cache = cache::make('theme_trema', 'dashboardadmin');
+    $activecourses = $cache->get('activecourses');
+    if(!$activecourses) {
+        $today = time();
+        $sql = "SELECT id FROM {course}
             WHERE visible = 1 AND startdate <= {$today} AND (enddate > {$today} OR enddate = 0) AND format != 'site'";
-    return $DB->get_fieldset_sql($sql);
+        $activecourses = $DB->get_fieldset_sql($sql);;
+        $cache->set('activecourses', $activecourses);
+    }
+    return $activecourses;
 }
 
-/**
- * Count active courses with status 1 and startdate less than today
- *
- * @return int number of active courses
- */
-function count_active_courses() {
-    return count(get_active_courses());
-}
 
 /**
- * Get all courses excepect course 1 --> frontpage
- */
-function count_courses() {
-    global $DB;
-    return $DB->count_records('course') - 1; // Delete course site.
-}
-
-/**
- * Get all active enrolments from actives courses
+ * Get all active enrolments from actives courses - Cached.
  *
  * @return void
  */
 function count_active_enrolments() {
     global $DB;
-    $today = time();
-    $activecourses = implode(', ', (array) get_active_courses());
-    $sql = "SELECT COUNT(1)
-            FROM {user_enrolments} ue
+    $cache = cache::make('theme_trema', 'dashboardadmin');
+    $activeenrolments = $cache->get('activeenrolments');
+    if(!$activeenrolments) {
+        $today = time();
+        $activecourses = implode(', ', (array)get_active_courses());
+        $sql = "SELECT COUNT(1) FROM {user_enrolments} ue
             INNER JOIN {enrol} e ON ue.enrolid = e.id
             WHERE ue.status = 0 AND (ue.timeend >= {$today} OR ue.timeend = 0) AND e.courseid IN ({$activecourses})";
-    return $DB->count_records_sql($sql);
+        $activeenrolments = $DB->count_records_sql($sql);
+        $cache->set('activeenrolments', $activeenrolments);
+    }
+    return $activeenrolments;
 }
 
 /**
- * Get all active enrolments
+ * Get all active enrolments - Cached.
  *
  * @return void
  */
-function count_user_enrolments() {
+function count_users_enrolments() {
     global $DB;
-    return $DB->count_records('user_enrolments');
+    $cache = cache::make('theme_trema', 'dashboardadmin');
+    $usersenrolments = $cache->get('usersenrolments');
+    if(!$usersenrolments) {
+        $usersenrolments = $DB->count_records('user_enrolments');
+        $cache->set('$usersenrolments', $usersenrolments);
+    }
+    return $usersenrolments;
 }
 
+/**
+ * Environment issues Status  - Cached.
+ *
+ * @return false|mixed
+ */
 function get_environment_issues() {
     global $CFG;
-    require_once($CFG->dirroot . "/report/performance/locallib.php");
-    $lib = new report_performance();
-    $issues = [];
-    $issues['themedesignermode'] = $lib->report_performance_check_themedesignermode();
-    $issues['cachejs'] = $lib->report_performance_check_cachejs();
-    $issues['debugmsg'] = $lib->report_performance_check_debugmsg();
-    $issues['automatic_backup'] = $lib->report_performance_check_automatic_backup();
-    $issues['enablestats'] = $lib->report_performance_check_enablestats();
+    $cache = cache::make('theme_trema', 'dashboardadmin');
+    $environmentissues = $cache->get('environmentissues');
+    if(!$environmentissues) {
+        require_once("$CFG->dirroot/report/performance/locallib.php");
+        $lib = new report_performance();
+        $issues = [];
+        $issues['themedesignermode'] = $lib->report_performance_check_themedesignermode();
+        $issues['cachejs'] = $lib->report_performance_check_cachejs();
+        $issues['debugmsg'] = $lib->report_performance_check_debugmsg();
+        $issues['automatic_backup'] = $lib->report_performance_check_automatic_backup();
+        $issues['enablestats'] = $lib->report_performance_check_enablestats();
 
-    // Prevent warnings.
-    $status["ok"] = 0;
-    $status["warning"] = 0;
-    foreach ($issues as $issue) {
-        if ($issue->status == 'serious' || $issue->status == 'critical' || $issue->status == 'warning') {
-            $status['warning'] ++;
+        // Prevent warnings.
+        $environmentissues["ok"] = 0;
+        $environmentissues["warning"] = 0;
+        foreach ($issues as $issue) {
+            if ($issue->status == 'serious' || $issue->status == 'critical' || $issue->status == 'warning') {
+                $environmentissues['warning'] ++;
+            }
         }
+        $cache->set('environmentissues', $environmentissues);
     }
-    return $status;
+    return $environmentissues;
 }
