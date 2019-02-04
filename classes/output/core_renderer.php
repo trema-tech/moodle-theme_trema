@@ -25,7 +25,6 @@
 namespace theme_trema\output;
 
 use custom_menu;
-use custom_menu_item;
 use stdClass;
 use moodle_url;
 
@@ -122,7 +121,7 @@ class core_renderer extends \theme_boost\output\core_renderer {
             $mycourses = $this->page->navigation->get('mycourses');
             
             if (isloggedin() && $mycourses && $mycourses->has_children()) {
-                $branchlabel = get_string('mycourses');
+                $branchlabel = 'fa-graduation-cap '.get_string('mycourses');
                 $branchurl   = new moodle_url('/course/index.php');
                 $branchtitle = $branchlabel;
                 $branchsort  = $showmycourses;
@@ -135,6 +134,13 @@ class core_renderer extends \theme_boost\output\core_renderer {
             }
         }
         
-        return parent::render_custom_menu($menu);
+        $content = '';
+        foreach ($menu->get_children() as $item) {
+            $context = $item->export_for_template($this);      
+            $context->text = preg_replace('/^fa-(\w|-)+/', '<i class="fa \0 mr-1" aria-hidden="true"></i>', $context->text);
+            $content .= $this->render_from_template('core/custom_menu_item', $context);
+        }
+        
+        return $content;
     }
 }
