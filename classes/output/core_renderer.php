@@ -25,6 +25,7 @@
 namespace theme_trema\output;
 
 use custom_menu;
+use custom_menu_item;
 use stdClass;
 use moodle_url;
 
@@ -100,25 +101,40 @@ class core_renderer extends \theme_boost\output\core_renderer {
             }
         }
     }
-
+    
     /*
      * Overriding the custom_menu function ensures the custom menu is
      * always shown, even if no menu items are configured in the global
      * theme settings page.
      */
-    protected function render_custom_menu(custom_menu $menu) {
+    public function custom_menu($custommenuitems = '') {
         global $CFG;
-
-        if (!$menu->has_children()) {
-            return '';
+        
+        if (empty($custommenuitems) && !empty($CFG->custommenuitems)) {
+            $custommenuitems = $CFG->custommenuitems;
         }
+        $custommenu = new custom_menu($custommenuitems, current_language());
+        return $this->render_custom_menu($custommenu);
+    }
 
-        $content = '';
-        foreach ($menu->get_children() as $item) {
-            $context = $item->export_for_template($this);
-            $content .= $this->render_from_template('core/custom_menu_item', $context);
+    protected function render_custom_menu(custom_menu $menu) {       
+        if($showmycourses = get_config('theme_trema', 'showmycourses')) {        
+            $mycourses = $this->page->navigation->get('mycourses');
+            
+            if (isloggedin() && $mycourses && $mycourses->has_children()) {
+                $branchlabel = get_string('mycourses');
+                $branchurl   = new moodle_url('/course/index.php');
+                $branchtitle = $branchlabel;
+                $branchsort  = $showmycourses;
+                
+                $branch = $menu->add($branchlabel, $branchurl, $branchtitle, $branchsort);
+                
+                foreach ($mycourses->children as $coursenode) {
+                    $branch->add($coursenode->get_content(), $coursenode->action, $coursenode->get_title());
+                }
+            }
         }
-
-        return $content;
+        
+        return parent::render_custom_menu($menu);
     }
 }
