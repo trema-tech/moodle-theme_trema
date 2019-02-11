@@ -75,42 +75,6 @@ $setting = new admin_setting_confightmleditor('theme_trema/defaultfrontpagebody'
     get_string('defaultfrontpagebody_desc', 'theme_trema'), '', PARAM_RAW);
 $page->add($setting);
 
-// HTML to include in the footer content of frontpage.
-$footerhtml = '<div class="row">
-	<div class="col-md-8">
-		<h3 class="-align-center">Trema Soluções em Tecnologia</h3>
-
-	</div>
-	<div class="col-md-4">
-		<h3>Contact Us</h3>
-
-		<ul class="labeled-icons">
-			<li><span class="fa fa-home fa-2x"></span>
-				<p>1234 Somewhere in Brazil</p></li>
-			<li><span class="fa fa-phone fa-2x"></span>
-				<p>(55) 555-0000 12345</p></li>
-			<li><span class="fa fa-envelope fa-2x"></span><a style="cursor: pointer;"><p>hello@trema.it</p></a></li>
-			<li><span class="fa fa-facebook fa-2x"></span><a style="cursor: pointer;"><p>facebook.com/trema-it</p></a></li>
-			<li><span class="fa fa-twitter fa-2x"></span><a style="cursor: pointer;"><p>twitter.com/trema.it</p></a></li>
-		</ul>
-	</div>
-</div>';
-$setting = new admin_setting_confightmleditor('theme_trema/defaultfooter', get_string('defaultfooter', 'theme_trema'),
-    get_string('defaultfooter_desc', 'theme_trema'), $footerhtml, PARAM_RAW);
-$page->add($setting);
-
-// Raw SCSS to include before the content.
-$setting = new admin_setting_scsscode('theme_trema/scsspre', get_string('rawscsspre', 'theme_trema'),
-    get_string('rawscsspre_desc', 'theme_trema'), '', PARAM_RAW);
-$setting->set_updatedcallback('theme_reset_all_caches');
-$page->add($setting);
-
-// Raw SCSS to include after the content.
-$setting = new admin_setting_scsscode('theme_trema/scss', get_string('rawscss', 'theme_trema'),
-    get_string('rawscss_desc', 'theme_trema'), '', PARAM_RAW);
-$setting->set_updatedcallback('theme_reset_all_caches');
-$page->add($setting);
-
 // Frontpage cards.
 $page->add(new admin_setting_heading('theme_trema_cards', get_string('frontpagecards', 'theme_trema'), '', FORMAT_MARKDOWN));
 
