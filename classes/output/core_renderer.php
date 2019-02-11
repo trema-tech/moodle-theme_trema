@@ -100,15 +100,15 @@ class core_renderer extends \theme_boost\output\core_renderer {
             }
         }
     }
-    
-    /*
+
+    /**
      * Overriding the custom_menu function ensures the custom menu is
      * always shown, even if no menu items are configured in the global
      * theme settings page.
      */
     public function custom_menu($custommenuitems = '') {
         global $CFG;
-        
+
         if (empty($custommenuitems) && !empty($CFG->custommenuitems)) {
             $custommenuitems = $CFG->custommenuitems;
         }
@@ -116,31 +116,31 @@ class core_renderer extends \theme_boost\output\core_renderer {
         return $this->render_custom_menu($custommenu);
     }
 
-    protected function render_custom_menu(custom_menu $menu) {       
-        if($showmycourses = get_config('theme_trema', 'showmycourses')) {        
+    protected function render_custom_menu(custom_menu $menu) {
+        if ($showmycourses = get_config('theme_trema', 'showmycourses')) {
             $mycourses = $this->page->navigation->get('mycourses');
-            
+
             if (isloggedin() && $mycourses && $mycourses->has_children()) {
                 $branchlabel = 'fa-graduation-cap '.get_string('mycourses');
                 $branchurl   = new moodle_url('/course/index.php');
                 $branchtitle = $branchlabel;
                 $branchsort  = $showmycourses;
-                
+
                 $branch = $menu->add($branchlabel, $branchurl, $branchtitle, $branchsort);
-                
+
                 foreach ($mycourses->children as $coursenode) {
                     $branch->add($coursenode->get_content(), $coursenode->action, $coursenode->get_title());
                 }
             }
         }
-        
+
         $content = '';
         foreach ($menu->get_children() as $item) {
-            $context = $item->export_for_template($this);      
+            $context = $item->export_for_template($this);
             $context->text = preg_replace('/^fa-(\w|-)+/', '<i class="fa \0 mr-1" aria-hidden="true"></i>', $context->text);
             $content .= $this->render_from_template('core/custom_menu_item', $context);
         }
-        
+
         return $content;
     }
 }

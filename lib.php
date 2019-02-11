@@ -160,7 +160,7 @@ function count_active_courses() {
     global $DB;
     $cache = cache::make('theme_trema', 'dashboardadmin');
     $activecourses = $cache->get('countactivecourses');
-    if(!$activecourses) {
+    if (!$activecourses) {
         $today = time();
         $sql = "SELECT COUNT(id) FROM {course}
             WHERE visible = 1 AND startdate <= {$today} AND (enddate > {$today} OR enddate = 0) AND format != 'site'";
@@ -179,7 +179,7 @@ function count_courses() {
     global $DB;
     $cache = cache::make('theme_trema', 'dashboardadmin');
     $courses = $cache->get('courses');
-    if(!$courses) {
+    if (!$courses) {
         $courses = $DB->count_records('course') - 1; // Delete course site.
         $cache->set('courses', $courses);
     }
@@ -195,7 +195,7 @@ function get_active_courses() {
     global $DB;
     $cache = cache::make('theme_trema', 'dashboardadmin');
     $activecourses = $cache->get('activecourses');
-    if(!$activecourses) {
+    if (!$activecourses) {
         $today = time();
         $sql = "SELECT id FROM {course}
             WHERE visible = 1 AND startdate <= {$today} AND (enddate > {$today} OR enddate = 0) AND format != 'site'";
@@ -215,7 +215,7 @@ function count_active_enrolments() {
     global $DB;
     $cache = cache::make('theme_trema', 'dashboardadmin');
     $activeenrolments = $cache->get('activeenrolments');
-    if(!$activeenrolments) {
+    if (!$activeenrolments) {
         $today = time();
         $activecourses = implode(', ', (array)get_active_courses());
         $sql = "SELECT COUNT(1) FROM {user_enrolments} ue
@@ -236,7 +236,7 @@ function count_users_enrolments() {
     global $DB;
     $cache = cache::make('theme_trema', 'dashboardadmin');
     $usersenrolments = $cache->get('usersenrolments');
-    if(!$usersenrolments) {
+    if (!$usersenrolments) {
         $usersenrolments = $DB->count_records('user_enrolments');
         $cache->set('$usersenrolments', $usersenrolments);
     }
@@ -252,7 +252,7 @@ function get_environment_issues() {
     global $CFG;
     $cache = cache::make('theme_trema', 'dashboardadmin');
     $environmentissues = $cache->get('environmentissues');
-    if(!$environmentissues) {
+    if (!$environmentissues) {
         require_once("$CFG->dirroot/report/performance/locallib.php");
         $lib = new report_performance();
         $issues = [];

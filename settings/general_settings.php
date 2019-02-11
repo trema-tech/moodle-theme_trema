@@ -55,14 +55,14 @@ $description = get_string('enableadmindashboard_desc', 'theme_trema', "$CFG->www
 $setting = new admin_setting_configcheckbox($name, $title, $description, '1');
 $page->add($setting);
 
-// Navbar - show my courses
+// Navbar - show my courses.
 $choices = array(
     0 => "don't show",
     -10000 => "show left",
     10000 => "show right",
 );
-$setting = new admin_setting_configselect('theme_trema/showmycourses', new lang_string('showmycourses', 'theme_trema'), new lang_string('showmycourses_desc', 'theme_trema'),
-    'show left', $choices);
+$setting = new admin_setting_configselect('theme_trema/showmycourses', new lang_string('showmycourses', 'theme_trema'),
+    new lang_string('showmycourses_desc', 'theme_trema'), 'show left', $choices);
 $page->add($setting);
 
 // Must add the page after definiting all the settings!
