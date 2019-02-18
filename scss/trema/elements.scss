@@ -321,4 +321,19 @@ body #page {
         }
     }
 
+    .messaging-area-container {
+        .tabs .tab .tabimage {
+            height: auto;
+            line-height: 1.4rem;
+        }
+        .send-button-container button {
+            @extend .btn-primary;
+            height: auto;
+        }
+
+        .message-text-container textarea {
+            padding: .8rem 0.5rem;
+        }
+    }
+
 }
