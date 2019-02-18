@@ -1,15 +1,21 @@
 body#page-site-index {
-	
+
     #page {
         padding-top: 0;
     }
 
     #page-content {
+        #region-main {
+            width: 100%;
+            background: $white;
+            padding: 2rem 3rem;
+        }
+
         .card {
             background-color: #f7f7f7;
         }
     }
-	
+
     #frontpage-banner {
         position: relative;
 	    height: calc(100vh - 4.5em);
@@ -19,7 +25,7 @@ body#page-site-index {
 	    background-position: center center;
 	    background-size: cover;
 	    color: $white;
-	    
+
 	    #frontpage-banner-content {
 		    position: absolute;
 		    top: 50%;
@@ -43,18 +49,18 @@ body#page-site-index {
                 line-height: 2rem;
             }
 	    }
-	    
+
 	    #frontpage-settings-menu {
 	        position: fixed;
             top: 5.5em;
 		    right: 15px;
 		    background-color: rgba(255, 255, 255, .2);
 		    z-index: 1010;
-		    
+
 		    .context-header-settings-menu {
 		        height: auto;
 		    }
-		    
+
 		    .dropdown-toggle .icon {
                 margin-right: 0;
 		    }
@@ -72,14 +78,14 @@ body#page-site-index {
                 margin-top: 0;
             }
         }
-        
+
         #frontpage-cards-title {
-            
+
             &:before {
                 height: 3rem;
                 top: -3rem;
             }
-            
+
             h2 {
                 display: inline-block;
             }
@@ -117,18 +123,6 @@ body#page-site-index {
     #defaultfrontpagebody {
         padding-top: 3rem;
         position: relative;
-        
-        &:before { 
-            content: "";
-            background-color: rgba(144,144,144,.35);
-            display: block;
-            height: 100%;
-            position: absolute;
-            right: 50%;
-            top: 0;
-            width: 1px;
-            z-index: 10;
-        }
 
         .card-box {
             padding: 3em 2em 1em 2em;
@@ -137,14 +131,6 @@ body#page-site-index {
             position: relative;
             z-index: 10;
             flex: 1 1 0rem;
-
-            &.style1:after {
-                background-color: $secondary;
-            }
-
-            &.style2:after {
-                background-color: $primary;
-            }
 
             &:after {
                 bottom: 0;
