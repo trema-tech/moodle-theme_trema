@@ -46,6 +46,7 @@
 
     .dropdown-menu {
         top: 49px;
+        right: -60px;
     }
     
     .action-menu-trigger .dropdown-toggle:after {
@@ -81,6 +82,26 @@
             top: -16px;
             right: 8px;
             z-index: 2;
+        }
+    }
+    
+    .usermenu {
+        padding: .5rem;
+        padding-right: 60px;
+        
+        .login {
+            line-height: 1.5;
+        }
+        
+        .avatar.current {
+            position: absolute;
+            right: -70px;
+            top: -16px;
+            
+            img {
+                height: 60px;
+                width: 60px;
+            }
         }
     }
 }
