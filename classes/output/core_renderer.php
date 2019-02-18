@@ -134,13 +134,39 @@ class core_renderer extends \theme_boost\output\core_renderer {
             }
         }
 
+        // Change Fontawesome's codes by HTML.
         $content = '';
         foreach ($menu->get_children() as $item) {
             $context = $item->export_for_template($this);
             $context->text = preg_replace('/^fa-(\w|-)+/', '<i class="fa \0 mr-1" aria-hidden="true"></i>', $context->text);
+            $context->title = trim(preg_replace('/^fa-(\w|-)+/', '', $context->title));
             $content .= $this->render_from_template('core/custom_menu_item', $context);
         }
 
         return $content;
+    }
+    
+    /**
+     * We want to show the custom menus as a list of links in the footer on small screens.
+     * Just return the menu object exported so we can render it differently.
+     */
+    public function custom_menu_flat() {
+        global $CFG;
+        $custommenuitems = '';
+        
+        if (empty($custommenuitems) && !empty($CFG->custommenuitems)) {
+            $custommenuitems = $CFG->custommenuitems;
+        }
+        $custommenu = new custom_menu($custommenuitems, current_language());
+        
+        $context = $custommenu->export_for_template($this);
+
+        // Change Fontawesome's codes by HTML.
+        foreach ($context->children as &$item) {
+            $item->text = preg_replace('/^fa-(\w|-)+/', '<i class="fa \0 mr-1" aria-hidden="true"></i>', $item->text);
+            $item->title = trim(preg_replace('/^fa-(\w|-)+/', '', $item->title));
+        }
+        
+        return $context;
     }
 }
