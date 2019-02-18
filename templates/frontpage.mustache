@@ -72,14 +72,14 @@
         </div>
         {{/hascards}}
 
-        <div id="page-content" class="container p-0">
+        <div id="page-content" class="container p-0 mb-5">
             <div id="region-main-box" class="row col-12 p-0">
                 {{#hasregionmainsettingsmenu}}
                 <div id="region-main-settings-menu" class="d-print-none {{#hasblocks}}has-blocks{{/hasblocks}}">
                     <div> {{{ output.region_main_settings_menu }}} </div>
                 </div>
                 {{/hasregionmainsettingsmenu}}
-                <section id="region-main" {{#hasblocks}}class="has-blocks mb-3"{{/hasblocks}}>
+                <section id="region-main" {{#hasblocks}}class="has-blocks"{{/hasblocks}}>
                     {{#hasregionmainsettingsmenu}}
                         <div class="region_main_settings_menu_proxy"></div>
                     {{/hasregionmainsettingsmenu}}
@@ -90,12 +90,13 @@
                     {{{ output.main_content }}}
                     {{{ output.activity_navigation }}}
                     {{{ output.course_content_footer }}}
+                    
+                    {{#hasblocks}}
+                    <div data-region="blocks-frontpage" class="d-print-none">
+                        {{{ sidepreblocks }}}
+                    </div>
+                    {{/hasblocks}}
                 </section>
-                {{#hasblocks}}
-                <section data-region="blocks-column" class="d-print-none">
-                    {{{ sidepreblocks }}}
-                </section>
-                {{/hasblocks}}
             </div>
         </div>
     </div>

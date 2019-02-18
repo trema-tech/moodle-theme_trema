@@ -5,10 +5,22 @@ body#page-site-index {
     }
 
     #page-content {
-        #region-main {
+        @extend %border-frequency;
+        
+        &:before { 
+            top: unset;
+            bottom: -3rem;
+        }
+        
+        &:after {
+            top: unset;
+            bottom: 0;
+        }
+            
+        #region-main {            
             width: 100%;
             background: $white;
-            padding: 2rem 3rem;
+            padding: 0 3rem;
         }
 
         .card {
@@ -96,6 +108,7 @@ body#page-site-index {
             .frontpage-card {
                 padding: 6rem 7rem 4rem;
                 border-top: 1px solid $gray-300;
+                border-bottom: 1px solid $gray-300;
             }
 
             .frontpage-card:nth-child(odd) {
@@ -104,17 +117,6 @@ body#page-site-index {
 
             a:hover {
                 text-decoration: none;
-            }
-
-            &:after {
-                background: linear-gradient(to right, $primary 50%, $secondary 50%);
-                bottom: 0;
-                content: '';
-                display: block;
-                height: 4px;
-                position: absolute;
-                right: 0;
-                width: 100%;
             }
         }
     }
