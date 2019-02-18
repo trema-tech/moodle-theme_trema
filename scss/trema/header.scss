@@ -43,14 +43,13 @@
     .popover-region-toggle:after {
         bottom: -16px;
     }
-
-    .dropdown-menu {
-        top: 49px;
-        right: -60px;
-    }
     
     .action-menu-trigger .dropdown-toggle:after {
         content: none;
+    }
+    
+    .action-menu .dropdown-toggle {
+        outline: none;
     }
 
     .lang-menu .dropdown-menu {
@@ -91,6 +90,11 @@
         
         .login {
             line-height: 1.5;
+        }
+        
+        .dropdown-menu {
+            top: 49px;
+            right: -60px;
         }
         
         .avatar.current {
