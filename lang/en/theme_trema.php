@@ -53,6 +53,7 @@ $string['enableadmindashboard'] = 'Enable Admin Dashboard';
 $string['enableadmindashboard_desc'] = 'Uncheck if you want to hide the area below in admin dashboard: <img class="img-responsive" src="{$a}"/>';
 $string['favicon'] = 'Custom favicon';
 $string['favicon_desc'] = 'Upload your own favicon.  It should be an .ico file.';
+$string['footertitle'] = 'Theme Trema';
 $string['frontpagebanner'] = 'Frontpage banner.';
 $string['frontpagebanner_desc'] = 'Upload the image file to be inserted in frontpage. Will replace the default image of a forest.';
 $string['frontpagebuttontext'] = 'Frontpage button text';

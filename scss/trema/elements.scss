@@ -207,6 +207,7 @@ body #page {
 
         input[type="text"], input[type="password"], input[type="email"], select {
             height: 2.75rem;
+            padding-left: 1rem;
         }
     }
 
@@ -220,6 +221,17 @@ body #page {
 	    background-repeat: no-repeat;
         padding-right: 2.5rem;
 	    background-position: calc(100% + 1rem) center;
+    }
+    form .form-inline {
+        input[type="text"] {
+            display: inline-block;
+        }
+        .sr-only + select {
+            display: inline-block;
+            width: 70%;
+            background-position: 98%;
+            padding-right: 3rem;
+        }
     }
 
     //style for search with downarrow
