@@ -1,0 +1,73 @@
+body.path-mod-quiz {
+    #page {
+        #region-main > .card > .card-body {
+            padding: 0;
+            .que {
+                margin-bottom: 0;
+
+                .info {
+                    background: $white;
+                    border: none;
+                    border-top: 2px solid $secondary;
+                    width: 9rem;
+                    padding: 1rem;
+                    margin: 0;
+                }
+
+                .content {
+                    border-left: 1px solid rgba(0, 0, 0, .1);
+                    margin-left: 9rem;
+
+                    .formulation {
+                        background: $white;
+                        padding: 0;
+                        margin-bottom: 0;
+                        border-top: 2px solid $primary;
+
+                        .qtext {
+                            font-weight: bold;
+                            font-size: 1rem;
+                            padding: 1rem 2rem;
+                            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+                        }
+
+                        .ablock {
+                            margin: 0;
+                            padding: 1rem 2rem;
+                        }
+                    }
+                }
+
+                @media (max-width: 769px) {
+                    .info {
+                        width: auto;
+                        text-align: center;
+                    }
+                    .content {
+                        border-left: none;
+                        margin-left: 0;
+                    }
+                }
+            }
+
+            .dropdown-toggle {
+                color: black;
+            }
+        }
+
+        #mod_quiz_navblock {
+            .qnbutton {
+                padding: 0;
+                text-align: center;
+            }
+
+            @media (min-width: 1200px) {
+                button[type="submit"] {
+                    white-space: normal;
+                    line-height: 1.5;
+                    padding: .3rem;
+                }
+            }
+        }
+    }
+}
