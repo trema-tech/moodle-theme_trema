@@ -38,4 +38,10 @@
 </html>
 {{#js}}
 require(['theme_boost/loader']);
+
+{{#particlesconfig}}
+	require(['theme_trema/particles'], function() {
+	    window.particlesJS('page-wrapper', {{{particlesconfig}}});
+	});
+{{/particlesconfig}}
 {{/js}}
