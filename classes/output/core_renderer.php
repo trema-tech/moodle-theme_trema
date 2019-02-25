@@ -145,7 +145,7 @@ class core_renderer extends \theme_boost\output\core_renderer {
 
         return $content;
     }
-    
+
     /**
      * We want to show the custom menus as a list of links in the footer on small screens.
      * Just return the menu object exported so we can render it differently.
@@ -153,12 +153,12 @@ class core_renderer extends \theme_boost\output\core_renderer {
     public function custom_menu_flat() {
         global $CFG;
         $custommenuitems = '';
-        
+
         if (empty($custommenuitems) && !empty($CFG->custommenuitems)) {
             $custommenuitems = $CFG->custommenuitems;
         }
         $custommenu = new custom_menu($custommenuitems, current_language());
-        
+
         $context = $custommenu->export_for_template($this);
 
         // Change Fontawesome's codes by HTML.
@@ -166,7 +166,7 @@ class core_renderer extends \theme_boost\output\core_renderer {
             $item->text = preg_replace('/^fa-(\w|-)+/', '<i class="fa \0 mr-1" aria-hidden="true"></i>', $item->text);
             $item->title = trim(preg_replace('/^fa-(\w|-)+/', '', $item->title));
         }
-        
+
         return $context;
     }
 }
