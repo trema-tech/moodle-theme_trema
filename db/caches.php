@@ -15,6 +15,15 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 // This line protects the file from being accessed by a URL directly.
+
+/**
+ * @package     theme_trema
+ * @copyright   2019 Trema - {@link https://trema.tech/}
+ * @author      Rodrigo Mady
+ * @author      Trevor Furtado
+ * @license     http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ */
+
 defined('MOODLE_INTERNAL') || die();
 
 $definitions = array(

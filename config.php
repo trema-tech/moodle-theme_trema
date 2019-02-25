@@ -17,9 +17,11 @@
 /**
  * Config file.
  *
- * @package    theme_trema
- * @copyright  2018 Trevor Furtado e Rodrigo Mady
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package     theme_trema
+ * @copyright   2019 Trema - {@link https://trema.tech/}
+ * @author      Rodrigo Mady
+ * @author      Trevor Furtado
+ * @license     http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
 // Check the file is being called internally from within Moodle.
