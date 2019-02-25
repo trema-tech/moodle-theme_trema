@@ -61,12 +61,11 @@ body.path-mod-quiz {
                 text-align: center;
             }
 
-            @media (min-width: 1200px) {
-                button[type="submit"] {
-                    white-space: normal;
-                    line-height: 1.5;
-                    padding: .3rem;
-                }
+            button[type="submit"] {
+                white-space: normal;
+                line-height: 1.5;
+                padding: 1rem;
+                height: auto;
             }
         }
     }
