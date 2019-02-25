@@ -40,7 +40,7 @@ $page->add($setting);
 $name = 'theme_trema/primarycolor';
 $title = get_string('primarycolor', 'theme_trema');
 $description = get_string('primarycolor_desc', 'theme_trema');
-$setting = new admin_setting_configcolourpicker($name, $title, $description, '');
+$setting = new admin_setting_configcolourpicker($name, $title, $description, '#FD647A');
 $setting->set_updatedcallback('theme_reset_all_caches');
 $page->add($setting);
 
@@ -48,7 +48,7 @@ $page->add($setting);
 $name = 'theme_trema/secondarycolor';
 $title = get_string('secondarycolor', 'theme_trema');
 $description = get_string('secondarycolor_desc', 'theme_trema');
-$setting = new admin_setting_configcolourpicker($name, $title, $description, '');
+$setting = new admin_setting_configcolourpicker($name, $title, $description, '#373A3C');
 $setting->set_updatedcallback('theme_reset_all_caches');
 $page->add($setting);
 
