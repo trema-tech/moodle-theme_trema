@@ -1,15 +1,12 @@
 // Import FontAwesome.
 @import "fontawesome";
-
 // Import fonts
 @import "fonts";
-
-// Import All of Bootstrap
+// Import All of Bootstrap.
 @import "bootstrap";
-
-// Import Core moodle CSS
+// Import Core moodle CSS.
 @import "moodle";
-
+// Import Trema SCSS.
 @import "trema/main";
 @import "trema/blocks";
 @import "trema/dashboard";
@@ -23,6 +20,3 @@
 @import "trema/courselist";
 @import "trema/maintenance";
 @import "trema/modules";
-
-
-

@@ -8,8 +8,12 @@
         line-height: 1.5em;
     }
 
-    h2, h3, h4, h5, h6 {
-        color: #ffffff;
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        color: $white;
         text-transform: uppercase;
     }
 
@@ -26,18 +30,18 @@
     ul.labeled-icons {
         list-style: none;
         padding-left: 0;
-        
+
         li {
             margin-bottom: 1.5em;
             position: relative;
-            
+
             span {
-                width: 1.5em;   
+                width: 1.5em;
             }
-            
-	        p {
-	            display: inline;
-	        }
+
+            p {
+                display: inline;
+            }
         }
     }
 

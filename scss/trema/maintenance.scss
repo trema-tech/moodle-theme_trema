@@ -2,7 +2,7 @@ body.pagelayout-maintenance {
 
     #page-wrapper {
         #page {
-            @extend	%border-frequency;
+            @extend %border-frequency;
             background-color: $white;
             min-height: 70vh;
             margin-top: 3rem;

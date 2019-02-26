@@ -1,7 +1,7 @@
 body.pagelayout-mydashboard {
 
     #region-main > .card > .card-body {
-        padding: 0
+        padding: 0;
     }
 
     #mydashboard-admin {
@@ -16,17 +16,17 @@ body.pagelayout-mydashboard {
     .progress-text.has-percent {
         font-size: 15px;
     }
-    
+
     .block_myoverview {
         .courses-view-course-item.card {
             max-width: 275px;
-            box-shadow: 5px 5px 9px -4px rgba($primary,.1);
+            box-shadow: 5px 5px 9px -4px rgba($primary, .1);
             border-bottom: solid 3px $primary;
 
             .card-img-top {
                 height: 100px;
             }
-            
+
             .courseimage {
                 background-position: center right;
             }
@@ -36,7 +36,8 @@ body.pagelayout-mydashboard {
     #page .btn.btn-outline-secondary {
         color: $gray-800;
         background-color: transparent;
-        &:hover, &:focus {
+        &:hover,
+        &:focus {
             color: $gray-600;
             outline: none;
             box-shadow: none;

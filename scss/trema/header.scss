@@ -1,7 +1,7 @@
 #page-wrapper .navbar {
     background-color: #fff;
     border-bottom: solid 1px rgba(144, 144, 144, 0.35);
-    box-shadow: 0px 0.0375em 0.125em 0px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 0.0375em 0.125em 0 rgba(0, 0, 0, 0.05);
     color: #484b49;
     cursor: default;
     font-weight: lighter;
@@ -33,7 +33,7 @@
     }
 
     .popover-region-container {
-        top: 3.3rem;        
+        top: 3.3rem;
     }
 
     .popover-region-toggle:before {
@@ -43,11 +43,11 @@
     .popover-region-toggle:after {
         bottom: -16px;
     }
-    
+
     .action-menu-trigger .dropdown-toggle:after {
         content: none;
     }
-    
+
     .action-menu .dropdown-toggle {
         outline: none;
     }
@@ -57,10 +57,10 @@
         left: -210px;
 
         .fa {
-            font-size: 16px
+            font-size: 16px;
         }
 
-        &:before {            
+        &:before {
             content: "";
             display: inline-block;
             border-left: 10px solid transparent;
@@ -83,28 +83,28 @@
             z-index: 2;
         }
     }
-    
+
     .usermenu {
         padding: .5rem;
         padding-right: 60px;
-        
+
         .login {
             line-height: 1.5;
         }
-        
+
         .dropdown-menu {
             top: 49px;
             right: -60px;
         }
-        
+
         .avatar.current {
             position: absolute;
             right: -3.5rem;
             top: -.5rem;
-            
+
             img {
                 height: 2.5rem;
-                width: 2.5rem;;
+                width: 2.5rem;
             }
         }
     }

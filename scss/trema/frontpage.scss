@@ -6,18 +6,18 @@ body#page-site-index {
 
     #page-content {
         @extend %border-frequency;
-        
-        &:before { 
+
+        &:before {
             top: unset;
             bottom: -3rem;
         }
-        
+
         &:after {
             top: unset;
             bottom: 0;
         }
-            
-        #region-main {            
+
+        #region-main {
             width: 100%;
             background: $white;
             padding: 0 3rem;
@@ -30,19 +30,19 @@ body#page-site-index {
 
     #frontpage-banner {
         position: relative;
-	    height: calc(100vh - 4.5em);
-	    margin-left: -15px;
-	    margin-right: -15px;
-	    background-attachment: scroll, fixed;
-	    background-position: center center;
-	    background-size: cover;
-	    color: $white;
+        height: calc(100vh - 4.5em);
+        margin-left: -15px;
+        margin-right: -15px;
+        background-attachment: scroll, fixed;
+        background-position: center center;
+        background-size: cover;
+        color: $white;
 
-	    #frontpage-banner-content {
-		    position: absolute;
-		    top: 50%;
-		    left: 50%;
-		    transform: translate(-50%,-50%);
+        #frontpage-banner-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
             text-align: center;
 
             h2 {
@@ -51,7 +51,7 @@ body#page-site-index {
                 font-size: 2.5rem;
                 font-weight: bold;
                 text-transform: uppercase;
-                letter-spacing: 1rem
+                letter-spacing: 1rem;
             }
 
             h3 {
@@ -60,31 +60,31 @@ body#page-site-index {
                 font-size: 1.5rem;
                 line-height: 2rem;
             }
-	    }
+        }
 
-	    #frontpage-settings-menu {
-	        position: fixed;
+        #frontpage-settings-menu {
+            position: fixed;
             top: 5.5em;
-		    right: 15px;
-		    background-color: rgba(255, 255, 255, .2);
-		    z-index: 1010;
+            right: 15px;
+            background-color: rgba(255, 255, 255, .2);
+            z-index: 1010;
 
-		    .context-header-settings-menu {
-		        height: auto;
-		    }
+            .context-header-settings-menu {
+                height: auto;
+            }
 
-		    .dropdown-toggle .icon {
+            .dropdown-toggle .icon {
                 margin-right: 0;
-		    }
-	    }
+            }
+        }
     }
-	#frontpage-cards {
-        @extend	%border-frequency;
+    #frontpage-cards {
+        @extend %border-frequency;
         background: $white;
 
         &:target {
-            padding-top: 2rem!important;
-            margin-top: 3rem!important;
+            padding-top: 2rem;
+            margin-top: 3rem;
 
             &:before {
                 margin-top: 0;
@@ -132,13 +132,14 @@ body#page-site-index {
             margin-bottom: 2em;
             position: relative;
             z-index: 10;
-            flex: 1 1 0rem;
+            flex: 1 1 0;
 
             &:after {
                 bottom: 0;
             }
 
-            &:before, &:after {
+            &:before,
+            &:after {
                 content: '';
                 display: block;
                 height: 4px;
@@ -153,7 +154,7 @@ body#page-site-index {
 
 .courses {
     .course-card {
-        box-shadow: 5px 5px 9px -4px rgba($primary,.1);
+        box-shadow: 5px 5px 9px -4px rgba($primary, .1);
         border-bottom: solid 3px $primary;
         .course-card-img {
             width: 100%;
