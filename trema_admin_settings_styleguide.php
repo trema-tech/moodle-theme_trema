@@ -14,11 +14,20 @@
 // You should have received a copy of the GNU General Public License
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
+/**
+ * Style guide
+ *
+ * @package     theme_trema
+ * @copyright   2019 Trema - {@link https://trema.tech/}
+ * @author      Rodrigo Mady
+ * @author      Trevor Furtado
+ * @license     http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ */
 
 defined('MOODLE_INTERNAL') || die;
 
 /**
- * Style guide
+ * Class trema_admin_settings_styleguide
  *
  * @package     theme_trema
  * @copyright   2019 Trema - {@link https://trema.tech/}
@@ -33,7 +42,7 @@ class trema_admin_settings_styleguide extends admin_setting_heading {
      *
      * @param $name
      * @param $heading
-     * @param string $description
+     * @param $description
      */
     public function __construct($name, $heading, $description = '') {
         $this->nosave = true;
@@ -45,9 +54,10 @@ class trema_admin_settings_styleguide extends admin_setting_heading {
      *
      * @param $data
      * @param string $query
+     *
      * @return string
      */
-    public function output_html($data, $query='') {
+    public function output_html($data, $query = '') {
         global $OUTPUT;
         $context = new stdClass();
         $context->title = $this->visiblename;

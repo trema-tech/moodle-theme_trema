@@ -14,14 +14,23 @@
 // You should have received a copy of the GNU General Public License
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
+/**
+ * Privacy Subsystem implementation for theme_trema.
+ *
+ * @package     theme_trema
+ * @copyright   2019 Trema - {@link https://trema.tech/}
+ * @author      Rodrigo Mady
+ * @author      Trevor Furtado
+ * @license     http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ */
+
 namespace theme_trema\privacy;
 
 defined('MOODLE_INTERNAL') || die();
 
 /**
- * Privacy Subsystem implementation for theme_trema.
- *
- * @package     theme_trema
+ * Class provider
+ * @package theme_trema
  * @copyright   2019 Trema - {@link https://trema.tech/}
  * @author      Rodrigo Mady
  * @author      Trevor Furtado

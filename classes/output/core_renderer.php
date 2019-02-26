@@ -14,6 +14,16 @@
 // You should have received a copy of the GNU General Public License
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
+/**
+ * Core renderer.
+ *
+ * @package     theme_trema
+ * @copyright   2019 Trema - {@link https://trema.tech/}
+ * @author      Rodrigo Mady
+ * @author      Trevor Furtado
+ * @license     http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ */
+
 namespace theme_trema\output;
 
 use custom_menu;
@@ -25,9 +35,9 @@ defined('MOODLE_INTERNAL') || die;
 require_once($CFG->dirroot."/course/format/lib.php");
 
 /**
- * Core renderer.
+ * Class core_renderer.
  *
- * @package     theme_trema
+ * @package theme_trema
  * @copyright   2019 Trema - {@link https://trema.tech/}
  * @author      Rodrigo Mady
  * @author      Trevor Furtado
