@@ -36,7 +36,7 @@ $THEME->name = 'trema';
 // Inherit from parent theme - Boost.
 $THEME->parents = ['boost'];
 
-// Call main theme scss - including the selected preset.
+// Call main theme scss.
 $THEME->scss = function($theme) {
     return theme_trema_get_main_scss_content($theme);
 };

@@ -30,10 +30,8 @@ defined('MOODLE_INTERNAL') || die();
 
 use moodle_url;
 use html_writer;
-use coursecat;
 use coursecat_helper;
 use stdClass;
-use course_in_list;
 
 /**
  * Renderizador para estilizar as caixas de cursos da Enovus
@@ -259,7 +257,7 @@ class course_renderer extends \core_course_renderer {
                 'data-toggle' => 'popover', 'data-placement' => 'right',
                 'data-content' => $chelper->get_course_formatted_summary($course,
                 array('noclean' => true, 'para' => false)), 'data-html' => 'true', 'tabindex' => '0', 'data-trigger' => 'focus'));
-            $content .= "Saiba Mais";
+            $content .= get_string('seemore', 'theme_trema');
             $content .= html_writer::end_tag('div');
             $content .= html_writer::end_tag('div'); // End summary.
         }
