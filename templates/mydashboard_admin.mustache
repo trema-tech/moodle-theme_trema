@@ -15,7 +15,30 @@
     along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 }}
 {{!
-    Admin dashboard.
+    @template theme_trema/mydashboard_admin
+
+    Admin dashboard present in mydashboard layout.
+    
+    Context variables required for this template:
+    * disk - size of the Moodledata directory
+    * activecourses - active courses
+    * totalcourses - total number of courses
+    * activeenrolments - enrolments in active courses
+    * enrolments - total enrolments
+    * issuestatus - number of issues
+
+
+    Example context (json):
+    {
+        "disk": 200,
+        "activecourses": 2,
+        "totalcourses": 10,
+        "activeenrolments": 200,
+        "enrolments": 1500,
+        "issuestatus": {
+            "warning": 2,
+         }
+    }
 }}
 <div id="mydashboard-admin" class="container-fluid">
     <div class="row text-center">

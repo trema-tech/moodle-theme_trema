@@ -15,7 +15,11 @@
     along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 }}
 {{!
-    Settings style guide.
+    @template theme_boost/admin_setting_styleguide
+    
+    Style guide present in theme settings.
+    
+    Example context (json): {}
 }}
 <div class="container box large bordered">
     <header class="major special"><h2>Elements</h2>
@@ -245,7 +249,7 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
                         <div class="col-md-9 form-inline felement" data-fieldtype="passwordunmask">
                             <span data-passwordunmask="wrapper" data-passwordunmaskid="id_newpassword">
                                 <span data-passwordunmask="editor">
-                                    <input type="hidden" name="newpassword" id="id_newpassword" value=""
+                                    <input type="text" name="newpassword" id="id_newpassword" value=""
                                            class="form-control d-inline-block" data-size="20">
                                 </span>
                                 <a href="#" data-passwordunmask="edit" title="">
