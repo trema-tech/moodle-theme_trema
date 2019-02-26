@@ -27,7 +27,7 @@
 defined('MOODLE_INTERNAL') || die();
 
 $plugin->version   = 2019022600;
-$plugin->release  = 'v1.0';
+$plugin->release  = 'v1.1';
 $plugin->maturity  = MATURITY_STABLE;
 $plugin->requires  = 2018042500;
 $plugin->component = 'theme_trema';
