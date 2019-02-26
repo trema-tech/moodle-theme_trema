@@ -26,6 +26,12 @@
 
 defined('MOODLE_INTERNAL') || die();
 
+/**
+ * Load the main SCSS and the frontpage banner.
+ *
+ * @param $theme
+ * @return string
+ */
 function theme_trema_get_main_scss_content($theme) {
     global $CFG;
 

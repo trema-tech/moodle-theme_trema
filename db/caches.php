@@ -17,6 +17,8 @@
 // This line protects the file from being accessed by a URL directly.
 
 /**
+ * Make cache for Admin Dashboard querys.
+ *
  * @package     theme_trema
  * @copyright   2019 Trema - {@link https://trema.tech/}
  * @author      Rodrigo Mady

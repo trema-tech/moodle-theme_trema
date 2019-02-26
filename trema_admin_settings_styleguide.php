@@ -14,6 +14,9 @@
 // You should have received a copy of the GNU General Public License
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
+
+defined('MOODLE_INTERNAL') || die;
+
 /**
  * Style guide
  *
@@ -23,20 +26,26 @@
  * @author      Trevor Furtado
  * @license     http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
-defined('MOODLE_INTERNAL') || die;
-
 class trema_admin_settings_styleguide extends admin_setting_heading {
 
-
+    /**
+     * trema_admin_settings_styleguide constructor.
+     *
+     * @param $name
+     * @param $heading
+     * @param string $description
+     */
     public function __construct($name, $heading, $description = '') {
         $this->nosave = true;
         parent::__construct($name, $heading, $description, '');
     }
 
     /**
-     * Returns an HTML string
-     * @return string Returns an HTML string
+     * Returns an HTML string.
+     *
+     * @param $data
+     * @param string $query
+     * @return string
      */
     public function output_html($data, $query='') {
         global $OUTPUT;

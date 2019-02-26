@@ -14,16 +14,6 @@
 // You should have received a copy of the GNU General Public License
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
-/**
- * Trema theme.
- *
- * @package     theme_trema
- * @copyright   2019 Trema - {@link https://trema.tech/}
- * @author      Rodrigo Mady
- * @author      Trevor Furtado
- * @license     http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
- */
-
 namespace theme_trema\output;
 
 use custom_menu;
@@ -34,10 +24,21 @@ defined('MOODLE_INTERNAL') || die;
 
 require_once($CFG->dirroot."/course/format/lib.php");
 
+/**
+ * Core renderer.
+ *
+ * @package     theme_trema
+ * @copyright   2019 Trema - {@link https://trema.tech/}
+ * @author      Rodrigo Mady
+ * @author      Trevor Furtado
+ * @license     http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ */
 class core_renderer extends \theme_boost\output\core_renderer {
 
     /**
      * Returns the url of the custom favicon.
+     *
+     * @return moodle_url|string
      */
     public function favicon() {
         $favicon = $this->page->theme->setting_file_url('favicon', 'favicon');
@@ -50,8 +51,8 @@ class core_renderer extends \theme_boost\output\core_renderer {
     }
 
     /**
-     *
      * Always show the compact logo when its defined.
+     *
      * @return bool
      */
     public function should_display_navbar_logo() {
@@ -107,6 +108,12 @@ class core_renderer extends \theme_boost\output\core_renderer {
      * Overriding the custom_menu function ensures the custom menu is
      * always shown, even if no menu items are configured in the global
      * theme settings page.
+     *
+     * @param string $custommenuitems
+     * @return string
+     * @throws \coding_exception
+     * @throws \dml_exception
+     * @throws \moodle_exception
      */
     public function custom_menu($custommenuitems = '') {
         global $CFG;
@@ -118,6 +125,15 @@ class core_renderer extends \theme_boost\output\core_renderer {
         return $this->render_custom_menu($custommenu);
     }
 
+    /**
+     * Add icons to custom menu.
+     *
+     * @param custom_menu $menu
+     * @return string
+     * @throws \coding_exception
+     * @throws \dml_exception
+     * @throws \moodle_exception
+     */
     protected function render_custom_menu(custom_menu $menu) {
         if ($showmycourses = get_config('theme_trema', 'showmycourses')) {
             $mycourses = $this->page->navigation->get('mycourses');
@@ -151,6 +167,8 @@ class core_renderer extends \theme_boost\output\core_renderer {
     /**
      * We want to show the custom menus as a list of links in the footer on small screens.
      * Just return the menu object exported so we can render it differently.
+     *
+     * @return array
      */
     public function custom_menu_flat() {
         global $CFG;
