@@ -29,7 +29,8 @@ defined('MOODLE_INTERNAL') || die();
 /**
  * Load the main SCSS and the frontpage banner.
  *
- * @param $theme
+ * @param theme_config $theme
+ *            The theme config object.
  * @return string
  */
 function theme_trema_get_main_scss_content($theme) {
@@ -52,7 +53,7 @@ function theme_trema_get_main_scss_content($theme) {
  *
  * @param theme_config $theme
  *            The theme config object.
- * @return array
+ * @return string
  */
 function theme_trema_get_pre_scss($theme) {
     $scss = '';

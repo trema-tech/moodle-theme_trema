@@ -38,11 +38,11 @@ defined('MOODLE_INTERNAL') || die;
 class trema_admin_settings_styleguide extends admin_setting_heading {
 
     /**
-     * trema_admin_settings_styleguide constructor.
-     *
-     * @param $name
-     * @param $heading
-     * @param $description
+     * not a setting, just text
+     * @param string $name unique ascii name, either 'mysetting' for settings that in config, or 'myplugin/mysetting'
+     *  for ones in config_plugins.
+     * @param string $heading heading
+     * @param string $description text in box
      */
     public function __construct($name, $heading, $description = '') {
         $this->nosave = true;
@@ -50,11 +50,10 @@ class trema_admin_settings_styleguide extends admin_setting_heading {
     }
 
     /**
-     * Returns an HTML string.
+     * Returns an HTML string
      *
-     * @param $data
+     * @param mixed $data array or string depending on setting
      * @param string $query
-     *
      * @return string
      */
     public function output_html($data, $query = '') {
