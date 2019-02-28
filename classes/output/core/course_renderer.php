@@ -27,12 +27,12 @@ namespace theme_trema\output\core;
 
 defined('MOODLE_INTERNAL') || die();
 
-use core_course_category;
-use coursecat;
 use moodle_url;
 use html_writer;
+use coursecat;
 use coursecat_helper;
 use stdClass;
+use course_in_list;
 
 /**
  * Class course_renderer
@@ -145,7 +145,7 @@ class course_renderer extends \core_course_renderer {
      * please use {@link core_course_renderer::course_info_box()}
      *
      * @param coursecat_helper $chelper various display options
-     * @param core_course_list_element|stdClass $course
+     * @param course_in_list|stdClass $course
      * @param string $additionalclasses additional classes to add to the main <div> tag (usually
      *    depend on the course position in list - first/last/even/odd)
      * @return string
@@ -160,7 +160,7 @@ class course_renderer extends \core_course_renderer {
         }
         if ($course instanceof stdClass) {
             require_once($CFG->libdir. '/coursecatlib.php');
-            $course = new core_course_list_element($course);
+            $course = new course_in_list($course);
         }
         $content = html_writer::start_tag('div', array('class' => $additionalclasses));
         $classes = '';
@@ -190,14 +190,15 @@ class course_renderer extends \core_course_renderer {
      * This method is called from coursecat_coursebox() and may be re-used in AJAX
      *
      * @param coursecat_helper $chelper various display options
-     * @param stdClass|core_course_list_element $course
+     * @param stdClass|course_in_list $course
      * @return string
      */
     protected function coursecat_coursebox_content(coursecat_helper $chelper, $course) {
         global $CFG;
 
         if ($course instanceof stdClass) {
-            $course = new core_course_list_element($course);
+            require_once($CFG->libdir. '/coursecatlib.php');
+            $course = new course_in_list($course);
         }
 
         // Course name.
@@ -227,7 +228,7 @@ class course_renderer extends \core_course_renderer {
 
         $content .= html_writer::end_tag('div'); // End card-block.
 
-        // Display course contacts. See core_course_list_element::get_course_contacts().
+        // Display course contacts. See course_in_list::get_course_contacts().
         if ($course->has_course_contacts()) {
             $content .= html_writer::start_tag('div', array('class' => 'card-footer teachers'));
             $content .= html_writer::start_tag('ul');
@@ -244,7 +245,8 @@ class course_renderer extends \core_course_renderer {
 
         // Display course category if necessary (for example in search results).
         if ($chelper->get_show_courses() == self::COURSECAT_SHOW_COURSES_EXPANDED_WITH_CAT) {
-            if ($cat = core_course_category::get($course->category, IGNORE_MISSING)) {
+            require_once($CFG->libdir. '/coursecatlib.php');
+            if ($cat = coursecat::get($course->category, IGNORE_MISSING)) {
                 $content .= html_writer::start_tag('div', array('class' => 'coursecat text-center'));
                 $content .= get_string('category').': '.
                     html_writer::link(new moodle_url('/course/index.php', array('categoryid' => $cat->id)),
