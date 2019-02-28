@@ -28,7 +28,7 @@ namespace theme_trema\output\core;
 defined('MOODLE_INTERNAL') || die();
 
 use core_course_category;
-use coursecat;
+use core_course_list_element;
 use moodle_url;
 use html_writer;
 use coursecat_helper;
@@ -159,7 +159,6 @@ class course_renderer extends \core_course_renderer {
             return '';
         }
         if ($course instanceof stdClass) {
-            require_once($CFG->libdir. '/coursecatlib.php');
             $course = new core_course_list_element($course);
         }
         $content = html_writer::start_tag('div', array('class' => $additionalclasses));
