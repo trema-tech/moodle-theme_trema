@@ -173,8 +173,8 @@ function count_active_courses() {
     if (!$activecourses) {
         $today = time();
         $sql = "SELECT COUNT(id) FROM {course}
-            WHERE visible = 1 AND startdate <= {$today} AND (enddate > {$today} OR enddate = 0) AND format != 'site'";
-        $activecourses = $DB->count_records_sql($sql);
+            WHERE visible = 1 AND startdate <= :today AND (enddate > :today2 OR enddate = 0) AND format != 'site'";
+        $activecourses = $DB->count_records_sql($sql, ['today' => $today, 'today2' => $today]);
         $cache->set('countactivecourses', $activecourses);
     }
     return $activecourses;
@@ -208,8 +208,8 @@ function get_active_courses() {
     if (!$activecourses) {
         $today = time();
         $sql = "SELECT id FROM {course}
-            WHERE visible = 1 AND startdate <= {$today} AND (enddate > {$today} OR enddate = 0) AND format != 'site'";
-        $activecourses = $DB->get_fieldset_sql($sql);;
+            WHERE visible = 1 AND startdate <= :today AND (enddate > :today2 OR enddate = 0) AND format != 'site'";
+        $activecourses = $DB->get_fieldset_sql($sql, ['today' => $today, 'today2' => $today]);;
         $cache->set('activecourses', $activecourses);
     }
     return $activecourses;
@@ -228,11 +228,16 @@ function count_active_enrolments() {
     if (!$activeenrolments) {
         $today = time();
         $activecourses = implode(', ', (array)get_active_courses());
-        $sql = "SELECT COUNT(1) FROM {user_enrolments} ue
+        if($activecourses) {
+            $sql = "SELECT COUNT(1) FROM {user_enrolments} ue
             INNER JOIN {enrol} e ON ue.enrolid = e.id
-            WHERE ue.status = 0 AND (ue.timeend >= {$today} OR ue.timeend = 0) AND e.courseid IN ({$activecourses})";
-        $activeenrolments = $DB->count_records_sql($sql);
-        $cache->set('activeenrolments', $activeenrolments);
+            WHERE ue.status = 0 AND (ue.timeend >= :today OR ue.timeend = 0) AND e.courseid IN (:activecourses)";
+            $activeenrolments = $DB->count_records_sql($sql, ['today' => $today, 'activecourses' => $activecourses]);
+            $cache->set('activeenrolments', $activeenrolments);
+        } else {
+            $activeenrolments = 0;
+            $cache->set('activeenrolments', $activeenrolments);
+        }
     }
     return $activeenrolments;
 }
