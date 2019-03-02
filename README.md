@@ -21,8 +21,10 @@ Nice features in trema:
  block that can be seen and accessed only by the site administrator.
  - Thinking a little more about the administrators we made the admin 
  dashboard area, so that they can see in real time some data about their Moodle.
+  - The colours scheme can be changed in the theme settings.
+  
 ![image1](pix/examples/admindashboard.png "Dashboard Admin Screenshot") 
- - The colours scheme can be changed in the theme settings.
+
 
 Developed and maintained by
 ===========================
