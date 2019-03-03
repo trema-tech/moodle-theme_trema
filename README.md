@@ -2,26 +2,29 @@ The "Trema" Moodle Theme
 ============================
 ![image1](pix/screenshot.gif "Trema Screenshot")
 
-The theme trema focus in usability and beaty, so for that became real 
-the developers try to make something clean and usable for everyone in community.
+The theme trema is focused in usability and beauty.
+In order to acheive this, our developers worked hard to
+make it clean and easy to use for everyone.
 
-The main idea from this theme is use Moodle not necessarily 
-with other site for divulgation.
+The main goal for this theme is that the Moodle site will not need
+another site for information/advertising/marketing.
 
 Nice features in trema:
- - It's based in theme boost, so will continue compatible with Moodle 
+ - It's based in the boost theme, so it will continue to be compatible with Moodle 
  for a long time.
  - The frontpage is fully customized. It's possible to change the image 
- banner, you can create up to six beautiful cards with custom contents and
+ banner. You can create up to six beautiful cards with custom contents and
  you can add custom HTML content with no restrictions.
  - The login page is awesome with [Particles lib](https://github.com/mmacheerpuppy/particles.js).
- - We really use [Bootstrap](https://getbootstrap.com/) to make theme fully responsive.
- - The footer is pretty customizable and we have a exclusive admin area 
- block that just one administrator of Moodle can see and access.
- - Thinking a litte more about the administrators we made the admin 
- dashboard area. So they can see in real time some infos about their Moodle.
+ - We really use [Bootstrap](https://getbootstrap.com/) to make the theme fully responsive.
+ - The footer is highly customizable and we have an exclusive admin area 
+ block that can be seen and accessed only by the site administrator.
+ - Thinking a little more about the administrators we made the admin 
+ dashboard area, so that they can see in real time some data about their Moodle.
+  - The colours scheme can be changed in the theme settings.
+  
 ![image1](pix/examples/admindashboard.png "Dashboard Admin Screenshot") 
- - The colors scheme can be changed in theme settings.
+
 
 Developed and maintained by
 ===========================
