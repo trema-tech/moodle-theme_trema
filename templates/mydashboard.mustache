@@ -93,18 +93,17 @@
     </div>
     {{{ output.standard_after_main_region_html }}}
     {{> theme_boost/nav-drawer }}
-</div>
-
-{{#hasadminblocks}}
-    <div id="side-admin-blocks">
-        <div class="container py-3">
-            <h3 class="text-center my-2">{{#str}}adminarea, theme_trema{{/str}}</h3>
-            {{{ sideadminblocks }}}
+    {{#hasadminblocks}}
+        <div id="side-admin-blocks">
+            <div class="container py-3">
+                <h3 class="text-center my-2">{{#str}}adminarea, theme_trema{{/str}}</h3>
+                {{{ sideadminblocks }}}
+            </div>
         </div>
-    </div>
-{{/hasadminblocks}}
+    {{/hasadminblocks}}
 
-{{> theme_trema/footer }}
+    {{> theme_trema/footer }}
+</div>
 
 </body>
 </html>
