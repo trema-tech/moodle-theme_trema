@@ -227,12 +227,15 @@ function count_active_enrolments() {
     $activeenrolments = $cache->get('activeenrolments');
     if (!$activeenrolments) {
         $today = time();
-        $activecourses = implode(', ', (array)get_active_courses());
+        $activecourses = get_active_courses();
         if($activecourses) {
+            list($in, $params) = $DB->get_in_or_equal($activecourses, SQL_PARAMS_NAMED);
+            $params['today'] = $today;
+
             $sql = "SELECT COUNT(1) FROM {user_enrolments} ue
             INNER JOIN {enrol} e ON ue.enrolid = e.id
-            WHERE ue.status = 0 AND (ue.timeend >= :today OR ue.timeend = 0) AND e.courseid IN (:activecourses)";
-            $activeenrolments = $DB->count_records_sql($sql, ['today' => $today, 'activecourses' => $activecourses]);
+            WHERE ue.status = 0 AND (ue.timeend >= :today OR ue.timeend = 0) AND e.courseid {$in}";
+            $activeenrolments = $DB->count_records_sql($sql, $params);
             $cache->set('activeenrolments', $activeenrolments);
         } else {
             $activeenrolments = 0;
