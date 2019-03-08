@@ -62,7 +62,6 @@ function theme_trema_get_pre_scss($theme) {
         'primarycolor' => 'primary',
         'secondarycolor' => 'secondary',
         'particles_backgroundcolor' => 'particles-bg',
-        'loginbackgroundimage' => 'login-backgroundimage'
     ];
 
     // Prepend variables first.
@@ -70,14 +69,18 @@ function theme_trema_get_pre_scss($theme) {
         $value = isset($theme->settings->{$configkey}) ? $theme->settings->{$configkey} : null;
         if (empty($value)) {
             continue;
-        } else if ($configkey == 'loginbackgroundimage' and
-                    ! empty($theme->setting_file_url('loginbackgroundimage', 'loginbackgroundimage'))) {
-            $scss .= '$' . $target . ": '" . $theme->setting_file_url('loginbackgroundimage', 'loginbackgroundimage') . "';\n";
-            continue;
         }
         $scss .= '$' . $target . ': ' . $value . ";\n";
     }
-
+    
+    //Login background image
+    $backgroundimageurl = $theme->setting_file_url('loginbackgroundimage', 'loginbackgroundimage');
+    if ($theme->settings->loginpagestyle == 'image' and !empty($backgroundimageurl)) {
+        $scss .= "\$login-backgroundimage: '$backgroundimageurl';\n";
+    } else {
+        $scss .= "\$login-backgroundimage: '[[pix:theme|frontpage/banner]]';\n";
+    }
+            
     // Prepend pre-scss.
     if (! empty($theme->settings->scsspre)) {
         $scss .= $theme->settings->scsspre;
