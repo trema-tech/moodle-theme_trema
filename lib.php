@@ -72,15 +72,15 @@ function theme_trema_get_pre_scss($theme) {
         }
         $scss .= '$' . $target . ': ' . $value . ";\n";
     }
-    
-    //Login background image
+
+    // Login background image.
     $backgroundimageurl = $theme->setting_file_url('loginbackgroundimage', 'loginbackgroundimage');
     if ($theme->settings->loginpagestyle == 'image' and !empty($backgroundimageurl)) {
         $scss .= "\$login-backgroundimage: '$backgroundimageurl';\n";
     } else {
         $scss .= "\$login-backgroundimage: '[[pix:theme|frontpage/banner]]';\n";
     }
-            
+
     // Prepend pre-scss.
     if (! empty($theme->settings->scsspre)) {
         $scss .= $theme->settings->scsspre;
