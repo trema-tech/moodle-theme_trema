@@ -28,7 +28,9 @@ body#page-login-index {
 
     &.style-image {
         #page-wrapper {
-            background: url($login-backgroundimage) top center no-repeat;
+            background-image: url($login-backgroundimage);
+            background-position: top center;
+            background-repeat: no-repeat;
             background-size: cover;
             height: auto;
         }
