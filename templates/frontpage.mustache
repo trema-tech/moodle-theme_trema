@@ -90,7 +90,7 @@
                     {{{ output.main_content }}}
                     {{{ output.activity_navigation }}}
                     {{{ output.course_content_footer }}}
-                    
+
                     {{#hasblocks}}
                     <div data-region="blocks-frontpage" class="d-print-none">
                         {{{ sidepreblocks }}}
@@ -102,18 +102,17 @@
     </div>
     {{{ output.standard_after_main_region_html }}}
     {{> theme_boost/nav-drawer }}
+    {{#hasadminblocks}}
+        <div id="side-admin-blocks">
+            <div class="container py-3">
+                <h3 class="text-center my-2">{{#str}}adminarea, theme_trema{{/str}}</h3>
+                {{{ sideadminblocks }}}
+            </div>
+        </div>
+    {{/hasadminblocks}}
+
+    {{> theme_trema/footer }}
 </div>
-
-{{#hasadminblocks}}
-    <div id="side-admin-blocks">
-        <div class="container py-3">
-            <h3 class="text-center my-2">{{#str}}adminarea, theme_trema{{/str}}</h3>
-            {{{ sideadminblocks }}}
-         </div>
-    </div>
-{{/hasadminblocks}}
-
-{{> theme_trema/footer }}
 
 </body>
 </html>

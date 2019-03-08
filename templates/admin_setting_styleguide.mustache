@@ -16,9 +16,9 @@
 }}
 {{!
     @template theme_boost/admin_setting_styleguide
-    
+
     Style guide present in theme settings.
-    
+
     Example context (json): {}
 }}
 <div class="container box large bordered">
@@ -191,7 +191,7 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
                 </tr>
                 <tr>
                     <td>Item 3</td>
-                    <td> Morbi faucibus arcu accumsan lorem.</td>
+                    <td>Morbi faucibus arcu accumsan lorem.</td>
                     <td>29.99</td>
                 </tr>
                 <tr>
@@ -223,15 +223,14 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
                         <span class="float-sm-right text-nowrap">
                             <a class="btn btn-link p-0" role="button" data-container="body" data-toggle="popover"
                                data-placement="right"
-                               data-content="<div class=&quot;no-overflow&quot;><p>Lembre-se de que</p></div>"
+                               data-content="<div class=&quot;no-overflow&quot;><p>Vis ac commodo adipiscing arcu aliquet...</p></div>"
                                data-html="true"
                                tabindex="0" data-trigger="focus">
-                              <i class="icon fa fa-question-circle text-info fa-fw " aria-hidden="true"
-                                 title="Ajuda com Identificação de usuário"></i>
+                              <i class="icon fa fa-question-circle text-info fa-fw " aria-hidden="true"></i>
                             </a>
                         </span>
                             <label class="col-form-label d-inline " for="id_username">
-                                Identificação de usuário
+                                {{#str}}username{{/str}}
                             </label>
                         </div>
                         <div class="col-md-9 form-inline felement" data-fieldtype="text">
@@ -243,7 +242,7 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
                     <div id="fitem_id_newpassword" class="form-group row  fitem   ">
                         <div class="col-md-3">
                             <label class="col-form-label d-inline " for="id_newpassword">
-                                Nova senha
+                                {{#str}}newpassword{{/str}}
                             </label>
                         </div>
                         <div class="col-md-9 form-inline felement" data-fieldtype="passwordunmask">
@@ -252,98 +251,27 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
                                     <input type="text" name="newpassword" id="id_newpassword" value=""
                                            class="form-control d-inline-block" data-size="20">
                                 </span>
-                                <a href="#" data-passwordunmask="edit" title="">
-                                    <span data-passwordunmask="displayvalue"><span>
-                                        <em>Clique para inserir texto</em>
-                                    </span></span>
-                                    <i class="icon fa fa-pencil fa-fw " aria-hidden="true" title="Editar senha"
-                                       aria-label="Editar senha"></i>
-                                </a>
-                                <a href="#" data-passwordunmask="unmask" title="">
-                                    <i class="icon fa fa-eye fa-fw " aria-hidden="true" title="Mostrar"
-                                       aria-label="Mostrar"></i>
-                                </a>
-                                <span data-passwordunmask="instructions" class="form-text text-muted"
-                                      style="display: none;"
-                                      id="id_newpassword_instructions">
-                                    Pressione a tecla enter para gravar as alterações
-                                </span>
                             </span>
                         </div>
                     </div>
-                    <div class="form-group row  fitem  ">
+                    <div class="form-group row  fitem">
                         <div class="col-md-3">
                         </div>
                     </div>
                     <div id="fitem_id_maildisplay" class="form-group row  fitem   ">
                         <div class="col-md-3">
                             <label class="col-form-label d-inline " for="id_maildisplay">
-                                Mostrar endereço de email
+                                {{#str}}emaildisplay{{/str}}
                             </label>
                         </div>
                         <div class="col-md-9 form-inline felement" data-fieldtype="select">
                             <select class="custom-select" name="maildisplay" id="id_maildisplay">
-                                <option value="0">Esconder o meu endereço de email completamente</option>
-                                <option value="1" selected="">Permitir que todos vejam o meu endereço de email</option>
-                                <option value="2">Apenas os participantes do curso podem ver o meu endereço de email
+                                <option value="0">{{#str}}emaildisplayno{{/str}}</option>
+                                <option value="1" selected="">{{#str}}emaildisplayyes{{/str}}</option>
+                                <option value="2">{{#str}}emaildisplaycourse{{/str}}
                                 </option>
                             </select>
-                            <div class="form-control-feedback invalid-feedback" id="id_error_maildisplay">
-
-                            </div>
                         </div>
-                    </div>
-                    <div id="fitem_id_city" class="form-group row  fitem   ">
-                        <div class="col-md-3">
-                            <label class="col-form-label d-inline " for="id_city">
-                                Cidade/Município
-                            </label>
-                        </div>
-                        <div class="col-md-9 form-inline felement" data-fieldtype="text">
-                            <input type="text" class="form-control " name="city" id="id_city" value="" size="21"
-                                   maxlength="120">
-                        </div>
-                    </div>
-                    <div id="fitem_id_country" class="form-group row  fitem   ">
-                        <div class="col-md-3">
-                            <label class="col-form-label d-inline " for="id_country">
-                                Selecione um país
-                            </label>
-                        </div>
-                        <div class="col-md-9 form-inline felement" data-fieldtype="select">
-                            <select class="custom-select
-
-                       " name="country" id="id_country">
-                                <option value="" selected="">Selecione um país...</option>
-                                <option value="AF">Afeganistão</option>
-                                <option value="ZA">África do Sul</option>
-                                <option value="AL">Albânia</option>
-                                <option value="DE">Alemanha, República Federal da</option>
-                                <option value="AD">Andorra</option>
-                                <option value="AO">Angola</option>
-                                <option value="AI">Anguilla</option>
-                                <option value="AQ">Antártida</option>
-                                <option value="AG">Antígua e Barbuda</option>
-                            </select>
-                            <div class="form-control-feedback invalid-feedback" id="id_error_country">
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-9 form-inline felement" data-fieldtype="group">
-                    <div class="form-group  fitem  ">
-                        <span data-fieldtype="submit">
-                        <input type="submit" class="btn btn-primary" name="submitbutton" id="id_submitbutton"
-                               value="Atualizar perfil">
-                        </span>
-                    </div>
-
-                    <div class="form-group  fitem   btn-cancel">
-                        <label class="col-form-label " for="id_cancel"></label>
-                        <span data-fieldtype="submit">
-                            <input type="submit" class="btn btn-secondary" name="cancel" id="id_cancel"
-                                   value="Cancelar"></span>
                     </div>
                 </div>
             </fieldset>

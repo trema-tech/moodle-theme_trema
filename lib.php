@@ -228,7 +228,7 @@ function count_active_enrolments() {
     if (!$activeenrolments) {
         $today = time();
         $activecourses = get_active_courses();
-        if($activecourses) {
+        if ($activecourses) {
             list($in, $params) = $DB->get_in_or_equal($activecourses, SQL_PARAMS_NAMED);
             $params['today'] = $today;
 
