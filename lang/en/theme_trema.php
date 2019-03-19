@@ -77,6 +77,7 @@ $string['numberofcards'] = 'Number of cards';
 $string['particlecircles'] = 'Particle.js Circles';
 $string['pluginname'] = 'Trema';
 $string['privacy:metadata'] = 'The Trema theme does not store any individual user data.';
+$string['region-side-admin'] = 'Only admins';
 $string['region-side-pre'] = 'Right';
 $string['rememberusername'] = 'Remember user';
 $string['seemore'] = 'See more';

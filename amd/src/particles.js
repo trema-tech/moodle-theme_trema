@@ -7,13 +7,14 @@ define([], function() {
     /* How to use? : Check the GitHub README
     /* v2.0.0
     /* ----------------------------------------------- */
-
     var pJS = function(tag_id, params) {
 
         var canvas_el = document.querySelector('#' + tag_id + ' > .particles-js-canvas-el');
 
         /* particles.js variables with default values */
         this.pJS = {
+            // Default FPS limit implementation (see line 1314 for codified change).
+            fps_limit: 40,
             canvas: {
                 el: canvas_el,
                 w: canvas_el.offsetWidth,
@@ -21,7 +22,7 @@ define([], function() {
             },
             particles: {
                 number: {
-                    value: 400,
+                    value: 300,
                     density: {
                         enable: true,
                         value_area: 800
@@ -917,12 +918,12 @@ define([], function() {
                     dist_mouse = Math.sqrt(dx_mouse * dx_mouse + dy_mouse * dy_mouse);
 
                 var normVec = {
-                    x: dx_mouse / dist_mouse,
-                    y: dy_mouse / dist_mouse
-                },
-                repulseRadius = pJS.interactivity.modes.repulse.distance,
-                velocity = 100,
-                repulseFactor = clamp((1 / repulseRadius) * (-1 * Math.pow(dist_mouse / repulseRadius, 2) + 1) * repulseRadius * velocity, 0, 50);
+                        x: dx_mouse / dist_mouse,
+                        y: dy_mouse / dist_mouse
+                    },
+                    repulseRadius = pJS.interactivity.modes.repulse.distance,
+                    velocity = 100,
+                    repulseFactor = clamp((1 / repulseRadius) * (-1 * Math.pow(dist_mouse / repulseRadius, 2) + 1) * repulseRadius * velocity, 0, 50);
 
                 var pos = {
                     x: p.x + normVec.x * repulseFactor,
@@ -1192,22 +1193,22 @@ define([], function() {
                     return color_value;
                 });
 
-                /* prepare to create img with colored svg */
-                var svg = new Blob([coloredSvgXml], {
+            /* prepare to create img with colored svg */
+            var svg = new Blob([coloredSvgXml], {
                     type: 'image/svg+xml;charset=utf-8'
                 }),
                 DOMURL = window.URL || window.webkitURL || window,
                 url = DOMURL.createObjectURL(svg);
 
-                /* create particle img obj */
-                var img = new Image();
-                img.addEventListener('load', function() {
-                    p.img.obj = img;
-                    p.img.loaded = true;
-                    DOMURL.revokeObjectURL(url);
-                    pJS.tmp.count_svg++;
-                });
-                img.src = url;
+            /* create particle img obj */
+            var img = new Image();
+            img.addEventListener('load', function() {
+                p.img.obj = img;
+                p.img.loaded = true;
+                DOMURL.revokeObjectURL(url);
+                pJS.tmp.count_svg++;
+            });
+            img.src = url;
 
         };
 
@@ -1285,36 +1286,41 @@ define([], function() {
         };
 
         pJS.fn.vendors.draw = function() {
-
-            if (pJS.particles.shape.type == 'image') {
-
-                if (pJS.tmp.img_type == 'svg') {
-
-                    if (pJS.tmp.count_svg >= pJS.particles.number.value) {
-                        pJS.fn.particlesDraw();
-                        if (!pJS.particles.move.enable) cancelRequestAnimFrame(pJS.fn.drawAnimFrame);
-                        else pJS.fn.drawAnimFrame = requestAnimFrame(pJS.fn.vendors.draw);
+            // Default implementation of the draw function from and for particles.js library.
+            function defaultDraw() {
+                if (pJS.particles.shape.type == 'image') {
+                    if (pJS.tmp.img_type == 'svg') {
+                        if (pJS.tmp.count_svg >= pJS.particles.number.value) {
+                            pJS.fn.particlesDraw();
+                            if (!pJS.particles.move.enable) cancelRequestAnimFrame(pJS.fn.drawAnimFrame);
+                            else pJS.fn.drawAnimFrame = requestAnimFrame(pJS.fn.vendors.draw);
+                        } else {
+                            //console.log('still loading...');
+                            if (!pJS.tmp.img_error) pJS.fn.drawAnimFrame = requestAnimFrame(pJS.fn.vendors.draw);
+                        }
                     } else {
-                        //console.log('still loading...');
-                        if (!pJS.tmp.img_error) pJS.fn.drawAnimFrame = requestAnimFrame(pJS.fn.vendors.draw);
+                        if (pJS.tmp.img_obj != undefined) {
+                            pJS.fn.particlesDraw();
+                            if (!pJS.particles.move.enable) cancelRequestAnimFrame(pJS.fn.drawAnimFrame);
+                            else pJS.fn.drawAnimFrame = requestAnimFrame(pJS.fn.vendors.draw);
+                        } else {
+                            if (!pJS.tmp.img_error) pJS.fn.drawAnimFrame = requestAnimFrame(pJS.fn.vendors.draw);
+                        }
                     }
-
                 } else {
-
-                    if (pJS.tmp.img_obj != undefined) {
-                        pJS.fn.particlesDraw();
-                        if (!pJS.particles.move.enable) cancelRequestAnimFrame(pJS.fn.drawAnimFrame);
-                        else pJS.fn.drawAnimFrame = requestAnimFrame(pJS.fn.vendors.draw);
-                    } else {
-                        if (!pJS.tmp.img_error) pJS.fn.drawAnimFrame = requestAnimFrame(pJS.fn.vendors.draw);
-                    }
-
+                    pJS.fn.particlesDraw();
+                    if (!pJS.particles.move.enable) cancelRequestAnimFrame(pJS.fn.drawAnimFrame);
+                    else pJS.fn.drawAnimFrame = requestAnimFrame(pJS.fn.vendors.draw);
                 }
-
-            } else {
-                pJS.fn.particlesDraw();
-                if (!pJS.particles.move.enable) cancelRequestAnimFrame(pJS.fn.drawAnimFrame);
-                else pJS.fn.drawAnimFrame = requestAnimFrame(pJS.fn.vendors.draw);
+            }
+            // FPS limit logic
+            // Check if the fps_limit has been set to a value other than 0 by default (and handle invalid input).
+            // If so, use a setTimeout method to apply the fps limit, if not, then unlock the FPS to the default v-sync.
+            var fps_limit = pJS.fps_limit;
+            if (fps_limit <= 0) {} else {
+                setTimeout(function() {
+                    defaultDraw()
+                }, 1000 / fps_limit)
             }
 
         };
@@ -1493,7 +1499,6 @@ define([], function() {
             if (xhr.readyState == 4) {
                 if (xhr.status == 200) {
                     var params = JSON.parse(data.currentTarget.response);
-                    console.log(params);
                     window.particlesJS(tag_id, params);
                     if (callback) callback();
                 } else {
