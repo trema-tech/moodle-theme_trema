@@ -204,7 +204,7 @@ class course_renderer extends \core_course_renderer {
         $coursenamelink = html_writer::link(new moodle_url('/course/view.php', array('id' => $course->id)),
             $coursename, array('class' => $course->visible ? '' : 'dimmed'));
 
-        $content = html_writer::start_tag('a', array ('href' => '/course/view.php?id='.$course->id, 'class' => 'course-card-img'));
+        $content = html_writer::start_tag('a', array ('href' => "{$CFG->wwwroot}/course/view.php?id={$course->id}", 'class' => 'course-card-img'));
         $content .= $this->get_course_summary_image($course);
         $content .= html_writer::end_tag('a');
 
