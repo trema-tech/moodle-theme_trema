@@ -194,8 +194,6 @@ class course_renderer extends \core_course_renderer {
      * @return string
      */
     protected function coursecat_coursebox_content(coursecat_helper $chelper, $course) {
-        global $CFG;
-
         if ($course instanceof stdClass) {
             require_once($CFG->libdir. '/coursecatlib.php');
             $course = new course_in_list($course);
@@ -203,10 +201,11 @@ class course_renderer extends \core_course_renderer {
 
         // Course name.
         $coursename = $chelper->get_course_formatted_name($course);
-        $coursenamelink = html_writer::link(new moodle_url('/course/view.php', array('id' => $course->id)),
+        $courseurl = new moodle_url('/course/view.php', array('id' => $course->id));
+        $coursenamelink = html_writer::link($courseurl,
             $coursename, array('class' => $course->visible ? '' : 'dimmed'));
 
-        $content = html_writer::start_tag('a', array ('href' => '/course/view.php?id='.$course->id, 'class' => 'course-card-img'));
+        $content = html_writer::start_tag('a', array ('href' => $courseurl, 'class' => 'course-card-img'));
         $content .= $this->get_course_summary_image($course);
         $content .= html_writer::end_tag('a');
 
