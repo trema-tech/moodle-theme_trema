@@ -1,25 +1,22 @@
-body.path-course,
-body#page-enrol-index {
-    .course-card-view {
-        box-shadow: 5px 5px 9px -4px rgba($black, .1);
-        padding-bottom: 4rem;
-        max-width: 16rem;
-        min-width: 12rem;
+.course-card-view {
+    box-shadow: 5px 5px 9px -4px rgba($black, .1);
+    padding-bottom: 4rem;
+    max-width: 16rem;
+    min-width: 12rem;
 
-        .course-card-img div {
-            height: 6.5rem;
-            background-position: top right;
-            background-size: cover;
-        }
+    .course-card-img div {
+        height: 6.5rem;
+        background-position: top right;
+        background-size: cover;
+    }
 
-        .card-see-more {
-            position: absolute;
-            bottom: 0;
-            width: 100%;
+    .card-see-more {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
 
-            .btn {
-                width: 90%;
-            }
+        .btn {
+            width: 90%;
         }
     }
 }
