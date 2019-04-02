@@ -193,6 +193,7 @@ class course_renderer extends \core_course_renderer {
      * @return string
      */
     protected function coursecat_coursebox_content(coursecat_helper $chelper, $course) {
+        global $OUTPUT;
         if ($course instanceof stdClass) {
             $course = new core_course_list_element($course);
         }
