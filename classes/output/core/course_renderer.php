@@ -253,15 +253,15 @@ class course_renderer extends \core_course_renderer {
 
         // Display course summary.
         if ($course->has_summary()) {
-            $content .= html_writer::start_tag('div', array('class' => 'card-see-more text-center'));
-            $content .= html_writer::start_tag('div', array('class' => 'btn btn-secondary m-2',
-                'id' => "course-popover-{$course->id}", 'role' => 'button', 'data-region' => 'popover-region-toggle',
-                'data-toggle' => 'popover', 'data-placement' => 'right',
-                'data-content' => $chelper->get_course_formatted_summary($course,
-                array('noclean' => true, 'para' => false)), 'data-html' => 'true', 'tabindex' => '0', 'data-trigger' => 'focus'));
-            $content .= get_string('seemore', 'theme_trema');
-            $content .= html_writer::end_tag('div');
-            $content .= html_writer::end_tag('div'); // End summary.
+            $modal = [
+                'body' => $chelper->get_course_formatted_summary($course, ['overflowdiv' => true, 'noclean' => true, 'para' => false]),
+                'title' => $course->fullname,
+                'uniqid' => $course->id,
+                'classes' => "modal-$course->id",
+                'courselink' => new moodle_url("/course/view.php", ['id' => $course->id])
+            ];
+
+            $content .= $OUTPUT->render_from_template('theme_trema/course_summary_modal', $modal);
         }
 
         return $content;
