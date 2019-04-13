@@ -83,6 +83,10 @@ body {
         .tab-pane .nav-link.active {
             color: $white;
         }
+
+        #assignform #existingcell {
+            width: 42%;
+        }
     }
 }
 

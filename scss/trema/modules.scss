@@ -72,5 +72,12 @@ body.path-mod-quiz {
 }
 
 body.path-mod-assign.pagelayout-embedded {
-    overflow: auto;
+    #page {
+        padding-top: 0;
+
+        .form-autocomplete-downarrow {
+            float: none;
+            top: 0;
+        }
+    }
 }
