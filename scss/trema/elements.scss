@@ -255,14 +255,14 @@ body #page {
         background-size: 1.25rem;
         background-repeat: no-repeat;
         padding-right: 2.5rem;
-        background-position: calc(100% + 1rem) center;
+        background-position: right .75rem center;
     }
 
-    select[multiple] {
+    select[multiple],
+    .userselector select {
         height: auto;
         background-image: none;
     }
-
 
     form .form-inline {
         input[type="text"] {
