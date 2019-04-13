@@ -170,6 +170,13 @@ body #page {
 
     .btn-link {
         background: none;
+        border: 1px solid rgba(0, 0, 0, .1);
+        border-radius: .2rem;
+        color: rgba(55,58,60,.8);
+        width: auto;
+        height: auto;
+        line-height: 1;
+        padding: .5rem;
     }
 
     input[type="submit"].btn-primary,
@@ -250,13 +257,13 @@ body #page {
         padding-right: 2.5rem;
         background-position: calc(100% + 1rem) center;
     }
-    
+
     select[multiple] {
         height: auto;
         background-image: none;
     }
-    
-    
+
+
     form .form-inline {
         input[type="text"] {
             display: inline-block;
