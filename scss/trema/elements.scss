@@ -170,13 +170,9 @@ body #page {
 
     .btn-link {
         background: none;
-        border: 1px solid rgba(0, 0, 0, .1);
-        border-radius: .2rem;
-        color: rgba(55,58,60,.8);
-        width: auto;
-        height: auto;
-        line-height: 1;
-        padding: .5rem;
+        &:hover {
+            background: none;
+        }
     }
 
     input[type="submit"].btn-primary,
@@ -243,6 +239,16 @@ body #page {
         select {
             height: 2.75rem;
             padding-left: 1rem;
+        }
+
+        .btn-link {
+            background: none;
+            border: none;
+            border-radius: unset;
+            padding: 0;
+            &:hover {
+                background: none;
+            }
         }
     }
 
