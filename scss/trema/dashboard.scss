@@ -61,3 +61,24 @@ body.pagelayout-mydashboard {
         }
     }
 }
+
+body#page-message-index {
+    #page-header,
+    #mydashboard-admin,
+    #side-admin-blocks {
+        display: none;
+    }
+    
+    #region-main {
+        margin-top: 0;
+        
+        .message-app.main {
+            min-height: 500px;
+            margin-bottom: 1rem;
+            
+            .btn-link {
+                max-width: 95%;
+            }
+        }
+    }
+}
