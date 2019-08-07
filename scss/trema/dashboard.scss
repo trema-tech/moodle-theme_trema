@@ -38,7 +38,7 @@ body.pagelayout-mydashboard {
             background: none;
             border: 1px solid rgba(0, 0, 0, .1);
             border-radius: .2rem;
-            color: rgba(55,58,60,.8);
+            color: rgba(55, 58, 60, .8);
             width: auto;
             height: auto;
             line-height: 1;
@@ -68,14 +68,14 @@ body#page-message-index {
     #side-admin-blocks {
         display: none;
     }
-    
+
     #region-main {
         margin-top: 0;
-        
+
         .message-app.main {
             min-height: 500px;
             margin-bottom: 1rem;
-            
+
             .btn-link {
                 max-width: 95%;
             }
