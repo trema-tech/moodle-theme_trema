@@ -104,11 +104,11 @@ class course_renderer extends \core_course_renderer {
                     $paginationurl->out(
                         false,
                         array('perpage' => $CFG->coursesperpage)
-                        ),
-                    get_string('showperpage', '', $CFG->coursesperpage)
                     ),
+                    get_string('showperpage', '', $CFG->coursesperpage)
+                ),
                 array('class' => 'paging paging-showperpage')
-                );
+            );
         }
         // Display list of courses.
         $attributes = $chelper->get_and_erase_attributes('courses');
@@ -208,7 +208,7 @@ class course_renderer extends \core_course_renderer {
         $content .= html_writer::end_tag('a');
 
         $content .= html_writer::start_tag('div', array('class' => 'card-body'));
-        $content .= "<h5 class='card-title text-center m-1'>". $coursenamelink ."</h5>";
+        $content .= "<h4 class='card-title text-center m-1'>". $coursenamelink ."</h4>";
         $content .= html_writer::end_tag('div');
 
         $content .= html_writer::start_tag('div', array('class' => 'card-block text-center'));
@@ -227,14 +227,14 @@ class course_renderer extends \core_course_renderer {
 
         // Display course contacts. See core_course_list_element::get_course_contacts().
         if ($course->has_course_contacts()) {
-            $content .= html_writer::start_tag('div', array('class' => 'card-footer teachers'));
-            $content .= html_writer::start_tag('ul');
+            $content .= html_writer::start_tag('div', array('class' => 'teachers pt-2'));
+            $content .= html_writer::start_tag('ul', array('class' => 'list-unstyled m-0 px-3 font-weight-light'));
             foreach ($course->get_course_contacts() as $userid => $coursecontact) {
                 $name = $coursecontact['rolename'].': '.
                     html_writer::link(new moodle_url('/user/view.php',
                         array('id' => $userid, 'course' => SITEID)),
                         $coursecontact['username']);
-                    $content .= html_writer::tag('li', $name);
+                $content .= html_writer::tag('li', $name);
             }
             $content .= html_writer::end_tag('ul'); // End teachers.
             $content .= html_writer::end_tag('div'); // End teachers.
@@ -247,7 +247,7 @@ class course_renderer extends \core_course_renderer {
                 $content .= get_string('category').': '.
                     html_writer::link(new moodle_url('/course/index.php', array('categoryid' => $cat->id)),
                         $cat->get_formatted_name(), array('class' => $cat->visible ? '' : 'dimmed'));
-                    $content .= html_writer::end_tag('div'); // End coursecat.
+                $content .= html_writer::end_tag('div'); // End coursecat.
             }
         }
 
@@ -257,8 +257,8 @@ class course_renderer extends \core_course_renderer {
             $content .= html_writer::start_tag('div', array('class' => 'btn btn-secondary m-2',
                 'id' => "course-popover-{$course->id}", 'role' => 'button', 'data-region' => 'popover-region-toggle',
                 'data-toggle' => 'popover', 'data-placement' => 'right',
-                'data-content' => $chelper->get_course_formatted_summary($course,
-                array('noclean' => true, 'para' => false)), 'data-html' => 'true', 'tabindex' => '0', 'data-trigger' => 'focus'));
+                'data-content' => $chelper->get_course_formatted_summary($course, ['noclean' => true, 'para' => false]),
+                'data-html' => 'true', 'tabindex' => '0', 'data-trigger' => 'focus'));
             $content .= get_string('seemore', 'theme_trema');
             $content .= html_writer::end_tag('div');
             $content .= html_writer::end_tag('div'); // End summary.
@@ -295,7 +295,7 @@ class course_renderer extends \core_course_renderer {
             $pattern->setColor($this->coursecolor($course->id));
             $pattern->patternbyid($course->id);
             $contentimage = html_writer::start_tag('div', array('style' => "background-image:url('{$pattern->datauri()}')",
-            'class' => 'card-img-top'));
+                'class' => 'card-img-top'));
             $contentimage .= html_writer::end_tag('div');
         }
 
@@ -312,7 +312,7 @@ class course_renderer extends \core_course_renderer {
     protected function coursecolor($courseid) {
         // The colour palette is hardcoded for now. It would make sense to combine it with theme settings.
         $basecolors = ['#81ecec', '#74b9ff', '#a29bfe', '#dfe6e9', '#00b894', '#0984e3', '#b2bec3',
-                        '#fdcb6e', '#fd79a8', '#6c5ce7'];
+            '#fdcb6e', '#fd79a8', '#6c5ce7'];
 
         $color = $basecolors[$courseid % 10];
         return $color;

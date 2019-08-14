@@ -35,3 +35,35 @@
         }
     }
 }
+
+[data-region="drawer-toggle"] button {
+    &:hover,
+    &:focus,
+    &:active {
+        i.fa {
+            animation: shake 1200ms;
+        }
+    }
+}
+
+@mixin shake ($n) {
+    0% {
+        transform: rotateZ(0);
+    }
+    $pos: 1;
+    @for $i from 1 through 9 {
+        $pos: $pos * -1;
+        $m: ($n / $i) * $pos;
+        #{ $i * 10% }
+        {
+            transform: rotateZ($m * 1deg);
+        }
+    }
+    100% {
+        transform: rotateZ(0);
+    }
+}
+
+@keyframes shake {
+    @include shake(30);
+}
