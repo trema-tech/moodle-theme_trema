@@ -2,6 +2,7 @@ body#page-login-index {
     #page-wrapper {
         position: relative;
         min-height: 100vh;
+        height: auto;
     }
 
     #card-login,
@@ -32,7 +33,6 @@ body#page-login-index {
             background-position: top center;
             background-repeat: no-repeat;
             background-size: cover;
-            height: auto;
         }
     }
 }

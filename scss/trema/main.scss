@@ -96,7 +96,8 @@ body {
 }
 
 .message-app.drawer,
-.message-drawer {
+.message-drawer,
+[data-region=right-hand-drawer].drawer {
     top: 4.5em;
     height: calc(100% - 4.5em);
 }
