@@ -157,4 +157,17 @@ if (get_config('theme_trema', 'frontpageenablecards')) {
     }
 }
 
+// Courses cards.
+$page->add(new admin_setting_heading('theme_trema_course_cards', get_string('coursescards', 'theme_trema'), '', FORMAT_MARKDOWN));
+
+// Summary type.
+$choices = array(
+    "modal" => "modal",
+    "popover" => "popover"
+);
+$setting = new admin_setting_configselect('theme_trema/summarytype',
+    new lang_string('summarytype', 'theme_trema'), new lang_string('summarytype_desc', 'theme_trema'),
+    'btn-primary', $choices);
+$page->add($setting);
+
 $settings->add($page);

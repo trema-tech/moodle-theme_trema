@@ -387,6 +387,25 @@ body #page {
     }
 }
 
+.modal-backdrop {
+    z-index: 10040;
+}
+
+.modal {
+    z-index: 10050;
+}
+
+.modal-dialog {
+    margin-top: 5.75rem;
+    
+}
+
+@media (min-width: 576px) {
+    .modal-dialog {
+        margin: 5.75rem auto;
+    }
+}
+
 body.path-mod-quiz {
     .maxgrade .invisiblefieldset {
         #inputmaxgrade {

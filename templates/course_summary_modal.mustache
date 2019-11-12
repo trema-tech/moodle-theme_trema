@@ -1,0 +1,47 @@
+{{!
+    This file is part of Moodle - http://moodle.org/
+
+    Moodle is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    Moodle is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+}}
+{{!
+    Modal info for /course and list of courses available (site home).
+}}
+
+<!-- Button trigger modal -->
+<div class="card-see-more text-center">
+	<button type="button" class="btn btn-secondary m-2" data-toggle="modal" data-target="#modal-{{uniqid}}">
+	       {{#str}}summarybutton_text, theme_trema{{/str}}
+	</button>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="modal-{{uniqid}}" tabindex="-1" role="dialog" aria-labelledby="modal-title-{{uniqid}}" aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="modal-title-{{uniqid}}">{{#title}}{{title}}{{/title}}</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label={{#quote}}{{#str}}closebuttontitle{{/str}}{{/quote}}>
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        {{{body}}}
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">{{#str}}closebuttontitle{{/str}}</button>
+        <a href="{{courselink}}" class="btn btn-primary">{{#str}}summarycourselink_text, theme_trema{{/str}}</a>
+      </div>
+    </div>
+  </div>
+</div>
