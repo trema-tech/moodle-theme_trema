@@ -22,6 +22,14 @@
         left: 1.25em;
         line-height: inherit;
     }
+    
+    .navbar-nav {
+        flex-wrap: nowrap;
+    }
+    
+    .trema-custom-menu {
+        overflow: hidden;
+    }
 
     .d-inline-block.mr-3 button {
         background-color: #fff;
@@ -115,18 +123,5 @@
         .usermenu {
             padding-right: 0;
         }
-    }
-}
-
-@media (max-width: 768px) {
-    body.notloggedin .usermenu {
-        padding-right: 0;
-        font-size: .7rem;
-        max-width: 12rem;
-        word-wrap: break-word;
-    }
-
-    .navbar-brand {
-        margin-right: 0;
     }
 }
