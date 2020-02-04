@@ -1,5 +1,10 @@
 body.path-mod-quiz {
     #page {
+    
+        #region-main {
+            padding: 0;
+        }
+        
         #region-main > .card > .card-body {
             padding: 0;
             .que {
@@ -49,7 +54,18 @@ body.path-mod-quiz {
                     }
                 }
             }
-
+            
+            /* Cloze question*/
+            .que.multianswer .formulation {
+                padding: 1rem 2rem;
+                
+                select {
+                    width: auto;
+                    display: inherit;
+                    height: 2rem;
+                }
+            }
+            
             .dropdown-toggle {
                 color: black;
             }

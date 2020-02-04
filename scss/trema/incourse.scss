@@ -18,6 +18,10 @@
 .activity-navigation {
     clear: both;
 
+    .row {
+        margin: 0;
+    }
+    
     #jump-to-activity {
         background-color: $white;
     }
