@@ -59,6 +59,10 @@
     .action-menu .dropdown-toggle {
         outline: none;
     }
+    
+    .search-input-wrapper>div .icon {
+        margin-top: .75rem;
+    }
 
     .lang-menu .dropdown-menu {
         top: 13px;
@@ -123,5 +127,12 @@
         .usermenu {
             padding-right: 0;
         }
+    }
+}
+
+@include media-breakpoint-down(xs) {
+    #page-wrapper .navbar .usermenu .login {
+        line-height: 1.1;
+        font-size: .8rem;
     }
 }
