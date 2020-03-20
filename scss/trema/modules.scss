@@ -1,6 +1,5 @@
 body.path-mod-quiz {
     #page {
-        
         #region-main > .card > .card-body {
             padding: 0;
             .que {
@@ -50,22 +49,7 @@ body.path-mod-quiz {
                     }
                 }
             }
-            
-            /* Cloze question*/
-            .que.multianswer .formulation {
-                padding: 1rem 2rem;
-                
-                select {
-                    width: auto;
-                    display: inherit;
-                    height: 2rem;
-                }
-                
-                input[type="text"] {
-                    width: auto;
-                }
-            }
-            
+
             .dropdown-toggle {
                 color: black;
             }
@@ -84,13 +68,6 @@ body.path-mod-quiz {
                 height: auto;
             }
         }
-    }
-}
-
-body#page-mod-quiz-attempt,
-body#page-mod-quiz-review {
-    #region-main {
-        padding: 0;
     }
 }
 

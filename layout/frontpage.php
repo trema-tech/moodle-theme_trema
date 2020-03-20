@@ -61,16 +61,16 @@ $templatecontext = [
     'navdraweropen' => $navdraweropen,
     'regionmainsettingsmenu' => $regionmainsettingsmenu,
     'hasregionmainsettingsmenu' => ! empty($regionmainsettingsmenu),
-    'defaultfrontpagebody' => $pluginsettings->defaultfrontpagebody,
-    'defaultfrontpagefooter' => $pluginsettings->defaultfooter,
-    'frontpagetitle' => $pluginsettings->frontpagetitle,
-    'frontpagesubtitle' => $pluginsettings->frontpagesubtitle,
-    'frontpagebuttontext' => $pluginsettings->frontpagebuttontext,
+    'defaultfrontpagebody' => format_text($pluginsettings->defaultfrontpagebody, FORMAT_HTML),
+    'defaultfrontpagefooter' => format_text($pluginsettings->defaultfooter, FORMAT_HTML),
+    'frontpagetitle' => format_text($pluginsettings->frontpagetitle, FORMAT_HTML),
+    'frontpagesubtitle' => format_text($pluginsettings->frontpagesubtitle, FORMAT_HTML),
+    'frontpagebuttontext' => format_text($pluginsettings->frontpagebuttontext, FORMAT_HTML),
     'frontpagebuttonclass' => $pluginsettings->frontpagebuttonclass,
     'frontpagebuttonhref' => $pluginsettings->frontpagebuttonhref,
     'hascards' => $pluginsettings->frontpageenablecards,
-    'cardstitle' => $pluginsettings->frontpagecardstitle,
-    'cardssubtitle' => $pluginsettings->frontpagecardssubtitle,
+    'cardstitle' => format_text($pluginsettings->frontpagecardstitle, FORMAT_HTML),
+    'cardssubtitle' => format_text($pluginsettings->frontpagecardssubtitle, FORMAT_HTML),
     'cardssettings' => theme_trema_get_cards_settings()
 ];
 
