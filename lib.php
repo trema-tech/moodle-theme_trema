@@ -128,8 +128,8 @@ function theme_trema_get_cards_settings() {
             $cardsettings = new stdClass();
             $cardsettings->cardicon = $theme->settings->{'cardicon' . $i};
             $cardsettings->cardiconcolor = $theme->settings->{'cardiconcolor' . $i};
-            $cardsettings->cardtitle = $theme->settings->{'cardtitle' . $i};
-            $cardsettings->cardsubtitle = $theme->settings->{'cardsubtitle' . $i};
+            $cardsettings->cardtitle = format_text($theme->settings->{'cardtitle' . $i},FORMAT_HTML);
+            $cardsettings->cardsubtitle = format_text($theme->settings->{'cardsubtitle' . $i},FORMAT_HTML);
             $cardsettings->cardlink = $theme->settings->{'cardlink' . $i};
 
             $cardssettings[] = $cardsettings;

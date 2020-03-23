@@ -270,7 +270,7 @@ class course_renderer extends \core_course_renderer {
             } else if($summary_type == 'modal') {
                 $modal = [
                     'body' => $chelper->get_course_formatted_summary($course, ['overflowdiv' => true, 'noclean' => true, 'para' => false]),
-                    'title' => $course->fullname,
+                    'title' => format_text($course->fullname,FORMAT_HTML),
                     'uniqid' => $course->id,
                     'classes' => "modal-$course->id",
                     'courselink' => new moodle_url("/course/view.php", ['id' => $course->id])
