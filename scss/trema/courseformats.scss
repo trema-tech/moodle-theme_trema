@@ -1,0 +1,23 @@
+body.format-tiles {
+    #page {
+        .completioncheckbox {
+            .btn {
+                background-color: $white;
+                padding: 0;
+                width: 25px;
+                height: auto;
+                margin: 0;
+            }
+        }
+    }
+    .tooltip {
+        z-index: 10044;
+    }
+    #sectionbuttons {
+        right: 10px;
+    }
+    .sectionbutton {
+        border: 1px solid $gray-300;
+        background-color: $white;
+    }
+}
