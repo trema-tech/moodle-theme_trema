@@ -46,6 +46,10 @@
     }
 }
 
+[data-parent-key="mycourses"].list-group-item {
+    padding-left: 2.5rem;
+}
+
 @mixin shake ($n) {
     0% {
         transform: rotateZ(0);
