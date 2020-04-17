@@ -1,6 +1,6 @@
 body.path-mod-quiz {
     #page {
-        
+
         #region-main > .card > .card-body {
             padding: 0;
             .que {
@@ -50,22 +50,22 @@ body.path-mod-quiz {
                     }
                 }
             }
-            
+
             /* Cloze question*/
             .que.multianswer .formulation {
                 padding: 1rem 2rem;
-                
+
                 select {
                     width: auto;
                     display: inherit;
                     height: 2rem;
                 }
-                
+
                 input[type="text"] {
                     width: auto;
                 }
             }
-            
+
             .dropdown-toggle {
                 color: black;
             }
@@ -212,5 +212,4 @@ body.editing.path-mod {
     [data-region="blocks-column"] {
         width: 100%;
     }
-
 }
