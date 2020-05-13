@@ -160,6 +160,13 @@ body #page {
 
     .btn {
         line-height: 3.1em;
+        &.small {
+            line-height: 2rem;
+            height: 2rem;
+        }
+        &.large {
+            line-height: 2.5rem;
+        }
     }
 
     //Correct the alignment of the help icon with popover
