@@ -164,4 +164,4 @@ $THEME->layouts = [
 ];
 
 $THEME->prescsscallback = 'theme_trema_get_pre_scss';
-
+$THEME->addblockposition = BLOCK_ADDBLOCK_POSITION_FLATNAV;

@@ -1,6 +1,7 @@
 #nav-drawer {
     top: 4rem;
     padding: 1rem;
+    height: calc(100% - 4rem);
     background: #29292a;
 
     nav.list-group {
