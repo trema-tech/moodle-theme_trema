@@ -274,20 +274,14 @@ function get_environment_issues() {
     $cache = cache::make('theme_trema', 'dashboardadmin');
     $environmentissues = $cache->get('environmentissues');
     if (!$environmentissues) {
-        require_once("$CFG->dirroot/report/performance/locallib.php");
-        $lib = new report_performance();
-        $issues = [];
-        $issues['themedesignermode'] = $lib->report_performance_check_themedesignermode();
-        $issues['cachejs'] = $lib->report_performance_check_cachejs();
-        $issues['debugmsg'] = $lib->report_performance_check_debugmsg();
-        $issues['automatic_backup'] = $lib->report_performance_check_automatic_backup();
-        $issues['enablestats'] = $lib->report_performance_check_enablestats();
+        $issues = \core\check\manager::get_security_checks();
 
         // Prevent warnings.
-        $environmentissues["ok"] = 0;
+        $environmentissues["ok"]      = 0;
         $environmentissues["warning"] = 0;
         foreach ($issues as $issue) {
-            if ($issue->status == 'serious' || $issue->status == 'critical' || $issue->status == 'warning') {
+            $result = $issue->get_result()->status;
+            if ($result == 'serious' || $result == 'critical' || $result == 'warning') {
                 $environmentissues['warning'] ++;
             }
         }
