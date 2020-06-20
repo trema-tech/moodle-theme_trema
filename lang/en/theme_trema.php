@@ -54,6 +54,8 @@ $string['defaultfrontpagefooter'] = 'Frontpage Footer';
 $string['defaultfrontpagefooter_desc'] = 'Default content from frontpage footer';
 $string['enableadmindashboard'] = 'Enable Admin Dashboard';
 $string['enableadmindashboard_desc'] = 'Uncheck if you want to hide the area below in admin dashboard: <img class="img-responsive" src="{$a}"/>';
+$string['enablefooterinfo'] = 'Enable Footer Info and Trema info';
+$string['enablefooterinfo_desc'] = 'Uncheck if you want to hide the area below in footer: <img class="img-responsive" src="{$a}"/>';
 $string['favicon'] = 'Custom favicon';
 $string['favicon_desc'] = 'Upload your own favicon. It should be an .ico file.';
 $string['footertitle'] = 'Theme Trema';

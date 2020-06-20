@@ -37,12 +37,16 @@
                 {{{defaultfrontpagefooter}}}
             </section>
 
-            <section class="col-12 text-center col-12-medium col-12-xsmall footer-info smalltext">
-                {{{ output.login_info }}}
-                {{{ output.standard_footer_html }}}
-                {{{ output.standard_end_of_body_html }}}
-            </section>
+            {{#footerinfo}}
+                <section class="col-12 text-center col-12-medium col-12-xsmall footer-info smalltext">
+                    {{{ output.login_info }}}
+                    {{{ output.standard_footer_html }}}
+                    {{{ output.standard_end_of_body_html }}}
+                </section>
+            {{/footerinfo}}
         </div>
     </div>
-    <div class="copyleft"><span>&copy;</span>{{#str}}footertitle, theme_trema{{/str}}</div>
+    {{#footerinfo}}
+        <div class="copyleft"><span>&copy;</span>{{#str}}footertitle, theme_trema{{/str}}</div>
+    {{/footerinfo}}
 </footer>
