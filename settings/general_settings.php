@@ -97,6 +97,13 @@ $setting = new admin_setting_confightmleditor('theme_trema/defaultfooter', get_s
     get_string('defaultfooter_desc', 'theme_trema'), $footerhtml, PARAM_RAW);
 $page->add($setting);
 
+
+$name = 'theme_trema/enablefooterinfo';
+$title = get_string('enablefooterinfo', 'theme_trema');
+$description = get_string('enablefooterinfo_desc', 'theme_trema', "$CFG->wwwroot/theme/trema/pix/examples/footerinfo.png");
+$setting = new admin_setting_configcheckbox($name, $title, $description, '1');
+$page->add($setting);
+
 // Raw SCSS to include before the content.
 $setting = new admin_setting_scsscode('theme_trema/scsspre', get_string('rawscsspre', 'theme_trema'),
     get_string('rawscsspre_desc', 'theme_trema'), '', PARAM_RAW);
