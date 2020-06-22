@@ -59,7 +59,8 @@ $templatecontext = [
     'navdraweropen' => $navdraweropen,
     'regionmainsettingsmenu' => $regionmainsettingsmenu,
     'hasregionmainsettingsmenu' => !empty($regionmainsettingsmenu),
-    'defaultfrontpagefooter' => $pluginsettings->defaultfooter
+    'defaultfrontpagefooter' => $pluginsettings->defaultfooter,
+    'footerinfo' => $pluginsettings->enablefooterinfo,
 ];
 
 if (is_siteadmin() && $pluginsettings->enableadmindashboard) {

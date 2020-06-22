@@ -37,13 +37,11 @@
                 {{{defaultfrontpagefooter}}}
             </section>
 
-            {{#footerinfo}}
-                <section class="col-12 text-center col-12-medium col-12-xsmall footer-info smalltext">
-                    {{{ output.login_info }}}
-                    {{{ output.standard_footer_html }}}
-                    {{{ output.standard_end_of_body_html }}}
-                </section>
-            {{/footerinfo}}
+            <section class="col-12 text-center col-12-medium col-12-xsmall footer-info smalltext {{^footerinfo}}d-none{{/footerinfo}}">
+                {{{ output.login_info }}}
+                {{{ output.standard_footer_html }}}
+                {{{ output.standard_end_of_body_html }}}
+            </section>
         </div>
     </div>
     {{#footerinfo}}

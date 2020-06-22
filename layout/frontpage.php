@@ -71,7 +71,8 @@ $templatecontext = [
     'hascards' => $pluginsettings->frontpageenablecards,
     'cardstitle' => format_text($pluginsettings->frontpagecardstitle, FORMAT_HTML),
     'cardssubtitle' => format_text($pluginsettings->frontpagecardssubtitle, FORMAT_HTML),
-    'cardssettings' => theme_trema_get_cards_settings()
+    'cardssettings' => theme_trema_get_cards_settings(),
+    'footerinfo' => $pluginsettings->enablefooterinfo,
 ];
 
 $templatecontext['flatnavigation'] = $PAGE->flatnav;
