@@ -47,6 +47,7 @@ $adminblockshtml = $OUTPUT->blocks('side-admin');
 $pluginsettings = get_config("theme_trema");
 
 $regionmainsettingsmenu = $OUTPUT->region_main_settings_menu();
+$nav = $PAGE->flatnav;
 $templatecontext = [
     'sitename' => format_string($SITE->shortname, true, [
         'context' => context_course::instance(SITEID),
@@ -72,10 +73,9 @@ $templatecontext = [
     'cardstitle' => format_text($pluginsettings->frontpagecardstitle, FORMAT_HTML),
     'cardssubtitle' => format_text($pluginsettings->frontpagecardssubtitle, FORMAT_HTML),
     'cardssettings' => theme_trema_get_cards_settings(),
-    'footerinfo' => $pluginsettings->enablefooterinfo
+    'footerinfo' => $pluginsettings->enablefooterinfo,
+    'flatnavigation'         => $nav,
+    'firstcollectionlabel'   => $nav->get_collectionlabel(),
 ];
 
-$nav                                     = $PAGE->flatnav;
-$templatecontext['flatnavigation']       = $nav;
-$templatecontext['firstcollectionlabel'] = $nav->get_collectionlabel();
 echo $OUTPUT->render_from_template('theme_trema/frontpage', $templatecontext);

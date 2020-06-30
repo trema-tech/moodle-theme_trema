@@ -45,20 +45,20 @@ $hasblocks = strpos($blockshtml, 'data-block=') !== false;
 $pluginsettings = get_config("theme_trema");
 
 $regionmainsettingsmenu = $OUTPUT->region_main_settings_menu();
+$nav = $PAGE->flatnav;
 $templatecontext = [
     'sitename' => format_string($SITE->shortname, true, ['context' => context_course::instance(SITEID), "escape" => false]),
-    'output' => $OUTPUT,
-    'sidepreblocks' => $blockshtml,
-    'hasblocks' => $hasblocks,
-    'bodyattributes' => $bodyattributes,
-    'navdraweropen' => $navdraweropen,
+    'output'                 => $OUTPUT,
+    'sidepreblocks'          => $blockshtml,
+    'hasblocks'              => $hasblocks,
+    'bodyattributes'         => $bodyattributes,
+    'navdraweropen'          => $navdraweropen,
     'regionmainsettingsmenu' => $regionmainsettingsmenu,
     'hasregionmainsettingsmenu' => !empty($regionmainsettingsmenu),
     'defaultfrontpagefooter' => $pluginsettings->defaultfooter,
-    'footerinfo' => $pluginsettings->enablefooterinfo,
+    'footerinfo'             => $pluginsettings->enablefooterinfo,
+    'flatnavigation'         => $nav,
+    'firstcollectionlabel'   => $nav->get_collectionlabel(),
 ];
 
-$nav                                     = $PAGE->flatnav;
-$templatecontext['flatnavigation']       = $nav;
-$templatecontext['firstcollectionlabel'] = $nav->get_collectionlabel();
 echo $OUTPUT->render_from_template('theme_trema/columns2', $templatecontext);

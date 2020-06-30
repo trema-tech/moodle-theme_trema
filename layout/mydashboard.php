@@ -48,7 +48,7 @@ $pluginsettings = get_config("theme_trema");
 $buildregionmainsettings = !$PAGE->include_region_main_settings_in_header_actions();
 // If the settings menu will be included in the header then don't add it here.
 $regionmainsettingsmenu = $buildregionmainsettings ? $OUTPUT->region_main_settings_menu() : false;
-
+$nav = $PAGE->flatnav;
 $templatecontext = [
     'sitename' => format_string($SITE->shortname, true, [
         'context' => context_course::instance(SITEID),
@@ -66,6 +66,8 @@ $templatecontext = [
     'hasregionmainsettingsmenu' => !empty($regionmainsettingsmenu),
     'defaultfrontpagefooter' => $pluginsettings->defaultfooter,
     'footerinfo' => $pluginsettings->enablefooterinfo,
+    'flatnavigation'         => $nav,
+    'firstcollectionlabel'   => $nav->get_collectionlabel(),
 ];
 
 if (is_siteadmin() && $pluginsettings->enableadmindashboard) {
@@ -78,8 +80,4 @@ if (is_siteadmin() && $pluginsettings->enableadmindashboard) {
     $templatecontext['issuestatus'] = get_environment_issues();
 }
 
-$nav                                     = $PAGE->flatnav;
-$templatecontext['flatnavigation']       = $nav;
-$templatecontext['firstcollectionlabel'] = $nav->get_collectionlabel();
 echo $OUTPUT->render_from_template('theme_trema/mydashboard', $templatecontext);
-
