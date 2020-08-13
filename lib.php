@@ -289,3 +289,35 @@ function get_environment_issues() {
     }
     return $environmentissues;
 }
+
+/**
+ * Moodle page init for add course styles in theme.
+ *
+ */
+function theme_trema_page_init(moodle_page $page) {
+    global $CFG, $COURSE, $DB, $USER;
+
+    // Add classes for some roles.
+    $page->add_body_class(is_siteadmin() ? "is_siteadmin" : "not_siteadmin");
+    if (in_array($page->pagelayout, ['course', 'incourse'])) {
+        $context = context_course::instance($COURSE->id);
+        if (user_has_role_assignment($USER->id, 5, $context->id)) {
+            $page->add_body_class('is_student');
+        }
+        if (user_has_role_assignment($USER->id, 4, $context->id)) {
+            $page->add_body_class('is_teacher');
+        }
+        if (user_has_role_assignment($USER->id, 3, $context->id)) {
+            $page->add_body_class('is_editingteacher');
+        }
+    }
+
+    // Add CSS to course by shortname.
+    if ($COURSE->id > 1) {
+        $shortname = explode('|', $COURSE->shortname);
+        $shortname = trim($shortname[0]);
+        if ($file = file_exists($page->theme->dir."/style/course/$shortname.css")) {
+            $page->requires->css(new moodle_url("/theme/".$page->theme->name."/style/course/$shortname.css"));
+        }
+    }
+}
