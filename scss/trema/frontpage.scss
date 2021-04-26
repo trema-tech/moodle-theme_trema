@@ -82,7 +82,8 @@ body#page-site-index {
 
     @media (max-width: 768px),
     (max-height: 469px) {
-        #frontpage-banner #frontpage-banner-content {
+        #frontpage-banner #frontpage-banner-content,
+        .frontpage-banner-content {
             max-width: 80%;
             padding: 1.5rem;
             h2 {
@@ -192,6 +193,45 @@ body#page-site-index {
             padding: 0 1rem;
             height: 4rem;
             overflow: hidden;
+        }
+    }
+}
+
+// Frontpage Carrousel.
+
+#carouselTrema {
+    margin-left: -15px;
+    margin-right: -15px;
+    .carousel-inner {
+        max-height: calc(100vh - 4.2rem);
+        a:focus {
+            box-shadow: none;
+        }
+
+        .frontpage-banner-content {
+            position: absolute;
+            top: 35%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            text-align: center;
+            h2 {
+                border-bottom: solid 1px rgba(255,255,255,.5);
+                color: #fff;
+                font-size: 2.5rem;
+                font-weight: 700;
+                text-transform: uppercase;
+                letter-spacing: 1rem;
+                line-height: 1;
+            }
+            h3 {
+                font-weight: lighter;
+                color: #fff;
+                font-size: 1.5rem;
+                line-height: 1;
+            }
+        }
+        .carousel-control-prev, .carousel-control-next {
+            width: 10%;
         }
     }
 }

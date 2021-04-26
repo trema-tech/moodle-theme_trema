@@ -107,3 +107,21 @@ $string['rawscss'] = 'Raw SCSS';
 $string['rawscss_desc'] = 'Use this field to provide SCSS or CSS code which will be injected at the end of the style sheet.';
 $string['rawscsspre'] = 'Raw initial SCSS';
 $string['rawscsspre_desc'] = 'In this field you can provide initialising SCSS code, it will be injected before everything else. Most of the time you will use this setting to define variables.';
+
+// Frontpage Image.
+$string['carrouselbtntext'] = 'Button text {$a}';
+$string['carrouselbtntext_desc'] = 'Button text for link in frontpage image {$a}.';
+$string['carrouselbtnhref'] = 'Button link {$a}';
+$string['carrouselbtnhref_desc'] = 'Button link for frontpage image {$a}.';
+$string['carrouselbtnclass'] = 'Frontpage button HTML class';
+$string['carrouselbtnclass_desc'] = 'You can change the style of the button choosing another class.';
+$string['frontpageimages'] = 'Frontpage images';
+$string['frontpageimage'] = 'Frontpage image {$a}';
+$string['frontpageimage_desc'] = 'Image {$a} to show in frontpage banner.';
+$string['image'] = 'Image {$a}';
+$string['imagelink'] = 'Image link';
+$string['imagelink_desc'] = 'Button with link in image {$a}.';
+$string['numberofimages']  = "Number of images in frontpage banner";
+$string['numberofimages_desc']  = "Number of images to show in frontpage banner. If is more than one loads the Carrousel.";
+$string['title_desc']  = 'Title to show in frontpage image {$a}';
+$string['subtitle_desc']  = 'Subtitle to show in frontpage image {$a}';

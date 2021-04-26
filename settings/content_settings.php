@@ -29,36 +29,23 @@ defined('MOODLE_INTERNAL') || die();
 // Advanced settings.
 $page = new admin_settingpage('theme_trema_frontpagecontent', get_string('content', 'theme_trema'));
 
-// Frontpage banner.
-$name = 'theme_trema/frontpagebanner';
-$title = get_string('frontpagebanner', 'theme_trema');
-$description = get_string('frontpagebanner_desc', 'theme_trema');
-$setting = new admin_setting_configstoredfile($name, $title, $description, 'frontpagebanner');
-$setting->set_updatedcallback('theme_reset_all_caches');
-$page->add($setting);
-
-// Frontpage title.
-$page->add(
-    new admin_setting_configtext('theme_trema/frontpagetitle', new lang_string('frontpagetitle', 'theme_trema'), '',
-        'Lorem ipsum, dolor sit amet'));
-
-// Frontpage subtitle.
-$page->add(
-    new admin_setting_configtext('theme_trema/frontpagesubtitle', new lang_string('frontpagesubtitle', 'theme_trema'), '',
-        'Ut enim ad minim veniam,<br> quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'));
-
-// Frontpage button text.
-$page->add(
-    new admin_setting_configtext('theme_trema/frontpagebuttontext', new lang_string('frontpagebuttontext', 'theme_trema'), '',
-        'Learn more'));
-
-// Frontpage button href.
-$page->add(
-    new admin_setting_configtext('theme_trema/frontpagebuttonhref', new lang_string('frontpagebuttonhref', 'theme_trema'),
-        new lang_string('frontpagebuttonhref_desc', 'theme_trema'), '#frontpage-cards'));
+// Frontpage image.
+$page->add(new admin_setting_heading('theme_trema_frontpageimages', get_string('frontpageimages', 'theme_trema'), '', FORMAT_MARKDOWN));
+$name = 'theme_trema/numberofimages';
+$title = get_string('numberofimages', 'theme_trema');
+$description = get_string('numberofimages_desc', 'theme_trema');
+$default = 1; // Carrousel disable.
+$choices = [
+    1 => '1',
+    2 => '2',
+    3 => '3',
+    4 => '4',
+    5 => '5'
+];
+$page->add(new admin_setting_configselect($name, $title, $description, $default, $choices));
 
 // Frontpage button class.
-$choices = array(
+$btnchoices = array(
     "btn-primary" => "btn-primary",
     "btn-secondary" => "btn-secondary",
     "btn-success" => "btn-success",
@@ -68,10 +55,86 @@ $choices = array(
     "btn-light" => "btn-light",
     "btn-dark" => "btn-dark"
 );
-$setting = new admin_setting_configselect('theme_trema/frontpagebuttonclass',
-    new lang_string('frontpagebuttonclass', 'theme_trema'), new lang_string('frontpagebuttonclass_desc', 'theme_trema'),
-    'btn-primary', $choices);
-$page->add($setting);
+
+$numberofcarrousel = get_config('theme_trema', 'numberofimages');
+if ($numberofcarrousel == 1) {
+    // Frontpage single banner.
+    $name = 'theme_trema/frontpagebanner';
+    $title = get_string('frontpagebanner', 'theme_trema');
+    $description = get_string('frontpagebanner_desc', 'theme_trema');
+    $setting = new admin_setting_configstoredfile($name, $title, $description, 'frontpagebanner');
+    $setting->set_updatedcallback('theme_reset_all_caches');
+    $page->add($setting);
+
+    // Frontpage title.
+    $page->add(
+        new admin_setting_configtext('theme_trema/frontpagetitle', new lang_string('frontpagetitle', 'theme_trema'), '',
+            'Lorem ipsum, dolor sit amet'));
+
+    // Frontpage subtitle.
+    $page->add(
+        new admin_setting_configtext('theme_trema/frontpagesubtitle', new lang_string('frontpagesubtitle', 'theme_trema'), '',
+            'Ut enim ad minim veniam,<br> quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'));
+
+    // Frontpage button text.
+    $page->add(
+        new admin_setting_configtext('theme_trema/frontpagebuttontext', new lang_string('frontpagebuttontext', 'theme_trema'), '',
+            'Learn more'));
+
+    // Frontpage button href.
+    $page->add(
+        new admin_setting_configtext('theme_trema/frontpagebuttonhref', new lang_string('frontpagebuttonhref', 'theme_trema'),
+            new lang_string('frontpagebuttonhref_desc', 'theme_trema'), '#frontpage-cards'));
+
+    $setting = new admin_setting_configselect('theme_trema/frontpagebuttonclass',
+        new lang_string('frontpagebuttonclass', 'theme_trema'), new lang_string('frontpagebuttonclass_desc', 'theme_trema'),
+        'btn-primary', $btnchoices);
+    $page->add($setting);
+
+} else {
+
+    for ($i = 1; $i <= $numberofcarrousel; $i ++) {
+        $page->add(new admin_setting_heading("theme_trema_frontpageimage{$i}" ,
+            get_string('frontpageimage', 'theme_trema', $i), '', FORMAT_MARKDOWN));
+        // Carrousel image.
+        $name = "theme_trema/frontpageimage{$i}";
+        $title = get_string('image', 'theme_trema', $i);
+        $description = get_string('frontpageimage_desc', 'theme_trema', $i);
+        $setting = new admin_setting_configstoredfile($name, $title, $description, "frontpageimage{$i}");
+        $setting->set_updatedcallback('theme_reset_all_caches');
+        $page->add($setting);
+
+        // Carrousel title.
+        $name = 'theme_trema/carrouseltitle' . $i;
+        $title = get_string('title', 'theme_trema') . " $i";
+        $description = get_string('title_desc', 'theme_trema', $i);
+        $default = 'MAGNA ETIAM';
+        $page->add(new admin_setting_configtext($name, $title, $description, $default));
+
+        // Carrousel description.
+        $name = 'theme_trema/carrouselsubtitle' . $i;
+        $title = get_string('subtitle', 'theme_trema') . " $i";
+        $description = get_string('subtitle_desc', 'theme_trema', $i);
+        $default = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem accusantium! Harum optio, volup.';
+        $page->add(new admin_setting_configtext($name, $title, $description, $default));
+
+        // Carrousel link.
+        $name = 'theme_trema/carrouselbtntext' . $i;
+        $title = get_string('carrouselbtntext', 'theme_trema', $i);
+        $description = get_string('carrouselbtntext_desc', 'theme_trema', $i);
+        $page->add(new admin_setting_configtext($name, $title, $description, ''));
+
+        $name = 'theme_trema/carrouselbtnhref' . $i;
+        $title = get_string('carrouselbtnhref', 'theme_trema', $i);
+        $description = get_string('carrouselbtnhref_desc', 'theme_trema', $i);
+        $page->add(new admin_setting_configtext($name, $title, $description, ''));
+
+        $name = 'theme_trema/carrouselbtnclass' . $i;
+        $title = get_string('carrouselbtnclass', 'theme_trema', $i);
+        $description = get_string('carrouselbtnclass_desc', 'theme_trema', $i);
+        $page->add(new admin_setting_configselect($name, $title, $description, 'btn-primary', $btnchoices));
+    }
+}
 
 // HTML to include in the main content of frontpage.
 $setting = new admin_setting_confightmleditor('theme_trema/defaultfrontpagebody', get_string('defaultfrontpagebody', 'theme_trema'),

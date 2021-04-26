@@ -289,3 +289,34 @@ function get_environment_issues() {
     }
     return $environmentissues;
 }
+
+/**
+ * Get the URL of files from theme settings.
+ *
+ * @param $setting
+ * @param $filearea
+ * @param $theme
+ * @return moodle_url|string|string[]|null
+ * @throws dml_exception
+ */
+function theme_trema_setting_file_url($setting, $filearea, $theme) {
+    global $CFG;
+
+    $component  = 'theme_trema';
+    $itemid     = 0;
+    $filepath   = $theme->settings->$filearea;
+
+    if (empty($filepath)) {
+        return false;
+    }
+    $syscontext = context_system::instance();
+
+    $url = moodle_url::make_file_url("$CFG->wwwroot/pluginfile.php", "/$syscontext->id/$component/$filearea/$itemid".$filepath);
+
+    // Now this is tricky because the we can not hardcode http or https here, lets use the relative link.
+    // Note: unfortunately moodle_url does not support //urls yet.
+
+    $url = preg_replace('|^https?://|i', '//', $url->out(false));
+
+    return $url;
+}

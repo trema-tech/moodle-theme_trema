@@ -46,6 +46,40 @@ $hasblocks = strpos($blockshtml, 'data-block=') !== false;
 $adminblockshtml = $OUTPUT->blocks('side-admin');
 $pluginsettings = get_config("theme_trema");
 
+// Frontpage images.
+if ($pluginsettings->numberofimages > 1) {
+    $frontpagecarrousel = [];
+    $active = true;
+    for ($i = 1; $i <= $pluginsettings->numberofimages; $i++) {
+        $title    = "carrouseltitle{$i}";
+        $subtitle = "carrouselsubtitle{$i}";
+        $btntext  = "carrouselbtntext{$i}";
+        $btnhref  = "carrouselbtnhref{$i}";
+        $btnclass = "carrouselbtnclass{$i}";
+        $url      = theme_trema_setting_file_url("frontpageimage{$i}", "frontpageimage{$i}", $PAGE->theme);
+
+        if (!empty($url)) {
+            $frontpagecarrousel[$i]['image'] = $url;
+        } else {
+            $frontpagecarrousel[$i]['image'] =  $OUTPUT->image_url('frontpage/banner2', 'theme');
+        }
+        $frontpagecarrousel[$i]['index']    = $i - 1;
+        $frontpagecarrousel[$i]['title']    = format_text($pluginsettings->$title, FORMAT_HTML);
+        $frontpagecarrousel[$i]['subtitle'] = format_text($pluginsettings->$subtitle, FORMAT_HTML);
+        $frontpagecarrousel[$i]['btntext']  = format_text($pluginsettings->$btntext, FORMAT_HTML);
+        $frontpagecarrousel[$i]['btnhref']  = $pluginsettings->$btnhref;
+        $frontpagecarrousel[$i]['btnclass'] = $pluginsettings->$btnclass;
+        // Must have just one slide active.
+        if ($active) {
+            $frontpagecarrousel[$i]['active'] = "active";
+            $active = false;
+        }
+    }
+    $frontpagecarrousel = array_values($frontpagecarrousel);
+} else {
+    $frontpagecarrousel = false;
+}
+
 $regionmainsettingsmenu = $OUTPUT->region_main_settings_menu();
 $templatecontext = [
     'sitename' => format_string($SITE->shortname, true, [
@@ -63,6 +97,7 @@ $templatecontext = [
     'hasregionmainsettingsmenu' => ! empty($regionmainsettingsmenu),
     'defaultfrontpagebody' => format_text($pluginsettings->defaultfrontpagebody, FORMAT_HTML),
     'defaultfrontpagefooter' => format_text($pluginsettings->defaultfooter, FORMAT_HTML),
+    'frontpagecarrousel' => $frontpagecarrousel,
     'frontpagetitle' => format_text($pluginsettings->frontpagetitle, FORMAT_HTML),
     'frontpagesubtitle' => format_text($pluginsettings->frontpagesubtitle, FORMAT_HTML),
     'frontpagebuttontext' => format_text($pluginsettings->frontpagebuttontext, FORMAT_HTML),
