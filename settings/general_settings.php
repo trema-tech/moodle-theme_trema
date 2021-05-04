@@ -28,6 +28,17 @@ defined('MOODLE_INTERNAL') || die();
 
 $page = new admin_settingpage('theme_trema_general', get_string('generalsettings', 'theme_trema'));
 
+// Preset.
+$name = 'theme_trema/preset';
+$title = get_string('preset', 'theme_trema');
+$description = get_string('preset_desc', 'theme_trema');
+$default = 'trema.scss';
+// These are the built in presets.
+$choices = [ 'trema.scss' => 'trema.scss', 'plain.scss' => 'plain.scss' ];
+$setting = new admin_setting_configthemepreset($name, $title, $description, $default, $choices, 'trema');
+$setting->set_updatedcallback('theme_reset_all_caches');
+$page->add($setting);
+
 // Favicon image setting.
 $name = 'theme_trema/favicon';
 $title = get_string('favicon', 'theme_trema');

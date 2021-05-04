@@ -38,7 +38,10 @@ function theme_trema_get_main_scss_content($theme) {
 
     $scss = '';
     $scss .= file_get_contents("$CFG->dirroot/theme/trema/scss/defaultvariables.scss");
-    $scss .= file_get_contents("$CFG->dirroot/theme/trema/scss/styles.scss");
+
+    $filename = !empty($theme->settings->preset) ? $theme->settings->preset : 'trema.scss';
+
+    $scss .= file_get_contents("$CFG->dirroot/theme/trema/scss/preset/{$filename}");
 
     if ($frontpagebannerurl = $theme->setting_file_url('frontpagebanner', 'frontpagebanner')) {
         $scss .= "#frontpage-banner {background-image: url([[pix:theme|frontpage/overlay]]), url('$frontpagebannerurl');}";
