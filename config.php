@@ -100,7 +100,7 @@ $THEME->layouts = [
         'file' => 'mydashboard.php',
         'regions' => array('side-pre', 'side-admin'),
         'defaultregion' => 'side-pre',
-        'options' => array('nonavbar' => true, 'langmenu' => true),
+        'options' => array('nonavbar' => true, 'langmenu' => true, 'nocontextheader' => true),
     ),
     // My public page.
     'mypublic' => array(
