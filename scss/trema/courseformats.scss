@@ -28,10 +28,8 @@ body#page-course-view-topics.format-topics:not(.editing) {
         background: #f7f7f7;
     }
 
-    .single-section {
-        .section-navigation.navigationtitle {
-            display: none;
-        }
+    .completionprogress {
+        float: revert;
     }
 
     .activity img.activityicon {
@@ -82,13 +80,26 @@ body#page-course-view-topics.format-topics:not(.editing) {
         }
     }
 
-    .course-content li.section ul.section.img-text {
-        @extend %border-frequency;
-        background-color: $white;
-        grid-column: 2;
-        grid-row: 1 / 4;
-        margin: 0;
-        padding: 1rem;
+    .course-content {
+        li.section ul.section.img-text {
+            @extend %border-frequency;
+            background-color: $white;
+            grid-column: 2;
+            grid-row: 1 / 4;
+            margin: 0;
+            padding: 1rem;
+        }
+
+        .single-section {
+            .section-navigation.navigationtitle {
+                .sectionname {
+                    text-align: right;
+                }
+            }
+            li.section .section.img-text:before {
+                content: none;
+            }
+        }
     }
 
     #section-0 .section.img-text:before {
