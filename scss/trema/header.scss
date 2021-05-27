@@ -103,6 +103,12 @@
         .login {
             line-height: 1.5;
         }
+        @media (max-width: 768px) {
+            .login {
+                line-height: 1;
+                text-transform: none;
+            }
+        }
 
         .dropdown-menu {
             top: 2.7rem;

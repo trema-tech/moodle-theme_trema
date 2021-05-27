@@ -32,6 +32,17 @@ body {
     }
 }
 
+%dot-style-after {
+    background-color: $primary;
+    border-radius: 50%;
+    content: "";
+    height: 6px;
+    position: absolute;
+    left: 0;
+    bottom: -3px;
+    width: 6px;
+}
+
 .border-trema {
     @extend %border-frequency;
 }
