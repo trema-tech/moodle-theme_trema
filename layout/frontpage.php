@@ -61,7 +61,7 @@ if ($pluginsettings->numberofimages > 1) {
         if (!empty($url)) {
             $frontpagecarrousel[$i]['image'] = $url;
         } else {
-            $frontpagecarrousel[$i]['image'] =  $OUTPUT->image_url('frontpage/banner2', 'theme');
+            $frontpagecarrousel[$i]['image'] = $OUTPUT->image_url('frontpage/banner2', 'theme');
         }
         $frontpagecarrousel[$i]['index']    = $i - 1;
         $frontpagecarrousel[$i]['title']    = format_text($pluginsettings->$title, FORMAT_HTML);

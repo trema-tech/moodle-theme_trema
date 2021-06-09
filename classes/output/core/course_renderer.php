@@ -142,7 +142,6 @@ class course_renderer extends \core_course_renderer {
      * Displays one course in the list of courses.
      *
      * This is an internal function, to display an information about just one course
-     * please use {@link core_course_renderer::course_info_box()}
      *
      * @param coursecat_helper $chelper various display options
      * @param core_course_list_element|stdClass $course
@@ -193,8 +192,6 @@ class course_renderer extends \core_course_renderer {
      * @return string
      */
     protected function coursecat_coursebox_content(coursecat_helper $chelper, $course) {
-        global $OUTPUT;
-
         if ($course instanceof stdClass) {
             $course = new core_course_list_element($course);
         }
@@ -276,7 +273,7 @@ class course_renderer extends \core_course_renderer {
                     'classes' => "modal-$course->id",
                     'courselink' => new moodle_url("/course/view.php", ['id' => $course->id])
                 ];
-                $content .= $OUTPUT->render_from_template('theme_trema/course_summary_modal', $modal);
+                $content .= $this->output->render_from_template('theme_trema/course_summary_modal', $modal);
             }
         }
 

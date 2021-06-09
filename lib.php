@@ -43,6 +43,10 @@ function theme_trema_get_main_scss_content($theme) {
 
     $scss .= file_get_contents("$CFG->dirroot/theme/trema/scss/preset/{$filename}");
 
+    if (!empty($theme->settings->enabletrematopics)) {
+        $scss .= file_get_contents("$CFG->dirroot/theme/trema/scss/trema/topics.scss");
+    }
+
     if ($frontpagebannerurl = $theme->setting_file_url('frontpagebanner', 'frontpagebanner')) {
         $scss .= "#frontpage-banner {background-image: url([[pix:theme|frontpage/overlay]]), url('$frontpagebannerurl');}";
     } else {
@@ -299,7 +303,7 @@ function get_environment_issues() {
  * @param $setting
  * @param $filearea
  * @param $theme
- * @return moodle_url|string|string[]|null
+ * @return array|false|string|string[]|null
  * @throws dml_exception
  */
 function theme_trema_setting_file_url($setting, $filearea, $theme) {

@@ -35,7 +35,12 @@
         }
     }
 }
-
+@media (max-width: 769px) {
+    #page .card-see-more .btn {
+        height: auto;
+        font-size: .7rem;
+    }
+}
 body#page-enrol-index {
     .box.generalbox > div {
         @extend .course-card-view;

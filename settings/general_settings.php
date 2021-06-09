@@ -79,6 +79,13 @@ $description = get_string('enableadmindashboard_desc', 'theme_trema', "$CFG->www
 $setting = new admin_setting_configcheckbox($name, $title, $description, '1');
 $page->add($setting);
 
+$name = 'theme_trema/enabletrematopics';
+$title = get_string('enabletrematopics', 'theme_trema');
+$description = get_string('enabletrematopics_desc', 'theme_trema', "$CFG->wwwroot/theme/trema/pix/examples/trematopics.png");
+$setting = new admin_setting_configcheckbox($name, $title, $description, '1');
+$setting->set_updatedcallback('theme_reset_all_caches');
+$page->add($setting);
+
 // HTML to include in the footer content of frontpage.
 $footerhtml = '<div class="row">
 	<div class="col-md-8">

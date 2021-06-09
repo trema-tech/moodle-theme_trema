@@ -30,7 +30,8 @@ defined('MOODLE_INTERNAL') || die();
 $page = new admin_settingpage('theme_trema_frontpagecontent', get_string('content', 'theme_trema'));
 
 // Frontpage image.
-$page->add(new admin_setting_heading('theme_trema_frontpageimages', get_string('frontpageimages', 'theme_trema'), '', FORMAT_MARKDOWN));
+$page->add(new admin_setting_heading('theme_trema_frontpageimages',
+    get_string('frontpageimages', 'theme_trema'), '', FORMAT_MARKDOWN));
 $name = 'theme_trema/numberofimages';
 $title = get_string('numberofimages', 'theme_trema');
 $description = get_string('numberofimages_desc', 'theme_trema');

@@ -34,6 +34,12 @@ body.pagelayout-mydashboard {
     }
 
     #page {
+        #page-header {
+            > .col-12 > .card {
+                background: transparent;
+            }
+        }
+
         .btn-link {
             background: none;
             border: 1px solid rgba(0, 0, 0, .1);
