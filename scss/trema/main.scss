@@ -97,6 +97,12 @@ body {
         #assignform #existingcell {
             width: 42%;
         }
+
+        [data-filterregion="filter"] {
+            .btn[data-filteraction="remove"] {
+                background-color: $white;
+            }
+        }
     }
 }
 
