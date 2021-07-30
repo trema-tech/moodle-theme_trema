@@ -128,6 +128,12 @@ body#page-user-profile {
     }
 }
 
+body#page-calendar-view {
+    .maincalendar .select.custom-select.cal_courses_flt {
+        margin: .5rem;
+    }
+}
+
 
 //@author Sérgio Gomes https://medium.com/dev-channel/using-sass-to-automatically-pick-text-colors-4ba7645d2796
 @function luminance($color) {
