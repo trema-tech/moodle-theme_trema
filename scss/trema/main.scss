@@ -134,6 +134,20 @@ body#page-calendar-view {
     }
 }
 
+body#page-contentbank {
+    .searchbar .input-group-append .input-group-text {
+        padding: 0;
+        .search-icon .btn {
+            height: calc(1.5em + .75rem + 2px);
+            margin: 0;
+            width: 40px;
+            > span.d-flex {
+                justify-content: center;
+            }
+        }
+    }
+}
+
 
 //@author Sérgio Gomes https://medium.com/dev-channel/using-sass-to-automatically-pick-text-colors-4ba7645d2796
 @function luminance($color) {
