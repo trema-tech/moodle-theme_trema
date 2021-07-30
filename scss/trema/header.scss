@@ -65,7 +65,7 @@
     }
 
     .lang-menu .dropdown-menu {
-        top: 13px;
+        top: 26px;
         left: -210px;
 
         .fa {
@@ -97,6 +97,7 @@
     }
 
     .usermenu {
+        margin-left: .5rem;
         padding: .5rem;
         padding-right: 60px;
 
@@ -122,6 +123,7 @@
 
             img {
                 height: 2.5rem;
+                margin-right: 0;
                 width: 2.5rem;
             }
         }
