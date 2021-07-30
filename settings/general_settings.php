@@ -90,23 +90,18 @@ $page->add($setting);
 $footerhtml = '<div class="row">
 	<div class="col-md-8">
 		<h3 class="-align-center">Trema Soluções em Tecnologia</h3>
-
 	</div>
 	<div class="col-md-4">
 		<h3>Contact Us</h3>
 
 		<ul class="labeled-icons">
 			<li>
-                <span class="fa fa-globe fa-2x"></span>
-                <a href="https://trema.tech/" target="_blank" style="cursor: pointer;">
-                    <p>https://trema.tech/</p>
-                </a>
+                <span class="fa fa-globe" aria-hidden="true"></span>
+                <a href="https://trema.tech/" target="_blank">https://trema.tech/</a>
             </li>
 			<li>
-                <span class="fa fa-github fa-2x"></span>
-                <a href="https://github.com/trema-tech/" target="_blank" style="cursor: pointer;">
-                    <p>https://github.com/trema-tech/</p>
-                </a>
+                <span class="fa fa-github" aria-hidden="true"></span>
+                <a href="https://github.com/trema-tech/" target="_blank">https://github.com/trema-tech/</a>
             </li>
 		</ul>
 	</div>
