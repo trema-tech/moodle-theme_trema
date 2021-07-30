@@ -34,7 +34,6 @@ body {
 
 %dot-style-after {
     background-color: $primary;
-    border-radius: 50%;
     content: "";
     height: 6px;
     position: absolute;
@@ -151,6 +150,18 @@ body#page-contentbank {
                 justify-content: center;
             }
         }
+    }
+}
+
+@media (max-width: 767.98px) {
+    body #page h1 {
+        font-size: 2rem;
+        margin-top: .5rem;
+    }
+    #page-navbar,
+    .context-header-settings-menu,
+    .page-context-header {
+        margin: .5rem;
     }
 }
 

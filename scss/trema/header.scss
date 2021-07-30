@@ -137,3 +137,23 @@
         }
     }
 }
+
+@media (max-width: 767.98px) {
+    #page-wrapper .navbar {
+        .d-inline-block.mr-3 button {
+            border: 0 none;
+            padding: 0;
+        }
+        .navbar-nav .nav-link {
+            padding-top: 1rem;
+        }
+        .usermenu {
+            padding-right: 0;
+            .avatar.current {
+                position: relative;
+                right: 0;
+                top: 0;
+            }
+        }
+    }
+}
