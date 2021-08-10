@@ -39,7 +39,9 @@
                 width: 1.5em;
             }
 
+            a,
             p {
+                cursor: pointer;
                 display: inline;
             }
         }

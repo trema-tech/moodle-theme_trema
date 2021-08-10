@@ -34,7 +34,6 @@ body {
 
 %dot-style-after {
     background-color: $primary;
-    border-radius: 50%;
     content: "";
     height: 6px;
     position: absolute;
@@ -97,6 +96,12 @@ body {
         #assignform #existingcell {
             width: 42%;
         }
+
+        [data-filterregion="filter"] {
+            .btn[data-filteraction="remove"] {
+                background-color: $white;
+            }
+        }
     }
 }
 
@@ -125,6 +130,38 @@ body#page-user-profile {
         &:hover {
             color: darken($primary, 20%);
         }
+    }
+}
+
+body#page-calendar-view {
+    .maincalendar .select.custom-select.cal_courses_flt {
+        margin: .5rem;
+    }
+}
+
+body#page-contentbank {
+    .searchbar .input-group-append .input-group-text {
+        padding: 0;
+        .search-icon .btn {
+            height: calc(1.5em + .75rem + 2px);
+            margin: 0;
+            width: 40px;
+            > span.d-flex {
+                justify-content: center;
+            }
+        }
+    }
+}
+
+@media (max-width: 767.98px) {
+    body #page h1 {
+        font-size: 2rem;
+        margin-top: .5rem;
+    }
+    #page-navbar,
+    .context-header-settings-menu,
+    .page-context-header {
+        margin: .5rem;
     }
 }
 

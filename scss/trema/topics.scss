@@ -104,3 +104,22 @@ body#page-course-view-topics.format-topics:not(.editing) {
         }
     }
 }
+
+
+
+@media (max-width: 767.98px) {
+    body#page-course-view-topics.format-topics:not(.editing) .course-content {
+        ul.topics li.section .content,
+        ul.weeks li.section .content {
+            grid-template-columns: 100%;
+            grid-template-rows: auto auto auto auto;
+        }
+        li.section ul.section.img-text {
+            grid-column: 1;
+            grid-row: 4;
+            &::before {
+                display: none;
+            }
+        }
+    }
+}
