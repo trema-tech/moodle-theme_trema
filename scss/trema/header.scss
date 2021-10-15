@@ -130,6 +130,12 @@
     }
 }
 
+.sr-only-focusable {
+    &:active, &:focus {
+        z-index: 10001;
+    }
+}
+
 .notloggedin {
     #page-wrapper .navbar {
         .usermenu {
