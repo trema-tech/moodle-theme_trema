@@ -43,6 +43,9 @@
                 {{{defaultfrontpagefooter}}}
             </section>
 
+            {{# output.page_doc_link }}
+                <div class="helplink col-12 text-center col-12-medium col-12-xsmall footer-info smalltext">{{{ output.page_doc_link }}}</div>
+            {{/ output.page_doc_link }}
             <section class="col-12 text-center col-12-medium col-12-xsmall footer-info smalltext {{^footerinfo}}d-none{{/footerinfo}}">
                 {{{ output.login_info }}}
                 {{{ output.standard_footer_html }}}
