@@ -27,7 +27,7 @@
 defined('MOODLE_INTERNAL') || die();
 
 $plugin->version   = 2021102000;
-$plugin->release   = '3.11.0.2';
+$plugin->release   = '3.11.0.3';
 $plugin->maturity  = MATURITY_STABLE;
 $plugin->requires  = 2020061500; // Moodle 3.9 - Build: 2020061500.
 $plugin->component = 'theme_trema';
