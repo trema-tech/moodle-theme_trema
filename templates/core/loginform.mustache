@@ -104,7 +104,7 @@
 	        {{^logourl}}
 	            <h2 class="card-header text-center">{{sitename}}</h2>
 	        {{/logourl}}
-	        
+
             {{#cansignup}}
                 <div class="sr-only">
                     <a href="{{signupurl}}">{{#str}} tocreatenewaccount {{/str}}</a>
@@ -159,7 +159,7 @@
                             </div>
                         {{/rememberusername}}
                     </form>
-                    
+
                 </div>
 
                 <div class="col-md-10 text-center">
@@ -180,7 +180,7 @@
                     {{/canloginasguest}}
 
                 {{#hasidentityproviders}}
-                    <h6 class="mt-2">{{#str}} potentialidps, auth {{/str}}</h6>
+                    <h3 class="h6 mt-2">{{#str}} potentialidps, auth {{/str}}</h3>
                     <div class="potentialidplist" class="mt-3">
                         {{#identityproviders}}
                             <div class="potentialidp">
