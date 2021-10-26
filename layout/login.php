@@ -35,7 +35,7 @@ $bodyattributes = $OUTPUT->body_attributes($additionalclasses);
 
 // Only load particles.js if needed.
 if ($particlesconfig = $loginstyle == "particle-circles") {
-    $particlesconfig = json_decode(file_get_contents("$CFG->wwwroot/theme/trema/particles.json"));
+    $particlesconfig = json_decode(file_get_contents("$CFG->dirroot/theme/trema/particles.json"));
     $particlesconfig->particles->color->value = get_config("theme_trema", "particles_circlescolor");
     $particlesconfig = json_encode(($particlesconfig));
 }
