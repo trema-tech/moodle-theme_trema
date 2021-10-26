@@ -101,7 +101,8 @@ class core_renderer extends \theme_boost\output\core_renderer {
             }
             $this->language = $menu->add($currentlang, new moodle_url('#'), $strlang, 10000);
             foreach ($langs as $langtype => $langname) {
-                $this->language->add($langname, new moodle_url($this->page->url, array('lang' => $langtype)), $langname);
+                $lang = str_replace('_', '-', $langtype);
+                $this->language->add($langname, new moodle_url($this->page->url, array('lang' => $langtype)), $lang);
             }
 
             foreach ($menu->get_children() as $item) {
