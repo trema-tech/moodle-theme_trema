@@ -25,8 +25,8 @@
 {{#haschildren}}
 <span class="dropdown nav-item">
     <a class="nav-link" id="drop-down-{{uniqid}}" data-toggle="dropdown"
-    aria-haspopup="true" aria-expanded="false" href="#">
-        <i class="fa fa-globe"></i>
+    aria-haspopup="true" aria-expanded="false" href="#" title="{{#str}} language {{/str}}" aria-label="{{#str}}langmenu,admin{{/str}}">
+        <i area-hidden="true" class="fa fa-globe"></i>
     </a>
     <div class="dropdown-menu" aria-labelledby="drop-down-{{uniqid}}">
         {{#children}}
