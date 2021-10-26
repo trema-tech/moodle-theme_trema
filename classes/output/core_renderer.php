@@ -116,27 +116,6 @@ class core_renderer extends \theme_boost\output\core_renderer {
     }
 
     /**
-     * Overriding the custom_menu function ensures the custom menu is
-     * always shown, even if no menu items are configured in the global
-     * theme settings page.
-     *
-     * @param string $custommenuitems
-     * @return string
-     * @throws \coding_exception
-     * @throws \dml_exception
-     * @throws \moodle_exception
-     */
-    public function custom_menu($custommenuitems = '') {
-        global $CFG;
-
-        if (empty($custommenuitems) && !empty($CFG->custommenuitems)) {
-            $custommenuitems = $CFG->custommenuitems;
-        }
-        $custommenu = new custom_menu($custommenuitems, current_language());
-        return $this->render_custom_menu($custommenu);
-    }
-
-    /**
      * Add icons to custom menu.
      *
      * @param custom_menu $menu
