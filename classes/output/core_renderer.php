@@ -82,24 +82,47 @@ class core_renderer extends \theme_boost\output\core_renderer {
     }
 
     /**
-     * Renders the lang menu
+     * Renders the lang menu on the login page.
      *
      * @return mixed
      */
-    public function render_lang_menu() {
+    public function login_lang_menu() {
+        return $this->render_lang_menu(true);
+    }
+
+    /**
+     * Renders the lang menu
+     *
+     * @param bool $showlang Optional false = just the globe, or 'showlang' to force display globe + current language.
+     * @return string Rendered language menu in HTML.
+     */
+    public function render_lang_menu($showlang = false) {
         $langs = get_string_manager()->get_list_of_translations();
         $haslangmenu = $this->lang_menu() != '';
         $menu = new custom_menu;
 
         if ($haslangmenu) {
-            $strlang = get_string('language');
-            $currentlang = current_language();
-            if (isset($langs[$currentlang])) {
-                $currentlang = $langs[$currentlang];
+            $currlang = current_language();
+            if (isset($langs[$currlang])) {
+                $currentlang = $langs[$currlang];
             } else {
-                $currentlang = $strlang;
+                $currentlang = get_string('language');
             }
+
+            // Determine label for top level menu item.
+            if ($showlang) { // Globe + current language name.
+                $strlang = $currentlang;
+            } else { // Just the globe.
+                $strlang = '';
+            }
+            // Add top level menu item.
             $this->language = $menu->add($currentlang, new moodle_url('#'), $strlang, 10000);
+
+            // Make first language in the list the current language.
+            if (isset($langs[$currlang])) {
+                $langs = [ $currlang => $langs[$currlang] ] + $langs;
+            }
+            // Add languages for dropdown menu.
             foreach ($langs as $langtype => $langname) {
                 $lang = str_replace('_', '-', $langtype);
                 $this->language->add($langname, new moodle_url($this->page->url, array('lang' => $langtype)), $lang);
