@@ -9,9 +9,17 @@ body#page-login-index {
         height: auto;
     }
 
-    #card-login,
-    #card-login-instructions {
-        margin-top: 50px;
+    #page {
+        #card-login,
+        #card-login-instructions {
+            margin-top: 50px;
+        }
+    }
+
+    #page.has-navbar {
+        #card-login {
+            margin-top: 110px;
+        }
     }
 
     .card {
