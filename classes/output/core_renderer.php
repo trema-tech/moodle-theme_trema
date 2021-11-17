@@ -185,16 +185,14 @@ class core_renderer extends \theme_boost\output\core_renderer {
      */
     public function custom_menu_flat() {
         global $CFG;
-        $custommenuitems = '';
 
-        if (empty($custommenuitems) && !empty($CFG->custommenuitems)) {
-            $custommenuitems = $CFG->custommenuitems;
-        }
-        $custommenu = new custom_menu($custommenuitems, current_language());
+        // Render standard custom_menu_flat without the language menu.
+        $oldlangmenu = $CFG->langmenu;
+        $CFG->langmenu = '';
+        $context = parent::custom_menu_flat();
+        $CFG->langmenu = $oldlangmenu;
 
-        $context = $custommenu->export_for_template($this);
-
-        // Change Fontawesome's codes by HTML.
+        // Replace FontAwesome codes with HTML.
         foreach ($context->children as &$item) {
             $item->text = preg_replace('/^fa-(\w|-)+/', '<i class="fa \0 mr-1" aria-hidden="true"></i>', $item->text);
             $item->title = trim(preg_replace('/^fa-(\w|-)+/', '', $item->title));
