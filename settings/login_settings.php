@@ -63,4 +63,11 @@ if (get_config('theme_trema', 'loginpagestyle') == "particle-circles") {
     $page->add($setting);
 }
 
+$setting = new admin_setting_configcheckbox(
+    'theme_trema/loginpagecreatefirst',
+    new lang_string('loginpagecreatefirst', 'theme_trema'),
+    new lang_string('loginpagecreatefirst_desc', 'theme_trema'),
+    0);
+$page->add($setting);
+
 $settings->add($page);
