@@ -311,7 +311,7 @@ function theme_trema_setting_file_url($setting, $filearea, $theme) {
 
     $component  = 'theme_trema';
     $itemid     = 0;
-    $filepath   = $theme->settings->$filearea;
+    $filepath   = !empty($theme->settings->$filearea) ? $theme->settings->$filearea : '';
 
     if (empty($filepath)) {
         return false;

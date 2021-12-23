@@ -35,7 +35,7 @@ $page->add(new admin_setting_heading('theme_trema_frontpageimages',
 $name = 'theme_trema/numberofimages';
 $title = get_string('numberofimages', 'theme_trema');
 $description = get_string('numberofimages_desc', 'theme_trema');
-$default = 1; // Carrousel disable.
+$default = 1; // Carousel disable.
 $choices = [
     1 => '1',
     2 => '2',
@@ -57,8 +57,25 @@ $btnchoices = array(
     "btn-dark" => "btn-dark"
 );
 
-$numberofcarrousel = get_config('theme_trema', 'numberofimages');
-if ($numberofcarrousel == 1) {
+$numberofcarousel = get_config('theme_trema', 'numberofimages');
+
+$frontpagetitle_default = new lang_string('frontpagetitle_default', 'theme_trema');
+$frontpagesubtitle_default = new lang_string('frontpagesubtitle_default', 'theme_trema');
+$frontpagebuttontext_default = new lang_string('frontpagebuttontext_default', 'theme_trema');
+$cardtitle_default = get_string('cardtitle', 'theme_trema');
+$cardsubtitle_default = get_string('cardsubtitle', 'theme_trema');
+
+// Set some settings so that they can initially have a default value but later be set blank.
+if (empty($numberofcarousel)) {
+    // Initialize some values.
+    $numberofcarousel = 1;
+    set_config('frontpagetitle_default', $frontpagetitle_default, 'theme_trema');
+    set_config('frontpagesubtitle_default', $frontpagesubtitle_default, 'theme_trema');
+    set_config('frontpagebuttontext_default', $frontpagebuttontext_default, 'theme_trema');
+    set_config('cardtitle_default', $cardtitle_default, 'theme_trema');
+}
+
+if ($numberofcarousel == 1) {
     // Frontpage single banner.
     $name = 'theme_trema/frontpagebanner';
     $title = get_string('frontpagebanner', 'theme_trema');
@@ -70,23 +87,24 @@ if ($numberofcarrousel == 1) {
     // Frontpage title.
     $page->add(
         new admin_setting_configtext('theme_trema/frontpagetitle', new lang_string('frontpagetitle', 'theme_trema'), '',
-            'Lorem ipsum, dolor sit amet'));
+        $frontpagetitle_default));
 
     // Frontpage subtitle.
     $page->add(
         new admin_setting_configtext('theme_trema/frontpagesubtitle', new lang_string('frontpagesubtitle', 'theme_trema'), '',
-            'Ut enim ad minim veniam,<br> quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'));
+        $frontpagesubtitle_default));
 
     // Frontpage button text.
     $page->add(
         new admin_setting_configtext('theme_trema/frontpagebuttontext', new lang_string('frontpagebuttontext', 'theme_trema'), '',
-            'Learn more'));
+        $frontpagebuttontext_default));
 
-    // Frontpage button href.
+    // Frontpage button link.
     $page->add(
         new admin_setting_configtext('theme_trema/frontpagebuttonhref', new lang_string('frontpagebuttonhref', 'theme_trema'),
             new lang_string('frontpagebuttonhref_desc', 'theme_trema'), '#frontpage-cards'));
 
+    // Frontpage button class.
     $setting = new admin_setting_configselect('theme_trema/frontpagebuttonclass',
         new lang_string('frontpagebuttonclass', 'theme_trema'), new lang_string('frontpagebuttonclass_desc', 'theme_trema'),
         'btn-primary', $btnchoices);
@@ -94,10 +112,10 @@ if ($numberofcarrousel == 1) {
 
 } else {
 
-    for ($i = 1; $i <= $numberofcarrousel; $i ++) {
+    for ($i = 1; $i <= $numberofcarousel; $i ++) {
         $page->add(new admin_setting_heading("theme_trema_frontpageimage{$i}" ,
             get_string('frontpageimage', 'theme_trema', $i), '', FORMAT_MARKDOWN));
-        // Carrousel image.
+        // Carousel image.
         $name = "theme_trema/frontpageimage{$i}";
         $title = get_string('image', 'theme_trema', $i);
         $description = get_string('frontpageimage_desc', 'theme_trema', $i);
@@ -105,31 +123,34 @@ if ($numberofcarrousel == 1) {
         $setting->set_updatedcallback('theme_reset_all_caches');
         $page->add($setting);
 
-        // Carrousel title.
+        // Carousel title.
         $name = 'theme_trema/carrouseltitle' . $i;
         $title = get_string('title', 'theme_trema') . " $i";
         $description = get_string('title_desc', 'theme_trema', $i);
-        $default = 'MAGNA ETIAM';
+        $default = new lang_string('frontpagetitle_default', 'theme_trema');
         $page->add(new admin_setting_configtext($name, $title, $description, $default));
 
-        // Carrousel description.
+        // Carousel description.
         $name = 'theme_trema/carrouselsubtitle' . $i;
         $title = get_string('subtitle', 'theme_trema') . " $i";
         $description = get_string('subtitle_desc', 'theme_trema', $i);
-        $default = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem accusantium! Harum optio, volup.';
+        $default = new lang_string('frontpagesubtitle_default', 'theme_trema');
         $page->add(new admin_setting_configtext($name, $title, $description, $default));
 
-        // Carrousel link.
+        // Carousel button text.
         $name = 'theme_trema/carrouselbtntext' . $i;
         $title = get_string('carrouselbtntext', 'theme_trema', $i);
         $description = get_string('carrouselbtntext_desc', 'theme_trema', $i);
-        $page->add(new admin_setting_configtext($name, $title, $description, ''));
+        $default = new lang_string('frontpagebuttontext_default', 'theme_trema');
+        $page->add(new admin_setting_configtext($name, $title, $description, $default));
 
+        // Carousel button link.
         $name = 'theme_trema/carrouselbtnhref' . $i;
         $title = get_string('carrouselbtnhref', 'theme_trema', $i);
         $description = get_string('carrouselbtnhref_desc', 'theme_trema', $i);
         $page->add(new admin_setting_configtext($name, $title, $description, ''));
 
+        // Carousel button class.
         $name = 'theme_trema/carrouselbtnclass' . $i;
         $title = get_string('carrouselbtnclass', 'theme_trema', $i);
         $description = get_string('carrouselbtnclass_desc', 'theme_trema', $i);
@@ -158,15 +179,14 @@ if (get_config('theme_trema', 'frontpageenablecards')) {
     $name = 'theme_trema/frontpagecardstitle';
     $title = get_string('title', 'theme_trema');
     $description = '';
-    $page->add(new admin_setting_configtext($name, $title, $description, 'MAGNA ETIAM ADIPISCING'));
+    $page->add(new admin_setting_configtext($name, $title, $description, get_string('cardtitle', 'theme_trema')));
 
     // Subtitle.
     $name = 'theme_trema/frontpagecardssubtitle';
     $title = get_string('subtitle', 'theme_trema');
     $description = '';
     $page->add(
-        new admin_setting_configtext($name, $title, $description,
-            'Consequat sed ultricies rutrum. Sed adipiscing eu amet utem blandit vis ac commodo aliquet vulputate.'));
+        new admin_setting_configtext($name, $title, $description, get_string('cardsubtitle', 'theme_trema')));
 
     // Number of cards.
     $name = 'theme_trema/numberofcards';
@@ -183,17 +203,17 @@ if (get_config('theme_trema', 'frontpageenablecards')) {
     $numberofcards = get_config('theme_trema', 'numberofcards');
     for ($i = 1; $i <= $numberofcards; $i ++) {
         // Card header.
-        $page->add(new admin_setting_heading('theme_trema_card' . $i, get_string('card', 'theme_trema') . $i, ''));
+        $page->add(new admin_setting_heading('theme_trema_card' . $i, get_string('card', 'theme_trema') . ' ' . $i, ''));
 
         // Card icon.
         $name = 'theme_trema/cardicon' . $i;
-        $title = get_string('cardicon', 'theme_trema') . $i;
+        $title = get_string('cardicon', 'theme_trema') . ' ' . $i;
         $description = get_string('cardicon_desc', 'theme_trema');
         $page->add(new admin_setting_configtext($name, $title, $description, 'fa-paper-plane'));
 
         // Card icon color.
         $name = 'theme_trema/cardiconcolor' . $i;
-        $title = get_string('cardiconcolor', 'theme_trema') . $i;
+        $title = get_string('cardiconcolor', 'theme_trema') . ' ' . $i;
         $description = '';
         $setting = new admin_setting_configcolourpicker($name, $title, $description, '#000000');
         $setting->set_updatedcallback('theme_reset_all_caches');
@@ -201,21 +221,19 @@ if (get_config('theme_trema', 'frontpageenablecards')) {
 
         // Card title.
         $name = 'theme_trema/cardtitle' . $i;
-        $title = get_string('cardtitle', 'theme_trema') . $i;
+        $title = $cardtitle_default . ' ' . $i;
         $description = '';
-        $page->add(new admin_setting_configtext($name, $title, $description, 'MAGNA ETIAM'));
+        $page->add(new admin_setting_configtext($name, $title, $description, get_string('cardtitle_default', 'theme_trema') .  ' ' . $i));
 
         // Card description.
         $name = 'theme_trema/cardsubtitle' . $i;
-        $title = get_string('cardsubtitle', 'theme_trema') . $i;
+        $title = $cardsubtitle_default . ' ' . $i;
         $description = '';
-        $page->add(
-            new admin_setting_configtext($name, $title, $description,
-                'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem accusantium! Harum optio, volup.'));
+        $page->add(new admin_setting_configtext($name, $title, $description, get_string('cardsubtitle_default', 'theme_trema')));
 
         // Card link.
         $name = 'theme_trema/cardlink' . $i;
-        $title = get_string('cardlink', 'theme_trema') . $i;
+        $title = get_string('cardlink', 'theme_trema') . ' ' . $i;
         $description = '';
         $page->add(new admin_setting_configtext($name, $title, $description, ''));
     }

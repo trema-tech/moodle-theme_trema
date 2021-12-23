@@ -120,7 +120,7 @@ $string['carrouselbtntext_desc'] = 'Button text for link in frontpage image {$a}
 $string['carrouselbtnhref'] = 'Button link {$a}';
 $string['carrouselbtnhref_desc'] = 'Button link for frontpage image {$a}.';
 $string['carrouselbtnclass'] = 'Frontpage button HTML class';
-$string['carrouselbtnclass_desc'] = 'You can change the style of the button choosing another class.';
+$string['carrouselbtnclass_desc'] = 'You can change the style of the button by choosing a different class.';
 $string['frontpageimages'] = 'Frontpage images';
 $string['frontpageimage'] = 'Frontpage image {$a}';
 $string['frontpageimage_desc'] = 'Image {$a} to show in frontpage banner.';
@@ -128,6 +128,39 @@ $string['image'] = 'Image {$a}';
 $string['imagelink'] = 'Image link';
 $string['imagelink_desc'] = 'Button with link in image {$a}.';
 $string['numberofimages']  = "Number of images in frontpage banner";
-$string['numberofimages_desc']  = "Number of images to show in frontpage banner. If is more than one loads the Carrousel.";
+$string['numberofimages_desc']  = "Number of images to show in frontpage banner. If is more than one, loads the carousel.";
 $string['title_desc']  = 'Title to show in frontpage image {$a}';
 $string['subtitle_desc']  = 'Subtitle to show in frontpage image {$a}';
+
+$string['frontpagetitle_default'] = 'Banner title';
+$string['frontpagesubtitle_default'] = 'This is a banner subtitle,<br>with multiple lines of text.';
+$string['frontpagebuttontext_default'] = 'Learn more';
+$string['frontpagecardstitle'] = 'Title of cards section';
+$string['frontpagecardssubtitle'] = 'The description of the cards section goes here. Several lines of text can be placed in this space.';
+$string['cardtitle_default'] = 'Card Title';
+$string['cardsubtitle_default'] = 'The description of this card goes here. Several lines of text can be placed in this space.';
+$string['subtitle_default'] = 'This is the default sub-title. You can modify or remove this in the Trema theme settings.';
+$string['defaultfooter_default'] = '<div class="row">
+	<div class="col-md-8">
+		<h3 class="-align-center">Trema Solutions in Technology</h3>
+
+	</div>
+	<div class="col-md-4">
+		<h3>Contact Us</h3>
+
+		<ul class="labeled-icons">
+			<li>
+                <span class="fa fa-globe fa-2x"></span>
+                <a href="https://trema.tech/" target="_blank" style="cursor: pointer;">
+                    <p>https://trema.tech/</p>
+                </a>
+            </li>
+			<li>
+                <span class="fa fa-github fa-2x"></span>
+                <a href="https://github.com/trema-tech/" target="_blank" style="cursor: pointer;">
+                    <p>https://github.com/trema-tech/</p>
+                </a>
+            </li>
+		</ul>
+	</div>
+</div>';
