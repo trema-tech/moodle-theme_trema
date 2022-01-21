@@ -53,17 +53,17 @@
                         <div class="frontpage-banner-content">
                             {{#title}}<h2 class="pb-4 pl-3 mb-3">{{title}}</h2>{{/title}}
                             {{#subtitle}}<h3 class="mb-3 d-none d-md-block">{{subtitle}}</h3>{{/subtitle}}
-                            {{#btnhref}}<a href="{{btnhref}}" class="m-3 btn d-none d-md-inline-block {{btnclass}}" role="button">{{btntext}}</a>{{/btnhref}}
+                            {{#btntext}}{{#btnhref}}<a href="{{btnhref}}" class="m-3 btn d-none d-md-inline-block {{btnclass}}" role="button">{{{btntext}}}</a>{{/btnhref}}{{/btntext}}
                         </div>
                     </div>
                 {{/frontpagecarrousel}}
                     <a class="carousel-control-prev" href="#carouselTrema" role="button" data-slide="prev">
                         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                        <span class="sr-only">Previous</span>
+                        <span class="sr-only">{{#str}} previous, core {{/str}}</span>
                     </a>
                     <a class="carousel-control-next" href="#carouselTrema" role="button" data-slide="next">
                         <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                        <span class="sr-only">Next</span>
+                        <span class="sr-only">{{#str}} next, core {{/str}}</span>
                     </a>
                 </div>
             </div>
@@ -71,9 +71,9 @@
         {{^frontpagecarrousel}}
         <div id="frontpage-banner">
             <div id="frontpage-banner-content">
-	            <h2 class="pb-4 pl-3 mb-3">{{{frontpagetitle}}}</h2>
-	            <h3 class="mb-3">{{{frontpagesubtitle}}}</h3>
-	            <a href="{{frontpagebuttonhref}}" class="m-3 btn {{frontpagebuttonclass}}" role="button">{{frontpagebuttontext}}</a>
+	            {{#frontpagetitle}}<h2 class="pb-4 pl-3 mb-3">{{{frontpagetitle}}}</h2>{{/frontpagetitle}}
+	            {{#frontpagesubtitle}}<h3 class="mb-3">{{{frontpagesubtitle}}}</h3>{{/frontpagesubtitle}}
+	            {{#frontpagebuttontext}}{{#frontpagebuttonhref}}<a href="{{frontpagebuttonhref}}" class="m-3 btn {{frontpagebuttonclass}}" role="button">{{{frontpagebuttontext}}}</a>{{/frontpagebuttonhref}}{{/frontpagebuttontext}}
             </div>
             {{{ output.frontpage_settings_menu }}}
         </div>
@@ -84,10 +84,14 @@
 
             <div id="frontpage-cards-title" class="row mx-3 p-4 pt-0 text-center">
                 <div class="col-12 pt-3 pb-3">
+                    {{#cardstitle}}
                     <h2 class="border-bottom p-3 m-2 mb-4">{{{cardstitle}}}</h2>
+                    {{/cardstitle}}
+                    {{#cardssubtitle}}
                     <p class="font-weight-light">
                         {{{cardssubtitle}}}
                     </p>
+                    {{/cardssubtitle}}
                 </div>
             </div>
 
@@ -95,8 +99,8 @@
             {{#cardssettings}}
             <div class="frontpage-card col-sm-6 p-4 text-center">
                     {{#cardlink}}<a href="{{cardlink}}">{{/cardlink}}<span class="fa {{cardicon}} fa-4x" style="color: {{cardiconcolor}};"></span>{{#cardlink}}</a>{{/cardlink}}
-                    {{#cardlink}}<a href="{{cardlink}}">{{/cardlink}}<h3>{{cardtitle}}</h3>{{#cardlink}}</a>{{/cardlink}}
-                    <p class="font-weight-light">{{cardsubtitle}}</p>
+                    {{#cardlink}}<a href="{{cardlink}}">{{/cardlink}}<h3>{{{cardtitle}}}</h3>{{#cardlink}}</a>{{/cardlink}}
+                    <p class="font-weight-light">{{{cardsubtitle}}}</p>
                 </div>
                 {{/cardssettings}}
             </div>
