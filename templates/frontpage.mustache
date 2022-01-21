@@ -39,7 +39,7 @@
     {{>theme_trema/navbar}}
 
     <div id="page" class="container-fluid">
-
+        <h1 class="sr-only container pb-0 mb-0 mt-5">{{sitename}}</h1>
         <div id="carouselTrema" class="carousel slide carousel-fade {{^frontpagecarrousel}}d-none{{/frontpagecarrousel}}" data-ride="carousel">
                 <div class="carousel-inner" data-interval="false">
                     <ol class="carousel-indicators">
@@ -66,8 +66,18 @@
                         <span class="sr-only">{{#str}} next, core {{/str}}</span>
                     </a>
                 </div>
-            </div>
 
+                <a class="carousel-control-prev" href="#carouselTrema" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#carouselTrema" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
+            </div>
+        </div>
+        {{/frontpagecarrousel}}
         {{^frontpagecarrousel}}
         <div id="frontpage-banner">
             <div id="frontpage-banner-content">
