@@ -94,27 +94,33 @@
 }}
 
 {{#loginpagecreatefirst}}
-{{#hasinstructions}}
-<div class="row justify-content-center">
-<div class="col-xl-6 col-sm-8">
-<div id="card-login-instructions" class="card">
-    <div class="card-body">
-        <div class="card-title">
-            <h2>{{#str}}firsttime{{/str}}</h2>
+    {{#hasinstructions}}
+        <div class="row justify-content-center">
+            <div class="col-xl-6 col-sm-8">
+                <div id="card-login-instructions" class="card">
+                    {{#logourl}}
+                        <h1 class="h2 card-header text-center" ><img src="{{logourl}}" class="img-responsive" title="{{sitename}}" alt="{{sitename}}"/></h1>
+                    {{/logourl}}
+                    {{^logourl}}
+                        <h1 class="h2 card-header text-center">{{sitename}}</h1>
+                    {{/logourl}}
+                    <div class="card-body">
+                        <div class="card-title">
+                            <h2>{{#str}}firsttime{{/str}}</h2>
+                        </div>
+                        <div>
+                        {{{instructions}}}
+                        {{#cansignup}}
+                            <form class="mt-3" action="{{signupurl}}" method="get" id="signup">
+                                <button type="submit" class="btn btn-secondary">{{#str}}startsignup{{/str}}</button>
+                            </form>
+                        {{/cansignup}}
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div>
-        {{{instructions}}}
-        {{#cansignup}}
-            <form class="mt-3" action="{{signupurl}}" method="get" id="signup">
-                <button type="submit" class="btn btn-secondary">{{#str}}startsignup{{/str}}</button>
-            </form>
-        {{/cansignup}}
-        </div>
-    </div>
-</div>
-</div>
-</div>
-{{/hasinstructions}}
+    {{/hasinstructions}}
 {{/loginpagecreatefirst}}
 
 <div class="row justify-content-center">
@@ -122,13 +128,14 @@
 <div id="card-login" class="card">
     <div class="card-block">
         <div class="card-body">
-	        {{#logourl}}
-	            <h1 class="h2 card-header text-center" ><img src="{{logourl}}" class="img-responsive" title="{{sitename}}" alt="{{sitename}}"/></h1>
-	        {{/logourl}}
-	        {{^logourl}}
-	            <h1 class="h2 card-header text-center">{{sitename}}</h1>
-	        {{/logourl}}
-
+            {{^loginpagecreatefirst}}
+                {{#logourl}}
+                    <h1 class="h2 card-header text-center" ><img src="{{logourl}}" class="img-responsive" title="{{sitename}}" alt="{{sitename}}"/></h1>
+                {{/logourl}}
+                {{^logourl}}
+                    <h1 class="h2 card-header text-center">{{sitename}}</h1>
+                {{/logourl}}
+            {{/loginpagecreatefirst}}
             {{#cansignup}}
                 <div class="sr-only">
                     <a href="{{signupurl}}">{{#str}} tocreatenewaccount {{/str}}</a>

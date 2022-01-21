@@ -59,9 +59,9 @@ $btnchoices = array(
 
 $numberofcarousel = get_config('theme_trema', 'numberofimages');
 
-$frontpagetitle_default = new lang_string('frontpagetitle_default', 'theme_trema');
-$frontpagesubtitle_default = new lang_string('frontpagesubtitle_default', 'theme_trema');
-$frontpagebuttontext_default = new lang_string('frontpagebuttontext_default', 'theme_trema');
+$frontpagetitle_default = get_string('frontpagetitle_default', 'theme_trema');
+$frontpagesubtitle_default = get_string('frontpagesubtitle_default', 'theme_trema');
+$frontpagebuttontext_default = get_string('frontpagebuttontext_default', 'theme_trema');
 $cardtitle_default = get_string('cardtitle', 'theme_trema');
 $cardsubtitle_default = get_string('cardsubtitle', 'theme_trema');
 
@@ -86,27 +86,27 @@ if ($numberofcarousel == 1) {
 
     // Frontpage title.
     $page->add(
-        new admin_setting_configtext('theme_trema/frontpagetitle', new lang_string('frontpagetitle', 'theme_trema'), '',
+        new admin_setting_configtext('theme_trema/frontpagetitle', get_string('frontpagetitle', 'theme_trema'), '',
         $frontpagetitle_default));
 
     // Frontpage subtitle.
     $page->add(
-        new admin_setting_configtext('theme_trema/frontpagesubtitle', new lang_string('frontpagesubtitle', 'theme_trema'), '',
+        new admin_setting_configtext('theme_trema/frontpagesubtitle', get_string('frontpagesubtitle', 'theme_trema'), '',
         $frontpagesubtitle_default));
 
     // Frontpage button text.
     $page->add(
-        new admin_setting_configtext('theme_trema/frontpagebuttontext', new lang_string('frontpagebuttontext', 'theme_trema'), '',
+        new admin_setting_configtext('theme_trema/frontpagebuttontext', get_string('frontpagebuttontext', 'theme_trema'), '',
         $frontpagebuttontext_default));
 
     // Frontpage button link.
     $page->add(
-        new admin_setting_configtext('theme_trema/frontpagebuttonhref', new lang_string('frontpagebuttonhref', 'theme_trema'),
-            new lang_string('frontpagebuttonhref_desc', 'theme_trema'), '#frontpage-cards'));
+        new admin_setting_configtext('theme_trema/frontpagebuttonhref', get_string('frontpagebuttonhref', 'theme_trema'),
+            get_string('frontpagebuttonhref_desc', 'theme_trema'), '#frontpage-cards'));
 
     // Frontpage button class.
     $setting = new admin_setting_configselect('theme_trema/frontpagebuttonclass',
-        new lang_string('frontpagebuttonclass', 'theme_trema'), new lang_string('frontpagebuttonclass_desc', 'theme_trema'),
+        get_string('frontpagebuttonclass', 'theme_trema'), get_string('frontpagebuttonclass_desc', 'theme_trema'),
         'btn-primary', $btnchoices);
     $page->add($setting);
 
@@ -127,21 +127,21 @@ if ($numberofcarousel == 1) {
         $name = 'theme_trema/carrouseltitle' . $i;
         $title = get_string('title', 'theme_trema') . " $i";
         $description = get_string('title_desc', 'theme_trema', $i);
-        $default = new lang_string('frontpagetitle_default', 'theme_trema');
+        $default = get_string('frontpagetitle_default', 'theme_trema');
         $page->add(new admin_setting_configtext($name, $title, $description, $default));
 
         // Carousel description.
         $name = 'theme_trema/carrouselsubtitle' . $i;
         $title = get_string('subtitle', 'theme_trema') . " $i";
         $description = get_string('subtitle_desc', 'theme_trema', $i);
-        $default = new lang_string('frontpagesubtitle_default', 'theme_trema');
+        $default = get_string('frontpagesubtitle_default', 'theme_trema');
         $page->add(new admin_setting_configtext($name, $title, $description, $default));
 
         // Carousel button text.
         $name = 'theme_trema/carrouselbtntext' . $i;
         $title = get_string('carrouselbtntext', 'theme_trema', $i);
         $description = get_string('carrouselbtntext_desc', 'theme_trema', $i);
-        $default = new lang_string('frontpagebuttontext_default', 'theme_trema');
+        $default = get_string('frontpagebuttontext_default', 'theme_trema');
         $page->add(new admin_setting_configtext($name, $title, $description, $default));
 
         // Carousel button link.
@@ -248,7 +248,7 @@ $choices = array(
     "popover" => "popover"
 );
 $setting = new admin_setting_configselect('theme_trema/summarytype',
-    new lang_string('summarytype', 'theme_trema'), new lang_string('summarytype_desc', 'theme_trema'),
+    get_string('summarytype', 'theme_trema'), get_string('summarytype_desc', 'theme_trema'),
     'btn-primary', $choices);
 $page->add($setting);
 

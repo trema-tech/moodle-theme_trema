@@ -33,7 +33,7 @@ $choices = array(
     "particle-circles" => get_string('particlecircles', 'theme_trema'),
     "image" => get_string('image', 'theme_trema')
 );
-$setting = new admin_setting_configselect('theme_trema/loginpagestyle', new lang_string('loginpagestyle', 'theme_trema'), '',
+$setting = new admin_setting_configselect('theme_trema/loginpagestyle', get_string('loginpagestyle', 'theme_trema'), '',
     'particle-circles', $choices);
 $page->add($setting);
 
@@ -65,8 +65,8 @@ if (get_config('theme_trema', 'loginpagestyle') == "particle-circles") {
 
 $setting = new admin_setting_configcheckbox(
     'theme_trema/loginpagecreatefirst',
-    new lang_string('loginpagecreatefirst', 'theme_trema'),
-    new lang_string('loginpagecreatefirst_desc', 'theme_trema'),
+    get_string('loginpagecreatefirst', 'theme_trema'),
+    get_string('loginpagecreatefirst_desc', 'theme_trema'),
     0);
 $page->add($setting);
 
