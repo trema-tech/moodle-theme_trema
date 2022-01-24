@@ -1,7 +1,6 @@
 The "Trema" Moodle Theme
 ============================
-![image1](pix/screenshot.gif "Trema Screenshot")
-
+![theme-trema](https://user-images.githubusercontent.com/8494871/150807318-57548da5-ea15-45a3-98d9-170f8495b95b.gif)
 The theme trema is focused in usability and beauty.
 In order to acheive this, our developers worked hard to
 make it clean and easy to use for everyone.
@@ -67,3 +66,8 @@ Particles.js
 ============
 The theme trema use the [particles.js](https://github.com/mmacheerpuppy/particles.js) a lightweight 
 JavaScript library for creating particles in login.
+
+Please, donate for helping us to improve Theme Trema:
+https://www.paypal.com/donate/?hosted_button_id=6FBZMX8PFPS3Y&source=qr
+
+![QR Code](https://user-images.githubusercontent.com/8494871/150807066-84f999f6-5227-4dc7-9781-b949ed485a3a.png)
