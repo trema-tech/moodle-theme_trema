@@ -67,6 +67,8 @@ Particles.js
 The theme trema use the [particles.js](https://github.com/mmacheerpuppy/particles.js) a lightweight 
 JavaScript library for creating particles in login.
 
+Donate
+============
 Please, donate for helping us to improve Theme Trema:
 https://www.paypal.com/donate/?hosted_button_id=6FBZMX8PFPS3Y&source=qr
 
