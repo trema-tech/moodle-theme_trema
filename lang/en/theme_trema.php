@@ -171,3 +171,5 @@ $string['defaultfooter_default'] = '<div class="row">
 // Footer settings.
 $string['enabletremafooter'] = 'Enable Trema Footer';
 $string['enabletremafooter_desc'] = 'Enable Trema Footer instead of Boost popup footer';
+$string['showcategories'] = 'Show categories';
+$string['showcategories_desc'] = 'Enable to show categories on front page.';
