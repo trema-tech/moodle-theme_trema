@@ -152,7 +152,7 @@ function theme_trema_get_cards_settings() {
  *
  * @return string disk usage plus unit
  */
-function get_disk_usage() {
+function theme_trema_get_disk_usage() {
     global $CFG;
 
     $cache = cache::make('theme_trema', 'dashboardadmin');
@@ -176,7 +176,7 @@ function get_disk_usage() {
  *
  * @return int number of active courses
  */
-function count_active_courses() {
+function theme_trema_count_active_courses() {
     global $DB;
     $cache = cache::make('theme_trema', 'dashboardadmin');
     $activecourses = $cache->get('countactivecourses');
@@ -195,7 +195,7 @@ function count_active_courses() {
  *
  * @return  int number of all courses
  */
-function count_courses() {
+function theme_trema_count_courses() {
     global $DB;
     $cache = cache::make('theme_trema', 'dashboardadmin');
     $courses = $cache->get('courses');
@@ -211,7 +211,7 @@ function count_courses() {
  *
  * @return int number of active courses
  */
-function get_active_courses() {
+function theme_trema_get_active_courses() {
     global $DB;
     $cache = cache::make('theme_trema', 'dashboardadmin');
     $activecourses = $cache->get('activecourses');
@@ -231,13 +231,13 @@ function get_active_courses() {
  *
  * @return void
  */
-function count_active_enrolments() {
+function theme_trema_count_active_enrolments() {
     global $DB;
     $cache = cache::make('theme_trema', 'dashboardadmin');
     $activeenrolments = $cache->get('activeenrolments');
     if (!$activeenrolments) {
         $today = time();
-        $activecourses = get_active_courses();
+        $activecourses = theme_trema_get_active_courses();
         if ($activecourses) {
             list($in, $params) = $DB->get_in_or_equal($activecourses, SQL_PARAMS_NAMED);
             $params['today'] = $today;
@@ -260,7 +260,7 @@ function count_active_enrolments() {
  *
  * @return void
  */
-function count_users_enrolments() {
+function theme_trema_count_users_enrolments() {
     global $DB;
     $cache = cache::make('theme_trema', 'dashboardadmin');
     $usersenrolments = $cache->get('usersenrolments');
@@ -276,7 +276,7 @@ function count_users_enrolments() {
  *
  * @return false|mixed
  */
-function get_environment_issues() {
+function theme_trema_get_environment_issues() {
     global $CFG;
     $cache = cache::make('theme_trema', 'dashboardadmin');
     $environmentissues = $cache->get('environmentissues');

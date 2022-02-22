@@ -15,11 +15,11 @@
     along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 }}
 {{!
-    @template theme_boost/columns2
+    @template theme_trema/columns2
 
     Admin time setting template.
 
-    Boost 2 column layout template.
+    Theme Trema 2 column layout template.
 
     Context variables required for this template:
     * sitename - The name of the site
@@ -58,10 +58,14 @@
     {{{ output.standard_top_of_body_html }}}
 
     {{> theme_trema/navbar }}
-    {{> theme_boost/nav-drawer }}
 
     <div id="page" class="container-fluid d-print-block">
         {{{ output.full_header }}}
+        {{#secondarymoremenu}}
+            <div class="secondary-navigation">
+                {{> core/moremenu}}
+            </div>
+        {{/secondarymoremenu}}
 
         <div id="page-content" class="row pb-3 d-print-block">
             <div id="region-main-box" class="col-12">
@@ -96,14 +100,14 @@
 </body>
 </html>
 {{#js}}
-M.util.js_pending('theme_boost/loader');
-require(['theme_boost/loader'], function() {
-    M.util.js_complete('theme_boost/loader');
-});
+    M.util.js_pending('theme_boost/loader');
+    require(['theme_boost/loader'], function() {
+        M.util.js_complete('theme_boost/loader');
+    });
 
-M.util.js_pending('theme_boost/drawer');
-require(['theme_boost/drawer'], function(drawer) {
-    drawer.init();
-    M.util.js_complete('theme_boost/drawer');
-});
+    M.util.js_pending('theme_boost/drawer');
+    require(['theme_boost/drawer'], function(drawer) {
+        drawer.init();
+        M.util.js_complete('theme_boost/drawer');
+    });
 {{/js}}

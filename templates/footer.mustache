@@ -21,7 +21,7 @@
 }}
 <div id="goto-top-link">
     {{! go to top is sticky to footer so needs to be sibling }}
-    <a class="btn btn-light" role="button" href="#" aria-label="{{#str}} totop, theme_boost {{/str}}">
+    <a class="btn btn-light" role="button" href="#" aria-label="{{#str}} totop, theme_trema {{/str}}">
         {{#pix}} i/up, core{{/pix}}
     </a>
 </div>
@@ -47,9 +47,16 @@
                 <div class="helplink col-12 text-center col-12-medium col-12-xsmall footer-info smalltext">{{{ output.page_doc_link }}}</div>
             {{/ output.page_doc_link }}
             <section class="col-12 text-center col-12-medium col-12-xsmall footer-info smalltext {{^footerinfo}}d-none{{/footerinfo}}">
-                {{{ output.login_info }}}
+                <div class="logininfo">
+                    {{{ output.login_info }}}
+                </div>
                 {{{ output.standard_footer_html }}}
                 {{{ output.standard_end_of_body_html }}}
+                <div class="footer-content-debugging py-sm-3">
+                    <div class="container">
+                        {{{ output.debug_footer_html }}}
+                    </div>
+                </div>
             </section>
         </div>
     </div>
