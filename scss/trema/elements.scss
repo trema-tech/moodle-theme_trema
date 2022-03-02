@@ -77,6 +77,13 @@ body #page {
         background-color: lighten($primary, 20%);
     }
 
+    .dropdown-item:hover,
+    .dropdown-item:focus,
+    .dropdown-item:focus-within {
+        background-color: lighten($primary, 20%);
+        color: choose-contrast-color($primary);
+    }
+
     //lists
     ul.alt {
         list-style: none;

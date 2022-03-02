@@ -41,15 +41,15 @@
     }
 
     .popover-region-container {
-        top: 3.3rem;
+        top: 4.1rem;
     }
 
     .popover-region-toggle:before {
-        bottom: -15px;
+        bottom: 0;
     }
 
     .popover-region-toggle:after {
-        bottom: -16px;
+        bottom: -1px;
     }
 
     .action-menu-trigger .dropdown-toggle:after {
@@ -65,8 +65,8 @@
     }
 
     .lang-menu .dropdown-menu {
-        top: 26px;
-        left: -210px;
+        top: 70px;
+        left: -220px;
 
         .fa {
             font-size: 16px;
@@ -79,7 +79,7 @@
             border-right: 10px solid transparent;
             border-bottom: 10px solid #ddd;
             position: absolute;
-            top: -15px;
+            top: -10px;
             right: 7px;
         }
 
@@ -90,17 +90,13 @@
             border-right: 9px solid transparent;
             border-bottom: 9px solid #fff;
             position: absolute;
-            top: -16px;
+            top: -11px;
             right: 8px;
             z-index: 2;
         }
     }
 
     .usermenu {
-        margin-left: .5rem;
-        padding: .5rem;
-        padding-right: 60px;
-
         .login {
             line-height: 1.5;
         }
@@ -112,19 +108,52 @@
         }
 
         .dropdown-menu {
-            top: 2.7rem;
+            top: 4rem;
             right: -60px;
         }
 
         .avatar.current {
-            position: absolute;
-            right: -3.5rem;
-            top: -.5rem;
-
             img {
                 height: 2.5rem;
-                margin-right: 0;
                 width: 2.5rem;
+            }
+        }
+        .dropdown.show {
+            &:before {
+                content: "";
+                display: inline-block;
+                border-left: 9px solid transparent;
+                border-right: 9px solid transparent;
+                border-bottom: 9px solid #fff;
+                position: absolute;
+                top: 58px;
+                right: 34px;
+                z-index: 1001;
+            }
+            &:after {
+                content: "";
+                display: inline-block;
+                border-left: 9px solid transparent;
+                border-right: 9px solid transparent;
+                border-bottom: 9px solid rgba(0, 0, 0, .5);
+                position: absolute;
+                top: 57px;
+                right: 34px;
+                z-index: 2;
+            }
+        }
+    }
+    .primary-navigation {
+        .navigation .nav-link {
+            color: #666;
+            border-top: 3px solid transparent;
+            transition: all ease-in 300ms;
+            &.active {
+                font-weight: normal;
+                color: rgba(0, 0, 0, .9);
+            }
+            &:hover:not(.active) {
+                border-bottom: 3px solid #7a7a7a;
             }
         }
     }

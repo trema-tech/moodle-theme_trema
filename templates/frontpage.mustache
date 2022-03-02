@@ -150,14 +150,13 @@
 </body>
 </html>
 {{#js}}
-M.util.js_pending('theme_boost/loader');
-require(['theme_boost/loader'], function() {
-    M.util.js_complete('theme_boost/loader');
-});
+    require(['theme_trema/scroll'], function(scroll) {
+        (new scroll()).init();
+    });
 
-M.util.js_pending('theme_boost/drawer');
-require(['theme_boost/drawer'], function(drawer) {
-    drawer.init();
-    M.util.js_complete('theme_boost/drawer');
-});
+    M.util.js_pending('theme_boost/loader');
+    require(['theme_boost/loader', 'theme_boost/drawer'], function(Loader, Drawer) {
+        Drawer.init();
+        M.util.js_complete('theme_boost/loader');
+    });
 {{/js}}

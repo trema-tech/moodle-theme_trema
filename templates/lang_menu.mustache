@@ -23,20 +23,22 @@
 }}
 {{^divider}}
 {{#haschildren}}
-    <a class="{{#title}}dropdown-toggle {{/title}}nav-link" id="drop-down-{{uniqid}}" data-toggle="dropdown"
-            aria-haspopup="true" aria-expanded="false" href="#" {{^title}}title="{{#str}}language{{/str}}"{{/title}}
-            aria-label="{{#str}}langmenu,admin{{/str}}" aria-controls="drop-down-{{uniqid}}">
-        <i area-hidden="true" class="fa fa-globe"></i>{{#title}} {{{title}}}{{/title}}
-    </a>
-    <div class="dropdown-menu" role="menu" id="drop-down-menu-{{uniqid}}" aria-labelledby="drop-down-{{uniqid}}">
-        {{#children}}
-            {{^divider}}
-                <a class="dropdown-item" role="menuitem" href="{{{url}}}" lang="{{{title}}}">{{text}}</a>
-            {{/divider}}
-            {{#divider}}
-                <div class="dropdown-divider"></div>
-            {{/divider}}
-        {{/children}}
+    <div class="lang-menu d-block position-relative">
+        <a class="{{#title}}dropdown-toggle {{/title}}nav-link" id="drop-down-{{uniqid}}" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false" href="#" {{^title}}title="{{#str}}language{{/str}}"{{/title}}
+                aria-label="{{#str}}langmenu,admin{{/str}}" aria-controls="drop-down-{{uniqid}}">
+            <i area-hidden="true" class="fa fa-globe"></i>{{#title}} {{{title}}}{{/title}}
+        </a>
+        <div class="dropdown-menu" role="menu" id="drop-down-menu-{{uniqid}}" aria-labelledby="drop-down-{{uniqid}}">
+            {{#children}}
+                {{^divider}}
+                    <a class="dropdown-item" role="menuitem" href="{{{url}}}" lang="{{{title}}}">{{text}}</a>
+                {{/divider}}
+                {{#divider}}
+                    <div class="dropdown-divider"></div>
+                {{/divider}}
+            {{/children}}
+        </div>
     </div>
 {{/haschildren}}
 {{^haschildren}}
