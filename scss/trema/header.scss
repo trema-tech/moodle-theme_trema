@@ -90,7 +90,7 @@
             border-right: 9px solid transparent;
             border-bottom: 9px solid #fff;
             position: absolute;
-            top: -11px;
+            top: -9px;
             right: 8px;
             z-index: 2;
         }
@@ -171,6 +171,11 @@
             padding-right: 0;
         }
     }
+}
+
+#page.drawers {
+    height: calc(100vh - 4.5em);
+    margin-top: 4.5em;
 }
 
 @media (max-width: 767.98px) {

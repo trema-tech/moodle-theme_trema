@@ -167,3 +167,7 @@ $THEME->prescsscallback = 'theme_trema_get_pre_scss';
 $THEME->addblockposition = BLOCK_ADDBLOCK_POSITION_FLATNAV;
 $THEME->haseditswitch = true;
 $THEME->usescourseindex = true;
+// By default, all boost theme do not need their titles displayed.
+$THEME->activityheaderconfig = [
+    'notitle' => true
+];

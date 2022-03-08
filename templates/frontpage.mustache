@@ -15,8 +15,9 @@
     along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 }}
 {{!
-    @template theme_trema/frontpage
-    Frontpage area
+    @template theme_boost/drawers
+
+    Boost drawer template.
 
     Context variables required for this template:
     * sitename - The name of the site
@@ -24,23 +25,106 @@
     * bodyattributes - attributes for the body tag as a string of html attributes
     * sidepreblocks - HTML for the blocks
     * hasblocks - true if there are blocks on this page
-    * navdraweropen - true if the nav drawer should be open on page load
+    * courseindexopen - true if the nav drawer should be open on page load
     * regionmainsettingsmenu - HTML for the region main settings menu
     * hasregionmainsettingsmenu - There is a region main settings menu on this page.
+
+    Example context (json):
+    {
+        "sitename": "Moodle",
+        "output": {
+            "doctype": "<!DOCTYPE html>",
+            "page_title": "Test page",
+            "favicon": "favicon.ico",
+            "main_content": "<h1>Headings make html validators happier</h1>"
+         },
+        "bodyattributes":"",
+        "sidepreblocks": "<h2>Blocks html goes here</h2>",
+        "hasblocks":true,
+        "courseindexopen": true,
+        "navdraweropen": false,
+        "blockdraweropen": true,
+        "regionmainsettingsmenu": "",
+        "hasregionmainsettingsmenu": false,
+        "addblockbutton": ""
+    }
 }}
 {{> theme_boost/head }}
 
 <body {{{ bodyattributes }}}>
-
-<div id="page-wrapper">
+{{> core/local/toast/wrapper}}
+<div id="page-wrapper" class="d-print-block">
 
     {{{ output.standard_top_of_body_html }}}
 
-    {{>theme_trema/navbar}}
-
-    <div id="page" class="container-fluid">
-        <h1 class="sr-only container pb-0 mb-0 mt-5">{{sitename}}</h1>
-        <div id="carouselTrema" class="carousel slide carousel-fade {{^frontpagecarrousel}}d-none{{/frontpagecarrousel}}" data-ride="carousel">
+    {{> theme_trema/navbar }}
+    {{#courseindex}}
+        {{< theme_boost/drawer }}
+            {{$id}}theme_boost-drawers-courseindex{{/id}}
+            {{$drawerclasses}}drawer drawer-left {{#courseindexopen}}show{{/courseindexopen}}{{/drawerclasses}}
+            {{$drawercontent}}
+                {{{courseindex}}}
+            {{/drawercontent}}
+            {{$drawerpreferencename}}drawer-open-index{{/drawerpreferencename}}
+            {{$drawerstate}}show-drawer-left{{/drawerstate}}
+            {{$tooltipplacement}}right{{/tooltipplacement}}
+            {{$closebuttontext}}{{#str}}closecourseindex, core{{/str}}{{/closebuttontext}}
+        {{/ theme_boost/drawer}}
+    {{/courseindex}}
+    {{#hasblocks}}
+        {{< theme_boost/drawer }}
+            {{$id}}theme_boost-drawers-blocks{{/id}}
+            {{$drawerclasses}}drawer drawer-right{{#blockdraweropen}} show{{/blockdraweropen}}{{/drawerclasses}}
+            {{$drawercontent}}
+                <section class="d-print-none" aria-label="{{#str}}blocks{{/str}}">
+                    {{{ addblockbutton }}}
+                    {{{ sidepreblocks }}}
+                </section>
+            {{/drawercontent}}
+            {{$drawerpreferencename}}drawer-open-block{{/drawerpreferencename}}
+            {{$forceopen}}{{#forceblockdraweropen}}1{{/forceblockdraweropen}}{{/forceopen}}
+            {{$drawerstate}}show-drawer-right{{/drawerstate}}
+            {{$tooltipplacement}}left{{/tooltipplacement}}
+            {{$drawercloseonresize}}1{{/drawercloseonresize}}
+            {{$closebuttontext}}{{#str}}closeblockdrawer, core{{/str}}{{/closebuttontext}}
+        {{/ theme_boost/drawer}}
+    {{/hasblocks}}
+    <div id="page" data-region="mainpage" data-usertour="scroller" class="drawers {{#courseindexopen}}show-drawer-left{{/courseindexopen}} {{#blockdraweropen}}show-drawer-right{{/blockdraweropen}}">
+            <div class="drawer-toggles d-flex">
+                {{#courseindex}}
+                    <div class="drawer-toggler drawer-left-toggle open-nav">
+                        <button
+                            class="btn icon-no-margin"
+                            data-toggler="drawers"
+                            data-action="toggle"
+                            data-target="theme_boost-drawers-courseindex"
+                            data-toggle="tooltip"
+                            data-placement="right"
+                            title="{{#str}}opendrawerindex, core{{/str}}"
+                        >
+                            <span class="sr-only">{{#str}}opendrawerindex, core{{/str}}</span>
+                            {{#pix}} t/index_drawer, moodle {{/pix}}
+                        </button>
+                    </div>
+                {{/courseindex}}
+                {{#hasblocks}}
+                    <div class="drawer-toggler drawer-right-toggle ml-auto">
+                        <button
+                            class="btn icon-no-margin"
+                            data-toggler="drawers"
+                            data-action="toggle"
+                            data-target="theme_boost-drawers-blocks"
+                            data-toggle="tooltip"
+                            data-placement="right"
+                            title="{{#str}}opendrawerblocks, core{{/str}}"
+                        >
+                            <span class="sr-only">{{#str}}opendrawerblocks, core{{/str}}</span>
+                            {{#pix}}t/blocks_drawer, core, {{#str}}opendrawerblocks, core{{/str}}{{/pix}}
+                        </button>
+                    </div>
+                {{/hasblocks}}
+            </div>
+            <div id="carouselTrema" class="carousel slide carousel-fade {{^frontpagecarrousel}}d-none{{/frontpagecarrousel}}" data-ride="carousel">
                 <div class="carousel-inner" data-interval="false">
                     <ol class="carousel-indicators">
                         {{#frontpagecarrousel}}
@@ -66,6 +150,7 @@
                         <span class="sr-only">{{#str}} next, core {{/str}}</span>
                     </a>
                 </div>
+                {{{ output.frontpage_settings_menu }}}
             </div>
         {{^frontpagecarrousel}}
         <div id="frontpage-banner">
@@ -77,6 +162,11 @@
             {{{ output.frontpage_settings_menu }}}
         </div>
         {{/frontpagecarrousel}}
+        {{#secondarymoremenu}}
+            <div class="secondary-navigation">
+                {{> core/moremenu}}
+            </div>
+        {{/secondarymoremenu}}
 
         {{#hascards}}
         <div id="frontpage-cards" class="container mt-5">
@@ -105,55 +195,51 @@
             </div>
         </div>
         {{/hascards}}
-
-        <div id="page-content" class="container p-0 mb-5">
-            <div id="region-main-box" class="row col-12 p-0">
-                {{#hasregionmainsettingsmenu}}
-                <div id="region-main-settings-menu" class="d-print-none {{#hasblocks}}has-blocks{{/hasblocks}}">
-                    <div> {{{ output.region_main_settings_menu }}} </div>
-                </div>
-                {{/hasregionmainsettingsmenu}}
-                <section id="region-main" {{#hasblocks}}class="has-blocks"{{/hasblocks}}>
+            <div id="page-content" class="pb-3 container d-print-block">
+                <div id="region-main-box">
                     {{#hasregionmainsettingsmenu}}
-                        <div class="region_main_settings_menu_proxy"></div>
+                    <div id="region-main-settings-menu" class="d-print-none">
+                        <div> {{{ regionmainsettingsmenu }}} </div>
+                    </div>
                     {{/hasregionmainsettingsmenu}}
-                    <div id="defaultfrontpagebody" class="mb-4">
-                        {{{defaultfrontpagebody}}}
-                    </div>
-                    {{{ output.course_content_header }}}
-                    {{{ output.main_content }}}
-                    {{{ output.activity_navigation }}}
-                    {{{ output.course_content_footer }}}
+                    <section id="region-main" aria-label="{{#str}}content{{/str}}">
 
-                    {{#hasblocks}}
-                    <div data-region="blocks-frontpage" class="d-print-none">
-                        {{{ sidepreblocks }}}
-                    </div>
-                    {{/hasblocks}}
-                </section>
+                        {{#hasregionmainsettingsmenu}}
+                            <div class="region_main_settings_menu_proxy"></div>
+                        {{/hasregionmainsettingsmenu}}
+                        {{{ output.course_content_header }}}
+                        {{#headercontent}}
+                            {{> core/activity_header }}
+                        {{/headercontent}}
+                        {{#overflow}}
+                            {{> core/url_select}}
+                        {{/overflow}}
+                        {{{ output.main_content }}}
+                        {{{ output.activity_navigation }}}
+                        {{{ output.course_content_footer }}}
+
+                    </section>
+                </div>
             </div>
-        </div>
-    </div>
-    {{{ output.standard_after_main_region_html }}}
-    {{#hasadminblocks}}
-        <div id="side-admin-blocks">
+            {{#hasadminblocks}}
+        <div id="side-admin-blocks" class="mt-4">
             <div class="container py-3">
                 <h3 class="text-center my-2">{{#str}}adminarea, theme_trema{{/str}}</h3>
                 {{{ sideadminblocks }}}
             </div>
         </div>
-    {{/hasadminblocks}}
-
-    {{> theme_trema/footer }}
+        {{/hasadminblocks}}
+        {{{ output.standard_after_main_region_html }}}
+        {{> theme_trema/footer }}
+    </div>
 </div>
 
 </body>
 </html>
 {{#js}}
-    require(['theme_trema/scroll'], function(scroll) {
-        (new scroll()).init();
-    });
-
+require(['theme_trema/scroll'], function(scroll) {
+    (new scroll()).init();
+});
     M.util.js_pending('theme_boost/loader');
     require(['theme_boost/loader', 'theme_boost/drawer'], function(Loader, Drawer) {
         Drawer.init();
