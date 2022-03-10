@@ -164,3 +164,5 @@ $string['defaultfooter_default'] = '<div class="row">
 		</ul>
 	</div>
 </div>';
+$string['showcategories'] = 'Show categories';
+$string['showcategories_desc'] = 'Enable to show categories on front page.';
