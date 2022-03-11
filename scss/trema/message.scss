@@ -1,0 +1,14 @@
+body#page-message-index {
+	#page-wrapper #page {
+		background: white;
+	}
+	#page-content {
+		@extend %border-frequency;
+		padding: 0 1rem;
+		margin: 0 2rem;
+		background: #f8f9fa;
+		.message-app {
+			border: none !important;
+		}
+	}
+}
