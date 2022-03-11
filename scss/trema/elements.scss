@@ -404,6 +404,13 @@ body #page {
     z-index: 10050;
 }
 
+.modal.course-summary-modal {
+    .modal-body {
+        max-height: 50vh;
+        overflow-y: auto;
+    }
+}
+
 .modal-dialog {
     margin-top: 5.75rem;
 

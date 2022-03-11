@@ -1,0 +1,26 @@
+#page-admin-search {
+	.simplesearchform {
+		input.form-control[type="text"] {
+			width: auto;
+		}
+		[type="submit"] {
+			margin: 0 .5rem;
+		}
+	}
+
+	.secondary-navigation {
+		padding: 1rem 4rem;
+		width: 100%;
+	}
+
+	#page-content {
+		margin: 0;
+		#region-main-box {
+			padding: 1rem 4rem;
+			#region-main {
+			@extend %border-frequency;
+			padding: 1rem;
+			}
+		}
+	}
+}

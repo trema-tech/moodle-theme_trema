@@ -292,9 +292,8 @@ class course_renderer extends \core_course_renderer {
         $contentimage = '';
         foreach ($course->get_course_overviewfiles() as $file) {
             $isimage = $file->is_valid_image();
-            $url = file_encode_url("$CFG->wwwroot/pluginfile.php",
-                '/'. $file->get_contextid(). '/'. $file->get_component(). '/'.
-                $file->get_filearea(). $file->get_filepath(). $file->get_filename(), !$isimage);
+            $url = new moodle_url("$CFG->wwwroot/pluginfile.php/". $file->get_contextid(). '/'. $file->get_component(). '/'.
+                $file->get_filearea(). $file->get_filepath(). $file->get_filename());
             if ($isimage) {
                 $contentimage = html_writer::start_tag('div', array('style' => "background-image:url('$url')",
                     'class' => 'card-img-top'));

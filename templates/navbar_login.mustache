@@ -19,7 +19,7 @@
 }}
 {{#output.login_lang_menu}}
 <nav class="fixed-top navbar navbar-light bg-white navbar-expand moodle-has-zindex" aria-label="{{#str}}sitemenubar, admin{{/str}}">
-        <a href="{{{ config.wwwroot }}}" class="navbar-brand {{# output.should_display_navbar_logo }}has-logo{{/ output.should_display_navbar_logo }}">
+        <a href="{{{ config.wwwroot }}}" class="navbar-brand d-flex align-items-center {{# output.should_display_navbar_logo }}has-logo{{/ output.should_display_navbar_logo }}">
             {{# output.should_display_navbar_logo }}
                 <span class="logo d-inline">
                     <img src="{{output.get_compact_logo_url}}" alt="{{sitename}}">

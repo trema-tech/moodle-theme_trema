@@ -34,6 +34,13 @@ body.pagelayout-mydashboard {
     }
 
     #page {
+        padding: 0;
+
+        &.drawers .main-inner {
+            background-color: transparent;
+            margin-top: 1rem;
+        }
+
         #page-header {
             > .col-12 > .card {
                 background: transparent;

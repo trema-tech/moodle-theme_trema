@@ -1,4 +1,4 @@
-#nav-drawer {
+.drawer {
     top: 4rem;
     padding: 1rem;
     height: calc(100% - 4rem);
@@ -33,6 +33,16 @@
                 color: lighten($primary, 30%);
                 background-color: rgba($primary, 0.05);
             }
+        }
+    }
+}
+
+body div#page {
+    padding: 0;
+    div.secondary-navigation {
+
+        li.nav-item {
+            border-bottom: none;
         }
     }
 }
