@@ -12,3 +12,67 @@ body#page-message-index {
 		}
 	}
 }
+
+.message-app[data-region="message-drawer"] {
+	background: #29292a;
+	color: white;
+
+	.header-container {
+		[data-region="view-conversation"] {
+			background-color: #1b1b1b;
+		}
+	}
+
+	.header-content {
+		a:focus,
+		.icon:focus {
+			background-color: transparent;
+			box-shadow: none;
+		}
+	}
+
+	.view-overview-body .section {
+    overflow: hidden;
+	}
+
+	.icon-no-margin {
+		margin: 0;
+    margin-left: 0.25rem;
+    height: 2.3rem;
+    line-height: 2.3rem;
+	}
+
+	a,
+	.icon {
+		color: white;
+		&:focus {
+			background-color: rgba($white, .2);
+			box-shadow: none;
+		}
+	}
+
+	body #page .btn-link {
+    margin-left: 0;
+	}
+
+	.card-header {
+    border-bottom: 1px solid rgb(255 255 255 / 20%);
+    background: #1b1b1b;
+	}
+
+	.bg-white {
+		background: #1b1b1b !important;
+	}
+
+	[data-region="view-overview"] {
+		padding: 0;
+		padding-bottom: .5rem;
+
+		.list-group {
+			.list-group-item {
+				background-color: #404040;
+				margin: 0;
+			}
+		}
+	}
+}

@@ -25,6 +25,11 @@ body.path-admin {
 		#region-main {
 			@extend %border-frequency;
 			padding: 1.5rem;
+			overflow: visible;
+			&:before {
+				height: 2rem;
+				top: -2rem;
+			}
 			&:after {
 				height: 0.15rem;
 			}

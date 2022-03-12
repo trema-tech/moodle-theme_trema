@@ -5,7 +5,9 @@ body.pagelayout-mydashboard {
     }
 
     #mydashboard-admin {
+        margin: 1rem 0;
         .card-body {
+            padding: .25rem;
 
             .fa {
                 color: rgba($primary, 0.15);
@@ -38,7 +40,8 @@ body.pagelayout-mydashboard {
 
         &.drawers .main-inner {
             background-color: transparent;
-            margin-top: 1rem;
+            margin-top: 0;
+            max-width: 1280px;
         }
 
         #page-header {
