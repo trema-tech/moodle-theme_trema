@@ -1,7 +1,18 @@
+body.uses-drawers {
+    footer#page-footer {
+        margin-left: -3rem;
+        margin-right: -3rem;
+    }
+}
+
 footer#page-footer {
     padding: 1.5rem 0;
-    background-color: #1a1c1b;
+    background-color: #1a1c1b !important;
     color: #cdcece;
+
+    .bg-dark {
+        background-color: #1a1c1b!important;
+    }
 
     h3 {
         font-size: 1.25rem;

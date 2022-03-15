@@ -58,12 +58,37 @@ body {
         border: none;
     }
 
+    #page.drawers {
+        div[role="main"] {
+            padding: 0;
+        }
+    }
+
     #page {
         margin-top: 4.5em;
         padding-top: 1.5em;
 
+        #topofscroll {
+            background-color: #f7f7f7;
+            margin-top: 0;
+            padding-top: 0;
+        }
+
+        #page-header {
+            margin-top: 1rem;
+            margin-bottom: 1rem;
+            padding: 0;
+        }
+
+        .secondary-navigation {
+            padding: 0;
+            width: 100%;
+        }
+
         #page-content {
-            margin-bottom: 2rem;
+            max-width: 1280px;
+            width: 100%;
+            margin: 1rem auto;
         }
 
         .atto_group button {
@@ -106,6 +131,12 @@ body {
                 background-color: $white;
             }
         }
+    }
+}
+
+body#page-user-profile {
+    #region-main-box {
+        padding: 0;
     }
 }
 

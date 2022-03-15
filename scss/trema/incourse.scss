@@ -79,10 +79,14 @@
 
 body#page-my-index.page-mycourses {
     #topofscroll {
-        @extend %border-frequency;
-
-        .card {
-            border: none;
+        margin-top: 0;
+        background: #f7f7f7;
+        #region-main {
+            background: #f7f7f7;
+        }
+        section.card {
+            background: white;
+            padding: 1rem;
 
             .dashboard-card {
                 box-shadow: 1px 0px 11px #a5a5a5;
@@ -90,6 +94,14 @@ body#page-my-index.page-mycourses {
                 .card-body {
                     border-top: 1px solid #d4d4d4;
                 }
+            }
+
+            #searchinput {
+                height: 2.8rem;
+                text-transform: uppercase;
+            }
+            button.btn {
+                margin: 0;
             }
         }
     }
@@ -107,5 +119,29 @@ body#page-course-view-topics {
             margin: 0;
         }
 
+    }
+}
+
+body.format-topics:not(#page-course-view-topics),
+body.format-topics.path-user {
+    #page-content {
+        @extend %border-frequency;
+        &:before {
+			height: 1rem;
+			top: -1rem;
+		}
+		&:after {
+			height: 0.15rem;
+		}
+        #region-main {
+            padding: 2rem;
+        }
+    }
+}
+
+body.format-topics.path-user,
+body.path-grade {
+    #region-main-box {
+        padding: 0;
     }
 }

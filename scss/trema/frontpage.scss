@@ -6,7 +6,7 @@ body#page-site-index {
             @extend %border-frequency;
 
             margin-top: 1rem;
-            max-width: 1140px;
+            max-width: $course-content-maxwidth;
             width: 100%;
             padding: 0;
 
@@ -22,9 +22,12 @@ body#page-site-index {
     }
 
     #page-content {
-        @extend %border-frequency;
         margin-top: 3rem;
         padding: 0;
+        @extend %border-frequency;
+        &:after {
+            height: 2px;
+        }
 
         #region-main {
             width: 100%;
@@ -114,8 +117,13 @@ body#page-site-index {
     }
 
     #frontpage-cards {
-        @extend %border-frequency;
+        max-width: $course-content-maxwidth;
         background: $white;
+        @extend %border-frequency;
+
+        &:after {
+            height: 2px;
+        }
 
         &:target {
             padding-top: 2rem;

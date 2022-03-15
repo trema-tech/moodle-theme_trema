@@ -1,14 +1,21 @@
 body.path-admin {
 	.header-maxwidth {
-		max-width: none;
-		margin: 0 4rem;
+		max-width: $course-content-maxwidth;
+		margin: 0 auto;
 		padding: 0;
+	}
+
+	#page.drawers #topofscroll {
+		margin-top: 0;
+		padding-top: 0;
+		background-color: transparent;
 	}
 
 	.secondary-navigation {
 		padding: 1rem 0;
-		width: calc(100% - 8rem);
-    margin: 0 4rem;
+		width: calc(100% - 6rem);
+    margin: 0 auto;
+    max-width: $course-content-maxwidth;
 		.moremenu {
 			@extend %border-frequency;
 			border: none;
@@ -22,17 +29,24 @@ body.path-admin {
 		&.d-print-block {
 			margin: 0 3rem;
 		}
-		#region-main {
-			@extend %border-frequency;
-			padding: 1.5rem;
-			overflow: visible;
-			&:before {
-				height: 1rem;
-				top: -1rem;
-			}
-			&:after {
-				height: 0.15rem;
-			}
+	}
+
+	#region-main {
+		padding: 1.5rem;
+		overflow: visible;
+	}
+}
+
+body.path-admin-setting,
+body#page-admin-search {
+	#region-main {
+		@extend %border-frequency;
+		&:before {
+			height: 1rem;
+			top: -1rem;
+		}
+		&:after {
+			height: 0.15rem;
 		}
 	}
 }
@@ -63,8 +77,5 @@ body.path-admin {
 
 	#page-content {
 		margin: 0;
-		#region-main-box {
-			padding: 0rem 4rem 1rem;
-		}
 	}
 }
