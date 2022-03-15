@@ -1,106 +1,48 @@
+// Trema topics, must be enable in settings.
 body#page-course-view-topics.format-topics:not(.editing) {
 
-    #region-main {
+    #topofscroll {
+        margin-top: 0;
+        padding-top: 0;
         background: #f7f7f7;
-    }
 
-    .completionprogress {
-        float: revert;
-    }
+        &::before,
+        &:after {
+            content: none;
+        }
 
-    .activity img.activityicon {
-        height: 14px;
-        margin-right: .75rem;
-        width: 14px;
-    }
-    .course-content ul.topics li.section,
-    .course-content ul.weeks li.section {
-        border: 0 none;
-        padding-bottom: 2rem;
-        .content {
-            display: grid;
-            grid-template-columns: 25% 75%;
-            grid-template-rows: auto auto auto;
-            .sectionname {
-                font-size: 1.1rem;
-                font-weight: 600;
-                grid-column: 1;
-                grid-row: 1;
-                margin-bottom: 0;
-                a {
-                    border-bottom: 1px solid $gray-300;
-                    display: inline-block;
-                    margin-bottom: 1rem;
-                    padding-bottom: 1rem;
-                    padding-right: 2rem;
-                    position: relative;
-                    width: 100%;
-                    &:after {
-                        @extend %dot-style-after;
+        [role="main"],
+        #region-main  {
+            background: #f7f7f7;
+        }
+
+
+        .course-content {
+            li.section {
+                background-color: $white;
+                margin-bottom: 1rem;
+                padding: .5rem;
+                border-bottom: 1px solid rgba(144,144,144,.35);
+                @extend %border-frequency;
+                &:before {
+                    height: 1rem;
+                    top: -1rem;
+                }
+                &::after {
+                    height: 2px;
+                }
+            }
+
+            .single-section {
+                .section-navigation.navigationtitle {
+                    .sectionname {
+                        text-align: right;
                     }
                 }
-            }
-            .section_availability {
-                grid-column: 1;
-                grid-row: 2;
-                justify-self: end;
-                padding-right: 2rem;
-            }
-            .summary {
-                font-size: .9rem;
-                grid-column: 1;
-                grid-row: 3;
-                margin-left: 0;
-                padding-right: 2rem;
-            }
-        }
-    }
-
-    .course-content {
-        li.section ul.section.img-text {
-            @extend %border-frequency;
-            background-color: $white;
-            grid-column: 2;
-            grid-row: 1 / 4;
-            margin: 0;
-            padding: 1rem;
-        }
-
-        .single-section {
-            .section-navigation.navigationtitle {
-                .sectionname {
-                    text-align: right;
+                li.section .section.img-text:before {
+                    content: none;
                 }
             }
-            li.section .section.img-text:before {
-                content: none;
-            }
-        }
-    }
-
-    #section-0 .section.img-text:before {
-        content: none;
-    }
-
-    .path-course-view .completionprogress {
-        float: none;
-    }
-
-    .section li.activity {
-        border-bottom: 1px dashed $gray-400;
-        padding: .5em 0;
-        .activityinstance,
-        .contentwithoutlink {
-            min-height: 1em;
-        }
-        .availabilityinfo,
-        .contentafterlink {
-            margin-top: 1em;
-            margin-left: 26px;
-        }
-
-        &:last-child {
-            border: none;
         }
     }
 }
@@ -108,18 +50,5 @@ body#page-course-view-topics.format-topics:not(.editing) {
 
 
 @media (max-width: 767.98px) {
-    body#page-course-view-topics.format-topics:not(.editing) .course-content {
-        ul.topics li.section .content,
-        ul.weeks li.section .content {
-            grid-template-columns: 100%;
-            grid-template-rows: auto auto auto auto;
-        }
-        li.section ul.section.img-text {
-            grid-column: 1;
-            grid-row: 4;
-            &::before {
-                display: none;
-            }
-        }
-    }
+
 }

@@ -76,3 +76,36 @@
         height: auto;
     }
 }
+
+body#page-my-index.page-mycourses {
+    #topofscroll {
+        @extend %border-frequency;
+
+        .card {
+            border: none;
+
+            .dashboard-card {
+                box-shadow: 1px 0px 11px #a5a5a5;
+
+                .card-body {
+                    border-top: 1px solid #d4d4d4;
+                }
+            }
+        }
+    }
+}
+
+body#page-course-view-topics {
+    #topofscroll {
+        @extend %border-frequency;
+        [data-toggle="collapse"].btn-icon {
+            background-color: $white;
+            color: $primary;
+            height: auto;
+            line-height: 1;
+            padding: 0;
+            margin: 0;
+        }
+
+    }
+}

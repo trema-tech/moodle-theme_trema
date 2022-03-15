@@ -68,6 +68,17 @@ footer#page-footer {
             transform: rotate(180deg);
         }
     }
+
+    .btn-footer-popover {
+        line-height: 16px;
+        height: 36px;
+        margin: 0;
+        padding: 0;
+        background-color: #373a3c !important;
+    }
+    .popover-body a:not(.button) {
+        color: $black;
+    }
 }
 
 body.scrolled #goto-top-link {
