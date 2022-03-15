@@ -126,7 +126,9 @@
                 {{/hasblocks}}
             </div>
             {{{ output.full_header }}}
-            {{> theme_trema/mydashboard_admin }}
+            {{#showdashboardadmin}}
+                {{> theme_trema/mydashboard_admin }}
+            {{/showdashboardadmin}}
             {{#secondarymoremenu}}
                 <div class="secondary-navigation">
                     {{> core/moremenu}}
@@ -159,6 +161,14 @@
                 </div>
             </div>
         </div>
+        {{#hasadminblocks}}
+            <div id="side-admin-blocks" class="mt-4">
+                <div class="container py-3">
+                    <h3 class="text-center my-2">{{#str}}adminarea, theme_trema{{/str}}</h3>
+                    {{{ sideadminblocks }}}
+                </div>
+            </div>
+        {{/hasadminblocks}}
         {{> theme_trema/footer }}
     </div>
     <div id="goto-top-link">
@@ -168,6 +178,7 @@
         </a>
     </div>
     {{{ output.standard_after_main_region_html }}}
+
 </div>
 
 </body>
