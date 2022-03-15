@@ -109,7 +109,6 @@ body#page-my-index.page-mycourses {
 
 body#page-course-view-topics {
     #topofscroll {
-        @extend %border-frequency;
         [data-toggle="collapse"].btn-icon {
             background-color: $white;
             color: $primary;
