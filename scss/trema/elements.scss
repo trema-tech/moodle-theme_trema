@@ -191,6 +191,16 @@ body #page {
         }
     }
 
+    .simplesearchform {
+        input[type="text"] {
+            width: auto;
+        }
+
+        button[type="submit"] {
+            margin: 0;
+        }
+    }
+
     input[type="submit"].btn-primary,
     input[type="reset"].btn-primary,
     input[type="button"].btn-primary,
@@ -405,9 +415,20 @@ body #page {
 }
 
 .modal.course-summary-modal {
+
+    .modal-content {
+        @extend %border-frequency;
+        &:before {
+            content: none;
+        }
+    }
     .modal-body {
         max-height: 50vh;
         overflow-y: auto;
+    }
+
+    .modal-footer {
+        justify-content: flex-start;
     }
 }
 
