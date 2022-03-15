@@ -25,6 +25,7 @@
  */
 
 defined('MOODLE_INTERNAL') || die();
+require_once("$CFG->dirroot/theme/trema/locallib.php");
 
 // Add block button in editing mode.
 $addblockbutton = $OUTPUT->addblockbutton();

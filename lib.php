@@ -52,6 +52,7 @@ function theme_trema_get_main_scss_content($theme) {
     } else {
         $scss .= "#frontpage-banner {background-image: url([[pix:theme|frontpage/overlay]]), url([[pix:theme|frontpage/banner]]);}";
     }
+
     return $scss;
 }
 
@@ -86,6 +87,10 @@ function theme_trema_get_pre_scss($theme) {
         $scss .= "\$login-backgroundimage: '$backgroundimageurl';\n";
     } else {
         $scss .= "\$login-backgroundimage: '[[pix:theme|frontpage/banner]]';\n";
+    }
+    // Not image in settings.
+    if ($theme->settings->loginpagestyle !== 'image') {
+        $scss .= "body.pagelayout-login #page-wrapper { background-image: none; }";
     }
 
     // Prepend pre-scss.
