@@ -23,6 +23,11 @@ body.path-message {
 				.hidden {
 					display: none !important;
 				}
+
+				a,
+				.icon {
+					text-decoration: none;
+				}
 			}
 
 			.panel-body-container {
@@ -43,16 +48,18 @@ body.path-message {
 		}
 	}
 
-	.simplesearchform {
+	#page .simplesearchform {
 		input {
 			margin: 0;
-			margin-top: .5rem;
 		}
 
 		.icon-no-margin {
-			margin: .5rem 0 0 0.25rem;
-			height: 2.3rem;
-			line-height: 2.3rem;
+			background-color: #373A3C;
+            margin: 0;
+            height: 2.3rem;
+            line-height: 2.3rem;
+            border: none;
+            padding: 0 0.5rem;
 		}
 	}
 }
@@ -89,6 +96,21 @@ body.path-message {
 			}
 		}
 
+        .simplesearchform {
+            input {
+                margin: 0;
+            }
+
+            .icon-no-margin {
+                background-color: #373A3C;
+                margin: 0;
+                height: 2.3rem;
+                line-height: 2.3rem;
+                border: none;
+                padding: 0 0.5rem;
+            }
+        }
+
 		.view-overview-body .section {
 			overflow: hidden;
 		}
@@ -102,6 +124,7 @@ body.path-message {
 
 		a,
 		.icon {
+			text-decoration: none;
 			color: white;
 			&:focus {
 				background-color: rgba($white, .2);

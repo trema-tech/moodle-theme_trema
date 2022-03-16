@@ -14,15 +14,8 @@ body.path-admin {
 	.secondary-navigation {
 		padding: 1rem 0;
 		width: calc(100% - 6rem);
-    margin: 0 auto;
-    max-width: $course-content-maxwidth;
-		.moremenu {
-			@extend %border-frequency;
-			border: none;
-			&:before {
-				content: none;
-			}
-		}
+		margin: 0 auto;
+		max-width: $course-content-maxwidth;
 	}
 
 	#page-content {
@@ -35,10 +28,13 @@ body.path-admin {
 		padding: 1.5rem;
 		overflow: visible;
 	}
+
+    #region-main-box {
+        padding: 0;
+	}
 }
 
-body.path-admin-setting,
-body#page-admin-search {
+body.path-admin {
 	#region-main {
 		@extend %border-frequency;
 		&:before {
@@ -63,8 +59,8 @@ body#page-admin-search {
 
 	#page-header {
 		max-width: none;
-    padding: 0;
-    margin: 0 4rem;
+        padding: 0;
+        margin: 0 4rem;
 
 		.mr-auto {
 			margin-right: 0 !important;
@@ -77,5 +73,9 @@ body#page-admin-search {
 
 	#page-content {
 		margin: 0;
+
+        h4 {
+            font-size: 1.4rem;
+        }
 	}
 }

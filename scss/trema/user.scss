@@ -1,0 +1,21 @@
+body.path-user {
+    #page-header {
+        background-color: white;
+        padding: 1rem;
+        @extend %border-frequency;
+    }
+
+    #region-main-box {
+        padding: 0;
+        #region-main {
+            padding: 1rem;
+            &:before {
+                height: 1rem;
+                top: -1rem;
+            }
+            &:after {
+                height: 0.15rem;
+            }
+        }
+    }
+}

@@ -23,6 +23,12 @@
         line-height: inherit;
     }
 
+    .simplesearchform [type="submit"] {
+        margin: 0;
+        background-color: $secondary;
+        color: choose-contrast-color($secondary);
+    }
+
     .navbar-nav {
         flex-wrap: nowrap;
     }
@@ -155,6 +161,22 @@
             &:hover:not(.active) {
                 border-bottom: 3px solid #7a7a7a;
             }
+        }
+    }
+}
+
+#page .secondary-navigation {
+    .navigation .nav-link {
+        color: #666;
+        border-top: 3px solid transparent;
+        text-decoration: none;
+        transition: all ease-in 100ms;
+        &.active {
+            font-weight: normal;
+            color: rgba(0, 0, 0, .9);
+        }
+        &:hover:not(.active) {
+            border-bottom: 3px solid #7a7a7a;
         }
     }
 }
