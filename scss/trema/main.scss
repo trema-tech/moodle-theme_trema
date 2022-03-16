@@ -121,6 +121,10 @@ body {
             }
         }
 
+        a.btn-icon {
+            text-decoration: none
+        }
+
         .tab-pane .nav-link.active {
             color: $white;
         }
