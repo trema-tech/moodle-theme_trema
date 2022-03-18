@@ -83,9 +83,10 @@ footer#page-footer {
     .btn-footer-popover {
         line-height: 16px;
         height: 36px;
-        margin: 0;
-        padding: 0;
+        margin: 0 !important;
+        padding: 0 !important;
         background-color: #373a3c !important;
+        color: white !important;
     }
     .popover-body a:not(.button) {
         color: $black;

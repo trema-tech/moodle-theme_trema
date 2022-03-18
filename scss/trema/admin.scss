@@ -47,6 +47,17 @@ body.path-admin {
 	}
 }
 
+body.path-admin.pagelayout-maintenance {
+	#region-main {
+		&:before {
+			content: none;
+		}
+		&:after {
+			content: none;
+		}
+	}
+}
+
 #page-admin-search {
 	.simplesearchform {
 		input.form-control[type="text"] {

@@ -67,6 +67,18 @@ body div#page {
     padding-left: 2.5rem;
 }
 
+#theme_boost-drawers-courseindex {
+    .courseindex .courseindex-item .courseindex-link,
+    .courseindex .courseindex-item .courseindex-chevron {
+        color: #ffffff;
+
+        &:hover {
+            color: lighten($primary, 30%);
+            background-color: rgba($primary, 0.05);
+        }
+    }
+}
+
 @mixin shake ($n) {
     0% {
         transform: rotateZ(0);
