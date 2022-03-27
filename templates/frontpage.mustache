@@ -40,6 +40,7 @@
 
     <div id="page" class="container-fluid">
         <h1 class="sr-only container pb-0 mb-0 mt-5">{{sitename}}</h1>
+        {{#showbanner}}
         <div id="carouselTrema" class="carousel slide carousel-fade {{^frontpagecarrousel}}d-none{{/frontpagecarrousel}}" data-ride="carousel">
                 <div class="carousel-inner" data-interval="false">
                     <ol class="carousel-indicators">
@@ -77,6 +78,7 @@
             {{{ output.frontpage_settings_menu }}}
         </div>
         {{/frontpagecarrousel}}
+        {{/showbanner}}
 
         {{#hascards}}
         <div id="frontpage-cards" class="container mt-5">
