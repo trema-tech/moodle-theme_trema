@@ -47,6 +47,11 @@ function theme_trema_get_main_scss_content($theme) {
         $scss .= file_get_contents("$CFG->dirroot/theme/trema/scss/trema/topics.scss");
     }
 
+    if (empty($theme->settings->enabletremalines)) {
+        $scss .= "%border-frequency { &:before, &:after { content: none;}}";
+    }
+
+    // Frontpage banner.
     if ($frontpagebannerurl = $theme->setting_file_url('frontpagebanner', 'frontpagebanner')) {
         $scss .= "#frontpage-banner {background-image: url([[pix:theme|frontpage/overlay]]), url('$frontpagebannerurl');}";
     } else {

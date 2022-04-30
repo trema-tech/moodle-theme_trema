@@ -86,6 +86,13 @@ $setting = new admin_setting_configcheckbox($name, $title, $description, '1');
 $setting->set_updatedcallback('theme_reset_all_caches');
 $page->add($setting);
 
+$name = 'theme_trema/enabletremalines';
+$title = get_string('enabletremalines', 'theme_trema');
+$description = get_string('enabletremalines_desc', 'theme_trema', "$CFG->wwwroot/theme/trema/pix/examples/tremalines.png");
+$setting = new admin_setting_configcheckbox($name, $title, $description, '1');
+$setting->set_updatedcallback('theme_reset_all_caches');
+$page->add($setting);
+
 // Raw SCSS to include before the content.
 $setting = new admin_setting_scsscode('theme_trema/scsspre', get_string('rawscsspre', 'theme_trema'),
     get_string('rawscsspre_desc', 'theme_trema'), '', PARAM_RAW);
