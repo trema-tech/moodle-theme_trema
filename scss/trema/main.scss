@@ -109,7 +109,8 @@ body {
             @extend %border-frequency;
         }
 
-        a:not(.dropdown-item) {
+        a:not(.dropdown-item),
+        a:not(.btn) {
             color: $primary;
             text-decoration: underline;
             font-weight: normal;
@@ -125,8 +126,14 @@ body {
             }
         }
 
+        a.dropdown-item,
+        a.btn,
+        a.aabtn,
         a.btn-icon {
-            text-decoration: none
+            text-decoration: none;
+            &:hover {
+                text-decoration: none;
+            }
         }
 
         .tab-pane .nav-link.active {

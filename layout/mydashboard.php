@@ -85,6 +85,7 @@ $templatecontext = [
     'regionmainsettingsmenu' => $regionmainsettingsmenu,
     'hasregionmainsettingsmenu' => !empty($regionmainsettingsmenu),
     'defaultfrontpagefooter' => $pluginsettings->defaultfooter,
+    'enabletremafooter' => $pluginsettings->enabletremafooter,
     'footerinfo' => $pluginsettings->enablefooterinfo,
 ];
 

@@ -169,7 +169,12 @@
                 </div>
             </div>
         {{/hasadminblocks}}
-        {{> theme_trema/footer }}
+        {{#enabletremafooter}}
+            {{> theme_trema/footer }}
+        {{/enabletremafooter}}
+        {{^enabletremafooter}}
+            {{> theme_boost/footer }}
+        {{/enabletremafooter}}
     </div>
     <div id="goto-top-link">
         {{! go to top is sticky to footer so needs to be sibling }}

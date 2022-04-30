@@ -86,37 +86,6 @@ $setting = new admin_setting_configcheckbox($name, $title, $description, '1');
 $setting->set_updatedcallback('theme_reset_all_caches');
 $page->add($setting);
 
-// HTML to include in the footer content of frontpage.
-$footerhtml = '<div class="row">
-	<div class="col-md-8">
-		<h3 class="-align-center">Trema Soluções em Tecnologia</h3>
-	</div>
-	<div class="col-md-4">
-		<h3>Contact Us</h3>
-
-		<ul class="labeled-icons">
-			<li>
-                <span class="fa fa-globe" aria-hidden="true"></span>
-                <a href="https://trema.tech/" target="_blank">https://trema.tech/</a>
-            </li>
-			<li>
-                <span class="fa fa-github" aria-hidden="true"></span>
-                <a href="https://github.com/trema-tech/" target="_blank">https://github.com/trema-tech/</a>
-            </li>
-		</ul>
-	</div>
-</div>';
-$setting = new admin_setting_confightmleditor('theme_trema/defaultfooter', get_string('defaultfooter', 'theme_trema'),
-    get_string('defaultfooter_desc', 'theme_trema'), $footerhtml, PARAM_RAW);
-$page->add($setting);
-
-
-$name = 'theme_trema/enablefooterinfo';
-$title = get_string('enablefooterinfo', 'theme_trema');
-$description = get_string('enablefooterinfo_desc', 'theme_trema', "$CFG->wwwroot/theme/trema/pix/examples/footerinfo.png");
-$setting = new admin_setting_configcheckbox($name, $title, $description, '1');
-$page->add($setting);
-
 // Raw SCSS to include before the content.
 $setting = new admin_setting_scsscode('theme_trema/scsspre', get_string('rawscsspre', 'theme_trema'),
     get_string('rawscsspre_desc', 'theme_trema'), '', PARAM_RAW);
@@ -131,4 +100,3 @@ $page->add($setting);
 
 // Must add the page after definiting all the settings!
 $settings->add($page);
-

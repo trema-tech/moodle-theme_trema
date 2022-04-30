@@ -108,8 +108,9 @@ $templatecontext = [
     'overflow' => $overflow,
     'headercontent' => $headercontent,
     'addblockbutton' => $addblockbutton,
+    'enabletremafooter' => $pluginsettings->enabletremafooter ?? false,
     'defaultfrontpagefooter' => format_text($pluginsettings->defaultfooter, FORMAT_HTML, ['context' => $context]),
-    'footerinfo' => $pluginsettings->enablefooterinfo,
+    'footerinfo' => $pluginsettings->enablefooterinfo ?? false,
 ];
 
 echo $OUTPUT->render_from_template('theme_trema/drawers', $templatecontext);

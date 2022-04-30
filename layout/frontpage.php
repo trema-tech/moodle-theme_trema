@@ -129,6 +129,7 @@ $templatecontext = [
     'cardstitle' => !empty($pluginsettings->frontpagecardstitle) ? format_text($pluginsettings->frontpagecardstitle, FORMAT_HTML) : '',
     'cardssubtitle' => !empty($pluginsettings->frontpagecardssubtitle) ? format_text($pluginsettings->frontpagecardssubtitle, FORMAT_HTML) : '',
     'cardssettings' => theme_trema_get_cards_settings(),
+    'enabletremafooter' => $pluginsettings->enabletremafooter,
     'footerinfo' => $pluginsettings->enablefooterinfo
 ];
 

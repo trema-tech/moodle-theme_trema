@@ -1,14 +1,33 @@
 body.uses-drawers {
-    footer#page-footer {
+    #page.drawers footer#page-footer {
         margin-left: -3rem;
         margin-right: -3rem;
+        width: calc(100% + 6rem);
+    }
+
+    .show-drawer-right {
+        footer#page-footer {
+            margin-right: 0;
+        }
+    }
+
+    .show-drawer-left {
+        footer#page-footer {
+            margin-left: 0;
+        }
     }
 }
 
+.btn-footer-popover {
+    bottom: 4rem;
+}
+
+#page.drawers footer#page-footer,
 footer#page-footer {
     padding: 1.5rem 0;
     background-color: #1a1c1b !important;
     color: #cdcece;
+    max-width: none;
 
     .bg-dark {
         background-color: #1a1c1b!important;

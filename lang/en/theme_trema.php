@@ -165,3 +165,7 @@ $string['defaultfooter_default'] = '<div class="row">
 		</ul>
 	</div>
 </div>';
+
+// Footer settings.
+$string['enabletremafooter'] = 'Enable Trema Footer';
+$string['enabletremafooter_desc'] = 'Enable Trema Footer instead of Boost popup footer';

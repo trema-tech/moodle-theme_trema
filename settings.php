@@ -30,6 +30,7 @@ if ($ADMIN->fulltree) {
     $settings = new theme_boost_admin_settingspage_tabs('themesettingtrema', get_string('configtitle', 'theme_trema'));
     require_once('settings/general_settings.php');
     require_once('settings/content_settings.php');
+    require_once('settings/footer_settings.php');
     require_once('settings/login_settings.php');
     require_once('settings/styleguide_settings.php');
 }
