@@ -98,7 +98,4 @@ if (is_siteadmin() && $pluginsettings->enableadmindashboard) {
     $templatecontext['issuestatus']        = theme_trema_get_environment_issues();
 }
 
-$nav                                     = $PAGE->flatnav;
-$templatecontext['flatnavigation']       = $nav;
-$templatecontext['firstcollectionlabel'] = $nav->get_collectionlabel();
 echo $OUTPUT->render_from_template('theme_trema/mydashboard', $templatecontext);

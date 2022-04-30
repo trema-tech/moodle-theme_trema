@@ -55,12 +55,12 @@ $THEME->requiredblocks = '';
 $THEME->layouts = [
     // Most backwards compatible layout without the blocks - this is the layout used by default.
     'base' => array(
-        'file' => 'columns2.php',
+        'file' => 'drawers.php',
         'regions' => array(),
     ),
     // Standard layout with blocks, this is recommended for most pages with general information.
     'standard' => array(
-        'file' => 'columns2.php',
+        'file' => 'drawers.php',
         'regions' => array('side-pre'),
         'defaultregion' => 'side-pre',
     ),
@@ -72,7 +72,7 @@ $THEME->layouts = [
         'options' => array('langmenu' => true),
     ),
     'coursecategory' => array(
-        'file' => 'columns2.php',
+        'file' => 'drawers.php',
         'regions' => array('side-pre'),
         'defaultregion' => 'side-pre',
     ),
@@ -104,7 +104,7 @@ $THEME->layouts = [
     ),
     // My public page.
     'mypublic' => array(
-        'file' => 'columns2.php',
+        'file' => 'drawers.php',
         'regions' => array('side-pre'),
         'defaultregion' => 'side-pre',
     ),
@@ -151,7 +151,7 @@ $THEME->layouts = [
     ),
     // The pagelayout used for reports.
     'report' => array(
-        'file' => 'columns2.php',
+        'file' => 'drawers.php',
         'regions' => array('side-pre'),
         'defaultregion' => 'side-pre',
     ),
