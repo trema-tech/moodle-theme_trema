@@ -122,6 +122,7 @@ body#page-course-view-topics {
 }
 
 body.format-topics:not(#page-course-view-topics),
+body.pagelayout-incourse,
 body.format-topics.path-user {
     #page-content {
         @extend %border-frequency;
@@ -134,6 +135,15 @@ body.format-topics.path-user {
 		}
         #region-main {
             padding: 2rem;
+        }
+    }
+}
+
+body#page-course-view-topics.pagelayout-incourse {
+    #topofscroll #region-main-box {
+        #region-main,
+        [role="main"] {
+            background-color: $white;
         }
     }
 }

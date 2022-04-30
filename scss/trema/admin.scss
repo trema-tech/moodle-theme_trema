@@ -90,3 +90,12 @@ body.path-admin.pagelayout-maintenance {
         }
 	}
 }
+
+body.path-admin-report-log {
+	#page form {
+		.custom-select {
+			width: auto;
+			display: inline-block;
+		}
+	}
+}

@@ -6,6 +6,10 @@ body {
     font-family: "Lato";
 }
 
+:target {
+    scroll-margin-top: 50px;
+}
+
 %border-frequency {
     position: relative;
 
@@ -181,20 +185,6 @@ body#page-calendar-view {
     }
 }
 
-body#page-contentbank {
-    .searchbar .input-group-append .input-group-text {
-        padding: 0;
-        .search-icon .btn {
-            height: calc(1.5em + .75rem + 2px);
-            margin: 0;
-            width: 40px;
-            > span.d-flex {
-                justify-content: center;
-            }
-        }
-    }
-}
-
 
 body.format-site.path-course,
 body.format-site.path-report,
@@ -229,6 +219,24 @@ body.format-site.path-calendar {
             }
         }
 	}
+}
+
+body#page-contentbank {
+    .secondary-navigation {
+        width: 100%;
+    }
+
+    .searchbar .input-group-append .input-group-text {
+        padding: 0;
+        .search-icon .btn {
+            height: calc(1.5em + .75rem + 2px);
+            margin: 0;
+            width: 40px;
+            > span.d-flex {
+                justify-content: center;
+            }
+        }
+    }
 }
 
 @media (max-width: 767.98px) {

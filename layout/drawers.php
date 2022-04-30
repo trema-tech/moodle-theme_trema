@@ -83,11 +83,13 @@ $buildregionmainsettings = !$PAGE->include_region_main_settings_in_header_action
 // If the settings menu will be included in the header then don't add it here.
 $regionmainsettingsmenu = $buildregionmainsettings ? $OUTPUT->region_main_settings_menu() : false;
 
-$header = $PAGE->activityheader;
-$headercontent = $header->export_for_template($renderer);
+$header         = $PAGE->activityheader;
+$headercontent  = $header->export_for_template($renderer);
+$pluginsettings = get_config("theme_trema");
+$context        = context_course::instance(SITEID);
 
 $templatecontext = [
-    'sitename' => format_string($SITE->shortname, true, ['context' => context_course::instance(SITEID), "escape" => false]),
+    'sitename' => format_string($SITE->shortname, true, ['context' => $context, "escape" => false]),
     'output' => $OUTPUT,
     'sidepreblocks' => $blockshtml,
     'hasblocks' => $hasblocks,
@@ -105,7 +107,9 @@ $templatecontext = [
     'hasregionmainsettingsmenu' => !empty($regionmainsettingsmenu),
     'overflow' => $overflow,
     'headercontent' => $headercontent,
-    'addblockbutton' => $addblockbutton
+    'addblockbutton' => $addblockbutton,
+    'defaultfrontpagefooter' => format_text($pluginsettings->defaultfooter, FORMAT_HTML, ['context' => $context]),
+    'footerinfo' => $pluginsettings->enablefooterinfo,
 ];
 
 echo $OUTPUT->render_from_template('theme_trema/drawers', $templatecontext);
