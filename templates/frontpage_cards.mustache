@@ -1,0 +1,28 @@
+<div id="frontpage-cards" class="container mt-5">
+    <div id="frontpage-cards-title" class="row mx-3 p-4 pt-0 text-center">
+        <div class="col-12 pt-3 pb-3">
+            {{#cardstitle}}
+                <h2 class="border-bottom p-3 m-2 mb-4">{{{cardstitle}}}</h2>
+            {{/cardstitle}}
+            {{#cardssubtitle}}
+                <p class="font-weight-light">
+                    {{{cardssubtitle}}}
+                </p>
+            {{/cardssubtitle}}
+        </div>
+    </div>
+
+    <div id="frontpage-cards-content" class="row">
+    {{#cardssettings}}
+        <div class="frontpage-card col-sm-6 p-5">
+            {{#cardlink}}<a href="{{cardlink}}">{{/cardlink}}
+                <span class="fa {{cardicon}} fa-4x float-left mr-4 mt-2" style="color: {{cardiconcolor}};"></span>
+            {{#cardlink}}</a>{{/cardlink}}
+            {{#cardlink}}<a href="{{cardlink}}">{{/cardlink}}
+                <h3>{{{cardtitle}}}</h3>
+            {{#cardlink}}</a>{{/cardlink}}
+            <p class="font-weight-light">{{{cardsubtitle}}}</p>
+        </div>
+        {{/cardssettings}}
+    </div>
+</div>

@@ -47,6 +47,20 @@ body.path-admin {
 	}
 }
 
+body#page-search-index {
+	#region-main {
+		padding: 2rem;
+		@extend %border-frequency;
+		&:before {
+			height: 1rem;
+			top: -1rem;
+		}
+		&:after {
+			height: 0.15rem;
+		}
+	}
+}
+
 body.path-admin.pagelayout-maintenance {
 	#region-main {
 		&:before {
