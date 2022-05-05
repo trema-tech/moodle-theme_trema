@@ -45,12 +45,13 @@ $blockshtml = $OUTPUT->blocks('side-pre');
 $hasblocks = strpos($blockshtml, 'data-block=') !== false;
 $adminblockshtml = $OUTPUT->blocks('side-admin');
 $pluginsettings = get_config("theme_trema");
+$numberofimages = $pluginsettings->numberofimages;
 
 // Frontpage images.
-if ($pluginsettings->numberofimages > 1) {
+if ($numberofimages > 1) {
     $frontpagecarrousel = [];
     $active = true;
-    for ($i = 1; $i <= $pluginsettings->numberofimages; $i++) {
+    for ($i = 1; $i <= $numberofimages; $i++) {
         $title    = "carrouseltitle{$i}";
         $subtitle = "carrouselsubtitle{$i}";
         $btntext  = "carrouselbtntext{$i}";
@@ -97,6 +98,7 @@ $templatecontext = [
     'hasregionmainsettingsmenu' => ! empty($regionmainsettingsmenu),
     'defaultfrontpagebody' => !empty($pluginsettings->defaultfrontpagebody) ? format_text($pluginsettings->defaultfrontpagebody, FORMAT_HTML) : '',
     'defaultfrontpagefooter' => !empty($pluginsettings->defaultfooter) ? format_text($pluginsettings->defaultfooter, FORMAT_HTML) : '',
+    'showbanner' => ($numberofimages > 0),
     'frontpagecarrousel' => $frontpagecarrousel,
     'frontpagetitle' => !empty($pluginsettings->frontpagetitle) ? format_text($pluginsettings->frontpagetitle, FORMAT_HTML) : '',
     'frontpagesubtitle' => !empty($pluginsettings->frontpagesubtitle) ? format_text($pluginsettings->frontpagesubtitle, FORMAT_HTML) : '',
