@@ -17,8 +17,9 @@
 /**
  * A drawer based layout for the boost theme.
  *
- * @package   theme_boost
- * @copyright 2021 Bas Brands
+ * @package   theme_trema
+ * @copyright 2022 Trema - {@link https://trema.tech/}
+ * @author    Rodrigo Mady
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 

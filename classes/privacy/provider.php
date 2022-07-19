@@ -26,8 +26,6 @@
 
 namespace theme_trema\privacy;
 
-defined('MOODLE_INTERNAL') || die();
-
 /**
  * Class provider
  * @package theme_trema

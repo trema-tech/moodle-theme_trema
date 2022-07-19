@@ -24,8 +24,6 @@
  * @license     http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-defined('MOODLE_INTERNAL') || die();
-
 /**
  * Return a array of objects containing all cards settings.
  *
@@ -206,11 +204,10 @@ function theme_trema_get_environment_issues() {
 /**
  * Get the URL of files from theme settings.
  *
- * @param $setting
- * @param $filearea
- * @param $theme
- * @return array|false|string|string[]|null
- * @throws dml_exception
+ * @param [type] $setting
+ * @param string $filearea
+ * @param Theme $theme
+ * @return void
  */
 function theme_trema_setting_file_url($setting, $filearea, $theme) {
     global $CFG;

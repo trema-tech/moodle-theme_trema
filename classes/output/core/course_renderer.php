@@ -25,8 +25,6 @@
  */
 namespace theme_trema\output\core;
 
-defined('MOODLE_INTERNAL') || die();
-
 use core_course_category;
 use core_course_list_element;
 use moodle_url;
