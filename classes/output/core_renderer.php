@@ -218,6 +218,8 @@ class core_renderer extends \theme_boost\output\core_renderer {
         } else {
             $context->cookieshelpiconformatted = $this->help_icon('cookiesenabled');
         }
+
+        $context->rememberusername = $CFG->rememberusername == 2;
         $context->errorformatted = $this->error_text($context->error);
         $url = $this->get_logo_url();
         if ($url) {

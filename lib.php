@@ -46,7 +46,7 @@ function theme_trema_get_main_scss_content($theme) {
     }
 
     if (empty($theme->settings->enabletremalines)) {
-        $scss .= "%border-frequency { &:before, &:after { content: none;}}";
+        $scss .= "%border-frequency { &:before, &:after { content: none !important;}}";
     }
 
     // Frontpage banner.
