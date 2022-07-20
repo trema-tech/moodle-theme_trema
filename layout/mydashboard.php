@@ -61,6 +61,7 @@ $header = $PAGE->activityheader;
 $headercontent = $header->export_for_template($renderer);
 
 $pluginsettings = get_config("theme_trema");
+$context        = context_course::instance(SITEID);
 
 $templatecontext = [
     'sitename' => format_string($SITE->shortname, true, [
@@ -86,7 +87,7 @@ $templatecontext = [
     'hasregionmainsettingsmenu' => !empty($regionmainsettingsmenu),
     'defaultfrontpagefooter' => $pluginsettings->defaultfooter,
     'enabletremafooter' => $pluginsettings->enabletremafooter,
-    'footerinfo' => $pluginsettings->enablefooterinfo,
+    'footerinfo' => format_text($pluginsettings->enablefooterinfo, FORMAT_HTML, ['context' => $context]),
 ];
 
 if (is_siteadmin() && $pluginsettings->enableadmindashboard) {

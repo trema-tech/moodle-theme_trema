@@ -99,6 +99,7 @@ if ($pluginsettings->numberofimages > 1) {
 }
 
 $regionmainsettingsmenu = $OUTPUT->region_main_settings_menu();
+$context                = context_course::instance(SITEID);
 $templatecontext = [
     'sitename' => format_string($SITE->shortname, true, [
         'context' => context_course::instance(SITEID),
@@ -144,7 +145,7 @@ $templatecontext = [
         format_text($pluginsettings->frontpagecardssubtitle, FORMAT_HTML) : '',
     'cardssettings' => theme_trema_get_cards_settings(),
     'enabletremafooter' => $pluginsettings->enabletremafooter,
-    'footerinfo' => $pluginsettings->enablefooterinfo
+    'footerinfo' => format_text($pluginsettings->enablefooterinfo, FORMAT_HTML, ['context' => $context]),
 ];
 
 echo $OUTPUT->render_from_template('theme_trema/frontpage', $templatecontext);
