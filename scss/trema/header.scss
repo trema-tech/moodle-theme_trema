@@ -182,7 +182,8 @@
 }
 
 .sr-only-focusable {
-    &:active, &:focus {
+    &:active,
+    &:focus {
         z-index: 10001;
     }
 }

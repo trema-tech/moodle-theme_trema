@@ -70,7 +70,7 @@ body div#page {
 #theme_boost-drawers-courseindex {
     .courseindex .courseindex-item .courseindex-link,
     .courseindex .courseindex-item .courseindex-chevron {
-        color: #ffffff;
+        color: #fff;
 
         &:hover {
             color: lighten($primary, 30%);
@@ -102,7 +102,7 @@ body div#page {
 }
 
 .drawercontent::-webkit-scrollbar-thumb {
-    background-color: #ffffff;
+    background-color: #fff;
     border-radius: 20px;
     border: 3px solid #c8c8c8;
 }

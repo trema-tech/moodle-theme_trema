@@ -54,7 +54,7 @@ body.path-message {
 		}
 
 		.icon-no-margin {
-			background-color: #373A3C;
+			background-color: #373a3c;
             margin: 0;
             height: 2.3rem;
             line-height: 2.3rem;
@@ -82,7 +82,7 @@ body.path-message {
 
 		.dropdown-menu {
 			background: #29292a;
-    	box-shadow: 0 3px 4px rgba($white, .2);
+    	    box-shadow: 0 3px 4px rgba($white, .2);
 			.dropdown-item:hover {
 				background: darken($primary, 50%);
 			}
@@ -102,7 +102,7 @@ body.path-message {
             }
 
             .icon-no-margin {
-                background-color: #373A3C;
+                background-color: #373a3c;
                 margin: 0;
                 height: 2.3rem;
                 line-height: 2.3rem;
@@ -166,15 +166,15 @@ body#page-message-output-popup-notifications {
 
 	#page-wrapper #page #page-content {
 		background: white;
-    margin-top: 1rem;
+        margin-top: 1rem;
 		padding: 2rem !important;
 
-			#region-main {
-				background-color: white;
+        #region-main {
+            background-color: white;
 
-				.notification-area {
-					background-color: $white;
-				}
-			}
+            .notification-area {
+                background-color: $white;
+            }
+        }
 	}
 }

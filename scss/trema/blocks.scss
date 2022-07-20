@@ -19,9 +19,9 @@
 }
 
 #region-main.has-blocks .dashboard-card-deck .dashboard-card {
-    box-shadow: 0px 0px 7px 0px #a3a5ae;
+    box-shadow: 0 0 7px #a3a5ae;
     transition: all ease-in 300ms;
     &:hover {
-        box-shadow: 0px 0px 3px 0px #bbbdc7;
+        box-shadow: 0 0 3px #bbbdc7;
     }
 }

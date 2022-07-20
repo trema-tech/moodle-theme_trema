@@ -12,7 +12,7 @@ body#page-course-view-topics.format-topics:not(.editing) {
         }
 
         [role="main"],
-        #region-main  {
+        #region-main {
             background: #f7f7f7;
         }
 
@@ -22,7 +22,7 @@ body#page-course-view-topics.format-topics:not(.editing) {
                 background-color: $white;
                 margin-bottom: 1rem;
                 padding: .5rem;
-                border-bottom: 1px solid rgba(144,144,144,.35);
+                border-bottom: 1px solid rgba(144, 144, 144, .35);
                 @extend %border-frequency;
                 &:before {
                     height: 1rem;
@@ -45,10 +45,4 @@ body#page-course-view-topics.format-topics:not(.editing) {
             }
         }
     }
-}
-
-
-
-@media (max-width: 767.98px) {
-
 }

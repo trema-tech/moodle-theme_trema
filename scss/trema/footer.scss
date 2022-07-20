@@ -30,7 +30,7 @@ footer#page-footer {
     max-width: none;
 
     .bg-dark {
-        background-color: #1a1c1b!important;
+        background-color: #1a1c1b !important;
     }
 
     h3 {
@@ -115,7 +115,7 @@ footer#page-footer {
 body.scrolled #goto-top-link {
     opacity: 1;
     visibility: visible;
-    transition: visibility 0s ease 0s,opacity 0.7s ease 0.1s;
+    transition: visibility 0s ease 0s, opacity 0.7s ease 0.1s;
 }
 
 #goto-top-link {
@@ -123,10 +123,10 @@ body.scrolled #goto-top-link {
     right: 3rem;
     visibility: hidden;
     opacity: 0;
-    transition: opacity 0.7s ease 0s,visibility 0.1s ease 0.8s;
+    transition: opacity 0.7s ease 0s, visibility 0.1s ease 0.8s;
     display: block;
     position: fixed;
-    box-shadow: 0px 0px 5px 0px #dadada;
+    box-shadow: 0 0 5px #dadada;
     .icon {
         margin-right: 0;
     }
