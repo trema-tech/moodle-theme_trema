@@ -125,6 +125,7 @@
                 {{/hasblocks}}
             </div>
             <h1 class="sr-only container pb-0 mb-0 mt-5">{{sitename}}</h1>
+        {{#showbanner}}
         {{#frontpagecarrousel}}
             <div id="carouselTrema" class="carousel slide carousel-fade {{^frontpagecarrousel}}d-none{{/frontpagecarrousel}}" data-ride="carousel">
                 <div class="carousel-inner" data-interval="false">
@@ -163,6 +164,10 @@
             {{{ output.frontpage_settings_menu }}}
         </div>
         {{/frontpagecarrousel}}
+        {{/showbanner}}
+        {{^showbanner}}
+            {{{ output.frontpage_settings_menu }}}
+        {{/showbanner}}
         {{#secondarymoremenu}}
             <div class="secondary-navigation">
                 {{> core/moremenu}}
