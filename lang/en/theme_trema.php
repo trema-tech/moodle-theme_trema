@@ -74,6 +74,8 @@ $string['frontpagecards'] = 'Frontpage cards';
 $string['frontpagecontent'] = 'Frontpage Content';
 $string['frontpageenablecards'] = 'Enable frontpage cards';
 $string['frontpageenablecards_desc'] = 'Uncheck if you want to hide the area below: <img class="img-responsive" src="{$a}" />';
+$string['frontpageenabledarkoverlay'] = 'Frontpage banner dark overlay';
+$string['frontpageenabledarkoverlay_desc'] = 'When enabled, this will apply a dark overlay to the banner on the front page.';
 $string['frontpagesubtitle'] = 'Frontpage subtitle.';
 $string['frontpagetitle'] = 'Frontpage title.';
 $string['image'] = 'Background image';

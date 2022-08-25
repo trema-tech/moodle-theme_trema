@@ -158,6 +158,14 @@ if ($numberofcarousel == 1) {
     }
 }
 
+// Enable/disable dark overlay on banner.
+$name = 'theme_trema/frontpageenabledarkoverlay';
+$title = get_string('frontpageenabledarkoverlay', 'theme_trema');
+$description = get_string('frontpageenabledarkoverlay_desc', 'theme_trema');
+$default = true;
+$setting = new admin_setting_configcheckbox($name, $title, $description, $default, true, false);
+$page->add($setting);
+
 // HTML to include in the main content of frontpage.
 $setting = new admin_setting_confightmleditor('theme_trema/defaultfrontpagebody', get_string('defaultfrontpagebody', 'theme_trema'),
     get_string('defaultfrontpagebody_desc', 'theme_trema'), '', PARAM_RAW);
