@@ -124,6 +124,8 @@
                     </div>
                 {{/hasblocks}}
             </div>
+            <h1 class="sr-only container pb-0 mb-0 mt-5">{{sitename}}</h1>
+        {{#frontpagecarrousel}}
             <div id="carouselTrema" class="carousel slide carousel-fade {{^frontpagecarrousel}}d-none{{/frontpagecarrousel}}" data-ride="carousel">
                 <div class="carousel-inner" data-interval="false">
                     <ol class="carousel-indicators">
@@ -131,7 +133,6 @@
                             <li data-target="#carouselTrema" data-slide-to="{{index}}" class="{{active}}"></li>
                         {{/frontpagecarrousel}}
                     </ol>
-                {{#frontpagecarrousel}}
                     <div class="carousel-item {{active}}">
                         <img src="{{image}}" class="d-block w-100" alt="{{title}}">
                         <div class="frontpage-banner-content">
@@ -140,7 +141,6 @@
                             {{#btntext}}{{#btnhref}}<a href="{{btnhref}}" class="m-3 btn d-none d-md-inline-block {{btnclass}}" role="button">{{{btntext}}}</a>{{/btnhref}}{{/btntext}}
                         </div>
                     </div>
-                {{/frontpagecarrousel}}
                     <a class="carousel-control-prev" href="#carouselTrema" role="button" data-slide="prev">
                         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                         <span class="sr-only">{{#str}} previous, core {{/str}}</span>
@@ -152,6 +152,7 @@
                 </div>
                 {{{ output.frontpage_settings_menu }}}
             </div>
+        {{/frontpagecarrousel}}
         {{^frontpagecarrousel}}
         <div id="frontpage-banner">
             <div id="frontpage-banner-content">
