@@ -207,7 +207,7 @@ class course_renderer extends \core_course_renderer {
         $coursename = $chelper->get_course_formatted_name($course);
         $courseurl = new moodle_url('/course/view.php', array('id' => $course->id));
         $coursenamelink = html_writer::link($courseurl,
-            $coursename, array('class' => $course->visible ? '' : 'dimmed'));
+            $coursename, array('class' => $course->visible ? 'aalink' : 'aalink dimmed'));
 
         $content = html_writer::start_tag('a', array ('href' => $courseurl, 'class' => 'course-card-img', 'aria-hidden' => 'true', 'tabindex' => '-1', 'aria-label' => $coursename));
         $content .= $this->get_course_summary_image($course);
