@@ -86,7 +86,7 @@ function theme_trema_get_pre_scss($theme) {
 
     // Login background image.
     $backgroundimageurl = $theme->setting_file_url('loginbackgroundimage', 'loginbackgroundimage');
-    if ($theme->settings->loginpagestyle == 'image' and !empty($backgroundimageurl)) {
+    if ($theme->settings->loginpagestyle == 'image' && !empty($backgroundimageurl)) {
         $scss .= "\$login-backgroundimage: '$backgroundimageurl';\n";
     } else {
         $scss .= "\$login-backgroundimage: '[[pix:theme|frontpage/banner]]';\n";

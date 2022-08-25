@@ -2,54 +2,55 @@ body.path-user:not(#page-course-view-participants),
 body.format-site.path-grade {
     #page {
         #page-header {
-        background-color: white;
-        padding: 1rem;
-        margin-bottom: 0;
-        @extend %border-frequency;
-        > div.w-100 {
-            display: flex;
-            justify-content: space-between;
+            background-color: white;
+            padding: 1rem;
+            margin-bottom: 0;
+            @extend %border-frequency;
 
-            .d-flex.flex-wrap {
-                order: 2;
-            }
+            > div.w-100 {
+                display: flex;
+                justify-content: space-between;
 
-            .d-sm-flex.align-items-center {
-                order: 1;
-                .page-context-header {
-                    flex-flow: column wrap;
-                    height: 110px;
-                    overflow: visible;
+                .d-flex.flex-wrap {
+                    order: 2;
+                }
 
-                    .btn-group {
-                        a.btn {
-                            letter-spacing: normal;
-                            text-transform: none;
-                            text-align: left;
-                            text-decoration: none;
-                            padding: 0;
-                            margin: 0;
-                            background: transparent;
-                            border: none;
+                .d-sm-flex.align-items-center {
+                    order: 1;
+                    .page-context-header {
+                        flex-flow: column wrap;
+                        height: 110px;
+                        overflow: visible;
+
+                        .btn-group {
+                            a.btn {
+                                letter-spacing: normal;
+                                text-transform: none;
+                                text-align: left;
+                                text-decoration: none;
+                                padding: 0;
+                                margin: 0;
+                                background: transparent;
+                                border: none;
+                            }
                         }
                     }
                 }
+
             }
+        }
 
-        }
-    }
-
-    #page-content {
-        @extend %border-frequency;
-        &:before {
-            height: 1rem;
-            top: -1rem;
-        }
-        &:after {
-            height: 0.15rem;
-        }
-        #region-main-box {
-            padding: 0;
+        #page-content {
+            @extend %border-frequency;
+            &:before {
+                height: 1rem;
+                top: -1rem;
+            }
+            &:after {
+                height: 0.15rem;
+            }
+            #region-main-box {
+                padding: 0;
                 #region-main {
                     padding: 1rem;
                     &:before {
