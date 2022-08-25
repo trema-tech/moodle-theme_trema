@@ -158,6 +158,14 @@ if ($numberofcarousel == 1) {
     }
 }
 
+// Enable/disable dark overlay on banner.
+$name = 'theme_trema/frontpageenabledarkoverlay';
+$title = get_string('frontpageenabledarkoverlay', 'theme_trema');
+$description = get_string('frontpageenabledarkoverlay_desc', 'theme_trema');
+$default = true;
+$setting = new admin_setting_configcheckbox($name, $title, $description, $default, true, false);
+$page->add($setting);
+
 // HTML to include in the main content of frontpage.
 $setting = new admin_setting_confightmleditor('theme_trema/defaultfrontpagebody', get_string('defaultfrontpagebody', 'theme_trema'),
     get_string('defaultfrontpagebody_desc', 'theme_trema'), '', PARAM_RAW);
@@ -265,6 +273,14 @@ $choices = array(
 $setting = new admin_setting_configselect('theme_trema/summarytype',
     get_string('summarytype', 'theme_trema'), get_string('summarytype_desc', 'theme_trema'),
     'btn-primary', $choices);
+$page->add($setting);
+
+// Show categories on Frontpage course cards.
+$name = 'theme_trema/showcategories';
+$title = get_string('showcategories', 'theme_trema');
+$description = get_string('showcategories_desc', 'theme_trema');
+$default = false;
+$setting = new admin_setting_configcheckbox($name, $title, $description, $default, true, false);
 $page->add($setting);
 
 $settings->add($page);
