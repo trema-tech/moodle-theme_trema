@@ -261,4 +261,12 @@ $setting = new admin_setting_configselect('theme_trema/summarytype',
     'btn-primary', $choices);
 $page->add($setting);
 
+// Show categories on Frontpage course cards.
+$name = 'theme_trema/showcategories';
+$title = get_string('showcategories', 'theme_trema');
+$description = get_string('showcategories_desc', 'theme_trema');
+$default = false;
+$setting = new admin_setting_configcheckbox($name, $title, $description, $default, true, false);
+$page->add($setting);
+
 $settings->add($page);

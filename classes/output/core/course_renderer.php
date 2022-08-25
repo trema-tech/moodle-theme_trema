@@ -194,6 +194,15 @@ class course_renderer extends \core_course_renderer {
             $course = new core_course_list_element($course);
         }
 
+        // Should we show category names? in search results and optionally on Frontpage.
+        static $showcategories;
+        if (!isset($showcategories)) {
+            global $PAGE;
+            // Cache result as it will be the same for all displayed courses on this page.
+            $showcategories = $chelper->get_show_courses() == self::COURSECAT_SHOW_COURSES_EXPANDED_WITH_CAT ||
+                    (get_config('theme_trema', 'showcategories') && $PAGE->pagetype == 'site-index');
+        }
+
         // Course name.
         $coursename = $chelper->get_course_formatted_name($course);
         $courseurl = new moodle_url('/course/view.php', array('id' => $course->id));
@@ -238,12 +247,12 @@ class course_renderer extends \core_course_renderer {
         }
 
         // Display course category if necessary (for example in search results).
-        if ($chelper->get_show_courses() == self::COURSECAT_SHOW_COURSES_EXPANDED_WITH_CAT) {
+        if ($showcategories) {
             if ($cat = core_course_category::get($course->category, IGNORE_MISSING)) {
-                $content .= html_writer::start_tag('div', array('class' => 'coursecat text-center'));
-                $content .= get_string('category').': '.
-                    html_writer::link(new moodle_url('/course/index.php', array('categoryid' => $cat->id)),
-                        $cat->get_formatted_name(), array('class' => $cat->visible ? '' : 'dimmed'));
+                $content .= html_writer::start_tag('div', array('class' => 'coursecat text-center small'));
+                $content .= html_writer::tag('span', get_string('category').': ');
+                $content .= html_writer::link(new moodle_url('/course/index.php', array('categoryid' => $cat->id)),
+                    $cat->get_formatted_name(), array('class' => $cat->visible ? '' : 'dimmed'));
                 $content .= html_writer::end_tag('div'); // End coursecat.
             }
         }
