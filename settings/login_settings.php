@@ -31,7 +31,8 @@ $page = new admin_settingpage('theme_trema_login', get_string('login', 'theme_tr
 // Login page style.
 $choices = array(
     "particle-circles" => get_string('particlecircles', 'theme_trema'),
-    "image" => get_string('image', 'theme_trema', '')
+    "image" => get_string('image', 'theme_trema', ''),
+    "none" => get_string('none')
 );
 $setting = new admin_setting_configselect('theme_trema/loginpagestyle', get_string('loginpagestyle', 'theme_trema'), '',
     'particle-circles', $choices);

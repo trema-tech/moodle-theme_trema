@@ -50,12 +50,16 @@ function theme_trema_get_main_scss_content($theme) {
     }
 
     // Frontpage banner.
-    if ($frontpagebannerurl = $theme->setting_file_url('frontpagebanner', 'frontpagebanner')) {
-        $scss .= "#frontpage-banner {background-image: url([[pix:theme|frontpage/overlay]]), url('$frontpagebannerurl');}";
+    if (!empty($theme->settings->frontpageenabledarkoverlay)) {
+        $darkoverlay = "url([[pix:theme|frontpage/overlay]]),";
     } else {
-        $scss .= "#frontpage-banner {background-image: url([[pix:theme|frontpage/overlay]]), url([[pix:theme|frontpage/banner]]);}";
+        $darkoverlay = "";
     }
-
+    if ($frontpagebannerurl = $theme->setting_file_url('frontpagebanner', 'frontpagebanner')) {
+        $scss .= "#frontpage-banner {background-image: $darkoverlay url('$frontpagebannerurl');}";
+    } else {
+        $scss .= "#frontpage-banner {background-image: $darkoverlay url([[pix:theme|frontpage/banner]]);}";
+    }
     return $scss;
 }
 

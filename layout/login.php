@@ -29,7 +29,7 @@ defined('MOODLE_INTERNAL') || die();
 // Check if the login page are using particles or image background.
 $loginstyle = get_config('theme_trema', 'loginpagestyle');
 $additionalclasses = [
-    $loginstyle == "particle-circles" ? 'style-particles' : 'style-image'
+    $loginstyle == "particle-circles" ? 'style-particles' : ($loginstyle == 'image' ? 'style-image' : 'style-none')
 ];
 $bodyattributes = $OUTPUT->body_attributes($additionalclasses);
 
