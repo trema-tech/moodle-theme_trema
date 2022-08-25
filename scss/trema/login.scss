@@ -50,4 +50,10 @@ body#page-login-index {
             background-size: cover;
         }
     }
+
+    &.style-none {
+        #page-wrapper {
+            background-image: none;
+        }
+    }
 }

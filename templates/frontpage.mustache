@@ -189,9 +189,11 @@
                         {{#hasregionmainsettingsmenu}}
                             <div class="region_main_settings_menu_proxy"></div>
                         {{/hasregionmainsettingsmenu}}
+                        {{#defaultfrontpagebody}}
                         <div id="defaultfrontpagebody" class="mb-4">
                             {{{defaultfrontpagebody}}}
                         </div>
+                        {{/defaultfrontpagebody}}
                         {{{ output.course_content_header }}}
                         {{#headercontent}}
                             {{> core/activity_header }}

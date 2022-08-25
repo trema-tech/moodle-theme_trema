@@ -148,7 +148,7 @@ class course_renderer extends \core_course_renderer {
      * @return string
      */
     protected function coursecat_coursebox(coursecat_helper $chelper, $course, $additionalclasses = '') {
-        global $CFG;
+        global $PAGE;
         if (!isset($this->strings->summary)) {
             $this->strings->summary = get_string('summary');
         }
@@ -158,6 +158,7 @@ class course_renderer extends \core_course_renderer {
         if ($course instanceof stdClass) {
             $course = new core_course_list_element($course);
         }
+
         $content = html_writer::start_tag('div', array('class' => $additionalclasses));
         $classes = '';
         if ($chelper->get_show_courses() >= self::COURSECAT_SHOW_COURSES_EXPANDED) {
@@ -172,7 +173,12 @@ class course_renderer extends \core_course_renderer {
             'data-courseid' => $course->id,
             'data-type' => self::COURSECAT_TYPE_COURSE,
         ));
-        $content .= $this->coursecat_coursebox_content($chelper, $course);
+        // Render course enrolment/summary in desired HTML format, as cards or using the full page.
+        if ($PAGE->pagetype == 'enrol-index' && $PAGE->theme->settings->courseenrolmentpageformat == 'fullwidth') {
+            $content .= parent::coursecat_coursebox_content($chelper, $course);
+        } else {
+            $content .= $this->coursecat_coursebox_content($chelper, $course);
+        }
         $content .= html_writer::end_tag('div');
         // End coursebox.
         $content .= html_writer::end_tag('div');
@@ -194,13 +200,22 @@ class course_renderer extends \core_course_renderer {
             $course = new core_course_list_element($course);
         }
 
+        // Should we show category names? in search results and optionally on Frontpage.
+        static $showcategories;
+        if (!isset($showcategories)) {
+            global $PAGE;
+            // Cache result as it will be the same for all displayed courses on this page.
+            $showcategories = $chelper->get_show_courses() == self::COURSECAT_SHOW_COURSES_EXPANDED_WITH_CAT ||
+                    (get_config('theme_trema', 'showcategories') && $PAGE->pagetype == 'site-index');
+        }
+
         // Course name.
         $coursename = $chelper->get_course_formatted_name($course);
         $courseurl = new moodle_url('/course/view.php', array('id' => $course->id));
         $coursenamelink = html_writer::link($courseurl,
-            $coursename, array('class' => $course->visible ? '' : 'dimmed'));
+            $coursename, array('class' => $course->visible ? 'aalink' : 'aalink dimmed'));
 
-        $content = html_writer::start_tag('a', array ('href' => $courseurl, 'class' => 'course-card-img'));
+        $content = html_writer::start_tag('a', array ('href' => $courseurl, 'class' => 'course-card-img', 'aria-hidden' => 'true', 'tabindex' => '-1', 'aria-label' => $coursename));
         $content .= $this->get_course_summary_image($course);
         $content .= html_writer::end_tag('a');
 
@@ -238,12 +253,12 @@ class course_renderer extends \core_course_renderer {
         }
 
         // Display course category if necessary (for example in search results).
-        if ($chelper->get_show_courses() == self::COURSECAT_SHOW_COURSES_EXPANDED_WITH_CAT) {
+        if ($showcategories) {
             if ($cat = core_course_category::get($course->category, IGNORE_MISSING)) {
-                $content .= html_writer::start_tag('div', array('class' => 'coursecat text-center'));
-                $content .= get_string('category').': '.
-                    html_writer::link(new moodle_url('/course/index.php', array('categoryid' => $cat->id)),
-                        $cat->get_formatted_name(), array('class' => $cat->visible ? '' : 'dimmed'));
+                $content .= html_writer::start_tag('div', array('class' => 'coursecat text-center small'));
+                $content .= html_writer::tag('span', get_string('category').': ');
+                $content .= html_writer::link(new moodle_url('/course/index.php', array('categoryid' => $cat->id)),
+                    $cat->get_formatted_name(), array('class' => $cat->visible ? '' : 'dimmed'));
                 $content .= html_writer::end_tag('div'); // End coursecat.
             }
         }
