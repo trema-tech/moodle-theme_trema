@@ -62,6 +62,12 @@ if (!$courseindex) {
     $courseindexopen = false;
 }
 
+$pluginsettings = get_config("theme_trema");
+
+if ($PAGE->pagetype == 'enrol-index' && $pluginsettings->courseenrolmentpageformat == 'fullwidth') {
+    $extraclasses[] = 'fullwidthgeneralbox';
+}
+
 $bodyattributes = $OUTPUT->body_attributes($extraclasses);
 $forceblockdraweropen = $OUTPUT->firstview_fakeblocks();
 
@@ -86,7 +92,6 @@ $regionmainsettingsmenu = $buildregionmainsettings ? $OUTPUT->region_main_settin
 
 $header         = $PAGE->activityheader;
 $headercontent  = $header->export_for_template($renderer);
-$pluginsettings = get_config("theme_trema");
 $context        = context_course::instance(SITEID);
 
 $templatecontext = [

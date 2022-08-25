@@ -240,6 +240,20 @@ if (get_config('theme_trema', 'frontpageenablecards')) {
     }
 }
 
+// Course Enrolment page.
+$page->add(new admin_setting_heading('theme_trema_course_enrolmentpage', get_string('courseenrolmentpage', 'theme_trema'),
+        '', FORMAT_MARKDOWN));
+
+// Course enrolment page format.
+$choices = array(
+    "card" => get_string('courseenrolmentpagecard', 'theme_trema'),
+    "fullwidth" => get_string('courseenrolmentpagefull', 'theme_trema')
+);
+$setting = new admin_setting_configselect('theme_trema/courseenrolmentpageformat',
+    get_string('courseenrolmentpageformat', 'theme_trema'), get_string('courseenrolmentpageformat_desc', 'theme_trema'),
+    'card', $choices);
+$page->add($setting);
+
 // Courses cards.
 $page->add(new admin_setting_heading('theme_trema_course_cards', get_string('coursescards', 'theme_trema'), '', FORMAT_MARKDOWN));
 

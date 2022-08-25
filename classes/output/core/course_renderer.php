@@ -148,7 +148,7 @@ class course_renderer extends \core_course_renderer {
      * @return string
      */
     protected function coursecat_coursebox(coursecat_helper $chelper, $course, $additionalclasses = '') {
-        global $CFG;
+        global $PAGE;
         if (!isset($this->strings->summary)) {
             $this->strings->summary = get_string('summary');
         }
@@ -158,6 +158,7 @@ class course_renderer extends \core_course_renderer {
         if ($course instanceof stdClass) {
             $course = new core_course_list_element($course);
         }
+
         $content = html_writer::start_tag('div', array('class' => $additionalclasses));
         $classes = '';
         if ($chelper->get_show_courses() >= self::COURSECAT_SHOW_COURSES_EXPANDED) {
@@ -172,7 +173,12 @@ class course_renderer extends \core_course_renderer {
             'data-courseid' => $course->id,
             'data-type' => self::COURSECAT_TYPE_COURSE,
         ));
-        $content .= $this->coursecat_coursebox_content($chelper, $course);
+        // Render course enrolment/summary in desired HTML format, as cards or using the full page.
+        if ($PAGE->pagetype == 'enrol-index' && $PAGE->theme->settings->courseenrolmentpageformat == 'fullwidth') {
+            $content .= parent::coursecat_coursebox_content($chelper, $course);
+        } else {
+            $content .= $this->coursecat_coursebox_content($chelper, $course);
+        }
         $content .= html_writer::end_tag('div');
         // End coursebox.
         $content .= html_writer::end_tag('div');
