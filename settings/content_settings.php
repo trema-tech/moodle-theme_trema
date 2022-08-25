@@ -165,6 +165,7 @@ $title = get_string('frontpageenabledarkoverlay', 'theme_trema');
 $description = get_string('frontpageenabledarkoverlay_desc', 'theme_trema');
 $default = true;
 $setting = new admin_setting_configcheckbox($name, $title, $description, $default, true, false);
+$setting->set_updatedcallback('theme_reset_all_caches');
 $page->add($setting);
 
 // HTML to include in the main content of frontpage.
@@ -260,7 +261,7 @@ $choices = array(
 );
 $setting = new admin_setting_configselect('theme_trema/courseenrolmentpageformat',
     get_string('courseenrolmentpageformat', 'theme_trema'), get_string('courseenrolmentpageformat_desc', 'theme_trema'),
-    'card', $choices);
+    'fullwidth', $choices);
 $page->add($setting);
 
 // Courses cards.
