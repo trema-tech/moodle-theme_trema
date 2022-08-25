@@ -37,6 +37,7 @@ $title = get_string('numberofimages', 'theme_trema');
 $description = get_string('numberofimages_desc', 'theme_trema');
 $default = 1; // Carousel disable.
 $choices = [
+    0 => '0',
     1 => '1',
     2 => '2',
     3 => '3',
@@ -66,8 +67,8 @@ $cardtitledefault           = get_string('cardtitle', 'theme_trema');
 $cardsubtitledefault        = get_string('cardsubtitle', 'theme_trema');
 
 // Set some settings so that they can initially have a default value but later be set blank.
-if (empty($numberofcarousel)) {
-    // Initialize some values.
+if ($numberofcarousel === false) { // Not set yet.
+    // Initialize some default values.
     $numberofcarousel = 1;
     set_config('frontpagetitledefault', $frontpagetitledefault, 'theme_trema');
     set_config('frontpagesubtitledefault', $frontpagesubtitledefault, 'theme_trema');
@@ -110,7 +111,7 @@ if ($numberofcarousel == 1) {
         'btn-primary', $btnchoices);
     $page->add($setting);
 
-} else {
+} else if ($numberofcarousel >= 1) {
 
     for ($i = 1; $i <= $numberofcarousel; $i ++) {
         $page->add(new admin_setting_heading("theme_trema_frontpageimage{$i}" ,
