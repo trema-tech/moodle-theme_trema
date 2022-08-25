@@ -64,10 +64,10 @@ $string['favicon'] = 'Custom favicon';
 $string['favicon_desc'] = 'Upload your own favicon. It should be an .ico file.';
 $string['footertitle'] = 'Theme Trema';
 $string['frontpagebanner'] = 'Frontpage banner.';
-$string['frontpagebanner_desc'] = 'Upload the image file to be inserted in frontpage. Will replace the default image of a forest.';
+$string['frontpagebanner_desc'] = 'Upload the image file to be inserted in the frontpage. Will replace the default image of a forest.';
 $string['frontpagebuttontext'] = 'Frontpage button text';
 $string['frontpagebuttonclass'] = 'Frontpage button HTML class';
-$string['frontpagebuttonclass_desc'] = 'You can change the style of the button choosing another class.';
+$string['frontpagebuttonclass_desc'] = 'You can change the style of the button by choosing another class.';
 $string['frontpagebuttonhref'] = 'Frontpage button href';
 $string['frontpagebuttonhref_desc'] = 'Choose the value of the button\'s href attribute.';
 $string['frontpagecards'] = 'Frontpage cards';
@@ -116,7 +116,7 @@ $string['generalsettings'] = 'General settings';
 $string['rawscss'] = 'Raw SCSS';
 $string['rawscss_desc'] = 'Use this field to provide SCSS or CSS code which will be injected at the end of the style sheet.';
 $string['rawscsspre'] = 'Raw initial SCSS';
-$string['rawscsspre_desc'] = 'In this field you can provide initialising SCSS code, it will be injected before everything else. Most of the time you will use this setting to define variables.';
+$string['rawscsspre_desc'] = 'In this field, you can provide initialising SCSS code, it will be injected before everything else. Most of the time you will use this setting to define variables.';
 $string['totop'] = 'Go to top';
 
 // Frontpage Image.
@@ -131,9 +131,9 @@ $string['frontpageimage'] = 'Frontpage image {$a}';
 $string['frontpageimage_desc'] = 'Image {$a} to show in frontpage banner.';
 $string['image'] = 'Image {$a}';
 $string['imagelink'] = 'Image link';
-$string['imagelink_desc'] = 'Button with link in image {$a}.';
+$string['imagelink_desc'] = 'Button with a link in image {$a}.';
 $string['numberofimages']  = "Number of images in frontpage banner";
-$string['numberofimages_desc']  = "Number of images to show in frontpage banner. If is more than one, loads the carousel.";
+$string['numberofimages_desc']  = "Number of images to show in frontpage banner. If it is more than one, loads the carousel.";
 $string['title_desc']  = 'Title to show in frontpage image {$a}';
 $string['subtitle_desc']  = 'Subtitle to show in frontpage image {$a}';
 
@@ -144,7 +144,7 @@ $string['frontpagecardstitle'] = 'Title of cards section';
 $string['frontpagecardssubtitle'] = 'The description of the cards section goes here. Several lines of text can be placed in this space.';
 $string['cardtitle_default'] = 'Card Title';
 $string['cardsubtitle_default'] = 'The description of this card goes here. Several lines of text can be placed in this space.';
-$string['subtitle_default'] = 'This is the default sub-title. You can modify or remove this in the Trema theme settings.';
+$string['subtitle_default'] = 'This is the default subtitle. You can modify or remove this in the Trema theme settings.';
 $string['defaultfooter_default'] = '<div class="row">
 	<div class="col-md-8">
 		<h3 class="-align-center">Trema Solutions in Technology</h3>
