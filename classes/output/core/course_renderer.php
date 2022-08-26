@@ -55,7 +55,7 @@ class course_renderer extends \core_course_renderer {
      * @return string
      */
     protected function coursecat_courses(coursecat_helper $chelper, $courses, $totalcount = null) {
-        global $CFG;
+        global $CFG, $PAGE;
 
         if ($totalcount === null) {
             $totalcount = count($courses);
@@ -119,8 +119,18 @@ class course_renderer extends \core_course_renderer {
         $coursecount = 1;
         $content .= html_writer::start_tag('div', array('class' => ' row card-deck my-4'));
         foreach ($courses as $course) {
-            $content .= $this->coursecat_coursebox($chelper, $course, 'card mb-3 course-card-view');
-            $coursecount ++;
+            // If the course is in a hidden category and we don't want to show these courses...
+            if (empty($PAGE->theme->settings->showehiddencategorycourses) && !$this->isvisiblecat($course)) {
+                // Show the card dimmed if the user has course edit/update capability.
+                if (has_capability('moodle/course:update', get_context_instance(CONTEXT_COURSE, $course->id))) {
+                    $content .= $this->coursecat_coursebox($chelper, $course, 'card mb-3 course-card-view dimmed');
+                    $coursecount ++;
+                }
+            } else {
+                // Otherwise, just display the course.
+                $content .= $this->coursecat_coursebox($chelper, $course, 'card mb-3 course-card-view');
+                $coursecount ++;
+            }
         }
 
         $content .= html_writer::end_tag('div');
@@ -341,5 +351,40 @@ class course_renderer extends \core_course_renderer {
 
         $color = $basecolors[$courseid % 10];
         return $color;
+    }
+
+    /**
+     * Check to see if course is in a visible category. All parent categories must be visible as well
+     * or user must have capabilities to view hidden categories.
+     * Note: Borrowed from https://github.com/michael-milette/moodle-theme_gcweb
+     * @copyright 2016-2022 TNG Consulting Inc. - www.tngconsulting.ca
+     *
+     * @param object $course Moodle Course object.
+     * @return boolean True if category and all parent categories are visible.
+     */
+    protected function isvisiblecat($course) {
+        global $DB;
+        static $coursecategories;
+
+        // Cache complete list of categories, their ID, path and visibility.
+        if (!isset($coursecategories)) {
+            $coursecategories = $DB->get_records('course_categories', array(), '', 'id, path, visible');
+        }
+
+        // Check if any of the parent coursecategories are not visible.
+        $categories = array_reverse(explode('/', $coursecategories[$course->category]->path));
+        foreach ($categories as $c) {
+            // Check if the coursecategory is not visible.
+            if (!empty($c) && empty($coursecategories[$c]->visible)) {
+                // Category is not visible. Check if we can see hidden categories.
+                if (!has_capability('moodle/category:viewhiddencategories', \context_coursecat::instance($c))
+                        && !has_capability('moodle/category:viewhiddencategories', \context_system::instance())) {
+                    // User does not have ability to view hidden categories.
+                    return false;
+                }
+            }
+        }
+        // You passed the tests! Category and all parents are visible to you or you have viewhiddencategories capability.
+        return true;
     }
 }
