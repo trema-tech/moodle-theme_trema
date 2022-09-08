@@ -79,7 +79,7 @@ $THEME->layouts = [
     // Part of course, typical for modules - default page layout if $cm specified in require_login().
     'incourse' => array(
         'file' => 'drawers.php',
-        'regions' => array('side-pre'),
+        'regions' => array('side-pre', 'langmenu' => true),
         'defaultregion' => 'side-pre',
     ),
     // The site home page.
@@ -111,7 +111,7 @@ $THEME->layouts = [
     'login' => array(
         'file' => 'login.php',
         'regions' => array(),
-        'options' => array('langmenu' => true),
+        'options' => array('langmenu' => !empty($CFG->langmenu)),
     ),
 
     // Pages that appear in pop-up windows - no navigation, no blocks, no header.
