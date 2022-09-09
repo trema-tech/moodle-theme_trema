@@ -130,6 +130,7 @@ $templatecontext = [
         format_text($pluginsettings->defaultfooter, FORMAT_HTML) : '',
     'showbanner' => ($numberofimages > 0),
     'frontpagecarrousel' => $frontpagecarrousel,
+    'ifcarrousel' => ($numberofimages > 1),
     'frontpagetitle' => !empty($pluginsettings->frontpagetitle) ?
         format_text($pluginsettings->frontpagetitle, FORMAT_HTML) : '',
     'frontpagesubtitle' => !empty($pluginsettings->frontpagesubtitle) ?
