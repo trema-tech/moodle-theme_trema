@@ -250,9 +250,8 @@ if (get_config('theme_trema', 'frontpageenablecards')) {
     }
 }
 
-// Course Enrolment page.
-$page->add(new admin_setting_heading('theme_trema_course_enrolmentpage', get_string('courseenrolmentpage', 'theme_trema'),
-        '', FORMAT_MARKDOWN));
+// Settings for Courses.
+$page->add(new admin_setting_heading('theme_trema_courses', get_string('courses'), '', FORMAT_MARKDOWN));
 
 // Course enrolment page format.
 $choices = array(
@@ -262,6 +261,14 @@ $choices = array(
 $setting = new admin_setting_configselect('theme_trema/courseenrolmentpageformat',
     get_string('courseenrolmentpageformat', 'theme_trema'), get_string('courseenrolmentpageformat_desc', 'theme_trema'),
     'fullwidth', $choices);
+$page->add($setting);
+
+// Show activity navigation.
+$name = 'theme_trema/shownactivitynavigation';
+$title = get_string('shownactivitynavigation', 'theme_trema');
+$description = get_string('shownactivitynavigation_desc', 'theme_trema');
+$default = false;
+$setting = new admin_setting_configcheckbox($name, $title, $description, $default, true, false);
 $page->add($setting);
 
 // Courses cards.
