@@ -111,6 +111,8 @@ $string['summarytype_desc'] = 'Choose whether the course summary will open in a 
 $string['title'] = 'Title';
 $string['total'] = 'Total';
 $string['subtitle'] = 'Subtitle';
+$string['showehiddencategorycourses'] = 'Show courses in hidden categories';
+$string['showehiddencategorycourses_desc'] = 'Deselect this option to hide courses if they are in or in a hidden category or under one or more hidden parent categories. These courses will still be available by direct URL, if the user has the capability to view hidden categories or edit/update the course.';
 
 // Strings copied from Boost.
 $string['advancedsettings'] = 'Advanced settings';

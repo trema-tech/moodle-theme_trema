@@ -292,4 +292,13 @@ $default = false;
 $setting = new admin_setting_configcheckbox($name, $title, $description, $default, true, false);
 $page->add($setting);
 
+// Show categories on Frontpage course cards.
+$name = 'theme_trema/showehiddencategorycourses';
+$title = get_string('showehiddencategorycourses', 'theme_trema');
+$description = get_string('showehiddencategorycourses_desc', 'theme_trema');
+$default = true;
+$setting = new admin_setting_configcheckbox($name, $title, $description, $default, true, false);
+$setting->set_updatedcallback('theme_reset_all_caches');
+$page->add($setting);
+
 $settings->add($page);
