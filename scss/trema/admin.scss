@@ -52,6 +52,19 @@ body#page-search-index {
 		padding: 2rem;
 		@extend %border-frequency;
 		&:before {
+			content: none;
+		}
+		&:after {
+			height: 0.15rem;
+		}
+	}
+}
+
+body.path-cohort {
+	#region-main {
+		padding: 2rem;
+		@extend %border-frequency;
+		&:before {
 			height: 1rem;
 			top: -1rem;
 		}
@@ -84,8 +97,8 @@ body.path-admin.pagelayout-maintenance {
 
 	#page-header {
 		max-width: none;
-        padding: 0;
-        margin: 0 4rem;
+		padding: 0;
+		margin: 0 auto;
 
 		.mr-auto {
 			margin-right: 0 !important;

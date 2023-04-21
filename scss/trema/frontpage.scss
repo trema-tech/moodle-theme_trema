@@ -5,7 +5,7 @@ body#page-site-index {
         .secondary-navigation {
             @extend %border-frequency;
 
-            margin-top: 1rem;
+            margin: 1rem auto 0;
             max-width: $course-content-maxwidth;
             width: 100%;
             padding: 0;
@@ -17,6 +17,10 @@ body#page-site-index {
 
             li.nav-item {
                 border-bottom: none;
+            }
+
+            .navigation {
+                margin: 0;
             }
         }
     }

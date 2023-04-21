@@ -1,4 +1,5 @@
 body#page-login-index {
+
     #region-main {
         padding-top: 0;
     }
@@ -7,6 +8,10 @@ body#page-login-index {
         position: relative;
         min-height: 100vh;
         height: auto;
+        .lang-menu .dropdown-menu {
+            left: 0;
+            top: 65px;
+        }
     }
 
     #page {
@@ -15,14 +20,20 @@ body#page-login-index {
         #card-login-instructions {
             margin-top: 50px;
         }
+
+        #region-main-box {
+            padding-top: 0;
+        }
+
+        &.has-navbar {
+            #region-main-box {
+                padding-top: 60px;
+            }
+        }
     }
 
     #page-content {
         margin: 0 auto 2rem;
-    }
-
-    #region-main-box {
-        padding-top: 60px;
     }
 
     .card {
@@ -54,6 +65,79 @@ body#page-login-index {
     &.style-none {
         #page-wrapper {
             background-image: none;
+        }
+    }
+}
+
+body#page-login-signup,
+body#page-login-forgot_password {
+    &.style-particles {
+        #page {
+            background: transparent;
+        }
+
+        .particles-js-canvas-el {
+            position: absolute;
+            z-index: 1;
+        }
+    }
+    &.style-image {
+        #page {
+            background: none;
+        }
+
+        #page-wrapper {
+            background-image: url($login-backgroundimage);
+            background-position: top center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+    }
+
+    &.style-none {
+        #page {
+            background: none;
+        }
+
+        #page-wrapper {
+            background-image: none;
+        }
+    }
+
+    #page-wrapper {
+        .lang-menu .dropdown-menu {
+            left: 0;
+            top: 65px;
+        }
+    }
+    #page {
+        z-index: 10;
+        &.has-navbar {
+            #page-content {
+                margin-top: 6rem;
+            }
+        }
+
+        #page-content {
+            margin-top: 3rem;
+            background: #fff;
+            @extend %border-frequency;
+        }
+
+        .login-heading {
+            margin: 1.5rem 0;
+        }
+
+        .mform.full-width-labels .fitem.row > {
+            .col-md-3 {
+                flex: 0 0 25%;
+                max-width: 25%;
+            }
+
+            .col-md-9 {
+                flex: 0 0 75%;
+                max-width: 75%;
+            }
         }
     }
 }

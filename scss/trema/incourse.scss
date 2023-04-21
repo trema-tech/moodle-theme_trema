@@ -117,6 +117,9 @@ body#page-course-view-topics {
             padding: 0;
             margin: 0;
         }
+        .secondary-navigation .navigation {
+            margin: 0;
+        }
 
     }
 }
@@ -152,5 +155,15 @@ body.format-topics.path-user,
 body.path-grade {
     #region-main-box {
         padding: 0;
+    }
+}
+
+#page-course-view-participants {
+    .secondary-navigation {
+        max-width: $course-content-maxwidth;
+        margin: 0 auto;
+        .navigation {
+            margin: 0;
+        }
     }
 }

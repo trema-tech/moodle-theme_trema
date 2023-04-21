@@ -92,7 +92,7 @@ body {
         }
 
         #page-content {
-            max-width: 1280px;
+            max-width: $course-content-maxwidth;
             width: 100%;
             margin: 1rem auto;
         }

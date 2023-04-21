@@ -46,6 +46,8 @@
 body div#page {
     padding: 0;
     div.secondary-navigation {
+        max-width: $course-content-maxwidth;
+        margin: 0 auto;
 
         li.nav-item {
             border-bottom: none;
