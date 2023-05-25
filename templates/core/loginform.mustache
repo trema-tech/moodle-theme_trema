@@ -164,10 +164,12 @@
                                     {{#str}} usernameemail {{/str}}
                                 {{/canloginbyemail}}
                             </label>
-                            <input type="text" name="username" id="username"
-                                class="form-control"
-                                value="{{username}}"
-                                placeholder={{#quote}}{{^canloginbyemail}}{{#str}}username{{/str}}{{/canloginbyemail}}{{#canloginbyemail}}{{#str}}usernameemail{{/str}}{{/canloginbyemail}}{{/quote}}>
+                            <input type="text" name="username" id="username" {{!
+                                !}}class="form-control form-control-lg" {{!
+                                !}}value="{{username}}" {{!
+                                !}}placeholder="{{^canloginbyemail}}{{#cleanstr}}username{{/cleanstr}}{{/canloginbyemail}}{{!
+                                !}}{{#canloginbyemail}}{{#cleanstr}}usernameemail{{/cleanstr}}{{/canloginbyemail}}" {{!
+                                !}}autocomplete="username">
                         </div>
                         <div class="form-group">
                             <label for="password" class="sr-only">{{#str}} password {{/str}}</label>
