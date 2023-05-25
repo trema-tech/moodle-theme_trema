@@ -63,6 +63,14 @@ $setting = new admin_setting_configcolourpicker($name, $title, $description, '#3
 $setting->set_updatedcallback('theme_reset_all_caches');
 $page->add($setting);
 
+// We use an empty default value because the default colour is defined in scss/defaultvariables.
+$name = 'theme_trema/bodybackgroundcolor';
+$title = get_string('bodybackgroundcolor', 'theme_trema');
+$description = get_string('bodybackgroundcolor_desc', 'theme_trema');
+$setting = new admin_setting_configcolourpicker($name, $title, $description, '#f1f1f1');
+$setting->set_updatedcallback('theme_reset_all_caches');
+$page->add($setting);
+
 // Navbar - show my courses.
 $choices = array(
     0 => "don't show",

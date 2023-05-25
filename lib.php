@@ -76,6 +76,7 @@ function theme_trema_get_pre_scss($theme) {
         // Config key => [variableName, ...].
         'primarycolor' => 'primary',
         'secondarycolor' => 'secondary',
+        'bodybackgroundcolor' => 'body-bg-color',
         'particles_backgroundcolor' => 'particles-bg',
     ];
 
