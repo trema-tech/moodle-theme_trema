@@ -55,7 +55,7 @@ class course_renderer extends \core_course_renderer {
      * @return string
      */
     protected function coursecat_courses(coursecat_helper $chelper, $courses, $totalcount = null) {
-        global $CFG, $PAGE;
+        global $CFG;
 
         if ($totalcount === null) {
             $totalcount = count($courses);
@@ -120,7 +120,7 @@ class course_renderer extends \core_course_renderer {
         $content .= html_writer::start_tag('div', array('class' => ' row card-deck my-4'));
         foreach ($courses as $course) {
             // If the course is in a hidden category and we don't want to show these courses...
-            if (empty($PAGE->theme->settings->showehiddencategorycourses) && !$this->isvisiblecat($course)) {
+            if (empty($this->page->theme->settings->showehiddencategorycourses) && !$this->isvisiblecat($course)) {
                 // Show the card dimmed if the user has course edit/update capability.
                 if (has_capability('moodle/course:update', get_context_instance(CONTEXT_COURSE, $course->id))) {
                     $content .= $this->coursecat_coursebox($chelper, $course, 'card mb-3 course-card-view dimmed');
@@ -158,7 +158,6 @@ class course_renderer extends \core_course_renderer {
      * @return string
      */
     protected function coursecat_coursebox(coursecat_helper $chelper, $course, $additionalclasses = '') {
-        global $PAGE;
         if (!isset($this->strings->summary)) {
             $this->strings->summary = get_string('summary');
         }
@@ -184,7 +183,7 @@ class course_renderer extends \core_course_renderer {
             'data-type' => self::COURSECAT_TYPE_COURSE,
         ));
         // Render course enrolment/summary in desired HTML format, as cards or using the full page.
-        if ($PAGE->pagetype == 'enrol-index' && $PAGE->theme->settings->courseenrolmentpageformat == 'fullwidth') {
+        if ($this->page->pagetype == 'enrol-index' && $this->page->theme->settings->courseenrolmentpageformat == 'fullwidth') {
             $content .= parent::coursecat_coursebox_content($chelper, $course);
         } else {
             $content .= $this->coursecat_coursebox_content($chelper, $course);
@@ -213,10 +212,9 @@ class course_renderer extends \core_course_renderer {
         // Should we show category names? in search results and optionally on Frontpage.
         static $showcategories;
         if (!isset($showcategories)) {
-            global $PAGE;
             // Cache result as it will be the same for all displayed courses on this page.
             $showcategories = $chelper->get_show_courses() == self::COURSECAT_SHOW_COURSES_EXPANDED_WITH_CAT ||
-                    (get_config('theme_trema', 'showcategories') && $PAGE->pagetype == 'site-index');
+                    (get_config('theme_trema', 'showcategories') && $this->page->pagetype == 'site-index');
         }
 
         // Course name.
@@ -225,7 +223,13 @@ class course_renderer extends \core_course_renderer {
         $coursenamelink = html_writer::link($courseurl,
             $coursename, array('class' => $course->visible ? 'aalink' : 'aalink dimmed'));
 
-        $content = html_writer::start_tag('a', array ('href' => $courseurl, 'class' => 'course-card-img', 'aria-hidden' => 'true', 'tabindex' => '-1', 'aria-label' => $coursename));
+        $content = html_writer::start_tag('a', [
+            'href' => $courseurl,
+            'class' => 'course-card-img',
+            'aria-hidden' => 'true',
+            'tabindex' => '-1',
+            'aria-label' => $coursename
+        ]);
         $content .= $this->get_course_summary_image($course);
         $content .= html_writer::end_tag('a');
 
