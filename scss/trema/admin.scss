@@ -60,7 +60,8 @@ body#page-search-index {
 	}
 }
 
-body.path-cohort {
+body.path-cohort,
+body.path-badges {
 	#region-main {
 		padding: 2rem;
 		@extend %border-frequency;
@@ -72,6 +73,21 @@ body.path-cohort {
 			height: 0.15rem;
 		}
 	}
+}
+
+body.path-badges {
+	#page {
+		#page-header {
+			background-color: white;
+			padding: 1rem;
+			margin-bottom: 0.5rem;
+			@extend %border-frequency;
+		}
+	}
+}
+
+#page-badges-award .recipienttable tr td.actions .actionbutton {
+    padding: 0;
 }
 
 body.path-admin.pagelayout-maintenance {
