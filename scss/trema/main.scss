@@ -89,6 +89,9 @@ body {
         .secondary-navigation {
             padding: 0;
             width: 100%;
+            .navigation {
+                margin: 0;
+            }
         }
 
         #page-content {
