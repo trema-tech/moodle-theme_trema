@@ -11,7 +11,7 @@
     }
 
     .btn {
-        margin: .5rem;
+        margin: 0.5rem;
     }
 }
 
@@ -69,7 +69,6 @@
                 max-width: none;
             }
         }
-
     }
 
     #completionprogressid .btn {
@@ -80,9 +79,9 @@
 body#page-my-index.page-mycourses {
     #topofscroll {
         margin-top: 0;
-        background: #f7f7f7;
+        background: $body-bg-color;
         #region-main {
-            background: #f7f7f7;
+            background: $body-bg-color;
         }
         section.card {
             background: white;
@@ -109,7 +108,7 @@ body#page-my-index.page-mycourses {
 
 body#page-course-view-topics {
     #topofscroll {
-        [data-toggle="collapse"].btn-icon {
+        [data-toggle='collapse'].btn-icon {
             background-color: $white;
             color: $primary;
             height: auto;
@@ -120,7 +119,6 @@ body#page-course-view-topics {
         .secondary-navigation .navigation {
             margin: 0;
         }
-
     }
 }
 
@@ -130,12 +128,12 @@ body.format-topics.path-user {
     #page-content {
         @extend %border-frequency;
         &:before {
-			height: 1rem;
-			top: -1rem;
-		}
-		&:after {
-			height: 0.15rem;
-		}
+            height: 1rem;
+            top: -1rem;
+        }
+        &:after {
+            height: 0.15rem;
+        }
         #region-main {
             padding: 2rem;
         }
@@ -145,7 +143,7 @@ body.format-topics.path-user {
 body#page-course-view-topics.pagelayout-incourse {
     #topofscroll #region-main-box {
         #region-main,
-        [role="main"] {
+        [role='main'] {
             background-color: $white;
         }
     }

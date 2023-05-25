@@ -25,12 +25,12 @@ body.uses-drawers {
 #page.drawers footer#page-footer,
 footer#page-footer {
     padding: 1.5rem 0;
-    background-color: #1a1c1b !important;
+    background-color: #1a1c1b;
     color: #cdcece;
     max-width: none;
 
     .bg-dark {
-        background-color: #1a1c1b !important;
+        background-color: #1a1c1b;
     }
 
     h3 {
@@ -102,8 +102,8 @@ footer#page-footer {
     .btn-footer-popover {
         line-height: 16px;
         height: 36px;
-        margin: 0 !important;
-        padding: 0 !important;
+        margin: 0;
+        padding: 0;
         background-color: #373a3c !important;
         color: white !important;
     }

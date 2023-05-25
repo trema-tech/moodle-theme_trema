@@ -1,100 +1,100 @@
 body.path-message {
-	#page-wrapper #page {
-		background: #f7f7f7;
+    #page-wrapper #page {
+        background: $body-bg-color;
 
-		#page-content {
-			@extend %border-frequency;
-			padding: 0 !important;
-			margin: 3rem auto 1rem;
-			background: #f8f9fa;
+        #page-content {
+            @extend %border-frequency;
+            padding: 0 !important;
+            margin: 3rem auto 1rem;
+            background: #f8f9fa;
 
-			div[role="main"] {
-				padding: 0;
-			}
+            div[role='main'] {
+                padding: 0;
+            }
 
-			.message-app {
-				margin: 0 !important;
-				border: none !important;
-				.container-fluid {
-					padding: 1rem;
-					background-color: $white;
-				}
+            .message-app {
+                margin: 0 !important;
+                border: none !important;
+                .container-fluid {
+                    padding: 1rem;
+                    background-color: $white;
+                }
 
-				.hidden {
-					display: none !important;
-				}
+                .hidden {
+                    display: none !important;
+                }
 
-				a,
-				.icon {
-					text-decoration: none;
-				}
-			}
+                a,
+                .icon {
+                    text-decoration: none;
+                }
+            }
 
-			.panel-body-container {
-				.section button.btn-link {
-					margin: 0;
-					padding: 0.25rem;
-					border: none;
-					max-width: 100%;
+            .panel-body-container {
+                .section button.btn-link {
+                    margin: 0;
+                    padding: 0.25rem;
+                    border: none;
+                    max-width: 100%;
 
-					&:hover {
-						background-color: transparent;
-					}
-				}
-				.list-group-item:hover {
-					background-color: lighten($primary, 30%);
-				}
-			}
-		}
-	}
+                    &:hover {
+                        background-color: transparent;
+                    }
+                }
+                .list-group-item:hover {
+                    background-color: lighten($primary, 30%);
+                }
+            }
+        }
+    }
 
-	#page .simplesearchform {
-		input {
-			margin: 0;
-		}
+    #page .simplesearchform {
+        input {
+            margin: 0;
+        }
 
-		.icon-no-margin {
-			background-color: #373a3c;
+        .icon-no-margin {
+            background-color: #373a3c;
             margin: 0;
             height: 2.3rem;
             line-height: 2.3rem;
             border: none;
             padding: 0 0.5rem;
-		}
-	}
+        }
+    }
 }
 
 #page,
 .drawer {
-	.message-app[data-region="message-drawer"] {
-		background: #29292a;
-		color: white;
+    .message-app[data-region='message-drawer'] {
+        background: #29292a;
+        color: white;
 
-		.header-container {
-			[data-region="view-conversation"] {
-				background-color: #1b1b1b;
-			}
-		}
+        .header-container {
+            [data-region='view-conversation'] {
+                background-color: #1b1b1b;
+            }
+        }
 
-		.hidden {
-			display: none !important;
-		}
+        .hidden {
+            display: none !important;
+        }
 
-		.dropdown-menu {
-			background: #29292a;
-    	    box-shadow: 0 3px 4px rgba($white, .2);
-			.dropdown-item:hover {
-				background: darken($primary, 50%);
-			}
-		}
+        .dropdown-menu {
+            background: #29292a;
+            box-shadow: 0 3px 4px rgba($white, 0.2);
+            .dropdown-item:hover {
+                background: darken($primary, 50%);
+            }
+        }
 
-		.header-content {
-			a:focus,
-			.icon:focus {
-				background-color: transparent;
-				box-shadow: none;
-			}
-		}
+        .header-content {
+            a:focus,
+            .icon:focus {
+                background-color: transparent;
+                box-shadow: none;
+            }
+        }
 
         .simplesearchform {
             input {
@@ -111,63 +111,63 @@ body.path-message {
             }
         }
 
-		.view-overview-body .section {
-			overflow: hidden;
-		}
+        .view-overview-body .section {
+            overflow: hidden;
+        }
 
-		.icon-no-margin {
-			margin: 0;
-			margin-left: 0.25rem;
-			height: 2.3rem;
-			line-height: 2.3rem;
-		}
+        .icon-no-margin {
+            margin: 0;
+            margin-left: 0.25rem;
+            height: 2.3rem;
+            line-height: 2.3rem;
+        }
 
-		a,
-		.icon {
-			text-decoration: none;
-			color: white;
-			&:focus {
-				background-color: rgba($white, .2);
-				box-shadow: none;
-			}
-		}
+        a,
+        .icon {
+            text-decoration: none;
+            color: white;
+            &:focus {
+                background-color: rgba($white, 0.2);
+                box-shadow: none;
+            }
+        }
 
-		body #page .btn-link {
-			margin-left: 0;
-		}
+        body #page .btn-link {
+            margin-left: 0;
+        }
 
-		.card-header {
-			border-bottom: 1px solid #fff;
-			background: #1b1b1b;
-		}
+        .card-header {
+            border-bottom: 1px solid #fff;
+            background: #1b1b1b;
+        }
 
-		.bg-white {
-			background: #1b1b1b !important;
-		}
+        .bg-white {
+            background: #1b1b1b !important;
+        }
 
-		[data-region="view-overview"] {
-			padding: 0;
-			padding-bottom: .5rem;
+        [data-region='view-overview'] {
+            padding: 0;
+            padding-bottom: 0.5rem;
 
-			.list-group {
-				.list-group-item {
-					background-color: #404040;
-					margin: 0;
-				}
-			}
-		}
-	}
+            .list-group {
+                .list-group-item {
+                    background-color: #404040;
+                    margin: 0;
+                }
+            }
+        }
+    }
 }
 
 body#page-message-output-popup-notifications {
-	.page-context-header {
-		display: none;
-	}
+    .page-context-header {
+        display: none;
+    }
 
-	#page-wrapper #page #page-content {
-		background: white;
+    #page-wrapper #page #page-content {
+        background: white;
         margin-top: 1rem;
-		padding: 2rem !important;
+        padding: 2rem !important;
 
         #region-main {
             background-color: white;
@@ -176,5 +176,5 @@ body#page-message-output-popup-notifications {
                 background-color: $white;
             }
         }
-	}
+    }
 }
