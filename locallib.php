@@ -191,7 +191,7 @@ function theme_trema_get_environment_issues() {
         $environmentissues["ok"]      = 0;
         $environmentissues["warning"] = 0;
         foreach ($issues as $issue) {
-            $result = $issue->get_result()->status;
+            $result = $issue->get_result()->get_status();
             if ($result == 'serious' || $result == 'critical' || $result == 'warning') {
                 $environmentissues['warning'] ++;
             }
