@@ -31,9 +31,11 @@ require_once($CFG->dirroot . '/course/lib.php');
 // Add block button in editing mode.
 $addblockbutton = $OUTPUT->addblockbutton();
 
-user_preference_allow_ajax_update('drawer-open-nav', PARAM_ALPHA);
-user_preference_allow_ajax_update('drawer-open-index', PARAM_BOOL);
-user_preference_allow_ajax_update('drawer-open-block', PARAM_BOOL);
+if ($CFG->branch <= 402) {
+    user_preference_allow_ajax_update('drawer-open-nav', PARAM_ALPHA);
+    user_preference_allow_ajax_update('drawer-open-index', PARAM_BOOL);
+    user_preference_allow_ajax_update('drawer-open-block', PARAM_BOOL);
+}
 
 if (isloggedin()) {
     $courseindexopen = (get_user_preferences('drawer-open-index', true) == true);

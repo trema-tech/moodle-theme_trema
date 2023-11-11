@@ -26,7 +26,9 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-user_preference_allow_ajax_update('drawer-open-nav', PARAM_ALPHA);
+if ($CFG->branch <= 402) {
+    user_preference_allow_ajax_update('drawer-open-nav', PARAM_ALPHA);
+}
 require_once($CFG->libdir . '/behat/lib.php');
 
 // Add block button in editing mode.
