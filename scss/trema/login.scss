@@ -1,7 +1,14 @@
+// Login page - left-align login form.
 body#page-login-index {
+
+    .col-xl-6.col-sm-8 {
+        min-width: 100%;
+    }
 
     #region-main {
         padding-top: 0;
+        background-color: white;
+        height: 100vh;
     }
 
     #page-wrapper {
@@ -32,8 +39,13 @@ body#page-login-index {
         }
     }
 
+    #region-main-box {
+        padding: 0;
+    }
+
     #page-content {
-        margin: 0 auto 2rem;
+        max-width: 550px;
+        margin: 0;
     }
 
     .card {
