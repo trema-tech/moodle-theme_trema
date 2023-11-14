@@ -154,6 +154,7 @@
             color: #666;
             border-top: 3px solid transparent;
             transition: all ease-in 300ms;
+            padding-top: 16px;
             &.active {
                 font-weight: normal;
                 color: rgba(0, 0, 0, .9);
