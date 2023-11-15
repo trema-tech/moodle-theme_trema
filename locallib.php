@@ -188,6 +188,7 @@ function theme_trema_get_environment_issues() {
         $issues = \core\check\manager::get_security_checks();
 
         // Prevent warnings.
+        $environmentissues = [];
         $environmentissues["ok"]      = 0;
         $environmentissues["warning"] = 0;
         foreach ($issues as $issue) {
