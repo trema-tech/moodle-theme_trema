@@ -9,20 +9,20 @@ The main goal for this theme is that the Moodle site will not need
 another site for information/advertising/marketing.
 
 Nice features in trema:
- - It's based in the boost theme, so it will continue to be compatible with Moodle 
+ - It's based in the boost theme, so it will continue to be compatible with Moodle
  for a long time.
- - The frontpage is fully customized. It's possible to change the image 
+ - The frontpage is fully customized. It's possible to change the image
  banner. You can create up to six beautiful cards with custom contents and
  you can add custom HTML content with no restrictions.
  - The login page is awesome with [Particles lib](https://github.com/mmacheerpuppy/particles.js).
  - We really use [Bootstrap](https://getbootstrap.com/) to make the theme fully responsive.
- - The footer is highly customizable and we have an exclusive admin area 
+ - The footer is highly customizable and we have an exclusive admin area
  block that can be seen and accessed only by the site administrator.
- - Thinking a little more about the administrators we made the admin 
+ - Thinking a little more about the administrators we made the admin
  dashboard area, so that they can see in real time some data about their Moodle.
   - The colours scheme can be changed in the theme settings.
-  
-![image1](pix/examples/admindashboard.png "Dashboard Admin Screenshot") 
+
+![image1](pix/examples/admindashboard.png "Dashboard Admin Screenshot")
 
 
 Developed and maintained by
@@ -31,9 +31,9 @@ Rodrigo Mady <br>
 Moodle profile: https://moodle.org/user/profile.php?id=2435964 <br>
 Web profile:    https://github.com/rmady <br>
 
-Trevor Furtado <br>
-Moodle profile: https://moodle.org/user/profile.php?id=1192335 <br>
-Web profile:    https://github.com/trevorfurtado <br>
+Michael Milette <br>
+Moodle profile: https://moodle.org/user/profile.php?id=1615960 <br>
+Web profile:    https://github.com/michael-milette <br>
 
 Support
 =======
@@ -43,7 +43,7 @@ To inform errors access [Github Issues](https://github.com/trema-tech/moodle-the
 
 Installation
 ============
-Ensure you have the version of Moodle as stated above in 'Required version of Moodle'. This is 
+Ensure you have the version of Moodle as stated above in 'Required version of Moodle'. This is
 necessary as the theme relies on underlying core code.
 Move the folder `trema` to `/theme/` folder from your Moodle installation.
 Access the Moodle Administration page (/admin) for do the necessary updates in your database.
@@ -64,7 +64,7 @@ Documentation is available in [Theme Trema](https://trema.tech).
 
 Particles.js
 ============
-The theme trema use the [particles.js](https://github.com/mmacheerpuppy/particles.js) a lightweight 
+The theme trema use the [particles.js](https://github.com/mmacheerpuppy/particles.js) a lightweight
 JavaScript library for creating particles in login.
 
 Donate

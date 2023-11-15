@@ -24,7 +24,6 @@ body.uses-drawers {
 
 #page.drawers footer#page-footer,
 footer#page-footer {
-    padding: 1.5rem 0;
     background-color: #1a1c1b;
     color: #cdcece;
     max-width: none;
@@ -109,6 +108,10 @@ footer#page-footer {
     }
     .popover-body a:not(.button) {
         color: $black;
+    }
+    .footer-dark-inner,
+    &.footer-trema {
+        padding: 1.5rem;
     }
 }
 
