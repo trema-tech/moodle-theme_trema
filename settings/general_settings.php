@@ -54,6 +54,17 @@ $name = 'theme_trema/primarycolor';
 $title = get_string('primarycolor', 'theme_trema');
 $description = get_string('primarycolor_desc', 'theme_trema');
 $setting = new admin_setting_configcolourpicker($name, $title, $description, '#FD647A');
+// Hide selected items in the primary navigation.
+$hideitemsoptions = [
+    'home' => get_string('home'),
+    'myhome' => get_string('myhome'),
+    'courses' => get_string('mycourses'),
+    'siteadminnode' => get_string('administrationsite')
+];
+$name = 'theme_trema/hideprimarynavigationitems';
+$title = get_string('hideprimarynavigationitems', 'theme_trema', null, true);
+$description = get_string('hideprimarynavigationitems_desc', 'theme_trema', null, true);
+$setting = new admin_setting_configmulticheckbox($name, $title, $description, [], $hideitemsoptions);
 $setting->set_updatedcallback('theme_reset_all_caches');
 $page->add($setting);
 
