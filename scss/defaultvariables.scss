@@ -62,7 +62,7 @@ $course-content-maxwidth: 1280px !default;
 $alert-border-width:                0 !default;
 
 //Cards
-$card-group-margin: .25rem;
+$card-group-margin: .25rem !default;
 
 // Login
 $particles-bg: #020221 !default;
@@ -74,12 +74,12 @@ $body-font-family: 'Lato' !default;
 $h1-font-family: 'Lato' !default;
 $hx-font-family: 'Lato' !default;
 
+$banner-title-spacing: 0.3rem !default;
 
-$banner-title-spacing: 0.3rem;
 $links-decoration: none !default; // Values: underline or none. Does not affect navigation or buttons.
 $links-color: #114b88 !default; // Does not affect navigation or buttons.
 
-$nav-align: left;
+$nav-align: left !default;
 
 $header-background-color: $white !default; // Different in Dark and Light theme.
 $footer-background-color: $dark !default; // Different in Dark and Light theme.
