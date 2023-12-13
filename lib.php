@@ -77,6 +77,9 @@ function theme_trema_get_pre_scss($theme) {
         'primarycolor' => 'primary',
         'secondarycolor' => 'secondary',
         'bodybackgroundcolor' => 'body-bg-color',
+        'sitefont' => 'body-font-family',
+        'h1font' => 'h1-font-family',
+        'hxfont' => 'hx-font-family',
         'particles_backgroundcolor' => 'particles-bg',
     ];
 
@@ -88,6 +91,28 @@ function theme_trema_get_pre_scss($theme) {
         }
         $scss .= '$' . $target . ': ' . $value . ";\n";
     }
+
+    $fonts = [
+        'Arial, Helvetica, sans-serif' => 'Arial',
+        'Verdana, Tahoma, sans-serif' => 'Verdana',
+        '"Times New Roman", Times, serif' => 'TimesNewRoman',
+        'Georgia, serif' => 'Georgia',
+        '"Courier New", Courier, monospace' => 'CourierNew',
+        'Alegreya, serif' => 'Alegreya',
+        '"CrimsonText", serif' => 'CrimsonText',
+        '"EBGaramond", sans-serif' => 'EBGaramond',
+        'Lato, sans-serif' => 'Lato',
+        'Montserrat, sans-serif' => 'Montserrat',
+        '"NotoSans", sans-serif' => 'NotoSans',
+        '"OpenSans", sans-serif' => 'OpenSans',
+        '"PlayfairDisplay", serif' => 'PlayfairDisplay',
+        'Poppins, sans-serif' => 'Poppins',
+        'Roboto, Arial, Helvetica, sans-serif' => 'Roboto',
+    ];
+
+    $scss .= '$bodyfontfile: "' . $fonts[$theme->settings->sitefont] . '";' . PHP_EOL;
+    $scss .= '$h1fontfile: "' . $fonts[$theme->settings->h1font] . '";' . PHP_EOL;
+    $scss .= '$hxfontfile: "' . $fonts[$theme->settings->hxfont] . '";' . PHP_EOL;
 
     // Login background image.
     $backgroundimageurl = $theme->setting_file_url('loginbackgroundimage', 'loginbackgroundimage');

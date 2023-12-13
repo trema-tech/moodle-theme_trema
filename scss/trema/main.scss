@@ -1,9 +1,22 @@
+// Auto-select colours, usually the foreground based on the background colour.
+$header-color: choose-contrast-color($header-background-color);
+$footer-color: choose-contrast-color($footer-background-color);
+$course-nav-drawer-color: choose-contrast-color($course-nav-drawer-background-color);
+$blocks-drawer-color: choose-contrast-color($blocks-drawer-background-color);
+$highlight-color: choose-contrast-color($highlight-background-color);
+
+$nav-color: choose-contrast-color($header-background-color);
+$body-color: choose-contrast-color($body-bg-color);
+$editmodeon-color: choose-contrast-color($editmodeon-bg);
+$dropdown-color: choose-contrast-color($dropdown-bg);
+$course-drawer-color: choose-contrast-color($course-nav-drawer-background-color);
+
 .card {
     border: none;
 }
 
 body {
-    font-family: 'Lato';
+    font-family: $body-font-family;
 }
 
 :target {
@@ -250,7 +263,7 @@ body#page-contentbank {
 
 @media (max-width: 767.98px) {
     body #page h1 {
-        font-size: 2rem;
+        font-size: $h1;
         margin-top: 0.5rem;
     }
     #page-navbar,

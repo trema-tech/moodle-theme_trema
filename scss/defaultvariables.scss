@@ -40,7 +40,7 @@ $body-color:    $gray-800 !default;
 $body-bg-color:    #f1f1f1 !default;
 
 // Fonts
-$font-size-base: 0.9375rem !default;
+$font-size-base: 1rem !default;
 $headings-font-weight:   300 !default;
 
 // Navbar
@@ -66,3 +66,48 @@ $card-group-margin: .25rem;
 
 // Login
 $particles-bg: #020221 !default;
+
+// Custom settings.
+
+$body-font-size: 1rem !default;
+$body-font-family: 'Lato' !default;
+$h1-font-family: 'Lato' !default;
+$hx-font-family: 'Lato' !default;
+
+
+$banner-title-spacing: 0.3rem;
+$links-decoration: underline; // Values: underline or none. Does not affect navigation or buttons.
+$links-color: #114b88; // Does not affect navigation or buttons.
+
+$nav-align: left;
+
+$header-background-color: $white; // Different in Dark and Light theme.
+$footer-background-color: $dark; // Different in Dark and Light theme.
+
+$course-nav-drawer-background-color: #F8F9FA;;
+$blocks-drawer-background-color: #ffffff;
+$highlight-background-color: #ffee28;
+$banner-color: rgb(255,255,255);
+$editmodeon-bg: $secondary;
+$dropdown-bg: $primary;
+$account-bg: rgba(255,255,255,0.8);
+$drawer-color: $body-color;
+
+$placeholder-color: #717171;
+
+$h1: 2rem !default;
+$h2: 1.75rem !default;
+$h3: 1.25rem !default;
+$h4: 1.1rem !default;
+$h5: 0.9rem !default;
+$h6: 0.7rem !default;
+$theme-colors: (
+    primary: $primary,
+    secondary: $gray-200,
+    success: $success,
+    info: $info,
+    warning: $orange,
+    danger: $danger,
+    light: $gray-100,
+    dark: $gray-800
+);

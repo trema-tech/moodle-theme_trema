@@ -9,37 +9,39 @@ body #page {
         color: $gray-700;
         border: none;
         line-height: 1.5rem;
+        font-family: $hx-font-family;
     }
 
     h1 {
-        font-weight: 600;
+        font-family: $h1-font-family;
         line-height: 2rem;
+        font-weight: 600;
     }
 
     h2 {
-        font-weight: normal;
-        font-size: 1.75rem;
+        font-size: $h2;
         line-height: 2rem;
+        font-weight: normal;
     }
 
     h3 {
+        font-size: $h3;
         font-weight: normal;
-        font-size: 1.25rem;
     }
 
     h4 {
-        font-size: 1.1rem;
+        font-size: $h4;
         font-weight: lighter;
     }
 
     h5 {
-        font-size: 0.9rem;
+        font-size: $h5;
         line-height: 1rem;
         font-weight: lighter;
     }
 
     h6 {
-        font-size: 0.7rem;
+        font-size: $h6;
         line-height: 1rem;
         font-weight: lighter;
     }
@@ -115,7 +117,7 @@ body #page {
     input[type="submit"],
     input[type="reset"],
     input[type="button"],
-    .btn {
+    .btn:not(.activity-add) {
         appearance: none;
         transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
         background-color: $gray-800;
@@ -155,7 +157,7 @@ body #page {
     }
 
     .btn.btn-icon,
-    .btn.btn-link {
+    .btn.btn-link:not(.activity-add) {
         background-color: transparent;
         border-radius: 0;
         border: 0;
@@ -201,11 +203,11 @@ body #page {
         line-height: 1.5;
     }
 
-    .btn-link {
+    .btn-link:not(.activity-add) {
         color: $primary;
         background: none;
 
-        &:hover {
+        &:hover:not(.activity-add) {
             background: none;
             color: darken($primary, 30%);
         }
