@@ -80,6 +80,7 @@ function theme_trema_get_pre_scss($theme) {
         'sitefont' => 'body-font-family',
         'h1font' => 'h1-font-family',
         'hxfont' => 'hx-font-family',
+        'custommenualignment' => 'custom-menu-alignment',
         'linkdecoration' => 'links-decoration',
         'particles_backgroundcolor' => 'particles-bg',
     ];

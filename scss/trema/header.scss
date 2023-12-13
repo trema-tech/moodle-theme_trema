@@ -163,6 +163,10 @@
                 border-bottom: 3px solid #7a7a7a;
             }
         }
+        padding-top: 2px;
+        flex-grow: 1;
+        display: flex;
+        justify-content: $custom-menu-alignment;
     }
 }
 

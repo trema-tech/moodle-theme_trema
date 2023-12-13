@@ -63,6 +63,17 @@ $setting = new admin_setting_configmulticheckbox($name, $title, $description, []
 $setting->set_updatedcallback('theme_reset_all_caches');
 $page->add($setting);
 
+// Primary navigation (custom menu) alignment.
+$name = 'theme_trema/custommenualignment';
+$title = get_string('custommenualignment', 'theme_trema');
+$description = get_string('custommenualignment_desc', 'theme_trema');
+$default = 'left';
+$choices = [
+    'left' => get_string('left', 'editor'),
+    'center' => get_string('middle', 'editor'),
+    'right' => get_string('right', 'editor'),
+];
+$setting = new admin_setting_configselect($name, $title, $description, $default, $choices);
 $page->add($setting);
 
 // Favicon image setting.
