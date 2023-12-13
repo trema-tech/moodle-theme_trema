@@ -81,19 +81,17 @@ $links-color: #114b88 !default; // Does not affect navigation or buttons.
 
 $nav-align: left;
 
-$header-background-color: $white; // Different in Dark and Light theme.
-$footer-background-color: $dark; // Different in Dark and Light theme.
+$header-background-color: $white !default; // Different in Dark and Light theme.
+$footer-background-color: $dark !default; // Different in Dark and Light theme.
 
-$course-nav-drawer-background-color: #F8F9FA;;
-$blocks-drawer-background-color: #ffffff;
-$highlight-background-color: #ffee28;
-$banner-color: rgb(255,255,255);
-$editmodeon-bg: $secondary;
-$dropdown-bg: $primary;
-$account-bg: rgba(255,255,255,0.8);
-$drawer-color: $body-color;
-
-$placeholder-color: #717171;
+$course-nav-drawer-background-color: #F8F9FA !default;
+$blocks-drawer-background-color: #ffffff !default;
+$highlight-background-color: #ffee28 !default;
+$banner-color: rgb(255,255,255) !default;
+$editmodeon-bg: $secondary !default;
+$dropdown-bg: $primary !default;
+$account-bg: rgba(255,255,255,0.8) !default;
+$drawer-color: $body-color !default;
 
 $h1: 2rem !default;
 $h2: 1.75rem !default;
@@ -101,6 +99,9 @@ $h3: 1.25rem !default;
 $h4: 1.1rem !default;
 $h5: 0.9rem !default;
 $h6: 0.7rem !default;
+
+$placeholder-color: #717171 !default;
+
 $theme-colors: (
     primary: $primary,
     secondary: $gray-200,

@@ -28,6 +28,30 @@ defined('MOODLE_INTERNAL') || die();
 
 $page = new admin_settingpage('theme_trema_fontscolors', get_string('fontscolorssettings', 'theme_trema'));
 
+// We use an empty default value because the default colour is defined in scss/defaultvariables.
+$name = 'theme_trema/primarycolor';
+$title = get_string('primarycolor', 'theme_trema');
+$description = get_string('primarycolor_desc', 'theme_trema');
+$setting = new admin_setting_configcolourpicker($name, $title, $description, '#FD647A');
+$setting->set_updatedcallback('theme_reset_all_caches');
+$page->add($setting);
+
+// We use an empty default value because the default colour is defined in scss/defaultvariables.
+$name = 'theme_trema/secondarycolor';
+$title = get_string('secondarycolor', 'theme_trema');
+$description = get_string('secondarycolor_desc', 'theme_trema');
+$setting = new admin_setting_configcolourpicker($name, $title, $description, '#373A3C');
+$setting->set_updatedcallback('theme_reset_all_caches');
+$page->add($setting);
+
+// We use an empty default value because the default colour is defined in scss/defaultvariables.
+$name = 'theme_trema/bodybackgroundcolor';
+$title = get_string('bodybackgroundcolor', 'theme_trema');
+$description = get_string('bodybackgroundcolor_desc', 'theme_trema');
+$setting = new admin_setting_configcolourpicker($name, $title, $description, '#f1f1f1');
+$setting->set_updatedcallback('theme_reset_all_caches');
+$page->add($setting);
+
 // Fonts.
 $fonts = [
     'Arial, Helvetica, sans-serif' => 'Arial',
