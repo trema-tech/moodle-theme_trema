@@ -128,13 +128,13 @@ body {
         a:not(.dropdown-item),
         a:not(.btn) {
             color: $primary;
-            text-decoration: underline;
+            text-decoration: $links-decoration;
             font-weight: normal;
             outline: none;
 
             &:hover {
                 color: darken($primary, 30%);
-                text-decoration: underline;
+                text-decoration: $links-decoration;
             }
 
             &.dropdown-toggle:hover {

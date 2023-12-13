@@ -39,11 +39,13 @@ $setting = new admin_setting_configthemepreset($name, $title, $description, $def
 $setting->set_updatedcallback('theme_reset_all_caches');
 $page->add($setting);
 
-// Favicon image setting.
-$name = 'theme_trema/favicon';
-$title = get_string('favicon', 'theme_trema');
-$description = get_string('favicon_desc', 'theme_trema');
-$setting = new admin_setting_configstoredfile($name, $title, $description, 'favicon');
+// Links.
+$name = 'theme_trema/linkdecoration';
+$title = get_string('linkdecoration', 'theme_trema');
+$description = get_string('linkdecoration_desc', 'theme_trema');
+$default = 'underline';
+$choices = ['underline' => "Underline", "none" => 'None'];
+$setting = new admin_setting_configselect($name, $title, $description, $default, $choices);
 $setting->set_updatedcallback('theme_reset_all_caches');
 $page->add($setting);
 
@@ -68,6 +70,11 @@ $name = 'theme_trema/bodybackgroundcolor';
 $title = get_string('bodybackgroundcolor', 'theme_trema');
 $description = get_string('bodybackgroundcolor_desc', 'theme_trema');
 $setting = new admin_setting_configcolourpicker($name, $title, $description, '#f1f1f1');
+// Favicon image setting.
+$name = 'theme_trema/favicon';
+$title = get_string('favicon', 'theme_trema');
+$description = get_string('favicon_desc', 'theme_trema');
+$setting = new admin_setting_configstoredfile($name, $title, $description, 'favicon');
 $setting->set_updatedcallback('theme_reset_all_caches');
 $page->add($setting);
 

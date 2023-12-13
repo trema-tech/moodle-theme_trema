@@ -49,7 +49,7 @@ footer#page-footer {
     a:not(.button) {
         transition: color 0.2s ease-in-out;
         color: #cdcece;
-        text-decoration: none;
+        text-decoration: $links-decoration;
     }
 
     .row.gtr-uniform > * > :last-child {
@@ -81,7 +81,7 @@ footer#page-footer {
 
         a {
             color: #afb1b0;
-            text-decoration: underline;
+            text-decoration: $links-decoration;
         }
     }
 

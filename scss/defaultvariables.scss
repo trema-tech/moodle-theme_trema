@@ -76,8 +76,8 @@ $hx-font-family: 'Lato' !default;
 
 
 $banner-title-spacing: 0.3rem;
-$links-decoration: underline; // Values: underline or none. Does not affect navigation or buttons.
-$links-color: #114b88; // Does not affect navigation or buttons.
+$links-decoration: none !default; // Values: underline or none. Does not affect navigation or buttons.
+$links-color: #114b88 !default; // Does not affect navigation or buttons.
 
 $nav-align: left;
 
