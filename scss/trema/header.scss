@@ -25,8 +25,8 @@
 
     .simplesearchform [type="submit"] {
         margin: 0;
-        background-color: $secondary;
-        color: choose-contrast-color($secondary);
+        background-color: $primary;
+        color: choose-contrast-color($primary);
     }
 
     .navbar-nav {

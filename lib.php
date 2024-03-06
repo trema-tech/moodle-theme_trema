@@ -98,6 +98,7 @@ function theme_trema_get_pre_scss($theme) {
         }
         $scss .= '$' . $target . ': ' . $value . ";\n";
     }
+    $scss .= '$dropdown-bg: ' . $theme->settings->{'bodybackgroundcolor'} . ';' . PHP_EOL;
 
     $fonts = [
         'Arial, Helvetica, sans-serif' => 'Arial',

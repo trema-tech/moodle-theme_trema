@@ -36,30 +36,30 @@ $dark:          $gray-800 !default;
 $enable-rounded: false !default;
 
 // Body
-$body-color:    $gray-800 !default;
-$body-bg-color:    #f1f1f1 !default;
+$body-color: $gray-800 !default;
+$body-bg-color:white !default;
 
 // Fonts
 $font-size-base: 1rem !default;
-$headings-font-weight:   300 !default;
+$headings-font-weight: 300 !default;
 
 // Navbar
-$navbar-dark-hover-color:           rgba($white, 1) !default;
-$navbar-light-hover-color:          rgba($black, .9) !default;
+$navbar-dark-hover-color: rgba($white, 1) !default;
+$navbar-light-hover-color: rgba($black, .9) !default;
 
 // Breadcrumbs
-$breadcrumb-padding-y:              .25rem !default;
-$breadcrumb-padding-x:              0 !default;
-$breadcrumb-item-padding:           .5rem !default;
-$breadcrumb-margin-bottom:          0 !default;
-$breadcrumb-bg:                     transparent !default;
+$breadcrumb-padding-y: .25rem !default;
+$breadcrumb-padding-x: 0 !default;
+$breadcrumb-item-padding: .5rem !default;
+$breadcrumb-margin-bottom: 0 !default;
+$breadcrumb-bg: transparent !default;
 $breadcrumb-divider: "/" !default;
 $breadcrumb-divider-rtl: "/" !default;
 
 $course-content-maxwidth: 1280px !default;
 
 // Alerts
-$alert-border-width:                0 !default;
+$alert-border-width: 0 !default;
 
 //Cards
 $card-group-margin: .25rem !default;
@@ -91,7 +91,7 @@ $blocks-drawer-background-color: #ffffff !default;
 $highlight-background-color: #ffee28 !default;
 $banner-color: rgb(255,255,255) !default;
 $editmodeon-bg: $secondary !default;
-$dropdown-bg: $primary !default;
+$dropdown-bg: #f1f1f1 !default;
 $account-bg: rgba(255,255,255,0.8) !default;
 $drawer-color: $body-color !default;
 

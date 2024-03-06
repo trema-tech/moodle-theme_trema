@@ -51,6 +51,8 @@ body.path-message {
     #page .simplesearchform {
         input {
             margin: 0;
+            color: choose-contrast-color($white);
+            background-color: $white;
         }
 
         .icon-no-margin {

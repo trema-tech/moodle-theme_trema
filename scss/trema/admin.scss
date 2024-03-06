@@ -106,9 +106,13 @@ body.path-admin.pagelayout-maintenance {
     .simplesearchform {
         input.form-control[type='text'] {
             width: auto;
+            color: choose-contrast-color($white);
+            background-color: $white;
         }
         [type='submit'] {
             margin: 0 0.5rem;
+            background-color: $primary;
+            color: choose-contrast-color($primary);
         }
     }
 

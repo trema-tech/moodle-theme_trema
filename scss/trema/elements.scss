@@ -16,6 +16,7 @@ body #page {
         font-family: $h1-font-family;
         line-height: 2rem;
         font-weight: 600;
+        color: choose-contrast-color($body-bg-color);
     }
 
     h2 {
@@ -216,10 +217,14 @@ body #page {
     .simplesearchform {
         input[type="text"] {
             width: auto;
+            color: choose-contrast-color($white);
+            background-color: $white;
         }
 
         button[type="submit"] {
             margin: 0;
+            background-color: $primary;
+            color: choose-contrast-color($primary);
         }
     }
 
