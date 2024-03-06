@@ -18,9 +18,11 @@
  * Lib file.
  *
  * @package     theme_trema
- * @copyright   2019 Trema - {@link https://trema.tech/}
+ * @copyright   2019-2024 Trema - {@link https://trema.tech/}
+ * @copyright   2023-2024 TNG Consulting Inc. - {@link https://www.tngconsulting.ca/}
  * @author      Rodrigo Mady
  * @author      Trevor Furtado
+ * @author      Michael Milette
  * @license     http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
@@ -80,6 +82,9 @@ function theme_trema_get_pre_scss($theme) {
         'sitefont' => 'body-font-family',
         'h1font' => 'h1-font-family',
         'hxfont' => 'hx-font-family',
+        'texttransform' => 'text-transform',
+        'bannertitletransform' => 'banner-title-transform',
+        'bannertitlespacing' => 'banner-title-spacing',
         'custommenualignment' => 'custom-menu-alignment',
         'linkdecoration' => 'links-decoration',
         'particles_backgroundcolor' => 'particles-bg',

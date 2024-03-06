@@ -74,7 +74,9 @@ $body-font-family: 'Lato' !default;
 $h1-font-family: 'Lato' !default;
 $hx-font-family: 'Lato' !default;
 
-$banner-title-spacing: 0.3rem !default;
+$text-transform: 'none' !default;
+$banner-title-transform: 'none' !default;
+$banner-title-spacing: 'normal' !default;
 
 $links-decoration: none !default; // Values: underline or none. Does not affect navigation or buttons.
 $links-color: #114b88 !default; // Does not affect navigation or buttons.

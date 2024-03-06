@@ -95,5 +95,41 @@ $setting = new admin_setting_configselect($name, $title, $description, 'Lato', $
 $setting->set_updatedcallback('theme_reset_all_caches');
 $page->add($setting);
 
+$transformoptions = [
+    'none' => get_string('texttransform_none', 'theme_trema'),
+    'uppercase' => get_string('texttransform_uppercase', 'theme_trema'),
+    'lowercase' => get_string('texttransform_lowercase', 'theme_trema'),
+    'capitalize' => get_string('texttransform_capitalize', 'theme_trema'),
+];
+
+// Text transform for backwards compatibility.
+$name = 'theme_trema/texttransform';
+$title = get_string('texttransform', 'theme_trema');
+$description = get_string('texttransform_desc', 'theme_trema');
+$setting = new admin_setting_configselect($name, $title, $description, 'none', $transformoptions);
+$setting->set_updatedcallback('theme_reset_all_caches');
+$page->add($setting);
+
+// Banner title transform for backwards compatibility.
+$name = 'theme_trema/bannertitletransform';
+$title = get_string('bannertitletransform', 'theme_trema');
+$description = get_string('bannertitletransform_desc', 'theme_trema');
+$setting = new admin_setting_configselect($name, $title, $description, 'none', $transformoptions);
+$setting->set_updatedcallback('theme_reset_all_caches');
+$page->add($setting);
+
+// Banner title letter spacing for backwards compatibility.
+$options = [
+    'normal' => 'Normal',
+    '0.5rem' => 'Medium',
+    '1rem' => 'Large',
+];
+$name = 'theme_trema/bannertitlespacing';
+$title = get_string('bannertitlespacing', 'theme_trema');
+$description = get_string('bannertitlespacing_desc', 'theme_trema');
+$setting = new admin_setting_configselect($name, $title, $description, 'normal', $options);
+$setting->set_updatedcallback('theme_reset_all_caches');
+$page->add($setting);
+
 // Must add the page after definiting all the settings!
 $settings->add($page);

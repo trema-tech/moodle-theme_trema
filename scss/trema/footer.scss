@@ -43,7 +43,7 @@ footer#page-footer {
     h5,
     h6 {
         color: $white;
-        text-transform: uppercase;
+        text-transform: $text-transform;
     }
 
     a:not(.button) {

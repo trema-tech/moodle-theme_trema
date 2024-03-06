@@ -64,8 +64,8 @@ body#page-site-index {
                 color: $white;
                 font-size: 2.5rem;
                 font-weight: bold;
-                text-transform: uppercase;
-                letter-spacing: 1rem;
+                text-transform: $banner-title-transform;
+                letter-spacing: $banner-title-spacing;
                 line-height: 1;
             }
 
@@ -244,7 +244,7 @@ body#page-site-index {
                 color: #fff;
                 font-size: 2.5rem;
                 font-weight: 700;
-                text-transform: uppercase;
+                text-transform: $text-transform;
                 letter-spacing: 1rem;
                 line-height: 1;
             }

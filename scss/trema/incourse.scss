@@ -58,7 +58,7 @@
             text-align: center;
 
             a {
-                text-transform: uppercase;
+                text-transform: $text-transform;
             }
         }
 
@@ -97,7 +97,7 @@ body#page-my-index.page-mycourses {
 
             #searchinput {
                 height: 2.8rem;
-                text-transform: uppercase;
+                text-transform: $text-transform;
             }
             button.btn {
                 margin: 0;

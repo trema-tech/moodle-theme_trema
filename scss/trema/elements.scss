@@ -134,7 +134,7 @@ body #page {
         padding: 0 0.9rem;
         text-align: center;
         text-decoration: none;
-        text-transform: uppercase;
+        text-transform: $text-transform;
         white-space: nowrap;
 
         &:hover {
@@ -172,7 +172,7 @@ body #page {
         padding: 0 0.9rem;
         text-align: center;
         text-decoration: none;
-        text-transform: uppercase;
+        text-transform: $text-transform;
         white-space: nowrap;
     }
 

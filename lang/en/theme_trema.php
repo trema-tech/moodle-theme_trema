@@ -18,9 +18,11 @@
  * Language file.
  *
  * @package     theme_trema
- * @copyright   2019 Trema - {@link https://trema.tech/}
+ * @copyright   2019-2024 Trema - {@link https://trema.tech/}
+ * @copyright   2023-2024 TNG Consulting Inc. - {@link https://www.tngconsulting.ca/}
  * @author      Rodrigo Mady
  * @author      Trevor Furtado
+ * @author      Michael Milette
  * @license     http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
@@ -84,7 +86,7 @@ $string['frontpagecontent'] = 'Frontpage Content';
 $string['frontpageenablecards'] = 'Enable frontpage cards';
 $string['frontpageenablecards_desc'] = 'Uncheck if you want to hide the area below: <img class="img-responsive" src="{$a}" />';
 $string['frontpageenabledarkoverlay'] = 'Frontpage banner dark overlay';
-$string['frontpageenabledarkoverlay_desc'] = 'When enabled, this will apply a dark overlay to the banner on the front page.';
+$string['frontpageenabledarkoverlay_desc'] = 'When enabled, this will apply a dark overlay to the banner on the frontpage.';
 $string['frontpagesubtitle'] = 'Frontpage subtitle.';
 $string['frontpagetitle'] = 'Frontpage title.';
 $string['h1font'] = 'Page titles';
@@ -93,6 +95,16 @@ $string['hideprimarynavigationitems'] = 'Hide primary menu items';
 $string['hideprimarynavigationitems_desc'] = 'Choose which of the built-in primary (custom) menu items that you would like to remove.';
 $string['hxfont'] = 'Headings';
 $string['hxfont_desc'] = 'This font will be used for H2 to H6 headings.';
+$string['texttransform'] = 'Text transformation';
+$string['texttransform_desc'] = 'Automatically transforms navigation, buttons, user menu, headings and search input text.';
+$string['texttransform_none'] = 'No transformation';
+$string['texttransform_uppercase'] = 'All uppercase';
+$string['texttransform_lowercase'] = 'All lowercase';
+$string['texttransform_capitalize'] = 'Capitalize each word';
+$string['bannertitletransform'] = 'Banner Title transform';
+$string['bannertitletransform_desc'] = 'Frontpage banner title';
+$string['bannertitlespacing'] = 'Frontpage banner title spacing';
+$string['bannertitlespacing_desc'] = 'Frontpage banner title';
 $string['image'] = 'Background image';
 $string['linkdecoration'] = 'Link style';
 $string['linkdecoration_desc'] = 'Links can either be underlined or in bold.';
@@ -197,4 +209,4 @@ $string['defaultfooter_default'] = '<div class="row">
 $string['enabletremafooter'] = 'Enable Trema Footer';
 $string['enabletremafooter_desc'] = 'Enable Trema Footer instead of Boost popup footer';
 $string['showcategories'] = 'Show categories';
-$string['showcategories_desc'] = 'Enable to show categories on front page.';
+$string['showcategories_desc'] = 'Enable to show categories on frontpage.';
