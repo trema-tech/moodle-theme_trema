@@ -22,6 +22,7 @@ body#page-login-index {
     }
 
     #page {
+        padding-top: 0!important;
         background: none;
         #card-login,
         #card-login-instructions {
@@ -46,6 +47,10 @@ body#page-login-index {
     #page-content {
         max-width: 550px;
         margin: 0;
+    }
+
+    #page-footer {
+        display: none;
     }
 
     .card {
@@ -77,6 +82,19 @@ body#page-login-index {
     &.style-none {
         #page-wrapper {
             background-image: none;
+        }
+    }
+
+    .loginform {
+        .login-heading {
+            font-size: 1.25rem!important;
+        }
+        .login-identityprovider-btn {
+            background-color: white!important;
+            border: 1px solid #aaaaaa!important;
+            color: black!important ;
+            width: auto;
+            margin: 0!important;;
         }
     }
 }

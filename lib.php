@@ -122,7 +122,8 @@ function theme_trema_get_pre_scss($theme) {
     $scss .= '$h1fontfile: "' . $fonts[$theme->settings->h1font] . '";' . PHP_EOL;
     $scss .= '$hxfontfile: "' . $fonts[$theme->settings->hxfont] . '";' . PHP_EOL;
 
-    // Login background image.
+    // Login page
+    // Background image.
     $backgroundimageurl = $theme->setting_file_url('loginbackgroundimage', 'loginbackgroundimage');
     if ($theme->settings->loginpagestyle == 'image' && !empty($backgroundimageurl)) {
         $scss .= "\$login-backgroundimage: '$backgroundimageurl';\n";
@@ -131,7 +132,11 @@ function theme_trema_get_pre_scss($theme) {
     }
     // Not image in settings.
     if ($theme->settings->loginpagestyle !== 'image') {
-        $scss .= "body.pagelayout-login #page-wrapper { background-image: none; }";
+        $scss .= "body.pagelayout-login #page-wrapper { background-image: none; }\n";
+    }
+    // Show/Hide login form.
+    if (empty($theme->settings->loginshowloginform)) {
+        $scss .= ".loginform .login-form {display: none;}\n";
     }
 
     // Prepend pre-scss.

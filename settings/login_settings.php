@@ -71,4 +71,11 @@ $setting = new admin_setting_configcheckbox(
     0);
 $page->add($setting);
 
+$setting = new admin_setting_configcheckbox(
+    'theme_trema/loginshowloginform',
+    get_string('loginshowloginform', 'theme_trema'),
+    get_string('loginshowloginform_desc', 'theme_trema'),
+    1);
+$page->add($setting);
+
 $settings->add($page);

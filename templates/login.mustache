@@ -32,33 +32,39 @@
 {{> theme_boost/head }}
 
 <body {{{ bodyattributes }}}>
+{{> core/local/toast/wrapper}}
 
 <div id="page-wrapper">
 
     {{{ output.standard_top_of_body_html }}}
-    {{> theme_trema/navbar_login }}
-    <div id="page" class="mt-0 pt-0 container-fluid {{#output.login_lang_menu}}has-navbar{{/output.login_lang_menu}}">
+
+    <div id="page" class="container-fluid pt-5 mt-0">
         <div id="page-content" class="row">
             <div id="region-main-box" class="col-12">
-                <section id="region-main" class="col-12">
-                    {{{ output.course_content_header }}}
+                <section id="region-main" class="col-12 h-100" aria-label="{{#str}}content{{/str}}">
+                <div class="login-wrapper">
+                    <div class="login-container">
                     {{{ output.main_content }}}
-                    {{{ output.course_content_footer }}}
+                    </div>
+                </div>
                 </section>
             </div>
         </div>
     </div>
+    {{> theme_boost/footer }}
 </div>
-{{{ output.standard_end_of_body_html }}}
+
 </body>
 </html>
 {{#js}}
-require(['theme_boost/loader']);
-
 {{#particlesconfig}}
 	require(['theme_trema/particles'], function() {
         console.log(window.particlesJS('page-wrapper', {{{particlesconfig}}}));
 	    window.particlesJS('page-wrapper', {{{particlesconfig}}});
 	});
 {{/particlesconfig}}
+M.util.js_pending('theme_boost/loader');
+require(['theme_boost/loader'], function() {
+  M.util.js_complete('theme_boost/loader');
+});
 {{/js}}
