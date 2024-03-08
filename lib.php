@@ -158,7 +158,7 @@ function theme_trema_get_pre_scss($theme) {
  * @param array $options
  * @return bool
  */
-function theme_trema_pluginfile($course, $cm, $context, $filearea, $args, $forcedownload, array $options = array()) {
+function theme_trema_pluginfile($course, $cm, $context, $filearea, $args, $forcedownload, array $options = []) {
     if ($context->contextlevel == CONTEXT_SYSTEM) {
         $theme = theme_config::load('trema');
         // By default, theme files must be cache-able by both browsers and proxies.

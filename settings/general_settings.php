@@ -34,7 +34,7 @@ $title = get_string('preset', 'theme_trema');
 $description = get_string('preset_desc', 'theme_trema');
 $default = 'trema.scss';
 // These are the built in presets.
-$choices = [ 'trema.scss' => 'trema.scss', 'plain.scss' => 'plain.scss' ];
+$choices = ['trema.scss' => 'trema.scss', 'plain.scss' => 'plain.scss'];
 $setting = new admin_setting_configthemepreset($name, $title, $description, $default, $choices, 'trema');
 $setting->set_updatedcallback('theme_reset_all_caches');
 $page->add($setting);
@@ -44,7 +44,7 @@ $name = 'theme_trema/linkdecoration';
 $title = get_string('linkdecoration', 'theme_trema');
 $description = get_string('linkdecoration_desc', 'theme_trema');
 $default = 'underline';
-$choices = ['underline' => "Underline", "none" => 'None'];
+$choices = ['underline' => get_string('underline', 'editor'), "none" => get_string('none')];
 $setting = new admin_setting_configselect($name, $title, $description, $default, $choices);
 $setting->set_updatedcallback('theme_reset_all_caches');
 $page->add($setting);
@@ -54,7 +54,7 @@ $hideitemsoptions = [
     'home' => get_string('home'),
     'myhome' => get_string('myhome'),
     'courses' => get_string('mycourses'),
-    'siteadminnode' => get_string('administrationsite')
+    'siteadminnode' => get_string('administrationsite'),
 ];
 $name = 'theme_trema/hideprimarynavigationitems';
 $title = get_string('hideprimarynavigationitems', 'theme_trema', null, true);
@@ -85,44 +85,61 @@ $setting->set_updatedcallback('theme_reset_all_caches');
 $page->add($setting);
 
 // Navbar - show my courses.
-$choices = array(
+$choices = [
     0 => "don't show",
     -10000 => "show left",
     10000 => "show right",
-);
-$setting = new admin_setting_configselect('theme_trema/showmycourses', new lang_string('showmycourses', 'theme_trema'),
-    new lang_string('showmycourses_desc', 'theme_trema'), 'show left', $choices);
+];
+
+$name = 'theme_trema/showmycourses';
+$title = new lang_string('showmycourses', 'theme_trema');
+$description = new lang_string('showmycourses_desc', 'theme_trema');
+$default = '-10000';
+$setting = new admin_setting_configselect($name, $title, $description, $default, $choices);
+$setting->set_updatedcallback('theme_reset_all_caches');
 $page->add($setting);
 
 $name = 'theme_trema/enableadmindashboard';
 $title = get_string('enableadmindashboard', 'theme_trema');
 $description = get_string('enableadmindashboard_desc', 'theme_trema', "$CFG->wwwroot/theme/trema/pix/examples/admindashboard.png");
-$setting = new admin_setting_configcheckbox($name, $title, $description, '1');
+$default = '1';
+$setting = new admin_setting_configcheckbox($name, $title, $description, $default);
+$setting->set_updatedcallback('theme_reset_all_caches');
 $page->add($setting);
 
 $name = 'theme_trema/enabletrematopics';
 $title = get_string('enabletrematopics', 'theme_trema');
 $description = get_string('enabletrematopics_desc', 'theme_trema', "$CFG->wwwroot/theme/trema/pix/examples/trematopics.png");
-$setting = new admin_setting_configcheckbox($name, $title, $description, '1');
+$default = '1';
+$setting = new admin_setting_configcheckbox($name, $title, $description, $default);
 $setting->set_updatedcallback('theme_reset_all_caches');
 $page->add($setting);
 
 $name = 'theme_trema/enabletremalines';
 $title = get_string('enabletremalines', 'theme_trema');
 $description = get_string('enabletremalines_desc', 'theme_trema', "$CFG->wwwroot/theme/trema/pix/examples/tremalines.png");
-$setting = new admin_setting_configcheckbox($name, $title, $description, '1');
+$default = '1';
+$setting = new admin_setting_configcheckbox($name, $title, $description, $default);
 $setting->set_updatedcallback('theme_reset_all_caches');
 $page->add($setting);
 
 // Raw SCSS to include before the content.
-$setting = new admin_setting_scsscode('theme_trema/scsspre', get_string('rawscsspre', 'theme_trema'),
-    get_string('rawscsspre_desc', 'theme_trema'), '', PARAM_RAW);
+$name = 'theme_trema/scsspre';
+$title = get_string('rawscsspre', 'theme_trema');
+$description = get_string('rawscsspre_desc', 'theme_trema');
+$default = '';
+$format = PARAM_RAW;
+$setting = new admin_setting_scsscode($name, $title, $description, $default, $format);
 $setting->set_updatedcallback('theme_reset_all_caches');
 $page->add($setting);
 
 // Raw SCSS to include after the content.
-$setting = new admin_setting_scsscode('theme_trema/scss', get_string('rawscss', 'theme_trema'),
-    get_string('rawscss_desc', 'theme_trema'), '', PARAM_RAW);
+$name = 'theme_trema/scss';
+$title = get_string('rawscss', 'theme_trema');
+$description = get_string('rawscss_desc', 'theme_trema');
+$default = '';
+$format = PARAM_RAW;
+$setting = new admin_setting_scsscode($name, $title, $description, $default, $format);
 $setting->set_updatedcallback('theme_reset_all_caches');
 $page->add($setting);
 

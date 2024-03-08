@@ -102,10 +102,7 @@ if ($numberofimages > 1) {
 $regionmainsettingsmenu = $OUTPUT->region_main_settings_menu();
 $context                = context_course::instance(SITEID);
 $templatecontext = [
-    'sitename' => format_string($SITE->shortname, true, [
-        'context' => context_course::instance(SITEID),
-        "escape" => false
-    ]),
+    'sitename' => format_string($SITE->shortname, true, ['context' => context_course::instance(SITEID), 'escape' => false]),
     'output' => $OUTPUT,
     'sidepreblocks' => $blockshtml,
     'sideadminblocks' => $adminblockshtml,
@@ -122,8 +119,6 @@ $templatecontext = [
     'headercontent' => $headercontent,
     'overflow' => $overflow,
     'addblockbutton' => $addblockbutton,
-    'regionmainsettingsmenu' => $regionmainsettingsmenu,
-    'hasregionmainsettingsmenu' => ! empty($regionmainsettingsmenu),
     'defaultfrontpagebody' => !empty($pluginsettings->defaultfrontpagebody) ?
         format_text($pluginsettings->defaultfrontpagebody, FORMAT_HTML) : '',
     'defaultfrontpagefooter' => !empty($pluginsettings->defaultfooter) ?

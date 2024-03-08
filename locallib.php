@@ -31,11 +31,11 @@
  */
 function theme_trema_get_cards_settings() {
     $theme = theme_config::load('trema');
-    $cardssettings = array();
+    $cardssettings = [];
 
     $numberofcards = get_config('theme_trema', 'numberofcards');
     if (get_config('theme_trema', 'frontpageenablecards') && $numberofcards > 1) {
-        for ($i = 1; $i <= $numberofcards; $i ++) {
+        for ($i = 1; $i <= $numberofcards; $i++) {
             $cardsettings = new stdClass();
             $cardsettings->cardicon = $theme->settings->{'cardicon' . $i};
             $cardsettings->cardiconcolor = $theme->settings->{'cardiconcolor' . $i};
@@ -194,7 +194,7 @@ function theme_trema_get_environment_issues() {
         foreach ($issues as $issue) {
             $result = $issue->get_result()->get_status();
             if ($result == 'serious' || $result == 'critical' || $result == 'warning') {
-                $environmentissues['warning'] ++;
+                $environmentissues['warning']++;
             }
         }
         $cache->set('environmentissues', $environmentissues);

@@ -66,10 +66,7 @@ $pluginsettings = get_config("theme_trema");
 $context        = context_course::instance(SITEID);
 
 $templatecontext = [
-    'sitename' => format_string($SITE->shortname, true, [
-        'context' => context_course::instance(SITEID),
-        "escape" => false
-    ]),
+    'sitename' => format_string($SITE->shortname, true, ['context' => context_course::instance(SITEID), 'escape' => false]),
     'output' => $OUTPUT,
     'sidepreblocks' => $blockshtml,
     'hasadminblocks' => is_siteadmin(),
