@@ -136,7 +136,7 @@ function theme_trema_get_pre_scss($theme) {
     }
     // Show/Hide login form.
     if (empty($theme->settings->loginshowloginform)) {
-        $scss .= ".loginform .login-form {display: none;}\n";
+        $scss .= "#login, .loginform .login-form, .login-form-forgotpassword form-group {display: none;}\n";
     }
 
     // Prepend pre-scss.
