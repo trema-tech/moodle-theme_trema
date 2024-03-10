@@ -49,18 +49,34 @@ require_once($CFG->dirroot . '/course/format/lib.php');
  */
 class core_renderer extends \theme_boost\output\core_renderer {
     /**
-     * Returns the url of the custom favicon.
+     * Returns the url of the favicon.
+     *
+     * Moodle's logo is not used as this would be a violation of their trademark.
+     * Instead, we provide an option to upload your own favicon. If none has been uploaded,
+     * then we fall back on using a pix/favicon.ico file in the theme folder if it exists.
+     * Otherwise, the browser will default to the webserver's favicon.ico if it exists.
+     * If none of these options are available, the web browser's default icon will be used.
      *
      * @return moodle_url|string
      */
     public function favicon() {
+        global $CFG;
+
+        // Use favicon configured in theme's settings.
         $favicon = $this->page->theme->setting_file_url('favicon', 'favicon');
 
         if (empty($favicon)) {
-            return $this->page->theme->image_url('favicon', 'theme');
-        } else {
-            return $favicon;
+            if (file_exists($this->page->theme->dir . '/pix/favicon.ico')) {
+                // Use pix/favicon.ico stored in the theme directory.
+                $favicon = $this->page->theme->image_url('favicon', 'theme');
+            } else {
+                // Fallback to the webserver's favicon.ico.
+                $parsed_url = parse_url($CFG->wwwroot);
+                $favicon = $parsed_url['scheme'] . '://' . $parsed_url['host'] . '/favicon.ico';
+                // If there isn't any, the browser will fallback to its own default favicon.
+            }
         }
+        return $favicon;
     }
 
     /**
