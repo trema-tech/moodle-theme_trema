@@ -14,17 +14,20 @@
 // You should have received a copy of the GNU General Public License
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
+defined('MOODLE_INTERNAL') || die();
+
 /**
  * Trema login page layout.
  *
  * @package     theme_trema
- * @copyright   2019 Trema - {@link https://trema.tech/}
+ * @copyright   2019-2024 Trema - {@link https://trema.tech/}
+ * @copyright   2024 TNG Consulting Inc. - {@link https://www.tngconsulting.ca/}
  * @author      Rodrigo Mady
  * @author      Trevor Furtado
+ * @author      Michael Milette
  * @license     http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-defined('MOODLE_INTERNAL') || die();
 
 // Check if the login page are using particles or image background.
 $loginstyle = get_config('theme_trema', 'loginpagestyle');

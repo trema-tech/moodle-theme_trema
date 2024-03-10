@@ -18,9 +18,11 @@
  * General settings
  *
  * @package     theme_trema
- * @copyright   2019 Trema - {@link https://trema.tech/}
- * @author      Michael Milette
+ * @copyright   2019-2024 Trema - {@link https://trema.tech/}
+ * @copyright   2023-2024 TNG Consulting Inc. - {@link https://www.tngconsulting.ca/}
+ * @author      Rodrigo Mady
  * @author      Trevor Furtado
+ * @author      Michael Milette
  * @license     http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
@@ -32,7 +34,8 @@ $page = new admin_settingpage('theme_trema_fontscolors', get_string('fontscolors
 $name = 'theme_trema/primarycolor';
 $title = get_string('primarycolor', 'theme_trema');
 $description = get_string('primarycolor_desc', 'theme_trema');
-$setting = new admin_setting_configcolourpicker($name, $title, $description, '#FD647A');
+$default = '#FD647A';
+$setting = new admin_setting_configcolourpicker($name, $title, $description, $default);
 $setting->set_updatedcallback('theme_reset_all_caches');
 $page->add($setting);
 
@@ -40,7 +43,8 @@ $page->add($setting);
 $name = 'theme_trema/secondarycolor';
 $title = get_string('secondarycolor', 'theme_trema');
 $description = get_string('secondarycolor_desc', 'theme_trema');
-$setting = new admin_setting_configcolourpicker($name, $title, $description, '#373A3C');
+$default = '#373A3C';
+$setting = new admin_setting_configcolourpicker($name, $title, $description, $default);
 $setting->set_updatedcallback('theme_reset_all_caches');
 $page->add($setting);
 
@@ -48,7 +52,8 @@ $page->add($setting);
 $name = 'theme_trema/bodybackgroundcolor';
 $title = get_string('bodybackgroundcolor', 'theme_trema');
 $description = get_string('bodybackgroundcolor_desc', 'theme_trema');
-$setting = new admin_setting_configcolourpicker($name, $title, $description, '#f1f1f1');
+$default = '#f1f1f1';
+$setting = new admin_setting_configcolourpicker($name, $title, $description, $default);
 $setting->set_updatedcallback('theme_reset_all_caches');
 $page->add($setting);
 
@@ -75,7 +80,8 @@ $fonts = [
 $name = 'theme_trema/sitefont';
 $title = get_string('sitefont', 'theme_trema');
 $description = get_string('sitefont_desc', 'theme_trema');
-$setting = new admin_setting_configselect($name, $title, $description, 'Lato', $fonts);
+$default = 'Lato, sans-serif';
+$setting = new admin_setting_configselect($name, $title, $description, $default, $fonts);
 $setting->set_updatedcallback('theme_reset_all_caches');
 $page->add($setting);
 
@@ -83,7 +89,8 @@ $page->add($setting);
 $name = 'theme_trema/h1font';
 $title = get_string('h1font', 'theme_trema');
 $description = get_string('h1font_desc', 'theme_trema');
-$setting = new admin_setting_configselect($name, $title, $description, 'Lato', $fonts);
+$default = 'Lato, sans-serif';
+$setting = new admin_setting_configselect($name, $title, $description, $default, $fonts);
 $setting->set_updatedcallback('theme_reset_all_caches');
 $page->add($setting);
 
@@ -91,7 +98,8 @@ $page->add($setting);
 $name = 'theme_trema/hxfont';
 $title = get_string('hxfont', 'theme_trema');
 $description = get_string('hxfont_desc', 'theme_trema');
-$setting = new admin_setting_configselect($name, $title, $description, 'Lato', $fonts);
+$default = 'Lato, sans-serif';
+$setting = new admin_setting_configselect($name, $title, $description, $default, $fonts);
 $setting->set_updatedcallback('theme_reset_all_caches');
 $page->add($setting);
 
@@ -101,12 +109,13 @@ $transformoptions = [
     'lowercase' => get_string('texttransform_lowercase', 'theme_trema'),
     'capitalize' => get_string('texttransform_capitalize', 'theme_trema'),
 ];
+$default = 'none';
 
 // Text transform for backwards compatibility.
 $name = 'theme_trema/texttransform';
 $title = get_string('texttransform', 'theme_trema');
 $description = get_string('texttransform_desc', 'theme_trema');
-$setting = new admin_setting_configselect($name, $title, $description, 'none', $transformoptions);
+$setting = new admin_setting_configselect($name, $title, $description, $default, $transformoptions);
 $setting->set_updatedcallback('theme_reset_all_caches');
 $page->add($setting);
 
@@ -114,7 +123,7 @@ $page->add($setting);
 $name = 'theme_trema/bannertitletransform';
 $title = get_string('bannertitletransform', 'theme_trema');
 $description = get_string('bannertitletransform_desc', 'theme_trema');
-$setting = new admin_setting_configselect($name, $title, $description, 'none', $transformoptions);
+$setting = new admin_setting_configselect($name, $title, $description, $default, $transformoptions);
 $setting->set_updatedcallback('theme_reset_all_caches');
 $page->add($setting);
 
@@ -124,10 +133,11 @@ $options = [
     '0.5rem' => 'Medium',
     '1rem' => 'Large',
 ];
+$default = 'normal';
 $name = 'theme_trema/bannertitlespacing';
 $title = get_string('bannertitlespacing', 'theme_trema');
 $description = get_string('bannertitlespacing_desc', 'theme_trema');
-$setting = new admin_setting_configselect($name, $title, $description, 'normal', $options);
+$setting = new admin_setting_configselect($name, $title, $description, $default, $options);
 $setting->set_updatedcallback('theme_reset_all_caches');
 $page->add($setting);
 
