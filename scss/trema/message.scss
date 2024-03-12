@@ -69,8 +69,8 @@ body.path-message {
 #page,
 .drawer {
     .message-app[data-region='message-drawer'] {
-        background: #29292a;
-        color: white;
+        background: $drawer-bg-color;
+        color: choose-contrast-color($drawer-bg-color);
 
         .header-container {
             [data-region='view-conversation'] {

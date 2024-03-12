@@ -62,6 +62,8 @@ $string['diskusage'] = 'Moodledata disk usage';
 $string['content'] = 'Content';
 $string['defaultfrontpagefooter'] = 'Frontpage Footer';
 $string['defaultfrontpagefooter_desc'] = 'Default content from frontpage footer';
+$string['drawerbgcolor'] = 'Drawer Background Color';
+$string['drawerbgcolor_desc']  = 'The background color of the drawers.';
 $string['enableadmindashboard'] = 'Enable Admin Dashboard';
 $string['enabletrematopics'] = 'Enable Trema Course Style for Topics';
 $string['enabletrematopics_desc'] = 'Enable Trema Course Style for Course format Topics: <br> <img class="img-responsive" src="{$a}"/>';
@@ -155,6 +157,13 @@ $string['rawscss_desc'] = 'Use this field to provide SCSS or CSS code which will
 $string['rawscsspre'] = 'Raw initial SCSS';
 $string['rawscsspre_desc'] = 'In this field, you can provide initialising SCSS code, it will be injected before everything else. Most of the time you will use this setting to define variables.';
 $string['totop'] = 'Go to top';
+$string['samebasecolor'] = 'Same as background color';
+$string['sameprimarycolor'] = 'Same as primary color';
+$string['samesecondarycolor'] = 'Same as secondary color';
+$string['white'] = 'White';
+$string['black'] = 'Black';
+$string['light'] = 'LIght';
+$string['dark'] = 'Dark';
 
 // Frontpage Image.
 $string['carrouselbtntext'] = 'Button text {$a}';

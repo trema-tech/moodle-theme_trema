@@ -79,6 +79,7 @@ function theme_trema_get_pre_scss($theme) {
         'primarycolor' => 'primary',
         'secondarycolor' => 'secondary',
         'bodybackgroundcolor' => 'body-bg-color',
+        'drawerbgcolor' => 'drawer-bg-color',
         'sitefont' => 'body-font-family',
         'h1font' => 'h1-font-family',
         'hxfont' => 'hx-font-family',
