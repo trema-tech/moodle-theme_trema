@@ -85,7 +85,7 @@ body {
     }
 
     #page {
-        margin-top: 4.5em;
+        margin-top: 4em;
         padding-top: 1.5em;
 
         #topofscroll {
@@ -185,8 +185,8 @@ body#page-user-profile {
 .message-app.drawer,
 .message-drawer,
 [data-region='right-hand-drawer'].drawer {
-    top: 4.5em;
-    height: calc(100% - 4.5em);
+    top: 4em;
+    height: calc(100% - 4em);
 }
 
 body#page-user-profile {
