@@ -76,13 +76,6 @@ $choices = [
     'right' => get_string('right', 'editor'),
 ];
 $setting = new admin_setting_configselect($name, $title, $description, $default, $choices);
-$page->add($setting);
-
-// Favicon image setting.
-$name = 'theme_trema/favicon';
-$title = get_string('favicon', 'theme_trema');
-$description = get_string('favicon_desc', 'theme_trema');
-$setting = new admin_setting_configstoredfile($name, $title, $description, 'favicon');
 $setting->set_updatedcallback('theme_reset_all_caches');
 $page->add($setting);
 
@@ -98,6 +91,14 @@ $title = new lang_string('showmycourses', 'theme_trema');
 $description = new lang_string('showmycourses_desc', 'theme_trema');
 $default = '-10000';
 $setting = new admin_setting_configselect($name, $title, $description, $default, $choices);
+$setting->set_updatedcallback('theme_reset_all_caches');
+$page->add($setting);
+
+// Favicon image setting.
+$name = 'theme_trema/favicon';
+$title = get_string('favicon', 'theme_trema');
+$description = get_string('favicon_desc', 'theme_trema');
+$setting = new admin_setting_configstoredfile($name, $title, $description, 'favicon');
 $setting->set_updatedcallback('theme_reset_all_caches');
 $page->add($setting);
 

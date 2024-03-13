@@ -13,8 +13,29 @@
     top: 0;
     width: 100%;
 
+    .dropdown-divider {
+        border-top: 1px solid fix-color-contrast($secondary, $header-background-color);
+    }
+
+    &.navbar-light {
+        .navbar-nav {
+            .nav-link:hover,
+            .nav-link:focus,
+            .nav-link {
+                color: choose-contrast-color($header-background-color);
+            }
+            .editmode-switch-form, .editmode-switch-form .text-primary {
+                color: choose-contrast-color($header-background-color)!important;
+            }
+        }
+
+        &.bg-white {
+            background-color: $header-background-color!important;
+        }
+    }
+
     .site-name {
-        color: #484b49;
+        color: choose-contrast-color($header-background-color);
         font-weight: bold;
         letter-spacing: 0.9px;
         height: inherit;
@@ -104,6 +125,9 @@
     .usermenu {
         .login {
             line-height: 1.5;
+            a {
+                color:choose-contrast-color($header-background-color);
+            }
         }
         @media (max-width: 768px) {
             .login {
@@ -147,19 +171,31 @@
                 z-index: 2;
             }
         }
+        .dropdown-toggle::after {
+            color:choose-contrast-color($header-background-color);
+        }
     }
+
     .primary-navigation {
         .navigation .nav-link {
-            color: #666;
+            color: choose-contrast-color($header-background-color);
             border-top: 3px solid transparent;
             transition: all ease-in 300ms;
             padding-top: 16px;
             &.active {
                 font-weight: normal;
-                color: rgba(0, 0, 0, .9);
+                color: choose-contrast-color($header-background-color);
+                &:focus,
+                &:hover {
+                    color: $dark;
+                }
             }
+            &:focus:not(.active),
             &:hover:not(.active) {
                 border-bottom: 3px solid #7a7a7a;
+                &:hover {
+                    color: $dark;
+                }
             }
         }
         padding-top: 2px;
@@ -167,17 +203,24 @@
         display: flex;
         justify-content: $custom-menu-alignment;
     }
+
+    .dropdown-item:hover,
+    .dropdown-item:focus,
+    .dropdown-item:focus-within {
+        background-color: $primary;
+        color: choose-contrast-color($primary);
+    }
 }
 
 #page .secondary-navigation {
     .navigation .nav-link {
-        color: #666;
+        color: fix-color-contrast($primary);
         border-top: 3px solid transparent;
         text-decoration: none;
         transition: all ease-in 100ms;
         &.active {
             font-weight: normal;
-            color: rgba(0, 0, 0, .9);
+            color: $dark;
         }
         &:hover:not(.active) {
             border-bottom: 3px solid #7a7a7a;

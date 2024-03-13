@@ -64,6 +64,10 @@ $string['defaultfrontpagefooter'] = 'Frontpage Footer';
 $string['defaultfrontpagefooter_desc'] = 'Default content from frontpage footer';
 $string['drawerbgcolor'] = 'Drawer Background Color';
 $string['drawerbgcolor_desc']  = 'The background color of the drawers.';
+$string['headerbgcolor'] = 'Header Background Color';
+$string['headerbgcolor_desc']  = 'The background color of the header.';
+$string['footerbgcolor'] = 'Footer Background Color';
+$string['footerbgcolor_desc']  = 'The background color of the footer.';
 $string['enableadmindashboard'] = 'Enable Admin Dashboard';
 $string['enabletrematopics'] = 'Enable Trema Course Style for Topics';
 $string['enabletrematopics_desc'] = 'Enable Trema Course Style for Course format Topics: <br> <img class="img-responsive" src="{$a}"/>';
@@ -162,7 +166,7 @@ $string['sameprimarycolor'] = 'Same as primary color';
 $string['samesecondarycolor'] = 'Same as secondary color';
 $string['white'] = 'White';
 $string['black'] = 'Black';
-$string['light'] = 'LIght';
+$string['light'] = 'Light';
 $string['dark'] = 'Dark';
 
 // Frontpage Image.

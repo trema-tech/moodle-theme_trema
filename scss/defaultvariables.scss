@@ -1,6 +1,6 @@
 // Bootstrap variables
 
-$white:    #fff !default;
+$white:    #ffffff !default;
 $gray-100: #f8f9fa !default;
 $gray-200: #e9ecef !default;
 $gray-300: #dee2e6 !default;
@@ -10,7 +10,7 @@ $gray-600: #868e96 !default;
 $gray-700: #495057 !default;
 $gray-800: #373a3c !default;
 $gray-900: #212529 !default;
-$black:    #000 !default;
+$black:    #000000 !default;
 
 $blue:    #3097d1 !default;
 $indigo:  #6610f2 !default;
@@ -37,7 +37,7 @@ $enable-rounded: false !default;
 
 // Body
 $body-color: $gray-800 !default;
-$body-bg-color:white !default;
+$body-bg-color:$white !default;
 
 // Fonts
 $font-size-base: 1rem !default;
@@ -86,7 +86,7 @@ $nav-align: left !default;
 $header-background-color: $white !default; // Different in Dark and Light theme.
 $footer-background-color: $dark !default; // Different in Dark and Light theme.
 
-$drawer-bg-color: #f8f9fa !default;
+$drawer-bg-color: $light !default;
 
 $course-nav-drawer-background-color: $drawer-bg-color !default;
 $blocks-drawer-background-color: $drawer-bg-color !default;

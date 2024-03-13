@@ -378,16 +378,19 @@ body #page {
 
             a.nav-link {
                 border: none;
+                text-decoration: none;
+                color: fix-color-contrast($primary);
 
                 &.active {
-                    color: $primary;
+                    color: fix-color-contrast($primary);
                     border: none;
                     border-bottom: 3px solid $primary;
                     font-weight: bolder;
                 }
 
                 &:hover {
-                    text-decoration: none;
+                    border-bottom: 3px solid $dark;
+                    background-color: #f8f9fa;
                 }
             }
         }

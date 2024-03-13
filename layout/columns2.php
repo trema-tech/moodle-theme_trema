@@ -15,7 +15,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Config file.
+ * A two column layout for the Trema theme.
  *
  * @package     theme_trema
  * @copyright   2022-2024 Trema - {@link https://trema.tech/}
@@ -44,7 +44,8 @@ $hasblocks = (strpos($blockshtml, 'data-block=') !== false || !empty($addblockbu
 $secondarynavigation = false;
 $overflow = '';
 if ($PAGE->has_secondary_navigation()) {
-    $moremenu = new \core\navigation\output\more_menu($PAGE->secondarynav, 'nav-tabs');
+	$tablistnav = $PAGE->has_tablist_secondary_navigation();
+    $moremenu = new \core\navigation\output\more_menu($PAGE->secondarynav, 'nav-tabs', true, $tablistnav);
     $secondarynavigation = $moremenu->export_for_template($OUTPUT);
     $overflowdata = $PAGE->secondarynav->get_overflow_menu_data();
     if (!is_null($overflowdata)) {
