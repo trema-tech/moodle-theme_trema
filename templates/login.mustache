@@ -57,12 +57,6 @@
 </body>
 </html>
 {{#js}}
-{{#particlesconfig}}
-	require(['theme_trema/particles'], function() {
-        console.log(window.particlesJS('page-wrapper', {{{particlesconfig}}}));
-	    window.particlesJS('page-wrapper', {{{particlesconfig}}});
-	});
-{{/particlesconfig}}
 M.util.js_pending('theme_boost/loader');
 require(['theme_boost/loader'], function() {
   M.util.js_complete('theme_boost/loader');

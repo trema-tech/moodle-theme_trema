@@ -90,7 +90,6 @@ function theme_trema_get_pre_scss($theme) {
         'bannertitlespacing' => 'banner-title-spacing',
         'custommenualignment' => 'custom-menu-alignment',
         'linkdecoration' => 'links-decoration',
-        'particles_backgroundcolor' => 'particles-bg',
     ];
 
     // Prepend variables first.

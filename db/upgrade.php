@@ -14,30 +14,23 @@
 // You should have received a copy of the GNU General Public License
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
-defined('MOODLE_INTERNAL') || die();
-
 /**
- * Trema login page layout.
+ * Upgrade file.
  *
  * @package     theme_trema
- * @copyright   2019-2024 Trema - {@link https://trema.tech/}
  * @copyright   2024 TNG Consulting Inc. - {@link https://www.tngconsulting.ca/}
- * @author      Rodrigo Mady
- * @author      Trevor Furtado
  * @author      Michael Milette
  * @license     http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
+function xmldb_theme_trema_upgrade($oldversion): bool {
+    if ($oldversion < 2024031000) {
+        // Particles background is deprecated.
+        if (get_config('theme_trema', 'loginpagestyle') == 'particle-circles') {
+            set_config('loginpagestyle', 'none', 'theme_trema');
+        }
+    }
 
-// Check if the login page is using a background image.
-$loginstyle = get_config('theme_trema', 'loginpagestyle');
-$additionalclasses = [$loginstyle == 'image' ? 'style-image' : 'style-none'];
-$bodyattributes = $OUTPUT->body_attributes($additionalclasses);
-
-$templatecontext = [
-    'sitename' => format_string($SITE->shortname, true, ['context' => context_course::instance(SITEID), 'escape' => false]),
-    'output' => $OUTPUT,
-    'bodyattributes' => $bodyattributes,
-];
-
-echo $OUTPUT->render_from_template('theme_trema/login', $templatecontext);
+    // Everything has succeeded to here. Return true.
+    return true;
+}

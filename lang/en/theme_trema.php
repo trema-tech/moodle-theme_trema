@@ -122,7 +122,6 @@ $string['loginshowloginform'] = 'Show login form';
 $string['loginshowloginform_desc'] = 'Before disabling the login form, ensure that administrators have an alternate method to Sign in to the site.';
 $string['loginbackgroundimage'] = 'Login background image';
 $string['numberofcards'] = 'Number of cards';
-$string['particlecircles'] = 'Particle.js Circles';
 $string['pluginname'] = 'Trema';
 $string['preset'] = 'Theme preset';
 $string['preset_desc'] = 'Pick a preset to broadly change the look of the theme.';

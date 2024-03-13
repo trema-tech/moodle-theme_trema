@@ -61,15 +61,6 @@ body#page-login-index {
         background-color: transparent;
     }
 
-    &.style-particles {
-        canvas.particles-js-canvas-el {
-            position: absolute;
-            top: 0;
-            z-index: -1;
-            background-color: $particles-bg;
-        }
-    }
-
     &.style-image {
         #page-wrapper {
             background-image: url($login-backgroundimage);
@@ -102,16 +93,6 @@ body#page-login-index {
 body#page-login-signup,
 body#page-login-forgot_password,
 body#page-login-verify_age_location {
-    &.style-particles {
-        #page {
-            background: transparent;
-        }
-
-        .particles-js-canvas-el {
-            position: absolute;
-            z-index: 1;
-        }
-    }
     &.style-image {
         #page {
             background: none;

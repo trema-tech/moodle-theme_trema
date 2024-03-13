@@ -75,7 +75,6 @@ $string['login'] = 'Anmelden';
 $string['loginpagestyle'] = 'Stil der Anmeldeseite';
 $string['loginbackgroundimage'] = 'Hintergrundbild für Anmeldung';
 $string['numberofcards'] = 'Anzahl der Karten';
-$string['particlecircles'] = 'Particle.js Circles';
 $string['pluginname'] = 'Trema';
 $string['privacy:metadata'] = 'Das Trema Theme speichert keinerlei Nutzerdaten.';
 $string['region-side-admin'] = 'Nur Administratoren';
