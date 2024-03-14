@@ -46,7 +46,7 @@ $name = 'theme_trema/linkdecoration';
 $title = get_string('linkdecoration', 'theme_trema');
 $description = get_string('linkdecoration_desc', 'theme_trema');
 $default = 'underline';
-$choices = ['underline' => get_string('underline', 'editor'), "none" => get_string('none')];
+$choices = ["none" => get_string('none'), 'underline' => get_string('underline', 'editor')];
 $setting = new admin_setting_configselect($name, $title, $description, $default, $choices);
 $setting->set_updatedcallback('theme_reset_all_caches');
 $page->add($setting);

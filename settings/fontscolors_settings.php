@@ -97,14 +97,12 @@ $page->add($setting);
 
 // Fonts.
 $fonts = [
-    'Arial, Helvetica, sans-serif' => 'Arial',
-    'Verdana, Tahoma, sans-serif' => 'Verdana',
-    '"Times New Roman", Times, serif' => 'TimesNewRoman',
-    'Georgia, serif' => 'Georgia',
-    '"Courier New", Courier, monospace' => 'CourierNew',
     'Alegreya, serif' => 'Alegreya',
+    'Arial, Helvetica, sans-serif' => 'Arial',
+    '"Courier New", Courier, monospace' => 'CourierNew',
     '"CrimsonText", serif' => 'CrimsonText',
     '"EBGaramond", sans-serif' => 'EBGaramond',
+    'Georgia, serif' => 'Georgia',
     'Lato, sans-serif' => 'Lato',
     'Montserrat, sans-serif' => 'Montserrat',
     '"NotoSans", sans-serif' => 'NotoSans',
@@ -112,6 +110,8 @@ $fonts = [
     '"PlayfairDisplay", serif' => 'PlayfairDisplay',
     'Poppins, sans-serif' => 'Poppins',
     'Roboto, Arial, Helvetica, sans-serif' => 'Roboto',
+    '"Times New Roman", Times, serif' => 'TimesNewRoman',
+    'Verdana, Tahoma, sans-serif' => 'Verdana',
 ];
 
 // Site Font settings.
