@@ -269,11 +269,14 @@ body#page-contentbank {
     }
 }
 
-@media (max-width: 767.98px) {
+@media (max-width: 1200px) {
     body #page h1 {
-        font-size: $h1;
-        margin-top: 0.5rem;
+        font-size: calc(0.9975rem + 1.17vw);
+        margin-top: 0;
     }
+}
+
+@media (max-width: 767.98px) {
     #page-navbar,
     .context-header-settings-menu,
     .page-context-header {
