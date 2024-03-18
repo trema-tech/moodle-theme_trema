@@ -250,6 +250,9 @@
 
 @media (max-width: 767.98px) {
     #page-wrapper .navbar {
+        .primary-navigation {
+            display: none;
+        }
         .d-inline-block.mr-3 button {
             border: 0 none;
             padding: 0;
