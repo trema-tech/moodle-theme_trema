@@ -100,6 +100,11 @@ body {
             width: 100%;
             max-width: $course-content-maxwidth;
             padding: 0;
+            .breadcrumb {
+                &:not(:empty) .breadcrumb-item {
+                    flex-grow: 0;
+                }
+            }
         }
 
         .secondary-navigation {
