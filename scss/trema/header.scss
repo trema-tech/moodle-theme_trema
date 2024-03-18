@@ -254,8 +254,9 @@
             border: 0 none;
             padding: 0;
         }
-        .navbar-nav .nav-link {
-            padding-top: 1rem;
+        .navbar-brand.d-none {
+            display: block !important;
+            margin-left: 10px !important;
         }
         .usermenu {
             padding-right: 0;
