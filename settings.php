@@ -31,6 +31,7 @@ defined('MOODLE_INTERNAL') || die();
 if ($ADMIN->fulltree) {
     $settings = new theme_boost_admin_settingspage_tabs('themesettingtrema', get_string('configtitle', 'theme_trema'));
     require_once('settings/general_settings.php');
+    require_once('settings/advanced_settings.php');
     require_once('settings/fontscolors_settings.php');
     require_once('settings/content_settings.php');
     require_once('settings/footer_settings.php');

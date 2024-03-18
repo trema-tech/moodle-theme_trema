@@ -126,25 +126,5 @@ $setting = new admin_setting_configcheckbox($name, $title, $description, $defaul
 $setting->set_updatedcallback('theme_reset_all_caches');
 $page->add($setting);
 
-// Raw SCSS to include before the content.
-$name = 'theme_trema/scsspre';
-$title = get_string('rawscsspre', 'theme_trema');
-$description = get_string('rawscsspre_desc', 'theme_trema');
-$default = '';
-$format = PARAM_RAW;
-$setting = new admin_setting_scsscode($name, $title, $description, $default, $format);
-$setting->set_updatedcallback('theme_reset_all_caches');
-$page->add($setting);
-
-// Raw SCSS to include after the content.
-$name = 'theme_trema/scss';
-$title = get_string('rawscss', 'theme_trema');
-$description = get_string('rawscss_desc', 'theme_trema');
-$default = '';
-$format = PARAM_RAW;
-$setting = new admin_setting_scsscode($name, $title, $description, $default, $format);
-$setting->set_updatedcallback('theme_reset_all_caches');
-$page->add($setting);
-
 // Must add the page after definiting all the settings!
 $settings->add($page);
