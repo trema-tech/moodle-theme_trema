@@ -52,12 +52,14 @@ $setting->set_updatedcallback('theme_reset_all_caches');
 $page->add($setting);
 
 // Hide selected items in the primary navigation.
-$hideitemsoptions = [
-    'home' => get_string('home'),
-    'myhome' => get_string('myhome'),
-    'courses' => get_string('mycourses'),
-    'siteadminnode' => get_string('administrationsite'),
-];
+$hideitemsoptions = [];
+$hideitemsoptions['home'] = get_string('home');
+if ($CFG->enabledashboard) {
+    $hideitemsoptions['myhome'] = get_string('myhome');
+}
+$hideitemsoptions['courses'] = get_string('mycourses');
+$hideitemsoptions['siteadminnode'] = get_string('administrationsite');
+
 $name = 'theme_trema/hideprimarynavigationitems';
 $title = get_string('hideprimarynavigationitems', 'theme_trema', null, true);
 $description = get_string('hideprimarynavigationitems_desc', 'theme_trema', null, true);
