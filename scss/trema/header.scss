@@ -127,13 +127,19 @@
             line-height: 1.5;
             a {
                 padding: 5px 20px;
-                background-color: $primary;
-                color:choose-contrast-color($primary);
+                background-color: $loginbtn-bg-color;
+                color:choose-contrast-color($loginbtn-bg-color);
+                @if ($loginbtn-bg-color != $white) {
+                    border: 1px solid $gray-500;
+                }
                 text-decoration: none;
             }
             a:hover, a:focus, a:active {
-                background-color: $secondary;
-                color:choose-contrast-color($secondary);
+                background-color: choose-contrast-color($loginbtn-bg-color);
+                @if ($loginbtn-bg-color == $header-background-color) {
+                    border: 1px solid $gray-500;
+                }
+                color:choose-contrast-color(choose-contrast-color($loginbtn-bg-color));
             }
         }
 

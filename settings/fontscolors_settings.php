@@ -78,6 +78,15 @@ $setting = new admin_setting_configselect($name, $title, $description, $default,
 $setting->set_updatedcallback('theme_reset_all_caches');
 $page->add($setting);
 
+// Background for Log In button in header.
+$name = 'theme_trema/loginbtnbgcolor';
+$title = get_string('loginbtnbgcolor', 'theme_trema');
+$description = get_string('loginbtnbgcolor_desc', 'theme_trema');
+$default = get_config('theme_trema', 'primarycolor');
+$setting = new admin_setting_configselect($name, $title, $description, $default, $coloroptions);
+$setting->set_updatedcallback('theme_reset_all_caches');
+$page->add($setting);
+
 // Background for drawers.
 $name = 'theme_trema/drawerbgcolor';
 $title = get_string('drawerbgcolor', 'theme_trema');
