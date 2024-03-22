@@ -15,6 +15,77 @@ $course-drawer-color: choose-contrast-color($course-nav-drawer-background-color)
     border: none;
 }
 
+:focus,
+a:focus,
+.aalink.focus,
+.aalink:focus,
+.aabtn.focus,
+.aabtn:focus,
+a.focus.autolink,
+a.autolink:focus,
+a:not([class]).focus,
+a:not([class]):focus,
+.activityinstance>a.focus,
+.activityinstance>a:focus,
+.arrow_link.focus,
+.arrow_link:focus,
+a.dropdown-toggle.focus,
+a.dropdown-toggle:focus,
+body #page button.btn-secondary:focus,
+body #page .btn.btn-secondary:focus,
+.btn:focus,
+.btn-link.focus,
+.btn-link:focus,
+.btn-primary:focus,
+.btn-secondary:focus,
+.btn-secondary.focus,
+button.close.focus,
+button.close:focus,
+.custom-control-input,
+.custom-select:focus,
+.drawer-toggles .drawer-toggler .btn:focus,
+.editor_atto_toolbar button.focus,
+.editor_atto_toolbar button:focus,
+.editor_atto_toolbar .atto_toolbar_row.focus,
+.editor_atto_toolbar .atto_toolbar_row:focus,
+[role="button"].focus,
+[role="button"]:focus,
+.form-autocomplete-selection.focus,
+.form-autocomplete-selection:focus,
+.form-control:focus,
+input[type="checkbox"].focus,
+input[type="checkbox"]:focus,
+input[type="radio"].focus,
+input[type="radio"]:focus,
+input[type="file"].focus,
+input[type="file"]:focus,
+input[type="image"].focus,
+input[type="image"]:focus,
+body #page input[type="submit"].btn-secondary:focus,
+body #page input[type="reset"].btn-secondary:focus,
+body #page input[type="button"].btn-secondary:focus,
+.list-group-item-action.focus,
+.list-group-item-action:focus,
+.modal-dialog[tabindex="0"].focus,
+.modal-dialog[tabindex="0"]:focus,
+.moodle-dialogue-base .closebutton.focus,
+.moodle-dialogue-base .closebutton:focus,
+.nav-link.focus,
+.nav-link:focus,
+#page-footer a:not([class]).focus,
+#page-footer a:not([class]):focus,
+[role="treeitem"]:not([aria-expanded="true"]).focus,
+[role="treeitem"]:not([aria-expanded="true"]):focus,
+.sr-only-focusable.focus,
+.sr-only-focusable:focus,
+selection.focus {
+    // Works on both dark and light backgrounds.
+	outline: 2px #F9F9F9 solid;
+	outline-offset: 0;
+	box-shadow: 0 0 3px 3px $primary;
+    transition: box-shadow 0.3s ease;
+}
+
 body {
     font-family: $body-font-family;
     a {
@@ -138,7 +209,6 @@ body {
             color: fix-color-contrast($primary);
             text-decoration: $links-decoration;
             font-weight: normal;
-            outline: none;
 
             &:hover {
                 color: darken($primary, 30%);
