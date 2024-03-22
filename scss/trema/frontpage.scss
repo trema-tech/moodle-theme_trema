@@ -38,10 +38,6 @@ body#page-site-index {
             padding: 2rem 3rem;
             background: $white;
         }
-
-        .card {
-            background-color: $secondary;
-        }
     }
 
     #frontpage-banner {
@@ -200,27 +196,32 @@ body#page-site-index {
 
 
 .courses {
-    .course-card {
+    .card {
+        background-color: $coursecards-bg-color;
         box-shadow: 5px 5px 9px -4px rgba($primary, .1);
         border-bottom: solid 3px $primary;
-        .course-card-img {
-            width: 100%;
-            overflow: hidden;
-            height: 170px;
-            margin: 0 auto;
-        }
+    }
+    .course-card-img {
+        width: 100%;
+        overflow: hidden;
+        height: 170px;
+        margin: 0 auto;
+    }
 
-        .card-title {
-            font-weight: 600;
-            letter-spacing: 0.08rem;
-        }
+    .card-img-top {
+        border: 1px solid $gray-400;
+    }
 
-        .course-card-text {
-            color: #777;
-            padding: 0 1rem;
-            height: 4rem;
-            overflow: hidden;
-        }
+    .card-title {
+        font-weight: 600;
+        letter-spacing: 0.08rem;
+    }
+
+    .course-card-text {
+        color: #777;
+        padding: 0 1rem;
+        height: 4rem;
+        overflow: hidden;
     }
 }
 

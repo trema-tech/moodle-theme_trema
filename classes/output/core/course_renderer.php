@@ -129,12 +129,12 @@ class course_renderer extends \core_course_renderer {
             if (empty($this->page->theme->settings->showehiddencategorycourses) && !$this->isvisiblecat($course)) {
                 // Show the card dimmed if the user has course edit/update capability.
                 if (has_capability('moodle/course:update', get_context_instance(CONTEXT_COURSE, $course->id))) {
-                    $content .= $this->coursecat_coursebox($chelper, $course, 'card mb-3 course-card-view dimmed');
+                    $content .= $this->coursecat_coursebox($chelper, $course, 'card mb-3 mr-3 course-card-view dimmed');
                     $coursecount++;
                 }
             } else {
                 // Otherwise, just display the course.
-                $content .= $this->coursecat_coursebox($chelper, $course, 'card mb-3 course-card-view');
+                $content .= $this->coursecat_coursebox($chelper, $course, 'card mb-3 mr-3 course-card-view');
                 $coursecount++;
             }
         }
@@ -241,7 +241,7 @@ class course_renderer extends \core_course_renderer {
         $content .= html_writer::end_tag('a');
 
         $content .= html_writer::start_tag('div', ['class' => 'card-body']);
-        $content .= '<h4 class="card-title text-center m-1">' . $coursenamelink . '</h4>';
+        $content .= '<h3 class="h5 card-title m-1">' . $coursenamelink . '</h4>';
         $content .= html_writer::end_tag('div');
 
         $content .= html_writer::start_tag('div', ['class' => 'card-block text-center']);
@@ -261,7 +261,7 @@ class course_renderer extends \core_course_renderer {
         // Display course contacts. See core_course_list_element::get_course_contacts().
         if ($course->has_course_contacts()) {
             $content .= html_writer::start_tag('div', ['class' => 'teachers pt-2']);
-            $content .= html_writer::start_tag('ul', ['class' => 'list-unstyled m-0 px-3 font-weight-light']);
+            $content .= html_writer::start_tag('ul', ['class' => 'list-unstyled m-0 font-weight-light']);
             foreach ($course->get_course_contacts() as $userid => $coursecontact) {
                 $name = $coursecontact['rolename'] . ': ' . html_writer::link(
                     new moodle_url('/user/view.php', ['id' => $userid, 'course' => SITEID]),
@@ -276,7 +276,7 @@ class course_renderer extends \core_course_renderer {
         // Display course category if necessary (for example in search results).
         if ($showcategories) {
             if ($cat = core_course_category::get($course->category, IGNORE_MISSING)) {
-                $content .= html_writer::start_tag('div', ['class' => 'coursecat text-center small']);
+                $content .= html_writer::start_tag('div', ['class' => 'coursecat small']);
                 $content .= html_writer::tag('span', get_string('category') . ': ');
                 $content .= html_writer::link(
                     new moodle_url('/course/index.php', ['categoryid' => $cat->id]),
