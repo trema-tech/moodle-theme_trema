@@ -36,8 +36,8 @@
     * signupurl - Signup url,
     * errorformatted - Formatted error,
     * logourl - Flag, logo url,
-    * sitename - Name of site.,
-    * logintoken - Random token to protect login request.,
+    * sitename - Name of site.
+    * logintoken - Random token to protect login request.
     * maintenance - Maintenance message
 
     Example context (json):
@@ -65,7 +65,7 @@
                     },
                     {
                         "name": "src",
-                        "value": "http://localhost/stable_master/theme/image.php?theme=boost&component=core&image=help"
+                        "value": "http://localhost/stable_master/theme/image.php?theme=trema&component=core&image=help"
                     }
                 ]
             },
@@ -82,6 +82,7 @@
         "instructions": "For full access to this site, you first need to create an account.",
         "instructionsformat": "1",
         "loginurl": "http://localhost/stable_master/login/index.php",
+        "rememberusername": true,
         "signupurl": "http://localhost/stable_master/login/signup.php",
         "cookieshelpiconformatted": "",
         "errorformatted": "",
@@ -98,7 +99,7 @@
         <div class="login-languagemenu">
             {{>core/action_menu}}
         </div>
-        <div class="divider border-left align-self-center mx-3"></div>
+        <div class="login-divider"></div>
     {{/languagemenu}}
     {{#logourl}}
         <div id="loginlogo" class="login-logo">
@@ -114,14 +115,27 @@
             {{{maintenance}}}
         </div>
     {{/maintenance}}
-    {{#error}}
-        <a href="#" id="loginerrormessage" class="sr-only">{{error}}</a>
-        <div class="alert alert-danger" role="alert">{{error}}</div>
-    {{/error}}
-    {{#cansignup}}
-        <a href="{{signupurl}}" class="sr-only">{{#str}} tocreatenewaccount {{/str}}</a>
-    {{/cansignup}}
+    {{#loginpagecreatefirst}}
+        {{#hasinstructions}}
+            <div class="login-divider"></div>
+            <div class="login-instructions {{#cansignup}}mb-3{{/cansignup}}">
+                <h2 class="login-heading">{{#str}}firsttime{{/str}}</h2>
+                {{{instructions}}}
+            </div>
+        {{/hasinstructions}}
+        {{#cansignup}}
+            <div class="login-signup">
+                <a class="btn btn-secondary" href="{{signupurl}}">{{#str}}startsignup{{/str}}</a>
+            </div>
+        {{/cansignup}}
+    {{/loginpagecreatefirst}}
     <form class="login-form" action="{{loginurl}}" method="post" id="login">
+        <div class="login-divider"></div>
+        {{#error}}
+            <a href="#" id="loginerrormessage" class="sr-only">{{error}}</a>
+            <div class="alert alert-danger" role="alert">{{error}}</div>
+        {{/error}}
+        <h2 class="login-heading">{{#str}}login{{/str}}</h2>
         <input type="hidden" name="logintoken" value="{{logintoken}}">
         <div class="login-form-username form-group">
             <label for="username" class="sr-only">
@@ -167,18 +181,20 @@
             {{/identityproviders}}
         </div>
     {{/hasidentityproviders}}
-    {{#hasinstructions}}
-        <div class="login-divider"></div>
-        <div class="login-instructions {{#cansignup}}mb-3{{/cansignup}}">
-            <h2 class="login-heading">{{#str}}firsttime{{/str}}</h2>
-            {{{instructions}}}
-        </div>
-    {{/hasinstructions}}
-    {{#cansignup}}
-        <div class="login-signup">
-            <a class="btn btn-secondary" href="{{signupurl}}">{{#str}}startsignup{{/str}}</a>
-        </div>
-    {{/cansignup}}
+    {{^loginpagecreatefirst}}
+        {{#hasinstructions}}
+            <div class="login-divider"></div>
+            <div class="login-instructions {{#cansignup}}mb-3{{/cansignup}}">
+                <h2 class="login-heading">{{#str}}firsttime{{/str}}</h2>
+                {{{instructions}}}
+            </div>
+        {{/hasinstructions}}
+        {{#cansignup}}
+            <div class="login-signup">
+                <a class="btn btn-secondary" href="{{signupurl}}">{{#str}}startsignup{{/str}}</a>
+            </div>
+        {{/cansignup}}
+    {{/loginpagecreatefirst}}
     {{#canloginasguest}}
         <div class="login-divider"></div>
         <h2 class="login-heading">{{#str}}someallowguest{{/str}}</h2>

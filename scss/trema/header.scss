@@ -126,9 +126,17 @@
         .login {
             line-height: 1.5;
             a {
-                color:choose-contrast-color($header-background-color);
+                padding: 5px 20px;
+                background-color: $primary;
+                color:choose-contrast-color($primary);
+                text-decoration: none;
+            }
+            a:hover, a:focus, a:active {
+                background-color: $secondary;
+                color:choose-contrast-color($secondary);
             }
         }
+
         @media (max-width: 768px) {
             .login {
                 line-height: 1;

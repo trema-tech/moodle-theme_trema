@@ -69,19 +69,19 @@ $coloroptions = [
 ];
 $default = '#e9ecef';
 
-// Background for drawers.
-$name = 'theme_trema/drawerbgcolor';
-$title = get_string('drawerbgcolor', 'theme_trema');
-$description = get_string('drawerbgcolor_desc', 'theme_trema');
-$setting = new admin_setting_configselect($name, $title, $description, $default, $coloroptions);
-$setting->set_updatedcallback('theme_reset_all_caches');
-$page->add($setting);
-
 // Background for header.
 $name = 'theme_trema/headerbgcolor';
 $title = get_string('headerbgcolor', 'theme_trema');
 $description = get_string('headerbgcolor_desc', 'theme_trema');
 $default = '#ffffff';
+$setting = new admin_setting_configselect($name, $title, $description, $default, $coloroptions);
+$setting->set_updatedcallback('theme_reset_all_caches');
+$page->add($setting);
+
+// Background for drawers.
+$name = 'theme_trema/drawerbgcolor';
+$title = get_string('drawerbgcolor', 'theme_trema');
+$description = get_string('drawerbgcolor_desc', 'theme_trema');
 $setting = new admin_setting_configselect($name, $title, $description, $default, $coloroptions);
 $setting->set_updatedcallback('theme_reset_all_caches');
 $page->add($setting);
