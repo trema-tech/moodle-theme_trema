@@ -339,6 +339,10 @@ body#page-contentbank {
     }
 }
 
+.dimmed {
+    opacity: .50;
+}
+
 @media (max-width: 1200px) {
     body #page h1 {
         font-size: calc(0.9975rem + 1.17vw);
