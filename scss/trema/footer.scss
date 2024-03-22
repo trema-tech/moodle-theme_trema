@@ -54,6 +54,11 @@ footer#page-footer {
     a:not(.button):hover {
         text-decoration: underline;
     }
+    a:not(.button):focus,
+    a:not(.button):active {
+        background-color: choose-contrast-color($footer-bg-color);
+        color: $footer-bg-color;
+    }
 
     .row.gtr-uniform > * > :last-child {
         margin-bottom: 0;
