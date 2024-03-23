@@ -79,8 +79,7 @@ body div#page {
         color: choose-contrast-color($drawer-bg-color);
 
         &:hover {
-            color: lighten($primary, 30%);
-            background-color: rgba($primary, 0.05);
+            text-decoration: underline;
         }
     }
     .courseindex .courseindex-item.pageitem .completioninfo.completion_incomplete .icon,
