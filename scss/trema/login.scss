@@ -85,7 +85,14 @@ body#page-login-index {
             border: 1px solid #aaaaaa!important;
             color: black!important ;
             width: auto;
-            margin: 0!important;;
+            margin: 0!important;
+        }
+        .login-identityprovider-btn,
+        .btn-secondary {
+            white-space: normal;
+            height: auto;
+            line-height: 1.3rem;
+            padding: 10px 20px;
         }
     }
 
