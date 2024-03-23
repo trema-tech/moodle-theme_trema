@@ -143,12 +143,15 @@ $string['systemsecurity'] = 'System Security';
 $string['summarybutton_text'] = 'Description';
 $string['summarycourselink_text'] = 'Go To Course';
 $string['summarytype'] = 'Summary type';
-$string['summarytype_desc'] = 'Choose whether the course summary will open in a modal or popover.';
+$string['summarytype_desc'] = 'Choose the type of course summary button that appears in course cards.';
+$string['modal'] = 'Modal';
+$string['popover'] = 'Popover';
 $string['title'] = 'Title';
 $string['total'] = 'Total';
 $string['subtitle'] = 'Subtitle';
 $string['showehiddencategorycourses'] = 'Show courses in hidden categories';
 $string['showehiddencategorycourses_desc'] = 'Deselect this option to hide courses if they are in or in a hidden category or under one or more hidden parent categories. These courses will still be available by direct URL, if the user has the capability to view hidden categories or edit/update the course.';
+
 
 //
 // List of course cards.
@@ -159,6 +162,7 @@ $string['cardcontacts'] = 'Course contacts';
 $string['cardcontacts_desc'] = 'Show course\'s contacts (e.g. teachers). Not applicable to all layout formats and only appears if teachers have been assigned to the course.';
 $string['showcategories'] = 'Show categories';
 $string['showcategories_desc'] = 'Enable to show categories on frontpage.';
+
 // Strings copied from Boost.
 $string['advancedsettings'] = 'Advanced settings';
 $string['primarycolor'] = 'Primary colour';

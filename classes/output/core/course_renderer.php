@@ -288,8 +288,8 @@ class course_renderer extends \core_course_renderer {
         }
 
         // Display course summary.
-        if ($course->has_summary()) {
-            $summarytype = get_config('theme_trema', 'summarytype');
+        $summarytype = get_config('theme_trema', 'summarytype');
+        if (!empty($summarytype) && ($course->has_summary())) {
 
             if ($summarytype == 'popover') {
                 $content .= html_writer::start_tag('div', ['class' => 'card-see-more text-center']);

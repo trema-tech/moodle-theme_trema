@@ -51,7 +51,7 @@ $page->add($setting);
 $name = $themename . '/cardcontacts';
 $title = get_string('cardcontacts', $themename);
 $description = get_string('cardcontacts_desc', $themename);
-$default = 1;
+$default = true;
 $setting = new admin_setting_configcheckbox($name, $title, $description, $default);
 $setting->set_updatedcallback('theme_reset_all_caches');
 $page->add($setting);
@@ -69,8 +69,9 @@ $name = 'theme_trema/summarytype';
 $title = get_string('summarytype', 'theme_trema');
 $description = get_string('summarytype_desc', 'theme_trema');
 $choices = [
-    "modal" => "modal",
-    "popover" => "popover",
+    "" => get_string('none'),
+    "modal" => get_string('modal', 'theme_trema'),
+    "popover" => get_string('popover', 'theme_trema'),
 ];
 $default = 'modal';
 $setting = new admin_setting_configselect($name, $title, $description, $default, $choices);
