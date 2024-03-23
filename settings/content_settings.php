@@ -359,42 +359,4 @@ $default = false;
 $setting = new admin_setting_configcheckbox($name, $title, $description, $default, true, false);
 $page->add($setting);
 
-// Courses cards.
-$name = 'theme_trema_course_cards';
-$title = get_string('coursescards', 'theme_trema');
-$description = '';
-$format = FORMAT_MARKDOWN;
-$setting = new admin_setting_heading($name, $title, $description, $format);
-$page->add($setting);
-
-// Summary type.
-$name = 'theme_trema/summarytype';
-$title = get_string('summarytype', 'theme_trema');
-$description = get_string('summarytype_desc', 'theme_trema');
-$choices = [
-    "modal" => "modal",
-    "popover" => "popover",
-];
-$default = 'modal';
-$setting = new admin_setting_configselect($name, $title, $description, $default, $choices);
-$setting->set_updatedcallback('theme_reset_all_caches');
-$page->add($setting);
-
-// Show categories on Frontpage course cards.
-$name = 'theme_trema/showcategories';
-$title = get_string('showcategories', 'theme_trema');
-$description = get_string('showcategories_desc', 'theme_trema');
-$default = false;
-$setting = new admin_setting_configcheckbox($name, $title, $description, $default, true, false);
-$page->add($setting);
-
-// Show categories on Frontpage course cards.
-$name = 'theme_trema/showehiddencategorycourses';
-$title = get_string('showehiddencategorycourses', 'theme_trema');
-$description = get_string('showehiddencategorycourses_desc', 'theme_trema');
-$default = true;
-$setting = new admin_setting_configcheckbox($name, $title, $description, $default, true, false);
-$setting->set_updatedcallback('theme_reset_all_caches');
-$page->add($setting);
-
 $settings->add($page);

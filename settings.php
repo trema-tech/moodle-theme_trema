@@ -33,6 +33,7 @@ if ($ADMIN->fulltree) {
     require_once('settings/general_settings.php');
     require_once('settings/advanced_settings.php');
     require_once('settings/fontscolors_settings.php');
+    require_once('settings/courselist_settings.php');
     require_once('settings/content_settings.php');
     require_once('settings/footer_settings.php');
     require_once('settings/login_settings.php');

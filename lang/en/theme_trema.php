@@ -150,6 +150,13 @@ $string['subtitle'] = 'Subtitle';
 $string['showehiddencategorycourses'] = 'Show courses in hidden categories';
 $string['showehiddencategorycourses_desc'] = 'Deselect this option to hide courses if they are in or in a hidden category or under one or more hidden parent categories. These courses will still be available by direct URL, if the user has the capability to view hidden categories or edit/update the course.';
 
+//
+// List of course cards.
+//
+$string['courselistsettings'] = 'Course lists';
+$string['courselistsettings_desc'] = 'When viewing course listings on the Front Page, All Courses, Categories and search results, you can choose what information to include, the layout of how it is going to look, and filter courses based on language and tags.';
+$string['showcategories'] = 'Show categories';
+$string['showcategories_desc'] = 'Enable to show categories on frontpage.';
 // Strings copied from Boost.
 $string['advancedsettings'] = 'Advanced settings';
 $string['primarycolor'] = 'Primary colour';
@@ -224,5 +231,3 @@ $string['defaultfooter_default'] = '<div class="row">
 // Footer settings.
 $string['enabletremafooter'] = 'Enable Trema Footer';
 $string['enabletremafooter_desc'] = 'Enable Trema Footer instead of Boost popup footer';
-$string['showcategories'] = 'Show categories';
-$string['showcategories_desc'] = 'Enable to show categories on frontpage.';
