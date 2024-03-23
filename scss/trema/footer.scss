@@ -124,6 +124,17 @@ footer#page-footer {
     &.footer-trema {
         padding: 1.5rem;
     }
+
+    .performanceinfo {
+        background-color: #000000;
+        color: white;
+        table.table {
+            width: 100%!important;
+            th {
+                background-color: #676A6C;
+            }
+        }
+    }
 }
 
 body.scrolled #goto-top-link {
