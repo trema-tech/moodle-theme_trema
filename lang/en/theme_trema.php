@@ -155,6 +155,8 @@ $string['showehiddencategorycourses_desc'] = 'Deselect this option to hide cours
 //
 $string['courselistsettings'] = 'Course lists';
 $string['courselistsettings_desc'] = 'When viewing course listings on the Front Page, All Courses, Categories and search results, you can choose what information to include, the layout of how it is going to look, and filter courses based on language and tags.';
+$string['cardcontacts'] = 'Course contacts';
+$string['cardcontacts_desc'] = 'Show course\'s contacts (e.g. teachers). Not applicable to all layout formats and only appears if teachers have been assigned to the course.';
 $string['showcategories'] = 'Show categories';
 $string['showcategories_desc'] = 'Enable to show categories on frontpage.';
 // Strings copied from Boost.

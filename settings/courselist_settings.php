@@ -47,6 +47,15 @@ $format = FORMAT_MARKDOWN;
 $setting = new admin_setting_heading($name, $title, $description, $format);
 $page->add($setting);
 
+// Show card contacts.
+$name = $themename . '/cardcontacts';
+$title = get_string('cardcontacts', $themename);
+$description = get_string('cardcontacts_desc', $themename);
+$default = 1;
+$setting = new admin_setting_configcheckbox($name, $title, $description, $default);
+$setting->set_updatedcallback('theme_reset_all_caches');
+$page->add($setting);
+
 // Show categories on Frontpage course cards.
 $name = 'theme_trema/showcategories';
 $title = get_string('showcategories', 'theme_trema');
