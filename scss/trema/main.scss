@@ -86,6 +86,11 @@ selection.focus {
     transition: box-shadow 0.3s ease;
 }
 
+// Improve colour contrast ratio for input placeholder text.
+::placeholder {
+    color: $placeholder-color!important;
+  }
+
 body {
     font-family: $body-font-family;
     a {
