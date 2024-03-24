@@ -34,6 +34,7 @@ $title = get_string('enabletremafooter', 'theme_trema');
 $description = get_string('enabletremafooter_desc', 'theme_trema', "$CFG->wwwroot/theme/trema/pix/examples/footerinfo.png");
 $default = true;
 $setting = new admin_setting_configcheckbox($name, $title, $description, $default);
+$setting->set_updatedcallback('theme_reset_all_caches');
 $page->add($setting);
 
 // HTML to include in the footer content.
@@ -42,6 +43,7 @@ $title = get_string('defaultfooter', 'theme_trema');
 $description = get_string('defaultfooter_desc', 'theme_trema');
 $default = get_string('defaultfooter_default', 'theme_trema');
 $setting = new admin_setting_confightmleditor($name, $title, $description, $default, PARAM_RAW);
+$setting->set_updatedcallback('theme_reset_all_caches');
 $page->add($setting);
 
 // Show/hide footer information.
@@ -50,6 +52,7 @@ $title = get_string('enablefooterinfo', 'theme_trema');
 $description = get_string('enablefooterinfo_desc', 'theme_trema', "$CFG->wwwroot/theme/trema/pix/examples/footerinfo.png");
 $default = true;
 $setting = new admin_setting_configcheckbox($name, $title, $description, $default);
+$setting->set_updatedcallback('theme_reset_all_caches');
 $page->add($setting);
 
 // Must add the page after definiting all the settings!

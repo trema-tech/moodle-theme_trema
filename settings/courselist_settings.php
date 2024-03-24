@@ -62,6 +62,7 @@ $title = get_string('showcategories', 'theme_trema');
 $description = get_string('showcategories_desc', 'theme_trema');
 $default = false;
 $setting = new admin_setting_configcheckbox($name, $title, $description, $default, true, false);
+$setting->set_updatedcallback('theme_reset_all_caches');
 $page->add($setting);
 
 // Summary type.

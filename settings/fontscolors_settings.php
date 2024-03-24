@@ -67,7 +67,6 @@ $coloroptions = [
     get_config('theme_trema', 'secondarycolor') => get_string('samesecondarycolor', 'theme_trema'),
     get_config('theme_trema', 'bodybackgroundcolor') => get_string('samebasecolor', 'theme_trema'),
 ];
-$default = '#e9ecef';
 
 // Background for header.
 $name = 'theme_trema/headerbgcolor';

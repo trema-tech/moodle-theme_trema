@@ -58,6 +58,7 @@ $title = get_string('shownactivitynavigation', 'theme_trema');
 $description = get_string('shownactivitynavigation_desc', 'theme_trema');
 $default = false;
 $setting = new admin_setting_configcheckbox($name, $title, $description, $default, true, false);
+$setting->set_updatedcallback('theme_reset_all_caches');
 $page->add($setting);
 
 // Show activity icons.
@@ -66,6 +67,7 @@ $title = get_string('showactivityicons', 'theme_trema');
 $description = get_string('showactivityicons_desc', 'theme_trema');
 $default = true;
 $setting = new admin_setting_configcheckbox($name, $title, $description, $default, true, false);
+$setting->set_updatedcallback('theme_reset_all_caches');
 $page->add($setting);
 
 $settings->add($page);
