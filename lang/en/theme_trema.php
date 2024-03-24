@@ -152,6 +152,11 @@ $string['subtitle'] = 'Subtitle';
 $string['showehiddencategorycourses'] = 'Show courses in hidden categories';
 $string['showehiddencategorycourses_desc'] = 'Deselect this option to hide courses if they are in or in a hidden category or under one or more hidden parent categories. These courses will still be available by direct URL, if the user has the capability to view hidden categories or edit/update the course.';
 
+//
+// User Profile Fields tab. The rest of the strings are all built into Moodle.
+//
+$string['showprofile_heading'] = 'Select the sections and fields to be displayed when user\'s edit their profile.';
+$string['showprofilesection_desc'] = 'Show the whole section.';
 
 //
 // List of course cards.

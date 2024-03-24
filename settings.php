@@ -37,5 +37,6 @@ if ($ADMIN->fulltree) {
     require_once('settings/content_settings.php');
     require_once('settings/footer_settings.php');
     require_once('settings/login_settings.php');
+    require_once('settings/profile_settings.php');
     require_once('settings/styleguide_settings.php');
 }

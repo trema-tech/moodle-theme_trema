@@ -125,6 +125,71 @@ function theme_trema_get_pre_scss($theme) {
     $scss .= '$h1fontfile: "' . $fonts[$theme->settings->h1font] . '";' . PHP_EOL;
     $scss .= '$hxfontfile: "' . $fonts[$theme->settings->hxfont] . '";' . PHP_EOL;
 
+    //
+    // Show/hide User profile fields.
+    //
+
+    $fields = [];
+
+    // Section: General.
+    $fields['showprofileemaildisplay'] = '#fitem_id_maildisplay'; // Email display.
+    if ($CFG->branch >= 311 && empty($theme->settings->showmoodlenetprofile)) {
+        $fields['showmoodlenetprofile'] = '#fitem_id_moodlenetprofile'; // MoodleNet Profile.
+    }
+    $fields['showprofilecity'] = '#fitem_id_city'; // City.
+    $fields['showprofilecountry'] = '#fitem_id_country'; // Country.
+    $fields['showprofiletimezone'] = '#fitem_id_timezone'; // Timezone.
+    $fields['showprofiledescription'] = '#fitem_id_description_editor'; // Description.
+
+    // Section: User Picture.
+    $fields['showprofilepictureofuser'] = '#id_moodle_picture';
+
+    // Section: Additional Names.
+    $fields['showprofileadditionalnames'] = '#id_moodle_additional_names';
+
+    // Section: Interests.
+    $fields['showprofileinterests'] = '#id_moodle_interests';
+
+    // Section: Optional.
+    $fields['showprofileoptional'] = '#id_moodle_optional';
+
+    if ($CFG->branch < 311) {
+        $fields['showprofilewebpage'] = '#fitem_id_url'; // Web Page.
+        $fields['showprofileicqnumber'] = '#fitem_id_icq'; // ICQ.
+        $fields['showprofileskypeid'] = '#fitem_id_skype'; // Skype.
+        $fields['showprofileaimid'] = '#fitem_id_aim'; // AIM.
+        $fields['showprofileyahooid'] = '#fitem_id_yahoo'; // Yahoo.
+        $fields['showprofilemsnid'] = '#fitem_id_msn'; // MSN.
+    }
+    $fields['showprofilemoodlenetprofile'] = '#fitem_id_moodlenetprofile'; // MoodleNet profile ID.
+    $fields['showprofileidnumber'] = '#fitem_id_idnumber'; // ID number.
+    $fields['showprofileinstitution'] = '#fitem_id_institution'; // Institution.
+    $fields['showprofiledepartment'] = '#fitem_id_department'; // Department.
+    $fields['showprofilephone1'] = '#fitem_id_phone1'; // Phone.
+    $fields['showprofilephone2'] = '#fitem_id_phone2'; // Mobile phone.
+    $fields['showprofileaddress'] = '#fitem_id_address'; // Address.
+
+    $customscss = '';
+    // Automatically hide guest login button if Auto-login Guests is enabled and Guest Login button is visible.
+    if (!empty($CFG->autologinguests) && !empty($CFG->guestloginbutton)) {
+        $customscss .= '#guestlogin,';
+    }
+
+    //
+    // Add all of the fields that we need to hide.
+    //
+
+    foreach ($fields as $setting => $field) {
+        if (empty($theme->settings->$setting)) {
+            $customscss .= $field . ',' . PHP_EOL;
+        }
+    }
+
+    // If there is something to hide, hide it.
+    if (!empty($customscss)) {
+        $scss .= $customscss . 'displaynone {display: none;}';
+    }
+
     // Login page
     // Background image.
     $backgroundimageurl = $theme->setting_file_url('loginbackgroundimage', 'loginbackgroundimage');
