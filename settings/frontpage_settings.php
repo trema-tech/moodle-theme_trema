@@ -28,8 +28,8 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-// Advanced settings.
-$page = new admin_settingpage('theme_trema_frontpagecontent', get_string('content', 'theme_trema'));
+// Frontpage settings.
+$page = new admin_settingpage('theme_trema_frontpagecontent', get_string('frontpage', 'theme_trema'));
 
 // Frontpage image.
 $name = 'theme_trema_frontpageimages';
@@ -329,34 +329,5 @@ if (get_config('theme_trema', 'frontpageenablecards')) {
         $page->add($setting);
     }
 }
-
-// Settings for Courses.
-$name = 'theme_trema_courses';
-$title = get_string('courses');
-$description = '';
-$format = FORMAT_MARKDOWN;
-$setting = new admin_setting_heading($name, $title, $description, $format);
-$page->add($setting);
-
-// Course enrolment page format.
-$name = 'theme_trema/courseenrolmentpageformat';
-$title = get_string('courseenrolmentpageformat', 'theme_trema');
-$description = get_string('courseenrolmentpageformat_desc', 'theme_trema');
-$choices = [
-    "card" => get_string('courseenrolmentpagecard', 'theme_trema'),
-    "fullwidth" => get_string('courseenrolmentpagefull', 'theme_trema'),
-];
-$default = 'fullwidth';
-$setting = new admin_setting_configselect($name, $title, $description, $default, $choices);
-$setting->set_updatedcallback('theme_reset_all_caches');
-$page->add($setting);
-
-// Show activity navigation.
-$name = 'theme_trema/shownactivitynavigation';
-$title = get_string('shownactivitynavigation', 'theme_trema');
-$description = get_string('shownactivitynavigation_desc', 'theme_trema');
-$default = false;
-$setting = new admin_setting_configcheckbox($name, $title, $description, $default, true, false);
-$page->add($setting);
 
 $settings->add($page);
