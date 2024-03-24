@@ -169,7 +169,6 @@ $string['showcategories'] = 'Show categories';
 $string['showcategories_desc'] = 'Enable to show categories on frontpage.';
 
 // Strings copied from Boost.
-$string['advancedsettings'] = 'Advanced settings';
 $string['primarycolor'] = 'Primary colour';
 $string['primarycolor_desc'] = 'The main colour.';
 $string['secondarycolor'] = 'Secondary colour';

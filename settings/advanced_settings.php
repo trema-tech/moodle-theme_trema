@@ -15,7 +15,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * General settings
+ * Advanced settings
  *
  * @package     theme_trema
  * @copyright   2019-2024 Trema - {@link https://trema.tech/}
@@ -28,7 +28,7 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$page = new admin_settingpage('theme_trema_advanced', get_string('advancedsettings'));
+$page = new admin_settingpage('theme_trema_advanced', get_string('advanced'));
 
 // Raw SCSS to include before the content.
 $name = 'theme_trema/scsspre';

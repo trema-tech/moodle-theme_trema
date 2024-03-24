@@ -94,7 +94,6 @@ $string['total'] = 'Summe';
 $string['subtitle'] = 'Untertitel';
 
 // Strings copied from Boost.
-$string['advancedsettings'] = 'Erweiterte Einstellungen';
 $string['primarycolor'] = 'Erste Farbe';
 $string['primarycolor_desc'] = 'Hauptfarbe.';
 $string['secondarycolor'] = 'Zweite Farbe';
