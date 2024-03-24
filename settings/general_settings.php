@@ -28,7 +28,7 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$page = new admin_settingpage('theme_trema_general', get_string('generalsettings', 'theme_trema'));
+$page = new admin_settingpage('theme_trema_general', get_string('general'));
 
 // Preset.
 $name = 'theme_trema/preset';

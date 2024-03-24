@@ -173,7 +173,6 @@ $string['primarycolor'] = 'Primary colour';
 $string['primarycolor_desc'] = 'The main colour.';
 $string['secondarycolor'] = 'Secondary colour';
 $string['secondarycolor_desc'] = 'The secondary colour.';
-$string['generalsettings'] = 'General settings';
 $string['rawscss'] = 'Raw SCSS';
 $string['rawscss_desc'] = 'Use this field to provide SCSS or CSS code which will be injected at the end of the style sheet.';
 $string['rawscsspre'] = 'Raw initial SCSS';

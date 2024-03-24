@@ -98,7 +98,6 @@ $string['primarycolor'] = 'Erste Farbe';
 $string['primarycolor_desc'] = 'Hauptfarbe.';
 $string['secondarycolor'] = 'Zweite Farbe';
 $string['secondarycolor_desc'] = 'Die zweite Farbe';
-$string['generalsettings'] = 'Grundeinstellungen';
 $string['rawscss'] = 'Roh-SCSS';
 $string['rawscss_desc'] = 'SCSS oder CSS Code am Ende des Stylesheets einfügen.';
 $string['rawscsspre'] = 'Initiales Roh-SCSS';
