@@ -175,6 +175,9 @@ function theme_trema_get_pre_scss($theme) {
 
     // Activity module icons.
     $fields['showactivityicons'] = '.page-header-image,.activityiconcontainer.courseicon';
+    // Login form.
+    $fields['loginshowloginform'] = '#login, .loginform .login-form, .login-form-forgotpassword form-group';
+
     $customscss = '';
     // Automatically hide guest login button if Auto-login Guests is enabled and Guest Login button is visible.
     if (!empty($CFG->autologinguests) && !empty($CFG->guestloginbutton)) {
@@ -190,7 +193,6 @@ function theme_trema_get_pre_scss($theme) {
             $customscss .= $field . ',' . PHP_EOL;
         }
     }
-
     // If there is something to hide, hide it.
     if (!empty($customscss)) {
         $scss .= $customscss . 'displaynone {display: none;}';
@@ -207,10 +209,6 @@ function theme_trema_get_pre_scss($theme) {
     // Not image in settings.
     if ($theme->settings->loginpagestyle !== 'image') {
         $scss .= "body.pagelayout-login #page-wrapper { background-image: none; }\n";
-    }
-    // Show/Hide login form.
-    if (empty($theme->settings->loginshowloginform)) {
-        $scss .= "#login, .loginform .login-form, .login-form-forgotpassword form-group {display: none;}\n";
     }
 
     // Prepend pre-scss.
