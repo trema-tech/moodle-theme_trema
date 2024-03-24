@@ -170,7 +170,6 @@ $string['cardcontacts_desc'] = 'Show course\'s contacts (e.g. teachers). Not app
 $string['showcategories'] = 'Show categories';
 $string['showcategories_desc'] = 'Enable to show categories on frontpage.';
 
-// Strings copied from Boost.
 $string['primarycolor'] = 'Primary colour';
 $string['primarycolor_desc'] = 'The main colour.';
 $string['secondarycolor'] = 'Secondary colour';
@@ -242,3 +241,5 @@ $string['defaultfooter_default'] = '<div class="row">
 // Footer settings.
 $string['enabletremafooter'] = 'Enable Trema Footer';
 $string['enabletremafooter_desc'] = 'Enable Trema Footer instead of Boost popup footer';
+$string['showmoodlebranding'] = 'Moodle branding';
+$string['showmoodlebranding_desc'] = 'Show or hide Moodle branding in the page footer.';

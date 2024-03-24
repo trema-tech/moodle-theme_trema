@@ -178,6 +178,9 @@ function theme_trema_get_pre_scss($theme) {
     // Login form.
     $fields['loginshowloginform'] = '#login, .loginform .login-form, .login-form-forgotpassword form-group';
 
+    // Moodle branding.
+    $fields['showmoodlebranding'] = '.sitelink,.footer-section.p-3:not(.border-bottom)';
+
     $customscss = '';
     // Automatically hide guest login button if Auto-login Guests is enabled and Guest Login button is visible.
     if (!empty($CFG->autologinguests) && !empty($CFG->guestloginbutton)) {

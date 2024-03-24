@@ -55,5 +55,14 @@ $setting = new admin_setting_configcheckbox($name, $title, $description, $defaul
 $setting->set_updatedcallback('theme_reset_all_caches');
 $page->add($setting);
 
+// Show/Hide Moodle branding (e.g. Moodle logo, Powered by Moodle).
+$name = 'theme_trema/showmoodlebranding';
+$title = get_string('showmoodlebranding', 'theme_trema');
+$description = get_string('showmoodlebranding_desc', 'theme_trema');
+$default = true;
+$setting = new admin_setting_configcheckbox($name, $title, $description, $default);
+$setting->set_updatedcallback('theme_reset_all_caches');
+$page->add($setting);
+
 // Must add the page after definiting all the settings!
 $settings->add($page);
