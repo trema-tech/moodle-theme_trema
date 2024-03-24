@@ -221,6 +221,15 @@ $setting = new admin_setting_confightmleditor($name, $title, $description, $defa
 $setting->set_updatedcallback('theme_reset_all_caches');
 $page->add($setting);
 
+// Show/Hide links to Pages activities on Frontpage. Useful for creating site pages that are available when logged out.
+$name = 'theme_trema/showfrontpagelinkstopages';
+$title = get_string('showfrontpagelinkstopages', 'theme_trema');
+$description = get_string('showfrontpagelinkstopages_desc', 'theme_trema');
+$default = true;
+$setting = new admin_setting_configcheckbox($name, $title, $description, $default, true, false);
+$setting->set_updatedcallback('theme_reset_all_caches');
+$page->add($setting);
+
 // Frontpage cards.
 
 $name = 'theme_trema_cards';

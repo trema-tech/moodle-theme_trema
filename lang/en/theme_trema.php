@@ -243,3 +243,5 @@ $string['enabletremafooter'] = 'Enable Trema Footer';
 $string['enabletremafooter_desc'] = 'Enable Trema Footer instead of Boost popup footer';
 $string['showmoodlebranding'] = 'Moodle branding';
 $string['showmoodlebranding_desc'] = 'Show or hide Moodle branding in the page footer.';
+$string['showfrontpagelinkstopages'] = 'Frontpage pages';
+$string['showfrontpagelinkstopages_desc'] = 'Uncheck this setting to hide links to pages on the Frontpage. These pages can be useful when you want to create additional pages of information, About us, Contact Us, Help/FAQ, etc.';

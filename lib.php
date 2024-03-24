@@ -178,6 +178,9 @@ function theme_trema_get_pre_scss($theme) {
     // Login form.
     $fields['loginshowloginform'] = '#login, .loginform .login-form, .login-form-forgotpassword form-group';
 
+    // Links to Moodle 'Page' activities on Frontpage unless in edit mode on the front page.
+    $fields['showfrontpagelinkstopages'] = '#page-site-index:not(.editing) #page-content .modtype_page';
+
     // Moodle branding.
     $fields['showmoodlebranding'] = '.sitelink,.footer-section.p-3:not(.border-bottom)';
 
