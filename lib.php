@@ -169,6 +169,12 @@ function theme_trema_get_pre_scss($theme) {
     $fields['showprofilephone2'] = '#fitem_id_phone2'; // Mobile phone.
     $fields['showprofileaddress'] = '#fitem_id_address'; // Address.
 
+    //
+    // Show/hide other elements.
+    //
+
+    // Activity module icons.
+    $fields['showactivityicons'] = '.page-header-image,.activityiconcontainer.courseicon';
     $customscss = '';
     // Automatically hide guest login button if Auto-login Guests is enabled and Guest Login button is visible.
     if (!empty($CFG->autologinguests) && !empty($CFG->guestloginbutton)) {

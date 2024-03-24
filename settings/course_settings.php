@@ -60,4 +60,12 @@ $default = false;
 $setting = new admin_setting_configcheckbox($name, $title, $description, $default, true, false);
 $page->add($setting);
 
+// Show activity icons.
+$name = 'theme_trema/showactivityicons';
+$title = get_string('showactivityicons', 'theme_trema');
+$description = get_string('showactivityicons_desc', 'theme_trema');
+$default = true;
+$setting = new admin_setting_configcheckbox($name, $title, $description, $default, true, false);
+$page->add($setting);
+
 $settings->add($page);
