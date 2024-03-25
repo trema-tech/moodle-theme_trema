@@ -51,7 +51,7 @@ $setting = new admin_setting_configselect($name, $title, $description, $default,
 $setting->set_updatedcallback('theme_reset_all_caches');
 $page->add($setting);
 
-// Hide selected items in the primary navigation.
+// Hide selected items in the primary navigation (custom menu).
 $hideitemsoptions = [];
 $hideitemsoptions['home'] = get_string('home');
 if ($CFG->enabledashboard) {
@@ -59,7 +59,6 @@ if ($CFG->enabledashboard) {
 }
 $hideitemsoptions['courses'] = get_string('mycourses');
 $hideitemsoptions['siteadminnode'] = get_string('administrationsite');
-
 $name = 'theme_trema/hideprimarynavigationitems';
 $title = get_string('hideprimarynavigationitems', 'theme_trema', null, true);
 $description = get_string('hideprimarynavigationitems_desc', 'theme_trema', null, true);
@@ -96,6 +95,15 @@ $setting = new admin_setting_configselect($name, $title, $description, $default,
 $setting->set_updatedcallback('theme_reset_all_caches');
 $page->add($setting);
 
+// Hide the User menu / Logout link.
+$name = 'theme_trema/showumlogoutlink';
+$title = get_string('showumlogoutlink', 'theme_trema');
+$description = get_string('showumlogoutlink_desc', 'theme_trema');
+$default = true;
+$setting = new admin_setting_configcheckbox($name, $title, $description, $default, true, false);
+$setting->set_updatedcallback('theme_reset_all_caches');
+$page->add($setting);
+
 // Favicon image setting.
 $name = 'theme_trema/favicon';
 $title = get_string('favicon', 'theme_trema');
@@ -104,6 +112,7 @@ $setting = new admin_setting_configstoredfile($name, $title, $description, 'favi
 $setting->set_updatedcallback('theme_reset_all_caches');
 $page->add($setting);
 
+// Enable Admin Dashboard.
 $name = 'theme_trema/enableadmindashboard';
 $title = get_string('enableadmindashboard', 'theme_trema');
 $description = get_string('enableadmindashboard_desc', 'theme_trema', "$CFG->wwwroot/theme/trema/pix/examples/admindashboard.png");
@@ -112,6 +121,7 @@ $setting = new admin_setting_configcheckbox($name, $title, $description, $defaul
 $setting->set_updatedcallback('theme_reset_all_caches');
 $page->add($setting);
 
+// Enable Trema Course Style for Topics.
 $name = 'theme_trema/enabletrematopics';
 $title = get_string('enabletrematopics', 'theme_trema');
 $description = get_string('enabletrematopics_desc', 'theme_trema', "$CFG->wwwroot/theme/trema/pix/examples/trematopics.png");
@@ -120,6 +130,7 @@ $setting = new admin_setting_configcheckbox($name, $title, $description, $defaul
 $setting->set_updatedcallback('theme_reset_all_caches');
 $page->add($setting);
 
+// Enable Trema Lines.
 $name = 'theme_trema/enabletremalines';
 $title = get_string('enabletremalines', 'theme_trema');
 $description = get_string('enabletremalines_desc', 'theme_trema', "$CFG->wwwroot/theme/trema/pix/examples/tremalines.png");

@@ -159,6 +159,8 @@ $string['showehiddencategorycourses_desc'] = 'Deselect this option to hide cours
 //
 $string['showprofile_heading'] = 'Select the sections and fields to be displayed when user\'s edit their profile.';
 $string['showprofilesection_desc'] = 'Show the whole section.';
+$string['showumlogoutlink'] = 'Log out link';
+$string['showumlogoutlink_desc'] = 'Disable to hide the User Menu Log Out link.';
 
 //
 // List of course cards.

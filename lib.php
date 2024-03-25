@@ -178,6 +178,9 @@ function theme_trema_get_pre_scss($theme) {
     // Login form.
     $fields['loginshowloginform'] = '#login, .loginform .login-form, .login-form-forgotpassword form-group';
 
+    // User menu - Hide the Logout link.
+    $fields['showumlogoutlink'] = '#carousel-item-main a:last-of-type, #carousel-item-main .dropdown-divider:last-of-type';
+
     // Links to Moodle 'Page' activities on Frontpage unless in edit mode on the front page.
     $fields['showfrontpagelinkstopages'] = '#page-site-index:not(.editing) #page-content .modtype_page';
 
