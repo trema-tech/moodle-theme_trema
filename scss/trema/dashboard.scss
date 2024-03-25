@@ -80,10 +80,17 @@ body.pagelayout-mydashboard {
 }
 
 body#page-message-index {
-    #page-header,
+    #page-header {
+        display: block;
+    }
+
     #mydashboard-admin,
     #side-admin-blocks {
         display: none;
+    }
+
+    .panel-header-container {
+        margin-top: 25px;
     }
 
     #region-main {
