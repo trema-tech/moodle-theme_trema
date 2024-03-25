@@ -39,7 +39,7 @@ $string['bodybackgroundcolor_desc'] = 'Body background color ';
 $string['cachedef_dashboardadmin'] = 'Cache for Admin dashboard';
 $string['card'] = 'Card';
 $string['cardicon'] = 'Card icon';
-$string['cardicon_desc'] = 'See here the list of all Font Awesome available icons: <a href="https://fontawesome.com/v4.7.0/icons/" target="_blank">https://fontawesome.com/v4.7.0/icons/</a>';
+$string['cardicon_desc'] = 'See here the list of all Font Awesome available icons: <a href="https://fontawesome.com/v6/icons/" target="_blank">https://fontawesome.com/v6/icons/</a>';
 $string['cardiconcolor'] = 'Card icon color';
 $string['cardlink'] = 'Card link';
 $string['cardsubtitle'] = 'Card subtitle';

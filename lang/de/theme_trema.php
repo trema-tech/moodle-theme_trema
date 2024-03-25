@@ -35,7 +35,7 @@ $string['backgroundcolor'] = 'Hintergrundfarbe';
 $string['cachedef_dashboardadmin'] = 'Cache für das Admin dashboard';
 $string['card'] = 'Karte';
 $string['cardicon'] = 'Karten-Icon';
-$string['cardicon_desc'] = 'Eine Liste aller Font-Awesome-Icons steht hier: <a href="https://fontawesome.com/v4.7.0/icons/" target="_blank">https://fontawesome.com/v4.7.0/icons/</a>';
+$string['cardicon_desc'] = 'Eine Liste aller Font-Awesome-Icons steht hier: <a href="https://fontawesome.com/v6/icons/" target="_blank">https://fontawesome.com/v6/icons/</a>';
 $string['cardiconcolor'] = 'Karten-Icon Farbe';
 $string['cardlink'] = 'Karten-Link';
 $string['cardsubtitle'] = 'Karten-Untertitel';
