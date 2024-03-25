@@ -64,6 +64,13 @@ body#page-message-output-popup-notifications {
             .notification-area {
                 background-color: $white;
             }
+            .content-item-container:not(.selected):hover {
+                color: choose-contrast-color($primary);
+
+                .content-item-footer .timestamp {
+                    color: inherit;
+                }
+            }
         }
     }
 }
