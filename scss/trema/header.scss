@@ -28,7 +28,6 @@
                 color: choose-contrast-color($header-background-color)!important;
             }
         }
-
         &.bg-white {
             background-color: $header-background-color!important;
         }
@@ -117,6 +116,8 @@
     }
 
     .usermenu {
+        color: choose-contrast-color($loginbtn-bg-color);
+
         .login {
             line-height: 1.5;
             a {
@@ -135,6 +136,11 @@
                 }
                 color:choose-contrast-color(choose-contrast-color($loginbtn-bg-color));
             }
+        }
+
+        .usertext {
+            color: choose-contrast-color($header-background-color);
+            margin-top: 0.1rem
         }
 
         @media (max-width: 768px) {
