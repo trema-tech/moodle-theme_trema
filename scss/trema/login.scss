@@ -77,14 +77,17 @@ body#page-login-index {
     }
 
     .loginform {
-        .login-heading {
-            font-size: 1.25rem!important;
+        h1.login-heading {
+            font-size: 1.5rem!important;
+            line-height: 2.5rem;
+            text-align: center;
+            margin: ($spacer * 3) 0 ($spacer * 3) 0;
         }
+
         .login-identityprovider-btn {
             background-color: white!important;
             border: 1px solid #aaaaaa!important;
             color: black!important ;
-            width: auto;
             margin: 0!important;
         }
         .login-identityprovider-btn,
