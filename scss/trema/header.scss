@@ -226,6 +226,15 @@
     }
 }
 
+#page-wrapper .navbar-light  .navbar-brand {
+    color: choose-contrast-color($header-background-color);
+    font-weight: 400;
+    &:hover,
+    &:focus {
+        font-weight: 500;
+    }
+}
+
 #page .secondary-navigation {
     .navigation .nav-link {
         color: fix-color-contrast($primary);
