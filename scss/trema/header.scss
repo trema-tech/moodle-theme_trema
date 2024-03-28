@@ -50,7 +50,9 @@
     }
 
     .navbar-nav {
-        flex-wrap: nowrap;
+        .popover-region .icon {
+            font-weight: 600;
+        }
     }
 
     .trema-custom-menu {
