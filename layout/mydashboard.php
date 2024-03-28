@@ -86,7 +86,8 @@ $templatecontext = [
     'addblockbutton' => $addblockbutton,
     'regionmainsettingsmenu' => $regionmainsettingsmenu,
     'hasregionmainsettingsmenu' => !empty($regionmainsettingsmenu),
-    'defaultfrontpagefooter' => format_text($pluginsettings->defaultfooter, FORMAT_HTML, ['context' => $context]),
+    'defaultfrontpagefooter' => format_text($pluginsettings->defaultfooter, FORMAT_HTML,
+        ['context' => $context, 'noclean' => true]),
     'enabletremafooter' => $pluginsettings->enabletremafooter,
     'footerinfo' => format_text($pluginsettings->enablefooterinfo, FORMAT_HTML, ['context' => $context]),
 ];

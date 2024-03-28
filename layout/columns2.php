@@ -82,7 +82,8 @@ $templatecontext = [
     'headercontent' => $headercontent,
     'overflow' => $overflow,
     'addblockbutton' => $addblockbutton,
-    'defaultfrontpagefooter' => format_text($pluginsettings->defaultfooter, FORMAT_HTML, ['context' => $context]),
+    'defaultfrontpagefooter' => format_text($pluginsettings->defaultfooter, FORMAT_HTML,
+        ['context' => $context, 'noclean' => true]),
     'footerinfo' => $pluginsettings->enablefooterinfo,
 ];
 

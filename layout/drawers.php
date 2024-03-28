@@ -118,7 +118,8 @@ $templatecontext = [
     'headercontent' => $headercontent,
     'addblockbutton' => $addblockbutton,
     'enabletremafooter' => $pluginsettings->enabletremafooter ?? false,
-    'defaultfrontpagefooter' => format_text($pluginsettings->defaultfooter, FORMAT_HTML, ['context' => $context]),
+    'defaultfrontpagefooter' => format_text($pluginsettings->defaultfooter, FORMAT_HTML,
+        ['context' => $context, 'noclean' => true]),
     'footerinfo' => $pluginsettings->enablefooterinfo ?? false,
 ];
 
