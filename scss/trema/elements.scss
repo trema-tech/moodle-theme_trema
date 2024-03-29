@@ -130,12 +130,11 @@ body #page {
         font-weight: 600;
         font-size: 0.9rem;
         letter-spacing: 0.08rem;
-        height: 2.75rem;
+        min-height: 2.3rem;
         padding: 0 0.9rem;
         text-align: center;
         text-decoration: none;
         text-transform: $text-transform;
-        white-space: nowrap;
 
         &:hover {
             background-color: rgba($gray-800, 0.8);
@@ -167,13 +166,12 @@ body #page {
         font-weight: 600;
         font-size: 0.9rem;
         letter-spacing: 0.08rem;
-        height: 2.75rem;
+        min-height: 2.3rem;
         margin: 0.5rem;
         padding: 0 0.9rem;
         text-align: center;
         text-decoration: none;
         text-transform: $text-transform;
-        white-space: nowrap;
     }
 
 
@@ -187,14 +185,16 @@ body #page {
         }
     }
 
-    .btn {
-        line-height: 3.1em;
-        &.small {
-            line-height: 2rem;
-            height: 2rem;
+    .btn,
+    .btn.small {
+          line-height: 2.7rem;
+    }
+    button {
+        &.search-icon {
+          line-height: 1.3rem;
         }
-        &.large {
-            line-height: 2.5rem;
+        &.text-primary {
+            background-color: choose-contrast-color($primary)!important;
         }
     }
 

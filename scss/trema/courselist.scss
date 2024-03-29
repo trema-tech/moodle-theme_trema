@@ -35,8 +35,13 @@
             white-space: normal;
             line-height: 1.5rem;
             padding: .5rem .75rem;
+            height: auto;
         }
     }
+}
+
+body #page .card-see-more .btn {
+    line-height: 1.3rem;
 }
 
 @media (max-width: 769px) {
