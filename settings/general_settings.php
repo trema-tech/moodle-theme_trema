@@ -50,6 +50,14 @@ $setting = new admin_setting_configthemepreset($name, $title, $description, $def
 $setting->set_updatedcallback('theme_reset_all_caches');
 $page->add($setting);
 
+// Preset files setting.
+$name = 'theme_trema/presetfiles';
+$title = get_string('presetfiles','theme_boost');
+$description = get_string('presetfiles_desc', 'theme_boost');
+$restrictions = ['maxfiles' => 20, 'accepted_types' => array('.scss')];
+$setting = new admin_setting_configstoredfile($name, $title, $description, 'preset', 0, $restrictions);
+$page->add($setting);
+
 // Links.
 $name = 'theme_trema/linkdecoration';
 $title = get_string('linkdecoration', 'theme_trema');
