@@ -74,34 +74,39 @@ function theme_trema_get_main_scss_content($theme) {
  */
 function theme_trema_get_pre_scss($theme) {
     $scss = '';
+
     $configurable = [
-        // Config key => [variableName, ...].
-        'primarycolor' => 'primary',
-        'secondarycolor' => 'secondary',
-        'bodybackgroundcolor' => 'body-bg-color',
-        'drawerbgcolor' => 'drawer-bg-color',
-        'headerbgcolor' => 'header-background-color',
-        'loginbtnbgcolor' => 'loginbtn-bg-color',
-        'footerbgcolor' => 'footer-bg-color',
-        'sitefont' => 'body-font-family',
-        'h1font' => 'h1-font-family',
-        'hxfont' => 'hx-font-family',
-        'texttransform' => 'text-transform',
-        'bannertitletransform' => 'banner-title-transform',
-        'bannertitlespacing' => 'banner-title-spacing',
-        'custommenualignment' => 'custom-menu-alignment',
-        'linkdecoration' => 'links-decoration',
+        // Target SCSS variable name => Trema theme setting.
+        'primary' => 'primarycolor',
+        'secondary' => 'secondarycolor',
+        'body-bg-color' => 'bodybackgroundcolor',
+        'drawer-bg-color' => 'drawerbgcolor',
+        'header-background-color' => 'headerbgcolor',
+        'loginbtn-bg-color' => 'loginbtnbgcolor',
+        'footer-bg-color' => 'footerbgcolor',
+        'body-font-family' => 'sitefont',
+        'h1-font-family' => 'h1font',
+        'hx-font-family' => 'hxfont',
+        'text-transform' => 'texttransform',
+        'banner-title-transform' => 'bannertitletransform',
+        'banner-title-spacing' => 'bannertitlespacing',
+        'custom-menu-alignment' => 'custommenualignment',
+        'links-decoration' => 'linkdecoration',
+        'dropdown-bg' => 'bodybackgroundcolor',
     ];
 
     // Prepend variables first.
-    foreach ($configurable as $configkey => $target) {
-        $value = isset($theme->settings->{$configkey}) ? $theme->settings->{$configkey} : null;
+    foreach ($configurable as $scssvar => $themesetting) {
+        $value = isset($theme->settings->{$themesetting}) ? $theme->settings->{$themesetting} : null;
         if (empty($value)) {
             continue;
         }
-        $scss .= '$' . $target . ': ' . $value . ";\n";
+        $scss .= '$' . $scssvar . ': ' . $value . ";\n";
     }
-    $scss .= '$dropdown-bg: ' . $theme->settings->{'bodybackgroundcolor'} . ';' . PHP_EOL;
+
+    //
+    // Fonts
+    //
 
     $fonts = [
         'Arial, Helvetica, sans-serif' => 'Arial',
@@ -194,7 +199,7 @@ function theme_trema_get_pre_scss($theme) {
     }
 
     //
-    // Add all of the fields that we need to hide.
+    // Combine all of the fields that we need to hide.
     //
 
     foreach ($fields as $setting => $field) {
@@ -207,7 +212,10 @@ function theme_trema_get_pre_scss($theme) {
         $scss .= $customscss . 'displaynone {display: none;}';
     }
 
+    //
     // Login page
+    //
+
     // Background image.
     $backgroundimageurl = $theme->setting_file_url('loginbackgroundimage', 'loginbackgroundimage');
     if ($theme->settings->loginpagestyle == 'image' && !empty($backgroundimageurl)) {
