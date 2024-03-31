@@ -30,6 +30,15 @@ defined('MOODLE_INTERNAL') || die();
 
 $page = new admin_settingpage('theme_trema_general', get_string('general'));
 
+// Unaddable blocks. Exclude these blocks from the "Add a block" list: Administration, Navigation, Courses and Section links.
+$name = 'theme_trema/unaddableblocks';
+$title = get_string('unaddableblocks', 'theme_boost');
+$description = get_string('unaddableblocks_desc', 'theme_boost');
+$default = 'navigation,settings,course_list,section_links';
+$setting = new admin_setting_configtext($name, $title, $description, $default, PARAM_TEXT);
+$setting->set_updatedcallback('theme_reset_all_caches');
+$page->add($setting);
+
 // Preset.
 $name = 'theme_trema/preset';
 $title = get_string('preset', 'theme_trema');
