@@ -167,7 +167,7 @@ $THEME->layouts = [
 
 // Remove some of the default primary navigation items.
 $THEME->removedprimarynavitems = explode(',', get_config('theme_trema', 'hideprimarynavigationitems'));
-
+$THEME->extrascsscallback = 'theme_trema_get_extra_scss';
 $THEME->prescsscallback = 'theme_trema_get_pre_scss';
 $THEME->addblockposition = BLOCK_ADDBLOCK_POSITION_FLATNAV;
 $THEME->haseditswitch = true;

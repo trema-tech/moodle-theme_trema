@@ -165,7 +165,7 @@ body {
         padding-top: 1.5em;
 
         #topofscroll {
-            background-color: $body-bg-color;
+            background-color: transparent;
             margin-top: 0;
             padding-top: 0;
         }
@@ -179,6 +179,9 @@ body {
             .breadcrumb {
                 &:not(:empty) .breadcrumb-item {
                     flex-grow: 0;
+                }
+                &, a, a:hover, a:focus, a:active, &::before {
+                    color: choose-contrast-color($body-bg-color);
                 }
             }
         }

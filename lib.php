@@ -73,6 +73,8 @@ function theme_trema_get_main_scss_content($theme) {
  * @return string
  */
 function theme_trema_get_pre_scss($theme) {
+    global $CFG;
+
     $scss = '';
 
     $configurable = [
@@ -180,6 +182,7 @@ function theme_trema_get_pre_scss($theme) {
 
     // Activity module icons.
     $fields['showactivityicons'] = '.page-header-image,.activityiconcontainer.courseicon';
+
     // Login form.
     $fields['loginshowloginform'] = '#login, .loginform .login-form, .login-form-forgotpassword form-group';
 
@@ -233,6 +236,28 @@ function theme_trema_get_pre_scss($theme) {
         $scss .= $theme->settings->scsspre;
     }
     return $scss;
+}
+
+/**
+ * Inject additional SCSS for images.
+ *
+ * @param theme_config $theme Theme config object.
+ * @return string
+ */
+function theme_trema_get_extra_scss($theme) {
+    $content = '';
+    $imageurl = $theme->setting_file_url('backgroundimage', 'backgroundimage');
+
+    // Sets the background image and its settings.
+    if (!empty($imageurl)) {
+        $content .= '@media (min-width: 768px) { ';
+        $content .= '    body { ';
+        $content .= '        background-image: url("' . $imageurl . '"); ';
+        $content .= '        background-size: cover; ';
+        $content .= '        background-attachment: fixed; ';
+        $content .= '    } ';
+        $content .= "}\n";
+    }
 }
 
 /**

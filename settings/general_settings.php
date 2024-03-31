@@ -58,6 +58,14 @@ $restrictions = ['maxfiles' => 20, 'accepted_types' => array('.scss')];
 $setting = new admin_setting_configstoredfile($name, $title, $description, 'preset', 0, $restrictions);
 $page->add($setting);
 
+// Background image setting.
+$name = 'theme_trema/backgroundimage';
+$title = get_string('backgroundimage', 'theme_boost');
+$description = get_string('backgroundimage_desc', 'theme_boost');
+$setting = new admin_setting_configstoredfile($name, $title, $description, 'backgroundimage');
+$setting->set_updatedcallback('theme_reset_all_caches');
+$page->add($setting);
+
 // Links.
 $name = 'theme_trema/linkdecoration';
 $title = get_string('linkdecoration', 'theme_trema');
