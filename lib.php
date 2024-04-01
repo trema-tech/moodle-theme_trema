@@ -106,9 +106,9 @@ function theme_trema_get_pre_scss($theme) {
         $scss .= '$' . $scssvar . ': ' . $value . ";\n";
     }
 
-    //
+    // ....
     // Fonts
-    //
+    // ....
 
     $fonts = [
         'Arial, Helvetica, sans-serif' => 'Arial',
@@ -215,9 +215,9 @@ function theme_trema_get_pre_scss($theme) {
         $scss .= $customscss . 'displaynone {display: none;}';
     }
 
-    //
+    // ....
     // Login page
-    //
+    // ....
 
     // Background image.
     $backgroundimageurl = $theme->setting_file_url('loginbackgroundimage', 'loginbackgroundimage');
@@ -258,6 +258,9 @@ function theme_trema_get_extra_scss($theme) {
         $content .= '    } ';
         $content .= "}\n";
     }
+
+    // Always return the background image with the scss when we have it.
+    return !empty($theme->settings->scss) ? "{$theme->settings->scss}  \n  {$content}" : $content;
 }
 
 /**

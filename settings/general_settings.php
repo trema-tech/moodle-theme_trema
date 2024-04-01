@@ -52,9 +52,9 @@ $page->add($setting);
 
 // Preset files setting.
 $name = 'theme_trema/presetfiles';
-$title = get_string('presetfiles','theme_boost');
+$title = get_string('presetfiles', 'theme_boost');
 $description = get_string('presetfiles_desc', 'theme_boost');
-$restrictions = ['maxfiles' => 20, 'accepted_types' => array('.scss')];
+$restrictions = ['maxfiles' => 20, 'accepted_types' => ['.scss']];
 $setting = new admin_setting_configstoredfile($name, $title, $description, 'preset', 0, $restrictions);
 $page->add($setting);
 

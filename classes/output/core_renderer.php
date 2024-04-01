@@ -71,8 +71,8 @@ class core_renderer extends \theme_boost\output\core_renderer {
                 $favicon = $this->page->theme->image_url('favicon', 'theme');
             } else {
                 // Fallback to the webserver's favicon.ico.
-                $parsed_url = parse_url($CFG->wwwroot);
-                $favicon = $parsed_url['scheme'] . '://' . $parsed_url['host'] . '/favicon.ico';
+                $parsedurl = parse_url($CFG->wwwroot);
+                $favicon = $parsedurl['scheme'] . '://' . $parsedurl['host'] . '/favicon.ico';
                 // If there isn't any, the browser will fallback to its own default favicon.
             }
         }
