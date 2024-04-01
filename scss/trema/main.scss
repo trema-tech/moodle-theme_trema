@@ -212,8 +212,7 @@ body {
             @extend %border-frequency;
         }
 
-        a:not(.dropdown-item),
-        a:not(.btn) {
+        a:not(.dropdown-item,.btn) {
             color: fix-color-contrast($primary);
             text-decoration: $links-decoration;
             font-weight: normal;
@@ -252,11 +251,15 @@ body {
             }
         }
     }
-}
 
-body#page-user-profile {
-    #region-main-box {
-        padding: 0;
+    &#page-user-profile {
+        #region-main-box {
+            padding: 0;
+        }
+    }
+
+    .dropdown-menu {
+        background-color: $gray-100;
     }
 }
 

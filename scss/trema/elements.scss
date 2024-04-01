@@ -83,7 +83,7 @@ body #page {
     .dropdown-item:hover,
     .dropdown-item:focus,
     .dropdown-item:focus-within {
-        background-color: lighten($primary, 20%);
+        background-color: $primary;
         color: choose-contrast-color($primary);
     }
 
