@@ -2,7 +2,7 @@ body.path-user:not(#page-course-view-participants),
 body.format-site.path-grade {
     #page {
         #page-header {
-            background-color: #ffffff;
+            background-color: $white;
             padding: 1rem;
             margin-bottom: 0;
             @extend %border-frequency;

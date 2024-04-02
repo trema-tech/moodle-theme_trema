@@ -114,8 +114,8 @@ footer#page-footer {
         height: 36px;
         margin: 0;
         padding: 0;
-        background-color: #373a3c !important;
-        color: #ffffff !important;
+        background-color: $gray-800 !important;
+        color: $white !important;
     }
     .popover-body a:not(.button) {
         color: $black;
@@ -126,12 +126,12 @@ footer#page-footer {
     }
 
     .performanceinfo {
-        background-color: #000000;
+        background-color: $black;
         color: white;
         table.table {
-            width: 100%!important;
+            width: 100% !important;
             th {
-                background-color: #676A6C;
+                background-color: #676a6c;
             }
         }
     }
