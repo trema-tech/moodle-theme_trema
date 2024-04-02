@@ -216,28 +216,33 @@ $string['cardtitle_default'] = 'Card Title';
 $string['cardsubtitle_default'] = 'The description of this card goes here. Several lines of text can be placed in this space.';
 $string['subtitle_default'] = 'This is the default subtitle. You can modify or remove this in the Trema theme settings.';
 $string['defaultfooter_default'] = '<div class="row">
-	<div class="col-md-8">
-		<h3 class="-align-center">Trema Solutions in Technology</h3>
-
-	</div>
-	<div class="col-md-4">
-		<h3>Contact Us</h3>
-
-		<ul class="labeled-icons">
-			<li>
-                <span class="fa fa-globe fa-2x"></span>
-                <a href="https://trema.tech/" target="_blank" style="cursor: pointer;">
-                    <p>https://trema.tech/</p>
-                </a>
-            </li>
-			<li>
-                <span class="fa fa-github fa-2x"></span>
-                <a href="https://github.com/trema-tech/" target="_blank" style="cursor: pointer;">
-                    <p>https://github.com/trema-tech/</p>
-                </a>
-            </li>
-		</ul>
-	</div>
+  <div class="col-md-4 col-sm-6 col-12">
+    <h3 class="h5 mb-4">Trema Campus</h3>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+      tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+      veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+      commodo consequat.</p>
+  </div>
+  <div class="col-md-3 col-sm-12 ml-auto">
+    <h3 class="h5 mb-4">Contact Us</h3>
+    <ul class="labeled-icons">
+      <li class="mb-2"><i class="fa fa-info-circle fa-fw"></i>&nbsp;<a href="#">FAQ</a></li>
+      <li class="mb-2"><i class="fa fa-mortar-board"></i>&nbsp;<a href="#">Registrar\'s office</a></li>
+      <li class="mb-2"><i class="fa fa-question-circle fa-fw"></i>&nbsp;<a href="#">Student support</a></li>
+      <li class="mb-2"><i class="fa fa-phone fa-fw"></i>&nbsp;<a href="tel:999-555-1212">999-555-1212</a></li>
+      <li class="mb-2"><i class="fa fa-clock fa-fw"></i>&nbsp;Monday-Friday 8 AM to 4 PM</li>
+    </ul>
+  </div>
+  <div class="col-md-3 col-sm-6 col-12">
+    <h3 class="h5 mb-4">Stay in touch</h3>
+    <ul class="labeled-icons">
+      <li class="mb-2"><i class="fa fa-envelope fa-fw" aria-hidden="true"></i>&nbsp;<a href="#">Sign up for our newsletter</a></li>
+      <li class="mb-2"><i class="fa fa-facebook fa-fw" aria-hidden="true"></i>&nbsp;<a href="https://facebook.com">Facebook</a></li>
+      <li class="mb-2"><i class="fa fa-twitter fa-fw" aria-hidden="true"></i>&nbsp;<a href="https://twitter.com">Twitter</a></li>
+      <li class="mb-2"><i class="fa fa-linkedin fa-fw" aria-hidden="true"></i>&nbsp;<a href="https://linkedin.com">LinkedIn</a></li>
+      <li class="mb-2"><i class="fa fa-youtube fa-fw" aria-hidden="true"></i>&nbsp;<a href="https://youtube.com">YouTube</a></li>
+    </ul>
+  </div>
 </div>';
 
 // Footer settings.
