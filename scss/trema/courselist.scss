@@ -1,4 +1,4 @@
-.course-card-view {
+#page .course-card-view {
     box-shadow: 5px 5px 9px -4px rgba($black, .1);
     padding-bottom: 4rem;
     max-width: 16rem;
@@ -32,6 +32,9 @@
 
         .btn {
             width: 90%;
+            white-space: normal;
+            line-height: 1.5rem;
+            padding: .5rem .75rem;
         }
     }
 }
