@@ -247,3 +247,5 @@ $string['showmoodlebranding'] = 'Moodle branding';
 $string['showmoodlebranding_desc'] = 'Show or hide Moodle branding in the page footer.';
 $string['showfrontpagelinkstopages'] = 'Frontpage pages';
 $string['showfrontpagelinkstopages_desc'] = 'Uncheck this setting to hide links to pages on the Frontpage. These pages can be useful when you want to create additional pages of information, About us, Contact Us, Help/FAQ, etc.';
+$string['softness'] = 'Softness';
+$string['softness_desc'] = 'Enable for a softer look by rounding some corners.';

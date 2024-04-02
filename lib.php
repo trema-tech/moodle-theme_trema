@@ -132,9 +132,9 @@ function theme_trema_get_pre_scss($theme) {
     $scss .= '$h1fontfile: "' . $fonts[$theme->settings->h1font] . '";' . PHP_EOL;
     $scss .= '$hxfontfile: "' . $fonts[$theme->settings->hxfont] . '";' . PHP_EOL;
 
-    //
+    // ....
     // Show/hide User profile fields.
-    //
+    // ....
 
     $fields = [];
 
@@ -201,9 +201,9 @@ function theme_trema_get_pre_scss($theme) {
         $customscss .= '#guestlogin,';
     }
 
-    //
+    // ....
     // Combine all of the fields that we need to hide.
-    //
+    // ....
 
     foreach ($fields as $setting => $field) {
         if (empty($theme->settings->$setting)) {
@@ -226,15 +226,27 @@ function theme_trema_get_pre_scss($theme) {
     } else {
         $scss .= "\$login-backgroundimage: '[[pix:theme|frontpage/banner]]';\n";
     }
+
     // Not image in settings.
     if ($theme->settings->loginpagestyle !== 'image') {
         $scss .= "body.pagelayout-login #page-wrapper { background-image: none; }\n";
     }
 
+    // ....
+    // Other settings.
+    // ....
+
+    // Softness: Rounding some corners.
+    $scss .= '$softness: ' . (!empty($theme->settings->softness) ? '.5rem' : '0') . ";\n";
+
+    // ....
     // Prepend pre-scss.
+    // ....
+
     if (! empty($theme->settings->scsspre)) {
         $scss .= $theme->settings->scsspre;
     }
+
     return $scss;
 }
 

@@ -164,5 +164,14 @@ $setting = new admin_setting_configcheckbox($name, $title, $description, $defaul
 $setting->set_updatedcallback('theme_reset_all_caches');
 $page->add($setting);
 
+// Enable a softer look by rounding some corners.
+$name = 'theme_trema/softness';
+$title = get_string('softness', 'theme_trema');
+$description = get_string('softness_desc', 'theme_trema');
+$default = '1';
+$setting = new admin_setting_configcheckbox($name, $title, $description, $default);
+$setting->set_updatedcallback('theme_reset_all_caches');
+$page->add($setting);
+
 // Must add the page after definiting all the settings!
 $settings->add($page);

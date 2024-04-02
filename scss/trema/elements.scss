@@ -122,7 +122,7 @@ body #page {
         appearance: none;
         transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
         background-color: $gray-800;
-        border-radius: 0;
+        border-radius: $softness;
         border: 0;
         color: $white;
         cursor: pointer;
@@ -158,7 +158,7 @@ body #page {
     .btn.btn-icon,
     .btn.btn-link:not(.activity-add) {
         background-color: transparent;
-        border-radius: 0;
+        border-radius: $softness;
         border: 0;
         color: $black;
         cursor: pointer;
@@ -276,7 +276,7 @@ body #page {
         select,
         textarea {
             appearance: none;
-            border-radius: 0;
+            border-radius: $softness;
             border: solid 1px rgba(144, 144, 144, 0.35);
             color: inherit;
             text-decoration: none;
@@ -397,7 +397,7 @@ body #page {
                 border-right: none;
                 background-color: $white;
                 color: $primary;
-                border-radius: 0;
+                border-radius: $softness;
 
                 &.active {
                     color: $white;
@@ -486,5 +486,22 @@ body.path-mod-quiz {
             display: inline;
             width: auto;
         }
+    }
+}
+
+@if ($softness != 0) {
+    .drawer-toggles .drawer-left-toggle .btn,
+    .input-group>.input-group-append>.btn, .input-group>.input-group-append>.input-group-text, .input-group>.input-group-prepend:not(:first-child)>.btn, .input-group>.input-group-prepend:not(:first-child)>.input-group-text, .input-group>.input-group-prepend:first-child>.btn:not(:first-child), .input-group>.input-group-prepend:first-child>.input-group-text:not(:first-child) {
+        border-top-left-radius: 0!important;
+        border-bottom-left-radius: 0!important;
+    }
+    body #page form .input-group input[type="text"],
+    .drawer-toggles .drawer-right-toggle .btn {
+        border-top-right-radius: 0!important;
+        border-bottom-right-radius: 0!important;
+    }
+    .secondary-navigation .navigation {
+        border-top-left-radius: .5rem!important;
+        border-top-right-radius: .5rem!important;
     }
 }
