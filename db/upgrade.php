@@ -22,8 +22,9 @@
  * @author      Michael Milette
  * @license     http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 function xmldb_theme_trema_upgrade($oldversion): bool {
+    global $DB;
+
     if ($oldversion < 2024031000) {
         // Particles background is deprecated.
         if (get_config('theme_trema', 'loginpagestyle') == 'particle-circles') {
@@ -31,6 +32,28 @@ function xmldb_theme_trema_upgrade($oldversion): bool {
         }
     }
 
-    // Everything has succeeded to here. Return true.
+    // @author:  2022 Willian Mano {@link https://conecti.me}
+    if ($oldversion < 2024040100) {
+        $usertours = $DB->get_records('tool_usertours_tours');
+
+        if ($usertours) {
+            foreach ($usertours as $usertour) {
+                $configdata = json_decode($usertour->configdata);
+
+                if (in_array('boost', $configdata->filtervalues->theme)) {
+                    $configdata->filtervalues->theme[] = 'trema';
+                }
+
+                $updatedata = new stdClass();
+                $updatedata->id = $usertour->id;
+                $updatedata->configdata = json_encode($configdata);
+
+                $DB->update_record('tool_usertours_tours', $updatedata);
+            }
+        }
+
+        upgrade_plugin_savepoint(true, 2024040100, 'theme', 'trema');
+    }
+
     return true;
 }
