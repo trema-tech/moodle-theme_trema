@@ -182,7 +182,6 @@ function theme_trema_count_users_enrolments() {
  * @return false|mixed
  */
 function theme_trema_get_environment_issues() {
-    global $CFG;
     $cache = cache::make('theme_trema', 'dashboardadmin');
     $environmentissues = $cache->get('environmentissues');
     if (!$environmentissues) {
