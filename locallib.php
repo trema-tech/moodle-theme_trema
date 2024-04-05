@@ -61,20 +61,19 @@ function theme_trema_get_cards_settings() {
 function theme_trema_get_disk_usage() {
     global $CFG;
 
-    $cache = cache::make('theme_trema', 'dashboardadmin');
-    $totaldisk = $cache->get('totaldisk');
-
-    if (!$totaldisk) {
-        $total = get_directory_size($CFG->dataroot);
-        $totaldisk = number_format(ceil($total / 1048576));
-        $cache->set('totaldisk', $totaldisk);
+    $bytes = @disk_free_space($CFG->dataroot);
+    if ($bytes === false || $bytes < 0 || is_null($bytes) || $bytes > 1.0E+26) {
+        // If invalid number of bytes, or value is more than about 84,703.29 Yottabyte (YB), assume it is infinite.
+        return '&infin;'; // Could not determine, assume infinite.
     }
 
-    $usageunit = ' MB';
-    if ($totaldisk > 1024) {
-        $usageunit = ' GB';
+    $warning = ($bytes <= 104857600); // Warning at 100 MB.
+    $freespace = display_size($bytes);
+    if ($warning) {
+        $freespace = '<span class="badge-danger px-1">' . $freespace . '</span>';
     }
-    return $totaldisk . $usageunit;
+
+    return $freespace;
 }
 
 /**

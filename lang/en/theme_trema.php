@@ -29,10 +29,10 @@
 defined('MOODLE_INTERNAL') || die();
 
 // Theme strings.
-$string['activecourses'] = 'Active Courses';
-$string['activeenrollments'] = 'Active Enrollments';
 $string['adminarea'] = 'Only Administrators can see blocks in this area.';
-$string['alert'] = 'Alert';
+$string['admindashboard'] = 'Admin Dashboard';
+$string['alert'] = 'Alerts';
+$string['available'] = 'Available';
 $string['backgroundcolor'] = 'Background color';
 $string['bodybackgroundcolor'] = 'Body background color';
 $string['bodybackgroundcolor_desc'] = 'Body background color ';
@@ -58,7 +58,7 @@ $string['defaultfrontpagebody'] = 'Frontpage Body';
 $string['defaultfrontpagebody_desc'] = 'Default content from frontpage body';
 $string['defaultfooter'] = 'Footer';
 $string['defaultfooter_desc'] = 'Default content from footer';
-$string['diskusage'] = 'Moodledata disk usage';
+$string['diskusage'] = 'Data storage space';
 $string['frontpage'] = 'Frontpage';
 $string['defaultfrontpagefooter'] = 'Frontpage Footer';
 $string['defaultfrontpagefooter_desc'] = 'Default content from frontpage footer';
@@ -70,12 +70,12 @@ $string['headerbgcolor'] = 'Header Background Color';
 $string['headerbgcolor_desc']  = 'The background color of the header.';
 $string['footerbgcolor'] = 'Footer Background Color';
 $string['footerbgcolor_desc']  = 'The background color of the footer.';
-$string['enableadmindashboard'] = 'Enable Admin Dashboard';
 $string['enabletrematopics'] = 'Enable Trema Course Style for Topics';
 $string['enabletrematopics_desc'] = 'Enable Trema Course Style for Course format Topics: <br> <img class="img-responsive" src="{$a}"/>';
 $string['enabletremalines'] = 'Enable Trema Lines';
 $string['enabletremalines_desc'] = 'Enable Trema Lines: <br> <img class="img-responsive" src="{$a}"/>';
-$string['enableadmindashboard_desc'] = 'Uncheck if you want to hide the area below in admin dashboard: <img class="img-responsive" src="{$a}"/>';
+$string['enableadmindashboard'] = 'Admin Dashboard';
+$string['enableadmindashboard_desc'] = 'Enable if you want to show additional site information in admin dashboard: <img class="img-responsive" src="{$a}"/>';
 $string['enablefooterinfo'] = 'Footer Info';
 $string['enablefooterinfo_desc'] = 'Enable to show additional links and information in the footer:<br><img class="img-responsive" src="{$a}"/>';
 $string['favicon'] = 'Custom favicon';
