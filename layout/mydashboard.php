@@ -86,10 +86,10 @@ $templatecontext = [
     'addblockbutton' => $addblockbutton,
     'regionmainsettingsmenu' => $regionmainsettingsmenu,
     'hasregionmainsettingsmenu' => !empty($regionmainsettingsmenu),
-    'defaultfrontpagefooter' => format_text($pluginsettings->defaultfooter, FORMAT_HTML,
-        ['context' => $context, 'noclean' => true]),
+    'defaultfooter' => format_text($pluginsettings->defaultfooter, FORMAT_HTML, ['context' => $context, 'noclean' => true]),
     'enabletremafooter' => $pluginsettings->enabletremafooter,
-    'footerinfo' => format_text($pluginsettings->enablefooterinfo, FORMAT_HTML, ['context' => $context]),
+    'footerinfo' => !empty($pluginsettings->enablefooterinfo),
+    'showbranding' => !empty($pluginsettings->showbranding),
 ];
 
 if (is_siteadmin() && $pluginsettings->enableadmindashboard) {

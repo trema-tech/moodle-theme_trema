@@ -193,7 +193,7 @@ function theme_trema_get_pre_scss($theme) {
     $fields['showfrontpagelinkstopages'] = '#page-site-index:not(.editing) #page-content .modtype_page';
 
     // Moodle branding.
-    $fields['showmoodlebranding'] = '.sitelink,.footer-section.p-3:not(.border-bottom)';
+    $fields['showbranding'] = '.sitelink,.footer-section.p-3:not(.border-bottom)';
 
     $customscss = '';
     // Automatically hide guest login button if Auto-login Guests is enabled and Guest Login button is visible.

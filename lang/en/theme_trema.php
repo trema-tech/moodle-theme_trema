@@ -76,8 +76,8 @@ $string['enabletrematopics_desc'] = 'Enable Trema Course Style for Course format
 $string['enabletremalines'] = 'Enable Trema Lines';
 $string['enabletremalines_desc'] = 'Enable Trema Lines: <br> <img class="img-responsive" src="{$a}"/>';
 $string['enableadmindashboard_desc'] = 'Uncheck if you want to hide the area below in admin dashboard: <img class="img-responsive" src="{$a}"/>';
-$string['enablefooterinfo'] = 'Enable Footer Info and Trema info';
-$string['enablefooterinfo_desc'] = 'Uncheck if you want to hide the area below in footer: <img class="img-responsive" src="{$a}"/>';
+$string['enablefooterinfo'] = 'Footer Info';
+$string['enablefooterinfo_desc'] = 'Enable to show additional links and information in the footer:<br><img class="img-responsive" src="{$a}"/>';
 $string['favicon'] = 'Custom favicon';
 $string['favicon_desc'] = 'Upload your own favicon. It should be an .ico file.';
 $string['fontscolorssettings'] = 'Fonts and Colors';
@@ -246,8 +246,8 @@ $string['defaultfooter_default'] = '<div class="row">
 // Footer settings.
 $string['enabletremafooter'] = 'Enable Trema Footer';
 $string['enabletremafooter_desc'] = 'Enable Trema Footer instead of Boost popup footer';
-$string['showmoodlebranding'] = 'Moodle branding';
-$string['showmoodlebranding_desc'] = 'Show or hide Moodle branding in the page footer.';
+$string['showbranding'] = 'Branding';
+$string['showbranding_desc'] = 'Show or hide Moodle and Trema branding and copyright in the page footer.';
 $string['showfrontpagelinkstopages'] = 'Frontpage pages';
 $string['showfrontpagelinkstopages_desc'] = 'Uncheck this setting to hide links to pages on the Frontpage. These pages can be useful when you want to create additional pages of information, About us, Contact Us, Help/FAQ, etc.';
 $string['softness'] = 'Softness';
