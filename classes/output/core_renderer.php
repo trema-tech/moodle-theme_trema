@@ -168,23 +168,6 @@ class core_renderer extends \theme_boost\output\core_renderer {
      * @throws \moodle_exception
      */
     protected function render_custom_menu(custom_menu $menu) {
-        if ($showmycourses = get_config('theme_trema', 'showmycourses')) {
-            $mycourses = $this->page->navigation->get('mycourses');
-
-            if (isloggedin() && $mycourses && $mycourses->has_children()) {
-                $branchlabel = 'fa-graduation-cap ' . get_string('mycourses');
-                $branchurl   = new moodle_url('/course/index.php');
-                $branchtitle = $branchlabel;
-                $branchsort  = $showmycourses;
-
-                $branch = $menu->add($branchlabel, $branchurl, $branchtitle, $branchsort);
-
-                foreach ($mycourses->children as $coursenode) {
-                    $branch->add($coursenode->get_content(), $coursenode->action, $coursenode->get_title());
-                }
-            }
-        }
-
         // Change Fontawesome's codes by HTML.
         $content = '';
         foreach ($menu->get_children() as $item) {

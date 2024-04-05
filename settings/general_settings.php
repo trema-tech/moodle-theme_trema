@@ -105,21 +105,6 @@ $setting = new admin_setting_configselect($name, $title, $description, $default,
 $setting->set_updatedcallback('theme_reset_all_caches');
 $page->add($setting);
 
-// Navbar - show my courses.
-$choices = [
-    0 => "don't show",
-    -10000 => "show left",
-    10000 => "show right",
-];
-
-$name = 'theme_trema/showmycourses';
-$title = new lang_string('showmycourses', 'theme_trema');
-$description = new lang_string('showmycourses_desc', 'theme_trema');
-$default = '-10000';
-$setting = new admin_setting_configselect($name, $title, $description, $default, $choices);
-$setting->set_updatedcallback('theme_reset_all_caches');
-$page->add($setting);
-
 // Hide the User menu / Logout link.
 $name = 'theme_trema/showumlogoutlink';
 $title = get_string('showumlogoutlink', 'theme_trema');
