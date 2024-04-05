@@ -7,7 +7,7 @@ body#page-login-index {
 
     #region-main {
         padding-top: 0;
-        background-color: $white;
+        background-color: #ffffff;
         height: 100vh;
     }
 
@@ -22,7 +22,7 @@ body#page-login-index {
     }
 
     #page {
-        padding-top: 0 !important;
+        padding-top: 0!important;
         background: none;
         #card-login,
         #card-login-instructions {
@@ -78,14 +78,14 @@ body#page-login-index {
 
     .loginform {
         .login-heading {
-            font-size: 1.25rem !important;
+            font-size: 1.25rem!important;
         }
         .login-identityprovider-btn {
-            background-color: $white !important;
-            border: 1px solid #aaa !important;
-            color: $black !important;
+            background-color: white!important;
+            border: 1px solid #aaaaaa!important;
+            color: black!important ;
             width: auto;
-            margin: 0 !important;
+            margin: 0!important;
         }
         .login-identityprovider-btn,
         .btn-secondary {
@@ -97,7 +97,7 @@ body#page-login-index {
     }
 
     .login-wrapper {
-        align-items: normal;
+      align-items: normal;
     }
 }
 

@@ -24,8 +24,7 @@
 
     @if ($lightContrast > $darkContrast) {
         @return white;
-    }
-    @else {
+    } @else {
         @return black;
     }
 }
@@ -33,23 +32,21 @@
 /**
  * Function: fix-color-contrast
  *
- * Calculates the contrast ratio between a color and a background color and returns a darkened
- * color if the contrast ratio is not sufficient.
+ * Calculates the contrast ratio between a color and a background color and returns a darkened color if the contrast ratio is not sufficient.
  *
  * @param {color} $color - The color to be evaluated.
  * @param {color} $background-color - The background color against which the contrast ratio is calculated. Default value is white.
  *
  * @return {color} - The original color if the contrast ratio is sufficient, otherwise a darker color.
  */
-@function fix-color-contrast($color, $background-color: white) {
+ @function fix-color-contrast($color, $background-color: white) {
     // Calculate the contrast ratio using your existing function
     $contrast: contrast($color, $background-color);
 
     // Check if the contrast ratio is sufficient
     @if $contrast >=4.5 {
         @return $color; // Return the original color
-    }
-    @else {
+    } @else {
         @return black; // Return black
     }
 }
