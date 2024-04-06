@@ -30,6 +30,14 @@ defined('MOODLE_INTERNAL') || die();
 
 $page = new admin_settingpage('theme_trema_fontscolors', get_string('fontscolorssettings', 'theme_trema'));
 
+// Heading for Colors section.
+$name = 'theme_trema_colors';
+$title = get_string('colors', 'theme_trema');
+$description = '';
+$format = FORMAT_MARKDOWN;
+$setting = new admin_setting_heading($name, $title, $description, $format);
+$page->add($setting);
+
 // We use an empty default value because the default colour is defined in scss/defaultvariables.
 $name = 'theme_trema/primarycolor';
 $title = get_string('primarycolor', 'theme_trema');
@@ -63,9 +71,9 @@ $coloroptions = [
     '#000000' => get_string('black', 'theme_trema'),
     '#e9ecef' => get_string('light', 'theme_trema'),
     '#373a3c' => get_string('dark', 'theme_trema'),
-    get_config('theme_trema', 'primarycolor') => get_string('sameprimarycolor', 'theme_trema'),
-    get_config('theme_trema', 'secondarycolor') => get_string('samesecondarycolor', 'theme_trema'),
-    get_config('theme_trema', 'bodybackgroundcolor') => get_string('samebasecolor', 'theme_trema'),
+    'primarycolor' => get_string('sameprimarycolor', 'theme_trema'),
+    'secondarycolor' => get_string('samesecondarycolor', 'theme_trema'),
+    'bodybackgroundcolor' => get_string('samebasecolor', 'theme_trema'),
 ];
 
 // Background for header.
@@ -81,7 +89,7 @@ $page->add($setting);
 $name = 'theme_trema/loginbtnbgcolor';
 $title = get_string('loginbtnbgcolor', 'theme_trema');
 $description = get_string('loginbtnbgcolor_desc', 'theme_trema');
-$default = get_config('theme_trema', 'primarycolor');
+$default = 'primarycolor';
 $setting = new admin_setting_configselect($name, $title, $description, $default, $coloroptions);
 $setting->set_updatedcallback('theme_reset_all_caches');
 $page->add($setting);
@@ -90,6 +98,7 @@ $page->add($setting);
 $name = 'theme_trema/drawerbgcolor';
 $title = get_string('drawerbgcolor', 'theme_trema');
 $description = get_string('drawerbgcolor_desc', 'theme_trema');
+$default = '#e9ecef';
 $setting = new admin_setting_configselect($name, $title, $description, $default, $coloroptions);
 $setting->set_updatedcallback('theme_reset_all_caches');
 $page->add($setting);
@@ -101,6 +110,14 @@ $description = get_string('footerbgcolor_desc', 'theme_trema');
 $default = '#373a3c';
 $setting = new admin_setting_configselect($name, $title, $description, $default, $coloroptions);
 $setting->set_updatedcallback('theme_reset_all_caches');
+$page->add($setting);
+
+// Heading for Fonts section.
+$name = 'theme_trema_fonts';
+$title = get_string('fonts', 'theme_trema');
+$description = '';
+$format = FORMAT_MARKDOWN;
+$setting = new admin_setting_heading($name, $title, $description, $format);
 $page->add($setting);
 
 // Fonts.
@@ -147,6 +164,14 @@ $description = get_string('hxfont_desc', 'theme_trema');
 $default = 'Lato, sans-serif';
 $setting = new admin_setting_configselect($name, $title, $description, $default, $fonts);
 $setting->set_updatedcallback('theme_reset_all_caches');
+$page->add($setting);
+
+// Heading for Appearance section.
+$name = 'theme_trema_appearance';
+$title = get_string('appearance');
+$description = '';
+$format = FORMAT_MARKDOWN;
+$setting = new admin_setting_heading($name, $title, $description, $format);
 $page->add($setting);
 
 $transformoptions = [

@@ -14,7 +14,7 @@
     width: 100%;
 
     .dropdown-divider {
-        border-top: 1px solid fix-color-contrast($secondary, $header-background-color);
+        border-top: 1px solid fix-color-contrast($secondary, $header-bg-color);
     }
 
     &.navbar-light {
@@ -22,19 +22,19 @@
             .nav-link:hover,
             .nav-link:focus,
             .nav-link {
-                color: choose-contrast-color($header-background-color);
+                color: choose-contrast-color($header-bg-color);
             }
             .editmode-switch-form, .editmode-switch-form .text-primary {
-                color: choose-contrast-color($header-background-color)!important;
+                color: choose-contrast-color($header-bg-color)!important;
             }
         }
         &.bg-white {
-            background-color: $header-background-color!important;
+            background-color: $header-bg-color!important;
         }
     }
 
     .site-name {
-        color: choose-contrast-color($header-background-color);
+        color: choose-contrast-color($header-bg-color);
         font-weight: bold;
         letter-spacing: 0.08rem;
         height: inherit;
@@ -131,7 +131,7 @@
             }
             a:hover, a:focus, a:active {
                 background-color: choose-contrast-color($loginbtn-bg-color);
-                @if ($loginbtn-bg-color == $header-background-color) {
+                @if ($loginbtn-bg-color == $header-bg-color) {
                     border: 1px solid $gray-500;
                 }
                 color:choose-contrast-color(choose-contrast-color($loginbtn-bg-color));
@@ -139,7 +139,7 @@
         }
 
         .usertext {
-            color: choose-contrast-color($header-background-color);
+            color: choose-contrast-color($header-bg-color);
             margin-top: 0.1rem
         }
 
@@ -186,19 +186,19 @@
             }
         }
         .dropdown-toggle::after {
-            color: choose-contrast-color($header-background-color);
+            color: choose-contrast-color($header-bg-color);
         }
     }
 
     .primary-navigation {
         .navigation .nav-link {
-            color: choose-contrast-color($header-background-color);
+            color: choose-contrast-color($header-bg-color);
             border-top: 3px solid transparent;
             transition: all ease-in 300ms;
             padding-top: 0.5em;
             &.active {
                 font-weight: normal;
-                color: choose-contrast-color($header-background-color);
+                color: choose-contrast-color($header-bg-color);
                 &:focus,
                 &:hover {
                     color: $dark;
@@ -227,7 +227,7 @@
 }
 
 #page-wrapper .navbar-light  .navbar-brand {
-    color: choose-contrast-color($header-background-color);
+    color: choose-contrast-color($header-bg-color);
     font-weight: 400;
     &:hover,
     &:focus {

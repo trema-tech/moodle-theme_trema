@@ -107,6 +107,28 @@ function theme_trema_get_pre_scss($theme) {
     }
 
     // ....
+    // Colors
+    // ....
+
+    $headerbgcolor = get_config('theme_trema', 'headerbgcolor');
+    if (substr($headerbgcolor, 0, 1) != '#') {
+        $headerbgcolor = get_config('theme_trema', $headerbgcolor);
+    }
+    $scss .= '$header-bg-color: ' . $headerbgcolor . ";\n";
+
+    $loginbtnbgcolor = get_config('theme_trema', 'loginbtnbgcolor');
+    if (substr($loginbtnbgcolor, 0, 1) != '#') {
+        $loginbtnbgcolor = get_config('theme_trema', $loginbtnbgcolor);
+    }
+    $scss .= '$loginbtn-bg-color: ' . $loginbtnbgcolor . ";\n";
+
+    $drawerbgcolor = get_config('theme_trema', 'drawerbgcolor');
+    if (substr($drawerbgcolor, 0, 1) != '#') {
+        $drawerbgcolor = get_config('theme_trema', $drawerbgcolor);
+    }
+    $scss .= '$drawer-bg-color: ' . $drawerbgcolor . ";\n";
+
+    // ....
     // Fonts
     // ....
 
