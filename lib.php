@@ -27,45 +27,6 @@
  */
 
 /**
- * Load the main SCSS and the frontpage banner.
- *
- * @param theme_config $theme
- *            The theme config object.
- * @return string
- */
-function theme_trema_get_main_scss_content($theme) {
-    global $CFG;
-
-    $scss = '';
-    $scss .= file_get_contents("$CFG->dirroot/theme/trema/scss/defaultvariables.scss");
-
-    $filename = !empty($theme->settings->preset) ? $theme->settings->preset : 'trema.scss';
-
-    $scss .= file_get_contents("$CFG->dirroot/theme/trema/scss/preset/{$filename}");
-
-    if (!empty($theme->settings->enabletrematopics)) {
-        $scss .= file_get_contents("$CFG->dirroot/theme/trema/scss/trema/topics.scss");
-    }
-
-    if (empty($theme->settings->enabletremalines)) {
-        $scss .= "%border-frequency { &:before, &:after { content: none !important;}}";
-    }
-
-    // Frontpage banner.
-    if (!empty($theme->settings->frontpageenabledarkoverlay)) {
-        $darkoverlay = "url([[pix:theme|frontpage/overlay]]),";
-    } else {
-        $darkoverlay = "";
-    }
-    if ($frontpagebannerurl = $theme->setting_file_url('frontpagebanner', 'frontpagebanner')) {
-        $scss .= "#frontpage-banner {background-image: $darkoverlay url('$frontpagebannerurl');}";
-    } else {
-        $scss .= "#frontpage-banner {background-image: $darkoverlay url([[pix:theme|frontpage/banner]]);}";
-    }
-    return $scss;
-}
-
-/**
  * Get SCSS to prepend.
  *
  * @param theme_config $theme
@@ -77,15 +38,13 @@ function theme_trema_get_pre_scss($theme) {
 
     $scss = '';
 
+    $scss .= file_get_contents("$CFG->dirroot/theme/trema/scss/defaultvariables.scss");
+
     $configurable = [
         // Target SCSS variable name => Trema theme setting.
         'primary' => 'primarycolor',
         'secondary' => 'secondarycolor',
         'body-bg-color' => 'bodybackgroundcolor',
-        'drawer-bg-color' => 'drawerbgcolor',
-        'header-background-color' => 'headerbgcolor',
-        'loginbtn-bg-color' => 'loginbtnbgcolor',
-        'footer-bg-color' => 'footerbgcolor',
         'body-font-family' => 'sitefont',
         'h1-font-family' => 'h1font',
         'hx-font-family' => 'hxfont',
@@ -94,7 +53,7 @@ function theme_trema_get_pre_scss($theme) {
         'banner-title-spacing' => 'bannertitlespacing',
         'custom-menu-alignment' => 'custommenualignment',
         'links-decoration' => 'linkdecoration',
-        'dropdown-bg' => 'bodybackgroundcolor',
+        'dropdown-bg-color' => 'bodybackgroundcolor',
     ];
 
     // Prepend variables first.
@@ -110,23 +69,35 @@ function theme_trema_get_pre_scss($theme) {
     // Colors
     // ....
 
+    {
+    // Background color of page header.
     $headerbgcolor = get_config('theme_trema', 'headerbgcolor');
-    if (substr($headerbgcolor, 0, 1) != '#') {
+    if (strpos('$#', substr($headerbgcolor, 0, 1)) === false) {
         $headerbgcolor = get_config('theme_trema', $headerbgcolor);
     }
-    $scss .= '$header-bg-color: ' . $headerbgcolor . ";\n";
+    $scss .= '$header-bg-color: ' . $headerbgcolor . " !default;\n";
 
+    // Background color of Log In button in page header.
     $loginbtnbgcolor = get_config('theme_trema', 'loginbtnbgcolor');
-    if (substr($loginbtnbgcolor, 0, 1) != '#') {
+    if (strpos('$#', substr($loginbtnbgcolor, 0, 1)) === false) {
         $loginbtnbgcolor = get_config('theme_trema', $loginbtnbgcolor);
     }
-    $scss .= '$loginbtn-bg-color: ' . $loginbtnbgcolor . ";\n";
+    $scss .= '$loginbtn-bg-color: ' . $loginbtnbgcolor . " !default;\n";
 
+    // Background color of drawers.
     $drawerbgcolor = get_config('theme_trema', 'drawerbgcolor');
-    if (substr($drawerbgcolor, 0, 1) != '#') {
+    if (strpos('$#', substr($drawerbgcolor, 0, 1)) === false) {
         $drawerbgcolor = get_config('theme_trema', $drawerbgcolor);
     }
-    $scss .= '$drawer-bg-color: ' . $drawerbgcolor . ";\n";
+    $scss .= '$drawer-bg-color: ' . $drawerbgcolor . " !default;\n";
+
+    // Background color of footer.
+    $footerbgcolor = get_config('theme_trema', 'footerbgcolor');
+    if (strpos('$#', substr($footerbgcolor, 0, 1)) === false) {
+        $footerbgcolor = get_config('theme_trema', $footerbgcolor);
+    }
+    $scss .= '$footer-bg-color: ' . $footerbgcolor . " !default;\n";
+    }
 
     // ....
     // Fonts
@@ -273,28 +244,67 @@ function theme_trema_get_pre_scss($theme) {
 }
 
 /**
+ * Load the main SCSS and the frontpage banner.
+ *
+ * @param theme_config $theme
+ *            The theme config object.
+ * @return string
+ */
+function theme_trema_get_main_scss_content($theme) {
+    global $CFG;
+
+    $scss = '';
+
+    $filename = !empty($theme->settings->preset) ? $theme->settings->preset : 'trema.scss';
+    $scss .= file_get_contents("$CFG->dirroot/theme/trema/scss/preset/{$filename}");
+
+    if (!empty($theme->settings->enabletrematopics)) {
+        $scss .= file_get_contents("$CFG->dirroot/theme/trema/scss/trema/topics.scss");
+    }
+
+    if (empty($theme->settings->enabletremalines)) {
+        $scss .= "%border-frequency { &:before, &:after { content: none !important;}}";
+    }
+
+    // Frontpage banner.
+    if (!empty($theme->settings->frontpageenabledarkoverlay)) {
+        $darkoverlay = "url([[pix:theme|frontpage/overlay]]),";
+    } else {
+        $darkoverlay = "";
+    }
+
+    if ($frontpagebannerurl = $theme->setting_file_url('frontpagebanner', 'frontpagebanner')) {
+        $scss .= "#frontpage-banner {background-image: $darkoverlay url('$frontpagebannerurl');}";
+    } else {
+        $scss .= "#frontpage-banner {background-image: $darkoverlay url([[pix:theme|frontpage/banner]]);}";
+    }
+
+    return $scss;
+}
+
+/**
  * Inject additional SCSS for images.
  *
  * @param theme_config $theme Theme config object.
  * @return string
  */
 function theme_trema_get_extra_scss($theme) {
-    $content = '';
-    $imageurl = $theme->setting_file_url('backgroundimage', 'backgroundimage');
+    $scss = '';
 
     // Sets the background image and its settings.
+    $imageurl = $theme->setting_file_url('backgroundimage', 'backgroundimage');
     if (!empty($imageurl)) {
-        $content .= '@media (min-width: 768px) { ';
-        $content .= '    body { ';
-        $content .= '        background-image: url("' . $imageurl . '"); ';
-        $content .= '        background-size: cover; ';
-        $content .= '        background-attachment: fixed; ';
-        $content .= '    } ';
-        $content .= "}\n";
+        $scss .= '@media (min-width: 768px) { ';
+        $scss .= '    body { ';
+        $scss .= '        background-image: url("' . $imageurl . '"); ';
+        $scss .= '        background-size: cover; ';
+        $scss .= '        background-attachment: fixed; ';
+        $scss .= '    } ';
+        $scss .= "}\n";
     }
 
     // Always return the background image with the scss when we have it.
-    return !empty($theme->settings->scss) ? "{$theme->settings->scss}  \n  {$content}" : $content;
+    return !empty($theme->settings->scss) ? "{$theme->settings->scss}  \n  {$scss}" : $scss;
 }
 
 /**

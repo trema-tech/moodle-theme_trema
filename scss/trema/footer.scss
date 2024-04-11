@@ -24,7 +24,7 @@ body.uses-drawers {
 
 #page.drawers footer#page-footer,
 footer#page-footer {
-    background-color: rgba($footer-bg-color, 80%);
+    background-color: rgba($footer-bg-color, 0.8);
     color: choose-contrast-color($footer-bg-color);
     max-width: none;
 

@@ -42,7 +42,7 @@ $page->add($setting);
 $name = 'theme_trema/primarycolor';
 $title = get_string('primarycolor', 'theme_trema');
 $description = get_string('primarycolor_desc', 'theme_trema');
-$default = '#FD647A';
+$default = '#1c6ca3';
 $setting = new admin_setting_configcolourpicker($name, $title, $description, $default);
 $setting->set_updatedcallback('theme_reset_all_caches');
 $page->add($setting);
@@ -51,7 +51,7 @@ $page->add($setting);
 $name = 'theme_trema/secondarycolor';
 $title = get_string('secondarycolor', 'theme_trema');
 $description = get_string('secondarycolor_desc', 'theme_trema');
-$default = '#373A3C';
+$default = '#343a40';
 $setting = new admin_setting_configcolourpicker($name, $title, $description, $default);
 $setting->set_updatedcallback('theme_reset_all_caches');
 $page->add($setting);
@@ -67,10 +67,10 @@ $page->add($setting);
 
 // Background colour options for header, footer and drawers.
 $coloroptions = [
-    '#ffffff' => get_string('white', 'theme_trema'),
-    '#000000' => get_string('black', 'theme_trema'),
-    '#e9ecef' => get_string('light', 'theme_trema'),
-    '#373a3c' => get_string('dark', 'theme_trema'),
+    '$white' => get_string('white', 'theme_trema'),
+    '$black' => get_string('black', 'theme_trema'),
+    '$gray-200' => get_string('light', 'theme_trema'),
+    '$gray-800' => get_string('dark', 'theme_trema'),
     'primarycolor' => get_string('sameprimarycolor', 'theme_trema'),
     'secondarycolor' => get_string('samesecondarycolor', 'theme_trema'),
     'bodybackgroundcolor' => get_string('samebasecolor', 'theme_trema'),
@@ -80,7 +80,7 @@ $coloroptions = [
 $name = 'theme_trema/headerbgcolor';
 $title = get_string('headerbgcolor', 'theme_trema');
 $description = get_string('headerbgcolor_desc', 'theme_trema');
-$default = '#ffffff';
+$default = '$white';
 $setting = new admin_setting_configselect($name, $title, $description, $default, $coloroptions);
 $setting->set_updatedcallback('theme_reset_all_caches');
 $page->add($setting);
@@ -98,7 +98,7 @@ $page->add($setting);
 $name = 'theme_trema/drawerbgcolor';
 $title = get_string('drawerbgcolor', 'theme_trema');
 $description = get_string('drawerbgcolor_desc', 'theme_trema');
-$default = '#e9ecef';
+$default = '$gray-200';
 $setting = new admin_setting_configselect($name, $title, $description, $default, $coloroptions);
 $setting->set_updatedcallback('theme_reset_all_caches');
 $page->add($setting);
@@ -107,7 +107,7 @@ $page->add($setting);
 $name = 'theme_trema/footerbgcolor';
 $title = get_string('footerbgcolor', 'theme_trema');
 $description = get_string('footerbgcolor_desc', 'theme_trema');
-$default = '#373a3c';
+$default = '$gray-800';
 $setting = new admin_setting_configselect($name, $title, $description, $default, $coloroptions);
 $setting->set_updatedcallback('theme_reset_all_caches');
 $page->add($setting);

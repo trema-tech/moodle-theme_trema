@@ -81,20 +81,11 @@ $links-color: #114b88 !default; // Does not affect navigation or buttons.
 
 $nav-align: left !default;
 
-$header-bg-color: $white !default; // Different in Dark and Light theme.
-$footer-background-color: $dark !default; // Different in Dark and Light theme.
-
-$drawer-bg-color: $light !default;
-
-$course-nav-drawer-background-color: $drawer-bg-color !default;
-$blocks-drawer-background-color: $drawer-bg-color !default;
 $highlight-background-color: #ffee28 !default;
 $banner-color: rgb(255,255,255) !default;
-$editmodeon-bg: $secondary !default;
-$dropdown-bg: #f1f1f1 !default;
+$editmodeon-bg-color: $secondary !default;
 $account-bg: rgba(255,255,255,0.8) !default;
 $drawer-color: $body-color !default;
-$loginbtn-bg-color: $primary !default; // For Log In button in page header.
 
 $softness: 0 !default;
 

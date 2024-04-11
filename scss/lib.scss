@@ -1,13 +1,40 @@
-//@author Sérgio Gomes https://medium.com/dev-channel/using-sass-to-automatically-pick-text-colors-4ba7645d2796
-@function luminance($color) {
-    $red: nth($linear-channel-values, red($color) + 1);
-    $green: nth($linear-channel-values, green($color) + 1);
-    $blue: nth($linear-channel-values, blue($color) + 1);
+// Filename: mixins.scss
 
-    @return 0.2126 * $red + 0.7152 * $green + 0.0722 * $blue;
+// Converts numbers from 0 to 255 into hexadecimal.
+@function dec2hex($color) {
+    $hex: "0123456789ABCDEF";
+    $first: floor(($color - $color % 16) / 16) + 1;
+    $second: ($color % 16) + 1;
+    $color: str-slice($hex, $first, $first) + str-slice($hex, $second, $second);
+    @return $color;
 }
 
-@function contrast($back, $front) {
+/**
+ * Scale the brightness of the specified colour.
+ * 0 is the original colour. Anything less is darker up to 100.
+ *
+ * @param {color} - Colour to be altered.
+ * @return {color} - New colour in hexadecimal.
+ */
+@function color-tint($color, $percentage) {
+    // Calculate new red colour.
+    $red: round(red($color) * $percentage / 100);
+    // Calculate new green colour.
+    $green: round(green($color) * $percentage / 100);
+    // Calculate new blue colour.
+    $blue: round(blue($color) * $percentage /100);
+
+    @return unquote('#' + dec2hex($red) + dec2hex($green) + dec2hex($blue));
+}
+
+/**
+ * Calculates the contrast ratio between two colors.
+ *
+ * @param {color} $back - The background color.
+ * @param {color} $front - The foreground color.
+ * @returns {number} The contrast ratio between the two colors.
+ */
+@function contrast-ratio($back, $front) {
     $backLum: luminance($back) + 0.05;
     $foreLum: luminance($front) + 0.05;
 
@@ -15,17 +42,23 @@
 }
 
 /**
- * Determine whether to use dark or light text on top of given color.
- * Returns black for dark text and white for light text.
+ * Function: choose-contrast-color
+ *
+ * This function takes a color as input and returns either white or black based on the contrast ratio between
+ * the input color and white/black. It calculates the contrast ratio by using the contrast-ratio function.
+ * If the contrast ratio with white is higher than the contrast ratio with black, it returns white; otherwise, it returns black.
+ *
+ * @param {color} $color - The input color.
+ * @return {color} - Either white or black.
  */
 @function choose-contrast-color($color) {
-    $lightContrast: contrast($color, white);
-    $darkContrast: contrast($color, black);
+    $lightContrast: contrast-ratio($color, white);
+    $darkContrast: contrast-ratio($color, black);
 
     @if ($lightContrast > $darkContrast) {
-        @return white;
+        @return $white;
     } @else {
-        @return black;
+        @return $black;
     }
 }
 
@@ -41,26 +74,43 @@
  */
  @function fix-color-contrast($color, $background-color: white) {
     // Calculate the contrast ratio using your existing function
-    $contrast: contrast($color, $background-color);
+    $contrast: contrast-ratio($color, $background-color);
 
     // Check if the contrast ratio is sufficient
     @if $contrast >=4.5 {
         @return $color; // Return the original color
     } @else {
-        @return black; // Return black
+        @return $black; // Return black
     }
 }
 
-//  Precomputed linear color channel values, for use in contrast calculations.
-//  See https://www.w3.org/TR/WCAG20-TECHS/G17.html#G17-tests
-//
-//  Algorithm, for c in 0 to 255:
-//  f(c) {
-//    c = c / 255;
-//    return c < 0.03928 ? c / 12.92 : Math.pow((c + 0.055) / 1.055, 2.4);
-//  }
-//
-//  This lookup table is needed since there is no `pow` in SASS.
+/**
+ * Calculates the luminance of a given color.
+ * @author Sérgio Gomes {@link: https://medium.com/dev-channel/using-sass-to-automatically-pick-text-colors-4ba7645d2796}
+ *
+ * @param {color} $color - The color to calculate the luminance for.
+ * @returns {number} The luminance value of the color.
+ */
+ @function luminance($color) {
+    $red: nth($linear-channel-values, red($color) + 1);
+    $green: nth($linear-channel-values, green($color) + 1);
+    $blue: nth($linear-channel-values, blue($color) + 1);
+
+    @return 0.2126 * $red + 0.7152 * $green + 0.0722 * $blue;
+}
+
+/**
+ * Precomputed linear color channel values, for use in contrast calculations.
+ * See https://www.w3.org/TR/WCAG20-TECHS/G17.html#G17-tests
+ *
+ * Algorithm, for c in 0 to 255:
+ * f(c) {
+ *     c = c / 255;
+ *     return c < 0.03928 ? c / 12.92 : Math.pow((c + 0.055) / 1.055, 2.4);
+ * }
+ *
+ * This lookup table is needed since there is no `pow` in SASS.
+ */
 $linear-channel-values: 0 0.0003035269835488375 0.000607053967097675 0.0009105809506465125 0.00121410793419535
     0.0015176349177441874 0.001821161901293025 0.0021246888848418626 0.0024282158683907 0.0027317428519395373
     0.003035269835488375 0.003346535763899161 0.003676507324047436 0.004024717018496307 0.004391442037410293
