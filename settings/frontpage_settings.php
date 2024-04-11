@@ -139,9 +139,9 @@ if ($numberofcarousel == 1) {
     $setting = new admin_setting_configselect($name, $title, $description, $default, $choices);
     $setting->set_updatedcallback('theme_reset_all_caches');
     $page->add($setting);
-} else if ($numberofcarousel >= 1) {
+} else if ($numberofcarousel >= 2) {
     for ($i = 1; $i <= $numberofcarousel; $i++) {
-        $name = 'theme_trema_frontpageimage{$i}';
+        $name = 'theme_trema_frontpageimage' . $i;
         $title = get_string('frontpageimage', 'theme_trema', $i);
         $description = '';
         $format = FORMAT_MARKDOWN;
@@ -149,7 +149,7 @@ if ($numberofcarousel == 1) {
         $page->add($setting);
 
         // Carousel image.
-        $name = "theme_trema/frontpageimage{$i}";
+        $name = 'theme_trema/frontpageimage' . $i;
         $title = get_string('image', 'theme_trema', $i);
         $description = get_string('frontpageimage_desc', 'theme_trema', $i);
         $setting = new admin_setting_configstoredfile($name, $title, $description, "frontpageimage{$i}");
