@@ -87,7 +87,7 @@ selection.focus {
 // Improve colour contrast ratio for input placeholder text.
 ::placeholder {
     color: $placeholder-color!important;
-  }
+}
 
 body {
     font-family: $body-font-family;
@@ -98,6 +98,11 @@ body {
 
 :target {
     scroll-margin-top: 50px;
+}
+
+// Allow text to wrap in table cells.
+td, th {
+    white-space: normal;
 }
 
 %border-frequency {
