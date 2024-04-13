@@ -299,6 +299,12 @@ body#page-calendar-view {
         margin: 0.5rem;
     }
 }
+.maincalendar .calendarmonth td.today .day-number-circle {
+    border:1px solid choose-contrast-color($primary);
+    .day-number {
+        color: choose-contrast-color($primary);
+    }
+}
 
 body.format-site.path-course,
 body.format-site.path-report,
