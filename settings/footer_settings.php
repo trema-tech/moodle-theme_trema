@@ -37,6 +37,19 @@ $setting = new admin_setting_configcheckbox($name, $title, $description, $defaul
 $setting->set_updatedcallback('theme_reset_all_caches');
 $page->add($setting);
 
+// Select footer opacity.
+$options = [];
+for ($i = 0; $i <= 100; $i += 10) {
+    $options['' . ($i / 100) ] = $i;
+}
+$name = 'theme_trema/footeropacity';
+$title = get_string('footeropacity', 'theme_trema');
+$description = get_string('footeropacity_desc', 'theme_trema');
+$default = '1';
+$setting = new admin_setting_configselect($name, $title, $description, $default, $options);
+$setting->set_updatedcallback('theme_reset_all_caches');
+$page->add($setting);
+
 // HTML to include in the footer content.
 $name = 'theme_trema/defaultfooter';
 $title = get_string('defaultfooter', 'theme_trema');

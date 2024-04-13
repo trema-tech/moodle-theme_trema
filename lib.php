@@ -54,12 +54,14 @@ function theme_trema_get_pre_scss($theme) {
         'custom-menu-alignment' => 'custommenualignment',
         'links-decoration' => 'linkdecoration',
         'dropdown-bg-color' => 'bodybackgroundcolor',
+        'footer-opacity' => 'footeropacity',
     ];
 
     // Prepend variables first.
     foreach ($configurable as $scssvar => $themesetting) {
-        $value = isset($theme->settings->{$themesetting}) ? $theme->settings->{$themesetting} : null;
-        if (empty($value)) {
+        if (isset($theme->settings->{$themesetting})) {
+            $value = $theme->settings->{$themesetting};
+        } else {
             continue;
         }
         $scss .= '$' . $scssvar . ': ' . $value . ";\n";

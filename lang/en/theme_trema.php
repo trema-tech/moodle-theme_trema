@@ -223,6 +223,8 @@ $string['showehiddencategorycourses_desc'] = 'Deselect this option to hide cours
 // ....
 $string['enabletremafooter'] = 'Enable Trema Footer';
 $string['enabletremafooter_desc'] = 'Enable Trema Footer instead of Boost popup footer';
+$string['footeropacity'] = 'Footer opacity';
+$string['footeropacity_desc'] = 'Footer background opacity (0 = completely transparent). This can be especially nice if you set a background image.';
 $string['defaultfooter'] = 'Footer';
 $string['defaultfooter_desc'] = 'Default content from footer';
 $string['defaultfooter_default'] = '<div class="row">
