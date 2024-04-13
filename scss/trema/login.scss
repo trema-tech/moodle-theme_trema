@@ -67,6 +67,7 @@ body#page-login-index {
             background-position: top center;
             background-repeat: no-repeat;
             background-size: cover;
+            background-attachment: fixed;
         }
     }
 
@@ -166,6 +167,15 @@ body#page-login-verify_age_location {
                 max-width: 75%;
             }
         }
+    }
+    .login-container {
+        width: auto!important;
+    }
+    #region-main-box.col-12 {
+        max-width: 800px;
+    }
+    #page-content {
+        width: auto;
     }
 }
 
