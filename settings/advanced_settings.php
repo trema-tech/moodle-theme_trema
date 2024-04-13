@@ -32,8 +32,8 @@ $page = new admin_settingpage('theme_trema_advanced', get_string('advanced'));
 
 // Raw SCSS to include before the content.
 $name = 'theme_trema/scsspre';
-$title = get_string('rawscsspre', 'theme_trema');
-$description = get_string('rawscsspre_desc', 'theme_trema');
+$title = get_string('rawscsspre', 'theme_boost');
+$description = get_string('rawscsspre_desc', 'theme_boost');
 $default = '';
 $format = PARAM_RAW;
 $setting = new admin_setting_scsscode($name, $title, $description, $default, $format);
@@ -42,8 +42,8 @@ $page->add($setting);
 
 // Raw SCSS to include after the content.
 $name = 'theme_trema/scss';
-$title = get_string('rawscss', 'theme_trema');
-$description = get_string('rawscss_desc', 'theme_trema');
+$title = get_string('rawscss', 'theme_boost');
+$description = get_string('rawscss_desc', 'theme_boost');
 $default = '';
 $format = PARAM_RAW;
 $setting = new admin_setting_scsscode($name, $title, $description, $default, $format);

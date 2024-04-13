@@ -41,8 +41,8 @@ $page->add($setting);
 
 // Preset.
 $name = 'theme_trema/preset';
-$title = get_string('preset', 'theme_trema');
-$description = get_string('preset_desc', 'theme_trema');
+$title = get_string('preset', 'theme_boost');
+$description = get_string('preset_desc', 'theme_boost');
 $default = 'trema.scss';
 // These are the built in presets.
 $choices = ['trema.scss' => 'trema.scss', 'plain.scss' => 'plain.scss'];
