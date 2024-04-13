@@ -46,6 +46,8 @@ $headings-font-weight: 300 !default;
 // Navbar
 $navbar-dark-hover-color: rgba($white, 1) !default;
 $navbar-light-hover-color: rgba($black, .9) !default;
+$navbar-dark-color: $white;
+$navbar-light-color: $black;
 
 // Breadcrumbs
 $breadcrumb-padding-y: .25rem !default;

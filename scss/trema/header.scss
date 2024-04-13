@@ -294,3 +294,11 @@
         }
     }
 }
+
+.navbar-light {
+    .navbar-toggler-icon {
+        @if ($nav-color == $white) {
+            background-image: escape-svg($navbar-dark-toggler-icon-bg);
+         }
+    }
+ }
