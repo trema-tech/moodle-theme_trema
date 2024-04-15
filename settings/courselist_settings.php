@@ -73,6 +73,7 @@ $choices = [
     "" => get_string('none'),
     "modal" => get_string('modal', 'theme_trema'),
     "popover" => get_string('popover', 'theme_trema'),
+    "link" => get_string('link', 'theme_trema'),
 ];
 $default = 'modal';
 $setting = new admin_setting_configselect($name, $title, $description, $default, $choices);

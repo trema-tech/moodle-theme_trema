@@ -40,8 +40,9 @@ $string['rememberusername'] = 'Remember user';
 
 // Frontpage
 $string['summarybutton_text'] = 'Description';
-$string['summarycourselink_text'] = 'Go To Course';
+$string['summarycourselink_text'] = 'Go to the course';
 $string['seemore'] = 'See more';
+$string['link'] = 'Link';
 $string['footertitle'] = 'Theme Trema';
 $string['totop'] = 'Go to top';
 
@@ -274,6 +275,7 @@ $string['loginshowloginform_desc'] = 'Before disabling the login form, ensure th
 $string['loginbackgroundimage'] = 'Login background image';
 $string['modal'] = 'Modal';
 $string['popover'] = 'Popover';
+$string['link'] = 'Link';
 
 // ....
 // User Profile Fields tab. The rest of the strings are all built into Moodle.

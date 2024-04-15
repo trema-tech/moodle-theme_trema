@@ -290,8 +290,7 @@ class course_renderer extends \core_course_renderer {
         // Display course summary.
         $summarytype = get_config('theme_trema', 'summarytype');
         if (!empty($summarytype) && ($course->has_summary())) {
-
-            if ($summarytype == 'popover') {
+            if ($summarytype == 'popover') { // See more button.
                 $content .= html_writer::start_tag('div', ['class' => 'card-see-more text-center']);
                 $content .= html_writer::start_tag(
                     'div',
@@ -311,7 +310,7 @@ class course_renderer extends \core_course_renderer {
                 $content .= get_string('seemore', 'theme_trema');
                 $content .= html_writer::end_tag('div');
                 $content .= html_writer::end_tag('div'); // End summary.
-            } else if ($summarytype == 'modal') {
+            } else if ($summarytype == 'modal') { // Description button.
                 $modal = [
                     'body' => $chelper->get_course_formatted_summary(
                         $course,
@@ -323,6 +322,17 @@ class course_renderer extends \core_course_renderer {
                     'courselink' => new moodle_url('/course/view.php', ['id' => $course->id]),
                 ];
                 $content .= $this->output->render_from_template('theme_trema/course_summary_modal', $modal);
+            } else if ($summarytype == 'link') { // Go To The Course button.
+                $content .= html_writer::start_tag('div', ['class' => 'card-course-link text-center']);
+                $content .= html_writer::tag(
+                    'div',
+                    html_writer::link(
+                        new moodle_url('/course/view.php', ['id' => $course->id]),
+                        get_string('summarycourselink_text', 'theme_trema'),
+                        ['class' => 'btn btn-secondary m-2', 'role' => 'button', 'tabindex' => '0']
+                    )
+                );
+                $content .= html_writer::end_tag('div'); // End summary.
             }
         }
 
