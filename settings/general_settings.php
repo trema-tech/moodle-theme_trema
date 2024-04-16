@@ -79,7 +79,7 @@ $page->add($setting);
 // Hide selected items in the primary navigation (custom menu).
 $hideitemsoptions = [];
 $hideitemsoptions['home'] = get_string('home');
-if ($CFG->enabledashboard) {
+if (!empty($CFG->enabledashboard)) {
     $hideitemsoptions['myhome'] = get_string('myhome');
 }
 $hideitemsoptions['courses'] = get_string('mycourses');
