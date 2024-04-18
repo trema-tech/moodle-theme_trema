@@ -504,4 +504,12 @@ body.path-mod-quiz {
         border-top-left-radius: .5rem!important;
         border-top-right-radius: .5rem!important;
     }
+    .dashboard-card .dashboard-card-img {
+        border-top-left-radius: 0.5rem;
+        border-top-right-radius: 0.5rem;
+    }
+    .card-footer.border-0,
+    .card-deck .card {
+        border-radius: 0.5rem;
+    }
 }
