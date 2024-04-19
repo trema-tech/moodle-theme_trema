@@ -227,11 +227,17 @@ class course_renderer extends \core_course_renderer {
         $courseurl = new moodle_url('/course/view.php', ['id' => $course->id]);
         $coursenamelink = html_writer::link($courseurl, $coursename, ['class' => $course->visible ? 'aalink' : 'aalink dimmed']);
 
+        $summarytype = get_config('theme_trema', 'summarytype');
+        $showcardcontact = get_config('theme_trema', 'cardcontacts');
+        $class = 'course-card-img';
+        if (empty($summarytype) && empty($showcardcontact) && empty($showcategories)) {
+            $class .= ' stretched-link';
+        }
         $content = html_writer::start_tag(
             'a',
             [
                 'href' => $courseurl,
-                'class' => 'course-card-img',
+                'class' => $class,
                 'aria-hidden' => 'true',
                 'tabindex' => '-1',
                 'aria-label' => $coursename,
@@ -259,7 +265,7 @@ class course_renderer extends \core_course_renderer {
         $content .= html_writer::end_tag('div'); // End card-block.
 
         // Display course contacts. See core_course_list_element::get_course_contacts().
-        if (get_config('theme_trema', 'cardcontacts') && $course->has_course_contacts()) {
+        if ($showcardcontact && $course->has_course_contacts()) {
             $content .= html_writer::start_tag('div', ['class' => 'teachers pt-2']);
             $content .= html_writer::start_tag('ul', ['class' => 'list-unstyled m-0 font-weight-light']);
             foreach ($course->get_course_contacts() as $userid => $coursecontact) {
@@ -288,7 +294,6 @@ class course_renderer extends \core_course_renderer {
         }
 
         // Display course summary.
-        $summarytype = get_config('theme_trema', 'summarytype');
         if (!empty($summarytype) && ($course->has_summary())) {
             if ($summarytype == 'popover') { // See more button.
                 $content .= html_writer::start_tag('div', ['class' => 'card-see-more text-center']);
