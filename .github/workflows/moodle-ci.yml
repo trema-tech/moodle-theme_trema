@@ -197,7 +197,7 @@ jobs:
       - name: Behat features
         id: behat
         if: ${{ !cancelled() }}
-        run: moodle-plugin-ci behat --profile chrome
+        run: moodle-plugin-ci behat --profile chrome --suite trema
 
       # This step allows to upload Behat faildump (screenshots) as workflow artifact
       # so it can be downloaded and inspected. You don't need this step if you
