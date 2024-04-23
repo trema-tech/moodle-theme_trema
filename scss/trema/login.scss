@@ -184,3 +184,19 @@ body#page-login-verify_age_location {
         padding: 3rem 1rem;
     }
 }
+
+body#page-admin-tool-mfa-auth {
+    #region-main {
+        &:before {
+            content: none;
+        }
+        &:after {
+            content: none;
+        }
+    }
+    @media (min-width: 768px) {
+        .login-container {
+            width: auto !important;
+        }
+    }
+}
