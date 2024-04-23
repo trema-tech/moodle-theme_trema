@@ -18,24 +18,99 @@
  * General settings
  *
  * @package     theme_trema
- * @copyright   2019 Trema - {@link https://trema.tech/}
+ * @copyright   2019-2024 Trema - {@link https://trema.tech/}
+ * @copyright   2023-2024 TNG Consulting Inc. - {@link https://www.tngconsulting.ca/}
  * @author      Rodrigo Mady
  * @author      Trevor Furtado
+ * @author      Michael Milette
  * @license     http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
 defined('MOODLE_INTERNAL') || die();
 
-$page = new admin_settingpage('theme_trema_general', get_string('generalsettings', 'theme_trema'));
+$page = new admin_settingpage('theme_trema_general', get_string('general'));
+
+// Unaddable blocks. Exclude these blocks from the "Add a block" list: Administration, Navigation, Courses and Section links.
+$name = 'theme_trema/unaddableblocks';
+$title = get_string('unaddableblocks', 'theme_boost');
+$description = get_string('unaddableblocks_desc', 'theme_boost');
+$default = 'navigation,settings,course_list,section_links';
+$setting = new admin_setting_configtext($name, $title, $description, $default, PARAM_TEXT);
+$setting->set_updatedcallback('theme_reset_all_caches');
+$page->add($setting);
 
 // Preset.
 $name = 'theme_trema/preset';
-$title = get_string('preset', 'theme_trema');
-$description = get_string('preset_desc', 'theme_trema');
+$title = get_string('preset', 'theme_boost');
+$description = get_string('preset_desc', 'theme_boost');
 $default = 'trema.scss';
 // These are the built in presets.
-$choices = [ 'trema.scss' => 'trema.scss', 'plain.scss' => 'plain.scss' ];
+$choices = ['trema.scss' => 'trema.scss', 'plain.scss' => 'plain.scss'];
 $setting = new admin_setting_configthemepreset($name, $title, $description, $default, $choices, 'trema');
+$setting->set_updatedcallback('theme_reset_all_caches');
+$page->add($setting);
+
+// Preset files setting.
+$name = 'theme_trema/presetfiles';
+$title = get_string('presetfiles', 'theme_boost');
+$description = get_string('presetfiles_desc', 'theme_boost');
+$restrictions = ['maxfiles' => 20, 'accepted_types' => ['.scss']];
+$setting = new admin_setting_configstoredfile($name, $title, $description, 'preset', 0, $restrictions);
+$page->add($setting);
+
+// Background image setting.
+$name = 'theme_trema/backgroundimage';
+$title = get_string('backgroundimage', 'theme_boost');
+$description = get_string('backgroundimage_desc', 'theme_boost');
+$setting = new admin_setting_configstoredfile($name, $title, $description, 'backgroundimage');
+$setting->set_updatedcallback('theme_reset_all_caches');
+$page->add($setting);
+
+// Links.
+$name = 'theme_trema/linkdecoration';
+$title = get_string('linkdecoration', 'theme_trema');
+$description = get_string('linkdecoration_desc', 'theme_trema');
+$default = 'underline';
+$choices = ["none" => get_string('none'), 'underline' => get_string('underline', 'editor')];
+$setting = new admin_setting_configselect($name, $title, $description, $default, $choices);
+$setting->set_updatedcallback('theme_reset_all_caches');
+$page->add($setting);
+
+// Hide selected items in the primary navigation (custom menu).
+$hideitemsoptions = [];
+$hideitemsoptions['home'] = get_string('home');
+if (!empty($CFG->enabledashboard)) {
+    $hideitemsoptions['myhome'] = get_string('myhome');
+}
+$hideitemsoptions['courses'] = get_string('mycourses');
+$hideitemsoptions['siteadminnode'] = get_string('administrationsite');
+$name = 'theme_trema/hideprimarynavigationitems';
+$title = get_string('hideprimarynavigationitems', 'theme_trema', null, true);
+$description = get_string('hideprimarynavigationitems_desc', 'theme_trema', null, true);
+$setting = new admin_setting_configmulticheckbox($name, $title, $description, [], $hideitemsoptions);
+$setting->set_updatedcallback('theme_reset_all_caches');
+$page->add($setting);
+
+// Primary navigation (custom menu) alignment.
+$name = 'theme_trema/custommenualignment';
+$title = get_string('custommenualignment', 'theme_trema');
+$description = get_string('custommenualignment_desc', 'theme_trema');
+$default = 'left';
+$choices = [
+    'left' => get_string('left', 'editor'),
+    'center' => get_string('middle', 'editor'),
+    'right' => get_string('right', 'editor'),
+];
+$setting = new admin_setting_configselect($name, $title, $description, $default, $choices);
+$setting->set_updatedcallback('theme_reset_all_caches');
+$page->add($setting);
+
+// Hide the User menu / Logout link.
+$name = 'theme_trema/showumlogoutlink';
+$title = get_string('showumlogoutlink', 'theme_trema');
+$description = get_string('showumlogoutlink_desc', 'theme_trema');
+$default = true;
+$setting = new admin_setting_configcheckbox($name, $title, $description, $default, true, false);
 $setting->set_updatedcallback('theme_reset_all_caches');
 $page->add($setting);
 
@@ -47,69 +122,39 @@ $setting = new admin_setting_configstoredfile($name, $title, $description, 'favi
 $setting->set_updatedcallback('theme_reset_all_caches');
 $page->add($setting);
 
-// We use an empty default value because the default colour is defined in scss/defaultvariables.
-$name = 'theme_trema/primarycolor';
-$title = get_string('primarycolor', 'theme_trema');
-$description = get_string('primarycolor_desc', 'theme_trema');
-$setting = new admin_setting_configcolourpicker($name, $title, $description, '#FD647A');
-$setting->set_updatedcallback('theme_reset_all_caches');
-$page->add($setting);
-
-// We use an empty default value because the default colour is defined in scss/defaultvariables.
-$name = 'theme_trema/secondarycolor';
-$title = get_string('secondarycolor', 'theme_trema');
-$description = get_string('secondarycolor_desc', 'theme_trema');
-$setting = new admin_setting_configcolourpicker($name, $title, $description, '#373A3C');
-$setting->set_updatedcallback('theme_reset_all_caches');
-$page->add($setting);
-
-// We use an empty default value because the default colour is defined in scss/defaultvariables.
-$name = 'theme_trema/bodybackgroundcolor';
-$title = get_string('bodybackgroundcolor', 'theme_trema');
-$description = get_string('bodybackgroundcolor_desc', 'theme_trema');
-$setting = new admin_setting_configcolourpicker($name, $title, $description, '#f1f1f1');
-$setting->set_updatedcallback('theme_reset_all_caches');
-$page->add($setting);
-
-// Navbar - show my courses.
-$choices = array(
-    0 => "don't show",
-    -10000 => "show left",
-    10000 => "show right",
-);
-$setting = new admin_setting_configselect('theme_trema/showmycourses', new lang_string('showmycourses', 'theme_trema'),
-    new lang_string('showmycourses_desc', 'theme_trema'), 'show left', $choices);
-$page->add($setting);
-
+// Enable Admin Dashboard.
 $name = 'theme_trema/enableadmindashboard';
 $title = get_string('enableadmindashboard', 'theme_trema');
 $description = get_string('enableadmindashboard_desc', 'theme_trema', "$CFG->wwwroot/theme/trema/pix/examples/admindashboard.png");
-$setting = new admin_setting_configcheckbox($name, $title, $description, '1');
+$default = '1';
+$setting = new admin_setting_configcheckbox($name, $title, $description, $default);
+$setting->set_updatedcallback('theme_reset_all_caches');
 $page->add($setting);
 
+// Enable Trema Course Style for Topics.
 $name = 'theme_trema/enabletrematopics';
 $title = get_string('enabletrematopics', 'theme_trema');
 $description = get_string('enabletrematopics_desc', 'theme_trema', "$CFG->wwwroot/theme/trema/pix/examples/trematopics.png");
-$setting = new admin_setting_configcheckbox($name, $title, $description, '1');
+$default = '1';
+$setting = new admin_setting_configcheckbox($name, $title, $description, $default);
 $setting->set_updatedcallback('theme_reset_all_caches');
 $page->add($setting);
 
+// Enable Trema Lines.
 $name = 'theme_trema/enabletremalines';
 $title = get_string('enabletremalines', 'theme_trema');
 $description = get_string('enabletremalines_desc', 'theme_trema', "$CFG->wwwroot/theme/trema/pix/examples/tremalines.png");
-$setting = new admin_setting_configcheckbox($name, $title, $description, '1');
+$default = '1';
+$setting = new admin_setting_configcheckbox($name, $title, $description, $default);
 $setting->set_updatedcallback('theme_reset_all_caches');
 $page->add($setting);
 
-// Raw SCSS to include before the content.
-$setting = new admin_setting_scsscode('theme_trema/scsspre', get_string('rawscsspre', 'theme_trema'),
-    get_string('rawscsspre_desc', 'theme_trema'), '', PARAM_RAW);
-$setting->set_updatedcallback('theme_reset_all_caches');
-$page->add($setting);
-
-// Raw SCSS to include after the content.
-$setting = new admin_setting_scsscode('theme_trema/scss', get_string('rawscss', 'theme_trema'),
-    get_string('rawscss_desc', 'theme_trema'), '', PARAM_RAW);
+// Enable a softer look by rounding some corners.
+$name = 'theme_trema/softness';
+$title = get_string('softness', 'theme_trema');
+$description = get_string('softness_desc', 'theme_trema');
+$default = '1';
+$setting = new admin_setting_configcheckbox($name, $title, $description, $default);
 $setting->set_updatedcallback('theme_reset_all_caches');
 $page->add($setting);
 

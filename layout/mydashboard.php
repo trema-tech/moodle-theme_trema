@@ -18,9 +18,11 @@
  * My dashboard file.
  *
  * @package     theme_trema
- * @copyright   2019 Trema - {@link https://trema.tech/}
+ * @copyright   2019-2024 Trema - {@link https://trema.tech/}
+ * @copyright   2024 TNG Consulting Inc. - {@link https://www.tngconsulting.ca/}
  * @author      Rodrigo Mady
  * @author      Trevor Furtado
+ * @author      Michael Milette
  * @license     http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
@@ -66,10 +68,7 @@ $pluginsettings = get_config("theme_trema");
 $context        = context_course::instance(SITEID);
 
 $templatecontext = [
-    'sitename' => format_string($SITE->shortname, true, [
-        'context' => context_course::instance(SITEID),
-        "escape" => false
-    ]),
+    'sitename' => format_string($SITE->shortname, true, ['context' => context_course::instance(SITEID), 'escape' => false]),
     'output' => $OUTPUT,
     'sidepreblocks' => $blockshtml,
     'hasadminblocks' => is_siteadmin(),
@@ -87,9 +86,10 @@ $templatecontext = [
     'addblockbutton' => $addblockbutton,
     'regionmainsettingsmenu' => $regionmainsettingsmenu,
     'hasregionmainsettingsmenu' => !empty($regionmainsettingsmenu),
-    'defaultfrontpagefooter' => format_text($pluginsettings->defaultfooter, FORMAT_HTML, ['context' => $context]),
+    'defaultfooter' => format_text($pluginsettings->defaultfooter, FORMAT_HTML, ['context' => $context, 'noclean' => true]),
     'enabletremafooter' => $pluginsettings->enabletremafooter,
-    'footerinfo' => format_text($pluginsettings->enablefooterinfo, FORMAT_HTML, ['context' => $context]),
+    'footerinfo' => !empty($pluginsettings->enablefooterinfo),
+    'showbranding' => !empty($pluginsettings->showbranding),
 ];
 
 if (is_siteadmin() && $pluginsettings->enableadmindashboard) {

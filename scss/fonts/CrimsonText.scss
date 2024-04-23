@@ -1,0 +1,57 @@
+@charset "utf-8";
+
+@font-face {
+    font-weight: normal;
+    font-style: normal;
+    font-family: "CrimsonText";
+    src: url([[font:theme|CrimsonText-Regular.ttf]]) format("truetype");
+}
+
+@font-face {
+    font-weight: normal;
+    font-style: italic;
+    font-family: "CrimsonText";
+    src: url([[font:theme|CrimsonText-Italic.ttf]]) format("truetype");
+}
+
+@font-face {
+    font-weight: 600;
+    font-style: normal;
+    font-family: "CrimsonText";
+    src: url([[font:theme|CrimsonText-Bold.ttf]]) format("truetype");
+}
+
+@font-face {
+    font-weight: 800;
+    font-style: normal;
+    font-family: "CrimsonText";
+    src: url([[font:theme|CrimsonText-Bold.ttf]]) format("truetype");
+}
+
+@font-face {
+    font-weight: 200;
+    font-style: normal;
+    font-family: "CrimsonText";
+    src: url([[font:theme|CrimsonText-Regular.ttf]]) format("truetype");
+}
+
+@font-face {
+    font-weight: 200;
+    font-style: italic;
+    font-family: "CrimsonText";
+    src: url([[font:theme|CrimsonText-Italic.ttf]]) format("truetype");
+}
+
+@font-face {
+    font-weight: 400;
+    font-style: italic;
+    font-family: "CrimsonText";
+    src: url([[font:theme|CrimsonText-BoldItalic.ttf]]) format("truetype");
+}
+
+@font-face {
+    font-weight: 800;
+    font-style: italic;
+    font-family: "CrimsonText";
+    src: url([[font:theme|CrimsonText-Bold.ttf]]) format("truetype");
+}

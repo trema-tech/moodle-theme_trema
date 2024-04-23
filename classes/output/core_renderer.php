@@ -18,9 +18,11 @@
  * Core renderer.
  *
  * @package     theme_trema
- * @copyright   2019 Trema - {@link https://trema.tech/}
+ * @copyright   2019-2024 Trema - {@link https://trema.tech/}
+ * @copyright   2023-2024 TNG Consulting Inc. - {@link https://www.tngconsulting.ca/}
  * @author      Rodrigo Mady
  * @author      Trevor Furtado
+ * @author      Michael Milette
  * @license     http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
@@ -32,32 +34,49 @@ use moodle_url;
 
 defined('MOODLE_INTERNAL') || die;
 
-require_once($CFG->dirroot."/course/format/lib.php");
+require_once($CFG->dirroot . '/course/format/lib.php');
 
 /**
  * Class core_renderer.
  *
  * @package theme_trema
- * @copyright   2019 Trema - {@link https://trema.tech/}
+ * @copyright   2019-2024 Trema - {@link https://trema.tech/}
+ * @copyright   2023-2024 TNG Consulting Inc. - {@link https://www.tngconsulting.ca/}
  * @author      Rodrigo Mady
  * @author      Trevor Furtado
+ * @author      Michael Milette
  * @license     http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class core_renderer extends \theme_boost\output\core_renderer {
-
     /**
-     * Returns the url of the custom favicon.
+     * Returns the url of the favicon.
+     *
+     * Moodle's logo is not used as this would be a violation of their trademark.
+     * Instead, we provide an option to upload your own favicon. If none has been uploaded,
+     * then we fall back on using a pix/favicon.ico file in the theme folder if it exists.
+     * Otherwise, the browser will default to the webserver's favicon.ico if it exists.
+     * If none of these options are available, the web browser's default icon will be used.
      *
      * @return moodle_url|string
      */
     public function favicon() {
+        global $CFG;
+
+        // Use favicon configured in theme's settings.
         $favicon = $this->page->theme->setting_file_url('favicon', 'favicon');
 
         if (empty($favicon)) {
-            return $this->page->theme->image_url('favicon', 'theme');
-        } else {
-            return $favicon;
+            if (file_exists($this->page->theme->dir . '/pix/favicon.ico')) {
+                // Use pix/favicon.ico stored in the theme directory.
+                $favicon = $this->page->theme->image_url('favicon', 'theme');
+            } else {
+                // Fallback to the webserver's favicon.ico.
+                $parsedurl = parse_url($CFG->wwwroot);
+                $favicon = $parsedurl['scheme'] . '://' . $parsedurl['host'] . '/favicon.ico';
+                // If there isn't any, the browser will fallback to its own default favicon.
+            }
         }
+        return $favicon;
     }
 
     /**
@@ -99,7 +118,7 @@ class core_renderer extends \theme_boost\output\core_renderer {
     public function render_lang_menu($showlang = false) {
         $langs = get_string_manager()->get_list_of_translations();
         $haslangmenu = $this->lang_menu() != '';
-        $menu = new custom_menu;
+        $menu = new custom_menu();
 
         if ($haslangmenu) {
             $currlang = current_language();
@@ -125,7 +144,7 @@ class core_renderer extends \theme_boost\output\core_renderer {
             // Add languages for dropdown menu.
             foreach ($langs as $langtype => $langname) {
                 $lang = str_replace('_', '-', $langtype);
-                $this->language->add($langname, new moodle_url($this->page->url, array('lang' => $langtype)), $lang);
+                $this->language->add($langname, new moodle_url($this->page->url, ['lang' => $langtype]), $lang);
             }
 
             foreach ($menu->get_children() as $item) {
@@ -136,6 +155,7 @@ class core_renderer extends \theme_boost\output\core_renderer {
                 return $this->render_from_template('theme_trema/lang_menu', $context);
             }
         }
+        return '';
     }
 
     /**
@@ -148,23 +168,6 @@ class core_renderer extends \theme_boost\output\core_renderer {
      * @throws \moodle_exception
      */
     protected function render_custom_menu(custom_menu $menu) {
-        if ($showmycourses = get_config('theme_trema', 'showmycourses')) {
-            $mycourses = $this->page->navigation->get('mycourses');
-
-            if (isloggedin() && $mycourses && $mycourses->has_children()) {
-                $branchlabel = 'fa-graduation-cap '.get_string('mycourses');
-                $branchurl   = new moodle_url('/course/index.php');
-                $branchtitle = $branchlabel;
-                $branchsort  = $showmycourses;
-
-                $branch = $menu->add($branchlabel, $branchurl, $branchtitle, $branchsort);
-
-                foreach ($mycourses->children as $coursenode) {
-                    $branch->add($coursenode->get_content(), $coursenode->action, $coursenode->get_title());
-                }
-            }
-        }
-
         // Change Fontawesome's codes by HTML.
         $content = '';
         foreach ($menu->get_children() as $item) {
@@ -226,8 +229,8 @@ class core_renderer extends \theme_boost\output\core_renderer {
             $url = $url->out(false);
         }
         $context->logourl = $url;
-        $context->sitename = format_string($SITE->fullname, true,
-                ['context' => \context_course::instance(SITEID), "escape" => false]);
+        $sitename = format_string($SITE->fullname, true, ['context' => \context_course::instance(SITEID), 'escape' => false]);
+        $context->sitename = $sitename;
 
         $context->loginpagecreatefirst = get_config('theme_trema', 'loginpagecreatefirst');
 

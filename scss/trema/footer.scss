@@ -24,8 +24,8 @@ body.uses-drawers {
 
 #page.drawers footer#page-footer,
 footer#page-footer {
-    background-color: #1a1c1b;
-    color: #cdcece;
+    background-color: rgba($footer-bg-color, $footer-opacity);
+    color: choose-contrast-color($footer-bg-color);
     max-width: none;
 
     .bg-dark {
@@ -42,14 +42,22 @@ footer#page-footer {
     h4,
     h5,
     h6 {
-        color: $white;
-        text-transform: uppercase;
+        color: choose-contrast-color($footer-bg-color);
+        text-transform: $text-transform;
     }
 
     a:not(.button) {
         transition: color 0.2s ease-in-out;
-        color: #cdcece;
-        text-decoration: none;
+        color: choose-contrast-color($footer-bg-color);
+        text-decoration: $links-decoration;
+    }
+    a:not(.button):hover {
+        text-decoration: underline;
+    }
+    a:not(.button):focus,
+    a:not(.button):active {
+        background-color: choose-contrast-color($footer-bg-color);
+        color: $footer-bg-color;
     }
 
     .row.gtr-uniform > * > :last-child {
@@ -80,13 +88,16 @@ footer#page-footer {
         font-size: 0.9rem;
 
         a {
-            color: #afb1b0;
-            text-decoration: underline;
+            color: choose-contrast-color($footer-bg-color);
+            text-decoration: $links-decoration;
+        }
+        a:hover {
+            $links-decoration: underline;
         }
     }
 
     .copyleft {
-        color: #cdcece;
+        color: choose-contrast-color($footer-bg-color);
         font-size: 0.9em;
         margin: 3em 0 0 0;
         padding: 0;
@@ -104,7 +115,7 @@ footer#page-footer {
         margin: 0;
         padding: 0;
         background-color: #373a3c !important;
-        color: white !important;
+        color: #ffffff !important;
     }
     .popover-body a:not(.button) {
         color: $black;
@@ -112,6 +123,17 @@ footer#page-footer {
     .footer-dark-inner,
     &.footer-trema {
         padding: 1.5rem;
+    }
+
+    .performanceinfo {
+        background-color: #000000;
+        color: white;
+        table.table {
+            width: 100%!important;
+            th {
+                background-color: #676A6C;
+            }
+        }
     }
 }
 

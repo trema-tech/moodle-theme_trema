@@ -18,6 +18,7 @@
  * A drawer based layout for the boost theme.
  *
  * @package   theme_trema
+ * @copyright 2021 Bas Brands
  * @copyright 2022 Trema - {@link https://trema.tech/}
  * @author    Rodrigo Mady
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
@@ -45,7 +46,7 @@ if (isloggedin()) {
     $blockdraweropen = false;
 }
 
-if (defined('BEHAT_SITE_RUNNING')) {
+if (defined('BEHAT_SITE_RUNNING') && get_user_preferences('behat_keep_drawer_closed') != 1) {
     $blockdraweropen = true;
 }
 
@@ -92,9 +93,9 @@ $buildregionmainsettings = !$PAGE->include_region_main_settings_in_header_action
 // If the settings menu will be included in the header then don't add it here.
 $regionmainsettingsmenu = $buildregionmainsettings ? $OUTPUT->region_main_settings_menu() : false;
 
-$header         = $PAGE->activityheader;
-$headercontent  = $header->export_for_template($renderer);
-$context        = context_course::instance(SITEID);
+$header = $PAGE->activityheader;
+$headercontent = $header->export_for_template($renderer);
+$context = context_course::instance(SITEID);
 
 $templatecontext = [
     'sitename' => format_string($SITE->shortname, true, ['context' => $context, "escape" => false]),
@@ -117,8 +118,9 @@ $templatecontext = [
     'headercontent' => $headercontent,
     'addblockbutton' => $addblockbutton,
     'enabletremafooter' => $pluginsettings->enabletremafooter ?? false,
-    'defaultfrontpagefooter' => format_text($pluginsettings->defaultfooter, FORMAT_HTML, ['context' => $context]),
-    'footerinfo' => $pluginsettings->enablefooterinfo ?? false,
+    'defaultfooter' => format_text($pluginsettings->defaultfooter, FORMAT_HTML, ['context' => $context, 'noclean' => true]),
+    'footerinfo' => !empty($pluginsettings->enablefooterinfo),
+    'showbranding' => !empty($pluginsettings->showbranding),
 ];
 
 echo $OUTPUT->render_from_template('theme_trema/drawers', $templatecontext);

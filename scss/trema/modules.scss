@@ -67,7 +67,7 @@ body.path-mod-quiz {
             }
 
             .dropdown-toggle {
-                color: black;
+                color: $black;
             }
         }
 
@@ -188,7 +188,7 @@ body.path-mod-forum {
 
             .btn-link {
                 margin-bottom: 0;
-                color: $secondary;
+                color: $primary;
                 line-height: 1.5;
                 font-weight: 400;
                 letter-spacing: normal;
@@ -206,4 +206,9 @@ body.path-mod-forum {
             }
         }
     }
+}
+
+body.path-mod-book .tertiary-navigation .navitem .btn.btn-secondary {
+    background-color: $primary!important;
+    color: choose-contrast-color($primary)!important;
 }

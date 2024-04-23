@@ -18,9 +18,11 @@
  * Lib file.
  *
  * @package     theme_trema
- * @copyright   2022 Trema - {@link https://trema.tech/}
+ * @copyright   2022-2024 Trema - {@link https://trema.tech/}
+ * @copyright   2023-2024 TNG Consulting Inc. - {@link https://www.tngconsulting.ca/}
  * @author      Rodrigo Mady
  * @author      Trevor Furtado
+ * @author      Michael Milette
  * @license     http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
@@ -31,11 +33,11 @@
  */
 function theme_trema_get_cards_settings() {
     $theme = theme_config::load('trema');
-    $cardssettings = array();
+    $cardssettings = [];
 
     $numberofcards = get_config('theme_trema', 'numberofcards');
     if (get_config('theme_trema', 'frontpageenablecards') && $numberofcards > 1) {
-        for ($i = 1; $i <= $numberofcards; $i ++) {
+        for ($i = 1; $i <= $numberofcards; $i++) {
             $cardsettings = new stdClass();
             $cardsettings->cardicon = $theme->settings->{'cardicon' . $i};
             $cardsettings->cardiconcolor = $theme->settings->{'cardiconcolor' . $i};
@@ -59,20 +61,19 @@ function theme_trema_get_cards_settings() {
 function theme_trema_get_disk_usage() {
     global $CFG;
 
-    $cache = cache::make('theme_trema', 'dashboardadmin');
-    $totaldisk = $cache->get('totaldisk');
-
-    if (!$totaldisk) {
-        $total = get_directory_size($CFG->dataroot);
-        $totaldisk = number_format(ceil($total / 1048576));
-        $cache->set('totaldisk', $totaldisk);
+    $bytes = @disk_free_space($CFG->dataroot);
+    if ($bytes === false || $bytes < 0 || is_null($bytes) || $bytes > 1.0E+26) {
+        // If invalid number of bytes, or value is more than about 84,703.29 Yottabyte (YB), assume it is infinite.
+        return '&infin;'; // Could not determine, assume infinite.
     }
 
-    $usageunit = ' MB';
-    if ($totaldisk > 1024) {
-        $usageunit = ' GB';
+    $warning = ($bytes <= 104857600); // Warning at 100 MB.
+    $freespace = display_size($bytes);
+    if ($warning) {
+        $freespace = '<span class="badge-danger px-1">' . $freespace . '</span>';
     }
-    return $totaldisk . $usageunit;
+
+    return $freespace;
 }
 
 /**
@@ -181,7 +182,6 @@ function theme_trema_count_users_enrolments() {
  * @return false|mixed
  */
 function theme_trema_get_environment_issues() {
-    global $CFG;
     $cache = cache::make('theme_trema', 'dashboardadmin');
     $environmentissues = $cache->get('environmentissues');
     if (!$environmentissues) {
@@ -194,7 +194,7 @@ function theme_trema_get_environment_issues() {
         foreach ($issues as $issue) {
             $result = $issue->get_result()->get_status();
             if ($result == 'serious' || $result == 'critical' || $result == 'warning') {
-                $environmentissues['warning'] ++;
+                $environmentissues['warning']++;
             }
         }
         $cache->set('environmentissues', $environmentissues);

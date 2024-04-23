@@ -18,9 +18,11 @@
  * Frontpage file.
  *
  * @package     theme_trema
- * @copyright   2019 Trema - {@link https://trema.tech/}
+ * @copyright   2019-2024 Trema - {@link https://trema.tech/}
+ * @copyright   2024 TNG Consulting Inc. - {@link https://www.tngconsulting.ca/}
  * @author      Rodrigo Mady
  * @author      Trevor Furtado
+ * @author      Michael Milette
  * @license     http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
@@ -65,12 +67,12 @@ if ($numberofimages > 1) {
     $frontpagecarrousel = [];
     $active = true;
     for ($i = 1; $i <= $numberofimages; $i++) {
-        $title    = "carrouseltitle{$i}";
+        $title = "carrouseltitle{$i}";
         $subtitle = "carrouselsubtitle{$i}";
-        $btntext  = "carrouselbtntext{$i}";
-        $btnhref  = "carrouselbtnhref{$i}";
+        $btntext = "carrouselbtntext{$i}";
+        $btnhref = "carrouselbtnhref{$i}";
         $btnclass = "carrouselbtnclass{$i}";
-        $url      = theme_trema_setting_file_url("frontpageimage{$i}", "frontpageimage{$i}", $PAGE->theme);
+        $url = theme_trema_setting_file_url("frontpageimage{$i}", "frontpageimage{$i}", $PAGE->theme);
 
         if (!empty($url)) {
             $frontpagecarrousel[$i]['image'] = $url;
@@ -100,12 +102,9 @@ if ($numberofimages > 1) {
 }
 
 $regionmainsettingsmenu = $OUTPUT->region_main_settings_menu();
-$context                = context_course::instance(SITEID);
+$context = context_course::instance(SITEID);
 $templatecontext = [
-    'sitename' => format_string($SITE->shortname, true, [
-        'context' => context_course::instance(SITEID),
-        "escape" => false
-    ]),
+    'sitename' => format_string($SITE->shortname, true, ['context' => context_course::instance(SITEID), 'escape' => false]),
     'output' => $OUTPUT,
     'sidepreblocks' => $blockshtml,
     'sideadminblocks' => $adminblockshtml,
@@ -122,17 +121,13 @@ $templatecontext = [
     'headercontent' => $headercontent,
     'overflow' => $overflow,
     'addblockbutton' => $addblockbutton,
-    'regionmainsettingsmenu' => $regionmainsettingsmenu,
-    'hasregionmainsettingsmenu' => ! empty($regionmainsettingsmenu),
     'defaultfrontpagebody' => !empty($pluginsettings->defaultfrontpagebody) ?
         format_text($pluginsettings->defaultfrontpagebody, FORMAT_HTML) : '',
-    'defaultfrontpagefooter' => !empty($pluginsettings->defaultfooter) ?
-        format_text($pluginsettings->defaultfooter, FORMAT_HTML) : '',
+    'defaultfooter' => !empty($pluginsettings->defaultfooter) ? format_text($pluginsettings->defaultfooter, FORMAT_HTML) : '',
     'showbanner' => ($numberofimages > 0),
     'frontpagecarrousel' => $frontpagecarrousel,
     'ifcarrousel' => ($numberofimages > 1),
-    'frontpagetitle' => !empty($pluginsettings->frontpagetitle) ?
-        format_text($pluginsettings->frontpagetitle, FORMAT_HTML) : '',
+    'frontpagetitle' => !empty($pluginsettings->frontpagetitle) ? format_text($pluginsettings->frontpagetitle, FORMAT_HTML) : '',
     'frontpagesubtitle' => !empty($pluginsettings->frontpagesubtitle) ?
         format_text($pluginsettings->frontpagesubtitle, FORMAT_HTML) : '',
     'frontpagebuttontext' => !empty($pluginsettings->frontpagebuttontext) ?
@@ -148,7 +143,8 @@ $templatecontext = [
         format_text($pluginsettings->frontpagecardssubtitle, FORMAT_HTML) : '',
     'cardssettings' => theme_trema_get_cards_settings(),
     'enabletremafooter' => $pluginsettings->enabletremafooter,
-    'footerinfo' => format_text($pluginsettings->enablefooterinfo, FORMAT_HTML, ['context' => $context]),
+    'footerinfo' => !empty($pluginsettings->enablefooterinfo),
+    'showbranding' => !empty($pluginsettings->showbranding),
 ];
 
 echo $OUTPUT->render_from_template('theme_trema/frontpage', $templatecontext);

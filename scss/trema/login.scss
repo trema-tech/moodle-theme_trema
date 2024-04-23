@@ -1,7 +1,14 @@
+// Login page - left-align login form.
 body#page-login-index {
+
+    .col-xl-6.col-sm-8 {
+        min-width: 100%;
+    }
 
     #region-main {
         padding-top: 0;
+        background-color: #ffffff;
+        height: 100vh;
     }
 
     #page-wrapper {
@@ -15,6 +22,7 @@ body#page-login-index {
     }
 
     #page {
+        padding-top: 0!important;
         background: none;
         #card-login,
         #card-login-instructions {
@@ -32,8 +40,17 @@ body#page-login-index {
         }
     }
 
+    #region-main-box {
+        padding: 0;
+    }
+
     #page-content {
-        margin: 0 auto 2rem;
+        max-width: 550px;
+        margin: 0;
+    }
+
+    #page-footer {
+        display: none;
     }
 
     .card {
@@ -44,21 +61,13 @@ body#page-login-index {
         background-color: transparent;
     }
 
-    &.style-particles {
-        canvas.particles-js-canvas-el {
-            position: absolute;
-            top: 0;
-            z-index: -1;
-            background-color: $particles-bg;
-        }
-    }
-
     &.style-image {
         #page-wrapper {
             background-image: url($login-backgroundimage);
             background-position: top center;
             background-repeat: no-repeat;
             background-size: cover;
+            background-attachment: fixed;
         }
     }
 
@@ -67,21 +76,39 @@ body#page-login-index {
             background-image: none;
         }
     }
+
+    .loginform {
+        h1.login-heading {
+            font-size: 1.5rem!important;
+            line-height: 2.5rem;
+            text-align: center;
+            margin: ($spacer * 3) 0 ($spacer * 3) 0;
+            color: $black;
+        }
+
+        .login-identityprovider-btn {
+            background-color: white!important;
+            border: 1px solid #aaaaaa!important;
+            color: black!important ;
+            margin: 0!important;
+        }
+        .login-identityprovider-btn,
+        .btn-secondary {
+            white-space: normal;
+            height: auto;
+            line-height: 1.3rem;
+            padding: 10px 20px;
+        }
+    }
+
+    .login-wrapper {
+      align-items: normal;
+    }
 }
 
 body#page-login-signup,
 body#page-login-forgot_password,
 body#page-login-verify_age_location {
-    &.style-particles {
-        #page {
-            background: transparent;
-        }
-
-        .particles-js-canvas-el {
-            position: absolute;
-            z-index: 1;
-        }
-    }
     &.style-image {
         #page {
             background: none;
@@ -141,10 +168,35 @@ body#page-login-verify_age_location {
             }
         }
     }
+    .login-container {
+        width: auto!important;
+    }
+    #region-main-box.col-12 {
+        max-width: 800px;
+    }
+    #page-content {
+        width: auto;
+    }
 }
 
 body#page-login-verify_age_location {
     #page-content {
         padding: 3rem 1rem;
+    }
+}
+
+body#page-admin-tool-mfa-auth {
+    #region-main {
+        &:before {
+            content: none;
+        }
+        &:after {
+            content: none;
+        }
+    }
+    @media (min-width: 768px) {
+        .login-container {
+            width: auto !important;
+        }
     }
 }

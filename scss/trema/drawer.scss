@@ -1,12 +1,12 @@
 .drawer {
     top: 4rem;
-    padding: 1rem;
+    padding: 0;
     height: calc(100% - 4rem);
-    background: #29292a;
+    background: $drawer-bg-color;
 
     .drawerheader {
         .icon {
-            color: $white;
+            color: choose-contrast-color($drawer-bg-color);
         }
     }
 
@@ -21,7 +21,7 @@
 
         .list-group-item {
             border: none;
-            color: #aaa;
+            color: choose-contrast-color($drawer-bg-color);
             background-color: transparent;
             transition: all 0.5s ease;
 
@@ -63,6 +63,9 @@ body div#page {
             animation: shake 1200ms;
         }
     }
+    .btn.drawertoggle {
+        color: choose-contrast-color($drawer-bg-color);
+    }
 }
 
 [data-parent-key="mycourses"].list-group-item {
@@ -70,14 +73,26 @@ body div#page {
 }
 
 #theme_boost-drawers-courseindex {
+    .courseindex .courseindex-item .completioninfo.completion_incomplete .icon,
     .courseindex .courseindex-item .courseindex-link,
     .courseindex .courseindex-item .courseindex-chevron {
-        color: #fff;
+        color: choose-contrast-color($drawer-bg-color);
 
         &:hover {
-            color: lighten($primary, 30%);
+            text-decoration: underline;
+        }
+    }
+    .courseindex .courseindex-item.pageitem .completioninfo.completion_incomplete .icon,
+    .courseindex .courseindex-item.pageitem a {
+        color: choose-contrast-color($primary);
+
+        &:hover {
+            color: choose-contrast-color($primary);
             background-color: rgba($primary, 0.05);
         }
+    }
+    .courseindex .courseindex-item .completioninfo .icon {
+        font-size: inherit;
     }
 }
 

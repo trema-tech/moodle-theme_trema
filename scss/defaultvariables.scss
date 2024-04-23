@@ -1,6 +1,6 @@
 // Bootstrap variables
 
-$white:    #fff !default;
+$white:    #ffffff !default;
 $gray-100: #f8f9fa !default;
 $gray-200: #e9ecef !default;
 $gray-300: #dee2e6 !default;
@@ -10,7 +10,7 @@ $gray-600: #868e96 !default;
 $gray-700: #495057 !default;
 $gray-800: #373a3c !default;
 $gray-900: #212529 !default;
-$black:    #000 !default;
+$black:    #000000 !default;
 
 $blue:    #3097d1 !default;
 $indigo:  #6610f2 !default;
@@ -29,40 +29,84 @@ $success:       $green !default;
 $info:          $cyan !default;
 $warning:       $yellow !default;
 $danger:        $red !default;
-$light:         $gray-100 !default;
+$light:         $gray-200 !default;
 $dark:          $gray-800 !default;
 
 // Options
 $enable-rounded: false !default;
 
 // Body
-$body-color:    $gray-800 !default;
-$body-bg-color:    #f1f1f1 !default;
+$body-color: $gray-800 !default;
+$body-bg-color: $white !default;
 
 // Fonts
-$font-size-base: 0.9375rem !default;
-$headings-font-weight:   300 !default;
+$font-size-base: 1rem !default;
+$headings-font-weight: 300 !default;
 
 // Navbar
-$navbar-dark-hover-color:           rgba($white, 1) !default;
-$navbar-light-hover-color:          rgba($black, .9) !default;
+$navbar-dark-hover-color: rgba($white, 1) !default;
+$navbar-light-hover-color: rgba($black, .9) !default;
+$navbar-dark-color: $white;
+$navbar-light-color: $black;
 
 // Breadcrumbs
-$breadcrumb-padding-y:              .25rem !default;
-$breadcrumb-padding-x:              0 !default;
-$breadcrumb-item-padding:           .5rem !default;
-$breadcrumb-margin-bottom:          0 !default;
-$breadcrumb-bg:                     transparent !default;
+$breadcrumb-padding-y: .25rem !default;
+$breadcrumb-padding-x: 0 !default;
+$breadcrumb-item-padding: .5rem !default;
+$breadcrumb-margin-bottom: 0 !default;
+$breadcrumb-bg: transparent !default;
 $breadcrumb-divider: "/" !default;
 $breadcrumb-divider-rtl: "/" !default;
 
 $course-content-maxwidth: 1280px !default;
 
 // Alerts
-$alert-border-width:                0 !default;
+$alert-border-width: 0 !default;
 
-//Cards
-$card-group-margin: .25rem;
+// Cards
+$card-group-margin: .25rem !default;
+$coursecards-bg-color: $white !default;
 
-// Login
-$particles-bg: #020221 !default;
+// Custom settings.
+
+$body-font-size: 1rem !default;
+$body-font-family: 'Lato' !default;
+$h1-font-family: 'Lato' !default;
+$hx-font-family: 'Lato' !default;
+
+$text-transform: 'none' !default;
+$banner-title-transform: 'none' !default;
+$banner-title-spacing: 'normal' !default;
+
+$links-decoration: none !default; // Values: underline or none. Does not affect navigation or buttons.
+$links-color: #114b88 !default; // Does not affect navigation or buttons.
+
+$nav-align: left !default;
+
+$highlight-background-color: #ffee28 !default;
+$banner-color: rgb(255,255,255) !default;
+$editmodeon-bg-color: $secondary !default;
+$account-bg: rgba(255,255,255,0.8) !default;
+$drawer-color: $body-color !default;
+
+$softness: 0 !default;
+
+$h1: 2rem !default;
+$h2: 1.75rem !default;
+$h3: 1.40rem !default;
+$h4: 1.20rem !default;
+$h5: 1.1rem !default;
+$h6: 0.9rem !default;
+
+$placeholder-color: #717171 !default;
+
+$theme-colors: (
+    primary: $primary,
+    secondary: $gray-200,
+    success: $success,
+    info: $info,
+    warning: $orange,
+    danger: $danger,
+    light: $gray-100,
+    dark: $gray-800
+);

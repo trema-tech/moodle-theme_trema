@@ -18,36 +18,25 @@
  * Trema login page layout.
  *
  * @package     theme_trema
- * @copyright   2019 Trema - {@link https://trema.tech/}
+ * @copyright   2019-2024 Trema - {@link https://trema.tech/}
+ * @copyright   2024 TNG Consulting Inc. - {@link https://www.tngconsulting.ca/}
  * @author      Rodrigo Mady
  * @author      Trevor Furtado
+ * @author      Michael Milette
  * @license     http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-defined('MOODLE_INTERNAL') || die();
+ defined('MOODLE_INTERNAL') || die();
 
-// Check if the login page are using particles or image background.
+ // Check if the login page is using a background image.
 $loginstyle = get_config('theme_trema', 'loginpagestyle');
-$additionalclasses = [
-    $loginstyle == "particle-circles" ? 'style-particles' : ($loginstyle == 'image' ? 'style-image' : 'style-none')
-];
+$additionalclasses = [$loginstyle == 'image' ? 'style-image' : 'style-none'];
 $bodyattributes = $OUTPUT->body_attributes($additionalclasses);
 
-// Only load particles.js if needed.
-if ($particlesconfig = $loginstyle == "particle-circles") {
-    $particlesconfig = json_decode(file_get_contents("$CFG->dirroot/theme/trema/particles.json"));
-    $particlesconfig->particles->color->value = get_config("theme_trema", "particles_circlescolor");
-    $particlesconfig = json_encode(($particlesconfig));
-}
-
 $templatecontext = [
-    'sitename' => format_string($SITE->shortname, true, [
-        'context' => context_course::instance(SITEID),
-        "escape" => false
-    ]),
+    'sitename' => format_string($SITE->shortname, true, ['context' => context_course::instance(SITEID), 'escape' => false]),
     'output' => $OUTPUT,
     'bodyattributes' => $bodyattributes,
-    'particlesconfig' => $particlesconfig
 ];
 
 echo $OUTPUT->render_from_template('theme_trema/login', $templatecontext);

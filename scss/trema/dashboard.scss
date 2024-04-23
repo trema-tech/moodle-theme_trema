@@ -8,10 +8,16 @@ body.pagelayout-mydashboard {
         margin: 1rem 0;
         .card-body {
             padding: .25rem;
-
             .fa {
-                color: rgba($primary, 0.15);
+                color: rgba(choose-contrast-color($body-bg-color), 0.85);
             }
+        }
+        .h5, p, a {
+            color: choose-contrast-color($body-bg-color);
+        }
+        a:hover, a:active, a:focus {
+            color: choose-contrast-color($body-bg-color);
+            font-weight: bold;
         }
     }
 
@@ -74,30 +80,28 @@ body.pagelayout-mydashboard {
             &:hover,
             &:focus {
                 color: $gray-600;
-                outline: none;
-                box-shadow: none;
             }
         }
     }
 }
 
 body#page-message-index {
-    #page-header,
+    #page-header {
+        display: block;
+    }
+
     #mydashboard-admin,
     #side-admin-blocks {
         display: none;
     }
 
+    .panel-header-container {
+        margin-top: 25px;
+    }
+
     #region-main {
         margin-top: 0;
 
-        .message-app.main {
-            min-height: 500px;
-            margin-bottom: 1rem;
 
-            .btn-link {
-                max-width: 95%;
-            }
-        }
     }
 }

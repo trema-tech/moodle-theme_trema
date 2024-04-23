@@ -1,4 +1,4 @@
-.course-card-view {
+#page .course-card-view {
     box-shadow: 5px 5px 9px -4px rgba($black, .1);
     padding-bottom: 4rem;
     max-width: 16rem;
@@ -25,6 +25,7 @@
         font-size: .9rem;
     }
 
+    .card-course-link,
     .card-see-more {
         position: absolute;
         bottom: 0;
@@ -32,8 +33,16 @@
 
         .btn {
             width: 90%;
+            white-space: normal;
+            line-height: 1.5rem;
+            padding: .5rem .75rem;
+            height: auto;
         }
     }
+}
+
+body #page .card-see-more .btn {
+    line-height: 1.3rem;
 }
 
 @media (max-width: 769px) {

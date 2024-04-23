@@ -18,9 +18,11 @@
  * Login settings
  *
  * @package     theme_trema
- * @copyright   2019 Trema - {@link https://trema.tech/}
+ * @copyright   2019-2024 Trema - {@link https://trema.tech/}
+ * @copyright   2024 TNG Consulting Inc. - {@link https://www.tngconsulting.ca/}
  * @author      Rodrigo Mady
  * @author      Trevor Furtado
+ * @author      Michael Milette
  * @license     http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
@@ -29,32 +31,19 @@ defined('MOODLE_INTERNAL') || die();
 $page = new admin_settingpage('theme_trema_login', get_string('login', 'theme_trema'));
 
 // Login page style.
-$choices = array(
-    "particle-circles" => get_string('particlecircles', 'theme_trema'),
+$name = 'theme_trema/loginpagestyle';
+$title = get_string('loginpagestyle', 'theme_trema');
+$description = '';
+$choices = [
     "image" => get_string('image', 'theme_trema', ''),
-    "none" => get_string('none')
-);
-$setting = new admin_setting_configselect('theme_trema/loginpagestyle', get_string('loginpagestyle', 'theme_trema'), '',
-    'particle-circles', $choices);
+    "none" => get_string('none'),
+];
+$default = 'none';
+$setting = new admin_setting_configselect($name, $title, $description, $default, $choices);
+$setting->set_updatedcallback('theme_reset_all_caches');
 $page->add($setting);
 
-if (get_config('theme_trema', 'loginpagestyle') == "particle-circles") {
-    // Background color.
-    $name = 'theme_trema/particles_backgroundcolor';
-    $title = get_string('backgroundcolor', 'theme_trema');
-    $description = '';
-    $setting = new admin_setting_configcolourpicker($name, $title, $description, '#020221');
-    $setting->set_updatedcallback('theme_reset_all_caches');
-    $page->add($setting);
-
-    // Circles color.
-    $name = 'theme_trema/particles_circlescolor';
-    $title = get_string('circlescolor', 'theme_trema');
-    $description = '';
-    $setting = new admin_setting_configcolourpicker($name, $title, $description, '#FFFFFF');
-    $setting->set_updatedcallback('theme_reset_all_caches');
-    $page->add($setting);
-} else if (get_config('theme_trema', 'loginpagestyle') == "image") {
+if (get_config('theme_trema', 'loginpagestyle') == "image") {
     // Login background image.
     $name = 'theme_trema/loginbackgroundimage';
     $title = get_string('loginbackgroundimage', 'theme_trema');
@@ -64,11 +53,20 @@ if (get_config('theme_trema', 'loginpagestyle') == "particle-circles") {
     $page->add($setting);
 }
 
-$setting = new admin_setting_configcheckbox(
-    'theme_trema/loginpagecreatefirst',
-    get_string('loginpagecreatefirst', 'theme_trema'),
-    get_string('loginpagecreatefirst_desc', 'theme_trema'),
-    0);
+$name = 'theme_trema/loginpagecreatefirst';
+$title = get_string('loginpagecreatefirst', 'theme_trema');
+$description = get_string('loginpagecreatefirst_desc', 'theme_trema');
+$default = 0;
+$setting = new admin_setting_configcheckbox($name, $title, $description, $default);
+$setting->set_updatedcallback('theme_reset_all_caches');
+$page->add($setting);
+
+$name = 'theme_trema/loginshowloginform';
+$title = get_string('loginshowloginform', 'theme_trema');
+$description = get_string('loginshowloginform_desc', 'theme_trema');
+$default = 1;
+$setting = new admin_setting_configcheckbox($name, $title, $description, $default);
+$setting->set_updatedcallback('theme_reset_all_caches');
 $page->add($setting);
 
 $settings->add($page);

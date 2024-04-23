@@ -58,7 +58,7 @@
             text-align: center;
 
             a {
-                text-transform: uppercase;
+                text-transform: $text-transform;
             }
         }
 
@@ -79,12 +79,12 @@
 body#page-my-index.page-mycourses {
     #topofscroll {
         margin-top: 0;
-        background: $body-bg-color;
+        background: transparent;
         #region-main {
             background: $body-bg-color;
         }
         section.card {
-            background: white;
+            background: #white;
             padding: 1rem;
 
             .dashboard-card {
@@ -97,7 +97,7 @@ body#page-my-index.page-mycourses {
 
             #searchinput {
                 height: 2.8rem;
-                text-transform: uppercase;
+                text-transform: $text-transform;
             }
             button.btn {
                 margin: 0;
@@ -110,7 +110,7 @@ body#page-course-view-topics {
     #topofscroll {
         [data-toggle='collapse'].btn-icon {
             background-color: $white;
-            color: $primary;
+            color: fix-color-contrast($primary);
             height: auto;
             line-height: 1;
             padding: 0;

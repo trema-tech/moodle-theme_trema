@@ -4,7 +4,7 @@ body#page-course-view-topics.format-topics:not(.editing) {
     #topofscroll {
         margin-top: 0;
         padding-top: 0;
-        background: $body-bg-color;
+        background: transparent;
 
         &::before,
         &:after {

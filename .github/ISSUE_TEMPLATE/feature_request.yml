@@ -1,0 +1,61 @@
+name: Feature request
+description: Share your ideas for this project.
+title: "Feature Request: "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## Thanks for taking the time to share your ideas and suggestions.
+        We love hearing ideas and suggestions from people who use our plugins.<br>
+        ***In a hurry for this new feature?*** Contact us directly for premium development and support services at [TNG Consulting Inc.](https://www.tngconsulting.ca/contact).
+  - type: checkboxes
+    id: prerequisites
+    attributes:
+      label: Prerequisites
+      description: Please answer the following questions before submitting a feature request.
+      options:
+        - label: I am requesting the new feature to the correct repository.
+          required: true
+        - label: I checked the latest version on GitHub and the [README.md](../blob/master/README.md) documentation to ensure that this functionality does not already exist.
+          required: true
+        - label: I searched to make sure that this feature has not already been requested.
+          required: true
+        - label: I have, or I know someone who has, the ability and willingness to test the new feature on a Moodle LMS-based site.
+        - label: I agree to submit one feature request per issue ticket (do not submit multiple requests in one issue ticket).
+          required: true
+        - label: I understand that development and support is provided by volunteer(s) and that all final implementation decisions are up TNG Consulting Inc.
+          required: true
+  - type: textarea
+    attributes:
+      label: Feature Request - The User Story
+      description: Provide a clear and concise description of the feature are you requesting or idea that you have. Be sure include one or more **real-life** examples of how you **will** use the new feature. Do not make up a story just because it is easier. We only implement new features if we understand your goal and it makes sense to us.
+      placeholder: e.g. As a [Moodle role], I need/want to [...], so that [...].
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: Screenshots / Mock-ups
+      description: Add any screenshots, videos or documentation which can help us visualize your vision.
+  - type: textarea
+    attributes:
+      label: Alterative you have considered
+      description: Provide a clear and concise description of any alternative solutions or features you've considered. If you have seen a similar feature in another plugin, please provide us with a link to it.
+  - type: textarea
+    attributes:
+      label: Additional information
+  - type: dropdown
+    attributes:
+      label: Planning on submitting a solution in a pull request (PR)?
+      description: If so, we look forward to working with you to integrate your work. Feature requests with a provided solution may be integrated sooner. Be sure to read the <a href="../blob/master/CONTRIBUTING.md" target="_blank">[CONTRIBUTING]</a> guidelines.
+      options:
+        - "Yes"
+        - "No"
+        - "Maybe"
+    validations:
+      required: true
+  - type: checkboxes
+    attributes:
+      label: Code of Conduct
+      options:
+        - label: I have read and agree to the project's <a href="../blob/master/CODE_OF_CONDUCT.md" target="_blank">code of conduct</a>.
+          required: true

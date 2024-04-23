@@ -1,5 +1,9 @@
 body#page-site-index {
 
+    &:not(.editing) .secondary-navigation {
+        display: none;
+    }
+
     #page {
         padding: 0;
         .secondary-navigation {
@@ -38,15 +42,11 @@ body#page-site-index {
             padding: 2rem 3rem;
             background: $white;
         }
-
-        .card {
-            background-color: $body-bg-color;
-        }
     }
 
     #frontpage-banner {
         position: relative;
-        min-height: calc(100vh - 4.5em);
+        min-height: calc(100vh - 4em);
         background-attachment: scroll, fixed;
         background-position: center center;
         background-size: cover;
@@ -64,16 +64,16 @@ body#page-site-index {
                 color: $white;
                 font-size: 2.5rem;
                 font-weight: bold;
-                text-transform: uppercase;
-                letter-spacing: 1rem;
-                line-height: 1;
+                text-transform: $banner-title-transform;
+                letter-spacing: $banner-title-spacing;
+                line-height: 3rem;
             }
 
             h3 {
                 font-weight: lighter;
                 color: $white;
                 font-size: 1.5rem;
-                line-height: 1;
+                line-height: 2rem;
             }
         }
     }
@@ -110,7 +110,7 @@ body#page-site-index {
             padding: 1.5rem;
             h2 {
                 font-size: 2.3rem;
-                letter-spacing: .8rem;
+                letter-spacing: 0.2rem;
             }
 
             h3 {
@@ -200,27 +200,43 @@ body#page-site-index {
 
 
 .courses {
-    .course-card {
+    .card {
+        background-color: $coursecards-bg-color;
         box-shadow: 5px 5px 9px -4px rgba($primary, .1);
         border-bottom: solid 3px $primary;
-        .course-card-img {
-            width: 100%;
-            overflow: hidden;
-            height: 170px;
-            margin: 0 auto;
-        }
+        text-align: left;
+    }
 
-        .card-title {
-            font-weight: 600;
-            letter-spacing: 0.1em;
-        }
+    .course-card-img {
+        width: 100%;
+        overflow: hidden;
+        height: 170px;
+        margin: 0 auto;
+    }
 
-        .course-card-text {
-            color: #777;
-            padding: 0 1rem;
-            height: 4rem;
-            overflow: hidden;
-        }
+    .card-img-top {
+        border: 1px solid $gray-400;
+    }
+
+    .card-title {
+        font-weight: 600;
+    }
+
+    .card-body {
+        padding: .25rem 0;
+    }
+
+    .card-body h3 {
+        font-size: 1rem!important;
+        line-height: 1.5rem;
+        font-weight:400;
+    }
+
+    .course-card-text {
+        color: #777;
+        padding: 0 1rem;
+        height: 4rem;
+        overflow: hidden;
     }
 }
 
@@ -244,7 +260,7 @@ body#page-site-index {
                 color: #fff;
                 font-size: 2.5rem;
                 font-weight: 700;
-                text-transform: uppercase;
+                text-transform: $text-transform;
                 letter-spacing: 1rem;
                 line-height: 1;
             }
