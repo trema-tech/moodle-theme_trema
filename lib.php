@@ -257,7 +257,7 @@ function theme_trema_get_main_scss_content($theme) {
 
     $scss = '';
 
-    $filename = !empty($theme->settings->preset) ? $theme->settings->preset : 'trema.scss';
+    $filename = !empty($theme->settings->preset) ? $theme->settings->preset : 'default.scss';
     $scss .= file_get_contents("$CFG->dirroot/theme/trema/scss/preset/{$filename}");
 
     if (!empty($theme->settings->enabletrematopics)) {
