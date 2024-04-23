@@ -22,7 +22,8 @@ body.format-tiles {
     }
 }
 
-.activity-add, .block-add {
+.activity-add,
+.block-add {
     color: fix-color-contrast($primary);
     background-color: #{$primary}20;
     border-color: $primary;

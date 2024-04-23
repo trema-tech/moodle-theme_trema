@@ -35,10 +35,10 @@ $string['choosereadme'] = 'Trema is built on the Moodle Boost theme, using Boots
 $string['privacy:metadata'] = 'The Trema theme does not store any individual user data.';
 $string['cachedef_dashboardadmin'] = 'Cache for Admin dashboard';
 
-// Login page
+// Login page.
 $string['rememberusername'] = 'Remember user';
 
-// Frontpage
+// Frontpage.
 $string['summarybutton_text'] = 'Description';
 $string['summarycourselink_text'] = 'Go to the course';
 $string['seemore'] = 'See more';
@@ -46,7 +46,7 @@ $string['link'] = 'Link';
 $string['footertitle'] = 'Theme Trema';
 $string['totop'] = 'Go to top';
 
-// Admin Dashboard
+// Admin Dashboard.
 $string['admindashboard'] = 'Admin Dashboard';
 $string['region-side-admin'] = 'Only admins';
 $string['adminarea'] = 'Only Administrators can see blocks in this area.';
@@ -73,11 +73,11 @@ $string['showumlogoutlink_desc'] = 'Disable to hide the User Menu Log Out link.'
 $string['favicon'] = 'Custom favicon';
 $string['favicon_desc'] = 'Upload your own favicon. It should be an .ico file.';
 $string['enableadmindashboard'] = 'Admin Dashboard';
-$string['enableadmindashboard_desc'] = 'Enable if you want to show additional site information in admin dashboard: <img class="img-responsive" src="{$a}"/>';
+$string['enableadmindashboard_desc'] = 'Enable if you want to show additional site information in admin dashboard: <img class="img-responsive" src="{$a}">';
 $string['enabletrematopics'] = 'Enable Trema Course Style for Topics';
-$string['enabletrematopics_desc'] = 'Enable Trema Course Style for Course format Topics: <br> <img class="img-responsive" src="{$a}"/>';
+$string['enabletrematopics_desc'] = 'Enable Trema Course Style for Course format Topics: <br> <img class="img-responsive" src="{$a}">';
 $string['enabletremalines'] = 'Enable Trema Lines';
-$string['enabletremalines_desc'] = 'Enable Trema Lines: <br> <img class="img-responsive" src="{$a}"/>';
+$string['enabletremalines_desc'] = 'Enable Trema Lines: <br> <img class="img-responsive" src="{$a}">';
 $string['softness'] = 'Softness';
 $string['softness_desc'] = 'Enable for a softer look by rounding some corners.';
 
@@ -157,7 +157,7 @@ $string['defaultfrontpagebody_desc'] = 'Default content from frontpage body';
 $string['showfrontpagelinkstopages'] = 'Frontpage pages';
 $string['showfrontpagelinkstopages_desc'] = 'Uncheck this setting to hide links to pages on the Frontpage. These pages can be useful when you want to create additional pages of information, About us, Contact Us, Help/FAQ, etc.';
 $string['frontpageenablecards'] = 'Enable frontpage cards';
-$string['frontpageenablecards_desc'] = 'Uncheck if you want to hide the area below: <img class="img-responsive" src="{$a}" />';
+$string['frontpageenablecards_desc'] = 'Uncheck if you want to hide the area below: <img class="img-responsive" src="{$a}">';
 $string['frontpagecards'] = 'Frontpage cards';
 $string['frontpagecardstitle'] = 'Title of cards section';
 $string['frontpagecardssubtitle'] = 'The description of the cards section goes here. Several lines of text can be placed in this space.';
@@ -258,7 +258,7 @@ $string['defaultfooter_default'] = '<div class="row">
   </div>
 </div>';
 $string['enablefooterinfo'] = 'Footer Info';
-$string['enablefooterinfo_desc'] = 'Enable to show additional links and information in the footer:<br><img class="img-responsive" src="{$a}"/>';
+$string['enablefooterinfo_desc'] = 'Enable to show additional links and information in the footer:<br><img class="img-responsive" src="{$a}">';
 $string['showbranding'] = 'Branding';
 $string['showbranding_desc'] = 'Show or hide Moodle and Trema branding and copyright in the page footer.';
 

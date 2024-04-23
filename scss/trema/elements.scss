@@ -1,50 +1,63 @@
 body #page {
     //heading
-    h1, .h1,
-    h2, .h2,
-    h3, .h3,
-    h4, .h4,
-    h5, .h5,
-    h6, .h6 {
+    h1,
+    .h1,
+    h2,
+    .h2,
+    h3,
+    .h3,
+    h4,
+    .h4,
+    h5,
+    .h5,
+    h6,
+    .h6 {
         color: $gray-700;
         border: none;
         line-height: 1.5rem;
         font-family: $hx-font-family;
     }
 
-    h1, .h1, .page-header-headings h1.h2 {
+    h1,
+    .h1,
+    .page-header-headings h1.h2 {
         font-family: $h1-font-family;
         line-height: 2rem;
         font-weight: 600;
         color: choose-contrast-color($body-bg-color);
     }
 
-    h2, .h2 {
+    h2,
+    .h2 {
         font-size: $h2;
         line-height: 2rem;
         font-weight: normal;
     }
 
-    h3, .h3 {
+    h3,
+    .h3 {
         font-size: $h3;
         font-weight: 600;
     }
 
-    h4, .h4 {
+    h4,
+    .h4 {
         font-size: $h4;
         font-weight: 600;
     }
 
-    h5, .h5 {
+    h5,
+    .h5 {
         font-size: $h5;
         line-height: normal;
         font-weight: normal;
     }
 
-    h6, .h6 {
+    h6,
+    .h6 {
         font-size: $h6;
         line-height: normal;
-        font-weight: normal ;
+        font-weight: normal;
     }
 
     //blockquote
@@ -187,14 +200,14 @@ body #page {
 
     .btn,
     .btn.small {
-          line-height: 2.7rem;
+        line-height: 2.7rem;
     }
     button {
         &.search-icon {
-          line-height: 1.3rem;
+            line-height: 1.3rem;
         }
         &.text-primary {
-            background-color: choose-contrast-color($primary)!important;
+            background-color: choose-contrast-color($primary) !important;
         }
     }
 
@@ -491,18 +504,23 @@ body.path-mod-quiz {
 
 @if ($softness != 0) {
     .drawer-toggles .drawer-left-toggle .btn,
-    .input-group>.input-group-append>.btn, .input-group>.input-group-append>.input-group-text, .input-group>.input-group-prepend:not(:first-child)>.btn, .input-group>.input-group-prepend:not(:first-child)>.input-group-text, .input-group>.input-group-prepend:first-child>.btn:not(:first-child), .input-group>.input-group-prepend:first-child>.input-group-text:not(:first-child) {
-        border-top-left-radius: 0!important;
-        border-bottom-left-radius: 0!important;
+    .input-group > .input-group-append > .btn,
+    .input-group > .input-group-append > .input-group-text,
+    .input-group > .input-group-prepend:not(:first-child) > .btn,
+    .input-group > .input-group-prepend:not(:first-child) > .input-group-text,
+    .input-group > .input-group-prepend:first-child > .btn:not(:first-child),
+    .input-group > .input-group-prepend:first-child > .input-group-text:not(:first-child) {
+        border-top-left-radius: 0 !important;
+        border-bottom-left-radius: 0 !important;
     }
     body #page form .input-group input[type="text"],
     .drawer-toggles .drawer-right-toggle .btn {
-        border-top-right-radius: 0!important;
-        border-bottom-right-radius: 0!important;
+        border-top-right-radius: 0 !important;
+        border-bottom-right-radius: 0 !important;
     }
     .secondary-navigation .navigation {
-        border-top-left-radius: .5rem!important;
-        border-top-right-radius: .5rem!important;
+        border-top-left-radius: .5rem !important;
+        border-top-right-radius: .5rem !important;
     }
     .dashboard-card .dashboard-card-img {
         border-top-left-radius: 0.5rem;

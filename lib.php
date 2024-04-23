@@ -135,7 +135,7 @@ function theme_trema_get_pre_scss($theme) {
 
     // Section: General.
     $fields['showprofileemaildisplay'] = '#fitem_id_maildisplay'; // Email display.
-    if ($CFG->branch >= 311 && empty($theme->settings->showmoodlenetprofile)) {
+    if (empty($theme->settings->showmoodlenetprofile)) {
         $fields['showmoodlenetprofile'] = '#fitem_id_moodlenetprofile'; // MoodleNet Profile.
     }
     $fields['showprofilecity'] = '#fitem_id_city'; // City.
@@ -155,21 +155,20 @@ function theme_trema_get_pre_scss($theme) {
     // Section: Optional.
     $fields['showprofileoptional'] = '#id_moodle_optional';
 
-    if ($CFG->branch < 311) {
-        $fields['showprofilewebpage'] = '#fitem_id_url'; // Web Page.
-        $fields['showprofileicqnumber'] = '#fitem_id_icq'; // ICQ.
-        $fields['showprofileskypeid'] = '#fitem_id_skype'; // Skype.
-        $fields['showprofileaimid'] = '#fitem_id_aim'; // AIM.
-        $fields['showprofileyahooid'] = '#fitem_id_yahoo'; // Yahoo.
-        $fields['showprofilemsnid'] = '#fitem_id_msn'; // MSN.
-    }
-    $fields['showprofilemoodlenetprofile'] = '#fitem_id_moodlenetprofile'; // MoodleNet profile ID.
-    $fields['showprofileidnumber'] = '#fitem_id_idnumber'; // ID number.
-    $fields['showprofileinstitution'] = '#fitem_id_institution'; // Institution.
-    $fields['showprofiledepartment'] = '#fitem_id_department'; // Department.
-    $fields['showprofilephone1'] = '#fitem_id_phone1'; // Phone.
-    $fields['showprofilephone2'] = '#fitem_id_phone2'; // Mobile phone.
-    $fields['showprofileaddress'] = '#fitem_id_address'; // Address.
+    // MoodleNet profile ID.
+    $fields['showprofilemoodlenetprofile'] = '#fitem_id_moodlenetprofile';
+    // ID number.
+    $fields['showprofileidnumber'] = '#fitem_id_idnumber';
+    // Institution.
+    $fields['showprofileinstitution'] = '#fitem_id_institution';
+    // Department.
+    $fields['showprofiledepartment'] = '#fitem_id_department';
+    // Phone.
+    $fields['showprofilephone1'] = '#fitem_id_phone1';
+    // Mobile phone.
+    $fields['showprofilephone2'] = '#fitem_id_phone2';
+    // Address.
+    $fields['showprofileaddress'] = '#fitem_id_address';
 
     //
     // Show/hide other elements.

@@ -15,6 +15,8 @@
     along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 }}
 {{!
+    @template theme_trema/course_summary_modal
+
     Modal info for /course and list of courses available (site home).
 }}
 
@@ -27,21 +29,21 @@
 
 <!-- Modal -->
 <div class="modal course-summary-modal fade" id="modal-{{uniqid}}" tabindex="-1" role="dialog" aria-labelledby="modal-title-{{uniqid}}" aria-hidden="true">
-  <div class="modal-dialog modal-lg" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h3 class="modal-title" id="modal-title-{{uniqid}}">{{#title}}{{title}}{{/title}}</h3>
-        <button type="button" class="close" data-dismiss="modal" aria-label={{#quote}}{{#str}}closebuttontitle{{/str}}{{/quote}}>
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        {{{body}}}
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">{{#str}}closebuttontitle{{/str}}</button>
-        <a href="{{courselink}}" class="btn btn-primary">{{#str}}summarycourselink_text, theme_trema{{/str}}</a>
-      </div>
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title" id="modal-title-{{uniqid}}">{{#title}}{{title}}{{/title}}</h3>
+                <button type="button" class="close" data-dismiss="modal" aria-label={{#quote}}{{#str}}closebuttontitle{{/str}}{{/quote}}>
+                <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                {{{body}}}
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">{{#str}}closebuttontitle{{/str}}</button>
+                <a href="{{courselink}}" class="btn btn-primary">{{#str}}summarycourselink_text, theme_trema{{/str}}</a>
+            </div>
+        </div>
     </div>
-  </div>
 </div>

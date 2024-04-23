@@ -23,8 +23,8 @@ a.focus.autolink,
 a.autolink:focus,
 a:not([class]).focus,
 a:not([class]):focus,
-.activityinstance>a.focus,
-.activityinstance>a:focus,
+.activityinstance > a.focus,
+.activityinstance > a:focus,
 .arrow_link.focus,
 .arrow_link:focus,
 a.dropdown-toggle.focus,
@@ -78,15 +78,15 @@ body #page input[type="button"].btn-secondary:focus,
 .sr-only-focusable:focus,
 selection.focus {
     // Works on both dark and light backgrounds.
-	outline: 2px #F9F9F9 solid;
-	outline-offset: 0;
-	box-shadow: 0 0 3px 3px $primary;
+    outline: 2px #f9f9f9 solid;
+    outline-offset: 0;
+    box-shadow: 0 0 3px 3px $primary;
     transition: box-shadow 0.3s ease;
 }
 
 // Improve colour contrast ratio for input placeholder text.
 ::placeholder {
-    color: $placeholder-color!important;
+    color: $placeholder-color !important;
 }
 
 body {
@@ -101,7 +101,8 @@ body {
 }
 
 // Allow text to wrap in table cells.
-td, th {
+td,
+th {
     white-space: normal;
 }
 
@@ -183,7 +184,12 @@ body {
                 &:not(:empty) .breadcrumb-item {
                     flex-grow: 0;
                 }
-                &, a, a:hover, a:focus, a:active, &::before {
+                &,
+                a,
+                a:hover,
+                a:focus,
+                a:active,
+                &::before {
                     color: choose-contrast-color($body-bg-color);
                 }
             }
@@ -300,7 +306,7 @@ body#page-calendar-view {
     }
 }
 .maincalendar .calendarmonth td.today .day-number-circle {
-    border:1px solid choose-contrast-color($primary);
+    border: 1px solid choose-contrast-color($primary);
     .day-number {
         color: choose-contrast-color($primary);
     }

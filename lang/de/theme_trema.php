@@ -64,7 +64,7 @@ $string['frontpagebuttonhref_desc'] = 'Startseiten-Button href-Attribut eingeben
 $string['frontpagecards'] = 'Startseiten-Karten';
 $string['frontpagecontent'] = 'Inhalt der Startseite';
 $string['frontpageenablecards'] = 'Startseiten-Karten aktivieren';
-$string['frontpageenablecards_desc'] = 'Deaktivieren um den Bereich unterhalb zu verstecken: <img class="img-responsive" src="{$a}" />';
+$string['frontpageenablecards_desc'] = 'Deaktivieren um den Bereich unterhalb zu verstecken: <img class="img-responsive" src="{$a}">';
 $string['frontpagesubtitle'] = 'Untertitel der Startseite';
 $string['frontpagetitle'] = 'Titel der Startseite';
 $string['image'] = 'Bild {$a}';

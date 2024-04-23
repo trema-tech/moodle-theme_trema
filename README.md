@@ -1,4 +1,4 @@
-<img src="pix/logo.png" align="right" />
+<img src="pix/logo.png" align="right">
 
 Trema Theme for Moodle LMS
 ==========================

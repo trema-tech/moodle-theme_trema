@@ -25,11 +25,15 @@ namespace theme_trema;
  * @copyright 2016 onwards Ankit Agarwal
  * @license   https://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-class scss_test extends \advanced_testcase {
+final class scss_test extends \advanced_testcase {
     /**
      * Test that trema can be compiled using SassC (the defacto implemention).
+     *
+     * @covers \theme_trema
+     *
+     * @return void
      */
-    public function test_scss_compilation_with_sassc() {
+    public function test_scss_compilation_with_sassc(): void {
         if (!defined('PHPUNIT_PATH_TO_SASSC')) {
             $this->markTestSkipped('Path to SassC not provided');
         }
