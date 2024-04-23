@@ -96,9 +96,6 @@ jobs:
           - php: '8.0'
             moodle-branch: 'MOODLE_400_STABLE'
             database: 'mariadb'
-          - php: '7.3'
-            moodle-branch: 'MOODLE_400_STABLE'
-            database: 'pgsql'
 
     steps:
       # Check out this repository code in ./plugin directory
