@@ -1,8 +1,11 @@
 body.uses-drawers {
-    #page.drawers footer#page-footer {
-        margin-left: -3rem;
-        margin-right: -3rem;
-        width: calc(100% + 6rem);
+    @media screen and (min-width: 576px) {
+        #page.drawers footer#page-footer,
+        footer#page-footer {
+            margin-left: -3rem;
+            margin-right: -3rem;
+            width: calc(100% + 6rem);
+        }
     }
 
     .show-drawer-right {
