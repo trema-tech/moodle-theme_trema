@@ -70,8 +70,8 @@ function xmldb_theme_trema_upgrade($oldversion): bool {
         if (get_config('theme_trema', 'preset') == 'trema.scss') {
             set_config('preset', 'default.scss', 'theme_trema');
         }
+        upgrade_plugin_savepoint(true, 2024042300, 'theme', 'trema');
     }
-    upgrade_plugin_savepoint(true, 2024042300, 'theme', 'trema');
 
     return true;
 }
