@@ -120,9 +120,15 @@ footer#page-footer {
         background-color: #373a3c !important;
         color: #ffffff !important;
     }
+
+    .footer-content-popover.container {
+        display: none;
+    }
+
     .popover-body a:not(.button) {
         color: $black;
     }
+
     .footer-dark-inner,
     &.footer-trema {
         padding: 1.5rem;
