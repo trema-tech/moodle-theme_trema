@@ -45,6 +45,7 @@ function xmldb_theme_trema_upgrade($oldversion): bool {
     }
 
     if ($oldversion < 2024040100) {
+        // Adds usertours data from Boost.
         $usertours = $DB->get_records('tool_usertours_tours');
 
         if ($usertours) {
