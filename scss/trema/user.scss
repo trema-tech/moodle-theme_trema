@@ -65,3 +65,16 @@ body.format-site.path-grade {
         }
     }
 }
+
+@media (max-width: 769px) {
+    body.path-user:not(#page-course-view-participants),
+    body.format-site.path-grade {
+        #page {
+            #page-header {
+                > div.w-100 {
+                    display: block;
+                }
+            }
+        }
+    }
+}
