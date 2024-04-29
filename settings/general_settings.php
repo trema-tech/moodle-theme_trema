@@ -43,9 +43,9 @@ $page->add($setting);
 $name = 'theme_trema/preset';
 $title = get_string('preset', 'theme_boost');
 $description = get_string('preset_desc', 'theme_boost');
-$default = 'trema.scss';
+$default = 'default.scss';
 // These are the built in presets.
-$choices = ['trema.scss' => 'trema.scss', 'plain.scss' => 'plain.scss'];
+$choices = ['default.scss' => 'default.scss', 'plain.scss' => 'plain.scss'];
 $setting = new admin_setting_configthemepreset($name, $title, $description, $default, $choices, 'trema');
 $setting->set_updatedcallback('theme_reset_all_caches');
 $page->add($setting);

@@ -176,11 +176,8 @@ class course_renderer extends \core_course_renderer {
 
         $content = html_writer::start_tag('div', ['class' => $additionalclasses]);
         $classes = '';
-        if ($chelper->get_show_courses() >= self::COURSECAT_SHOW_COURSES_EXPANDED) {
-            $nametag = 'h5';
-        } else {
+        if ($chelper->get_show_courses() < self::COURSECAT_SHOW_COURSES_EXPANDED) {
             $classes .= ' collapsed';
-            $nametag = 'div';
         }
         // End coursebox.
         $content .= html_writer::start_tag(

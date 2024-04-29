@@ -36,9 +36,7 @@ $profilefieldsections = ['pictureofuser', 'additionalnames', 'interests', 'optio
 
 // List of user profile fields that we can show or hide.
 $profilefields[] = 'emaildisplay';
-if ($CFG->branch >= 311) {
-    $profilefields[] = 'moodlenetprofile';
-}
+$profilefields[] = 'moodlenetprofile';
 $profilefields[] = 'city';
 $profilefields[] = 'country';
 $profilefields[] = 'timezone';
@@ -51,14 +49,6 @@ $profilefields[] = 'additionalnames';
 $profilefields[] = 'interests';
 // Optional section.
 $profilefields[] = 'optional';
-if ($CFG->branch < 311) {
-    $profilefields[] = 'webpage';
-    $profilefields[] = 'icqnumber';
-    $profilefields[] = 'skypeid';
-    $profilefields[] = 'aimid';
-    $profilefields[] = 'yahooid';
-    $profilefields[] = 'msnid';
-}
 $profilefields[] = 'idnumber';
 $profilefields[] = 'institution';
 $profilefields[] = 'department';

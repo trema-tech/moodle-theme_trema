@@ -12,10 +12,14 @@ body.pagelayout-mydashboard {
                 color: rgba(choose-contrast-color($body-bg-color), 0.85);
             }
         }
-        .h5, p, a {
+        .h5,
+        p,
+        a {
             color: choose-contrast-color($body-bg-color);
         }
-        a:hover, a:active, a:focus {
+        a:hover,
+        a:active,
+        a:focus {
             color: choose-contrast-color($body-bg-color);
             font-weight: bold;
         }

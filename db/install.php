@@ -18,8 +18,14 @@
  * Adds trema to boost usertours
  *
  * @package    theme_trema
- * @author     2022 Willian Mano {@link https://conecti.me}
+ * @copyright  2022 Willian Mano {@link https://conecti.me}
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ */
+
+/**
+ * Adds trema to boost usertours
+ *
+ * @return bool
  */
 function xmldb_theme_trema_install() {
     global $DB;

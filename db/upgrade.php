@@ -20,7 +20,18 @@
  * @package     theme_trema
  * @copyright   2024 TNG Consulting Inc. - {@link https://www.tngconsulting.ca/}
  * @author      Michael Milette
+ * @copyright   2024 Trema - {@link https://trema.tech/}
+ * @author      Rodrigo Mady
+ * @copyright   Based on 2022 Willian Mano {@link https://conecti.me}.
+ * @author      Based on Willian Mano {@link https://conecti.me}.
  * @license     http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ */
+
+/**
+ * Upgrade the theme_trema plugin.
+ *
+ * @param int $oldversion The old version of the plugin.
+ * @return bool Returns true if the upgrade was successful, false otherwise.
  */
 function xmldb_theme_trema_upgrade($oldversion): bool {
     global $DB;
@@ -30,10 +41,11 @@ function xmldb_theme_trema_upgrade($oldversion): bool {
         if (get_config('theme_trema', 'loginpagestyle') == 'particle-circles') {
             set_config('loginpagestyle', 'none', 'theme_trema');
         }
+        upgrade_plugin_savepoint(true, 2024031000, 'theme', 'trema');
     }
 
-    // @author:  2022 Willian Mano {@link https://conecti.me}
     if ($oldversion < 2024040100) {
+        // Adds usertours data from Boost.
         $usertours = $DB->get_records('tool_usertours_tours');
 
         if ($usertours) {
@@ -51,8 +63,15 @@ function xmldb_theme_trema_upgrade($oldversion): bool {
                 $DB->update_record('tool_usertours_tours', $updatedata);
             }
         }
-
         upgrade_plugin_savepoint(true, 2024040100, 'theme', 'trema');
+    }
+
+    if ($oldversion < 2024042300) {
+        // Renamed trema.scss to default.scss.
+        if (get_config('theme_trema', 'preset') == 'trema.scss') {
+            set_config('preset', 'default.scss', 'theme_trema');
+        }
+        upgrade_plugin_savepoint(true, 2024042300, 'theme', 'trema');
     }
 
     return true;

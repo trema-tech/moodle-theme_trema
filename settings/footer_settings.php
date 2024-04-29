@@ -40,7 +40,7 @@ $page->add($setting);
 // Select footer opacity.
 $options = [];
 for ($i = 0; $i <= 100; $i += 10) {
-    $options['' . ($i / 100) ] = $i;
+    $options['' . ($i / 100)] = $i;
 }
 $name = 'theme_trema/footeropacity';
 $title = get_string('footeropacity', 'theme_trema');

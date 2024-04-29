@@ -1,8 +1,11 @@
 body.uses-drawers {
-    #page.drawers footer#page-footer {
-        margin-left: -3rem;
-        margin-right: -3rem;
-        width: calc(100% + 6rem);
+    @media screen and (min-width: 576px) {
+        #page.drawers footer#page-footer,
+        footer#page-footer {
+            margin-left: -3rem;
+            margin-right: -3rem;
+            width: calc(100% + 6rem);
+        }
     }
 
     .show-drawer-right {
@@ -117,9 +120,15 @@ footer#page-footer {
         background-color: #373a3c !important;
         color: #ffffff !important;
     }
+
+    .footer-content-popover.container {
+        display: none;
+    }
+
     .popover-body a:not(.button) {
         color: $black;
     }
+
     .footer-dark-inner,
     &.footer-trema {
         padding: 1.5rem;
@@ -129,9 +138,9 @@ footer#page-footer {
         background-color: #000000;
         color: white;
         table.table {
-            width: 100%!important;
+            width: 100% !important;
             th {
-                background-color: #676A6C;
+                background-color: #676a6c;
             }
         }
     }

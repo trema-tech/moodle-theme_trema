@@ -102,7 +102,7 @@
     {{/languagemenu}}
     {{#logourl}}
         <div id="loginlogo" class="login-logo">
-            <img id="logoimage" src="{{logourl}}" class="img-fluid login-heading" alt=""/>
+            <img id="logoimage" src="{{logourl}}" class="img-fluid login-heading" alt="">
             <h1 class="login-heading sr-only">{{sitename}}</h1>
         </div>
     {{/logourl}}
@@ -173,7 +173,7 @@
             {{#identityproviders}}
                 <a class="btn login-identityprovider-btn col-12 col-md-6 col-lg-auto" href="{{url}}">
                     {{#iconurl}}
-                        <img src="{{iconurl}}" alt="" width="24" height="24"/>
+                        <img src="{{iconurl}}" alt="" width="24" height="24">
                     {{/iconurl}}
                     {{name}}
                 </a>
@@ -199,8 +199,8 @@
         <h2 class="login-heading">{{#str}}someallowguest{{/str}}</h2>
         <form action="{{loginurl}}" method="post" id="guestlogin">
             <input type="hidden" name="logintoken" value="{{logintoken}}">
-            <input type="hidden" name="username" value="guest" />
-            <input type="hidden" name="password" value="guest" />
+            <input type="hidden" name="username" value="guest">
+            <input type="hidden" name="password" value="guest">
             <button class="btn btn-secondary col-12 col-md-6 col-lg-auto" type="submit" id="loginguestbtn">{{#str}}loginguest{{/str}}</button>
         </form>
     {{/canloginasguest}}

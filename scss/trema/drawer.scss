@@ -104,8 +104,7 @@ body div#page {
     @for $i from 1 through 9 {
         $pos: $pos * -1;
         $m: ($n / $i) * $pos;
-        #{ $i * 10% }
-        {
+        #{ $i * 10% } {
             transform: rotateZ($m * 1deg);
         }
     }
