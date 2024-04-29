@@ -276,6 +276,7 @@
 
 @media (max-width: 767.98px) {
     #page-wrapper .navbar {
+        padding: 0 .5rem;
         .primary-navigation {
             display: none;
         }
@@ -283,12 +284,23 @@
             border: 0 none;
             padding: 0;
         }
+        .navbar-brand.d-none {
+            display: flex !important;
+            margin-left: 10px !important;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
         .usermenu {
             padding-right: 0;
             .avatar.current {
                 position: relative;
                 right: 0;
                 top: 0;
+            }
+            .dropdown .dropdown-toggle {
+                padding: 0;
+
             }
         }
     }
