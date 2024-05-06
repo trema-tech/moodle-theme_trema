@@ -131,7 +131,7 @@ body #page {
     input[type="submit"],
     input[type="reset"],
     input[type="button"],
-    .btn:not(.activity-add) {
+    .btn:not(.activity-add, .activity-icon, [data-for="sectiontoggler"]) {
         appearance: none;
         transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
         background-color: $gray-800;
@@ -149,7 +149,7 @@ body #page {
         text-decoration: none;
         text-transform: $text-transform;
 
-        &:hover {
+        &:hover:not([data-for="sectiontoggler"]) {
             background-color: rgba($gray-800, 0.8);
             color: $white;
             text-decoration: none;
@@ -168,8 +168,12 @@ body #page {
         }
     }
 
-    .btn.btn-icon,
-    .btn.btn-link:not(.activity-add) {
+    .btn.btn-icon {
+        border-radius: $softness;
+    }
+
+    .btn.btn-icon:not([data-for="sectiontoggler"]),
+    .btn.btn-link:not(.activity-add, .activity-icon) {
         background-color: transparent;
         border-radius: $softness;
         border: 0;
@@ -211,16 +215,16 @@ body #page {
         }
     }
 
-    //Correct the alignment of the help icon with popover
+    // Correct the alignment of the help icon with popover.
     a.btn[data-toggle="popover"] {
         line-height: 1.5;
     }
 
-    .btn-link:not(.activity-add) {
+    .btn-link:not(.activity-add, .activity-icon) {
         color: $primary;
         background: none;
 
-        &:hover:not(.activity-add) {
+        &:hover:not(.activity-add, .activity-icon) {
             background: none;
             color: darken($primary, 30%);
         }
