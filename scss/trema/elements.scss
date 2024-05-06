@@ -1,5 +1,5 @@
 body #page {
-    //heading
+    // Heading.
     h1,
     .h1,
     h2,
@@ -60,14 +60,14 @@ body #page {
         font-weight: normal;
     }
 
-    //blockquote
+    // Blockquote.
     blockquote {
         border-left: solid 4px rgba(144, 144, 144, 0.35);
         font-style: italic;
         margin: 0 0 2em 0;
         padding: 0.5em 0 0.5em 2em;
     }
-    //coding
+    // Coding.
     pre {
         font-family: "Courier New", monospace;
         font-size: 0.9em;
@@ -100,7 +100,7 @@ body #page {
         color: choose-contrast-color($primary);
     }
 
-    //lists
+    // Lists.
     ul.alt {
         list-style: none;
         padding-left: 0;
@@ -114,7 +114,7 @@ body #page {
         }
     }
 
-    //buttons
+    // Buttons.
     ul.actions {
         display: flex;
         cursor: default;
@@ -143,7 +143,7 @@ body #page {
         font-weight: 600;
         font-size: 0.9rem;
         letter-spacing: 0.08rem;
-        min-height: 2.3rem;
+        min-height: 1.9rem;
         padding: 0 0.9rem;
         text-align: center;
         text-decoration: none;
@@ -183,7 +183,7 @@ body #page {
         font-weight: 600;
         font-size: 0.9rem;
         letter-spacing: 0.08rem;
-        min-height: 2.3rem;
+        min-height: 1.9rem;
         margin: 0.5rem;
         padding: 0 0.9rem;
         text-align: center;
@@ -204,7 +204,7 @@ body #page {
 
     .btn,
     .btn.small {
-        line-height: 2.7rem;
+        line-height: 1.9rem;
     }
     button {
         &.search-icon {
@@ -248,7 +248,8 @@ body #page {
     input[type="reset"].btn-primary,
     input[type="button"].btn-primary,
     button.btn-primary,
-    .btn.btn-primary {
+    .btn.btn-primary,
+    .messaging-area-container .send-button-container button {
         background-color: $primary;
         color: choose-contrast-color($primary);
 
@@ -285,7 +286,7 @@ body #page {
         @extend .border;
     }
 
-    //form
+    // Form.
     form {
         input[type="text"],
         input[type="password"],
@@ -359,7 +360,7 @@ body #page {
         }
     }
 
-    //style for search with downarrow
+    // Style for search with down-arrow.
     .form-autocomplete-suggestions {
         width: 97%;
         padding: 0.5rem 1rem;
