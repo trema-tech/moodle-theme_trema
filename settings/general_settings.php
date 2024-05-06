@@ -39,25 +39,6 @@ $setting = new admin_setting_configtext($name, $title, $description, $default, P
 $setting->set_updatedcallback('theme_reset_all_caches');
 $page->add($setting);
 
-// Preset.
-$name = 'theme_trema/preset';
-$title = get_string('preset', 'theme_boost');
-$description = get_string('preset_desc', 'theme_boost');
-$default = 'default.scss';
-// These are the built in presets.
-$choices = ['default.scss' => 'default.scss', 'plain.scss' => 'plain.scss'];
-$setting = new admin_setting_configthemepreset($name, $title, $description, $default, $choices, 'trema');
-$setting->set_updatedcallback('theme_reset_all_caches');
-$page->add($setting);
-
-// Preset files setting.
-$name = 'theme_trema/presetfiles';
-$title = get_string('presetfiles', 'theme_boost');
-$description = get_string('presetfiles_desc', 'theme_boost');
-$restrictions = ['maxfiles' => 20, 'accepted_types' => ['.scss']];
-$setting = new admin_setting_configstoredfile($name, $title, $description, 'preset', 0, $restrictions);
-$page->add($setting);
-
 // Background image setting.
 $name = 'theme_trema/backgroundimage';
 $title = get_string('backgroundimage', 'theme_boost');
