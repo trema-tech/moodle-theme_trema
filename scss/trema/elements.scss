@@ -1,5 +1,5 @@
 body #page {
-    //heading
+    // Heading.
     h1,
     .h1,
     h2,
@@ -60,14 +60,14 @@ body #page {
         font-weight: normal;
     }
 
-    //blockquote
+    // Blockquote.
     blockquote {
         border-left: solid 4px rgba(144, 144, 144, 0.35);
         font-style: italic;
         margin: 0 0 2em 0;
         padding: 0.5em 0 0.5em 2em;
     }
-    //coding
+    // Coding.
     pre {
         font-family: "Courier New", monospace;
         font-size: 0.9em;
@@ -100,7 +100,7 @@ body #page {
         color: choose-contrast-color($primary);
     }
 
-    //lists
+    // Lists.
     ul.alt {
         list-style: none;
         padding-left: 0;
@@ -114,7 +114,7 @@ body #page {
         }
     }
 
-    //buttons
+    // Buttons.
     ul.actions {
         display: flex;
         cursor: default;
@@ -131,7 +131,7 @@ body #page {
     input[type="submit"],
     input[type="reset"],
     input[type="button"],
-    .btn:not(.activity-add) {
+    .btn:not(.activity-add, .activity-icon, [data-for="sectiontoggler"]) {
         appearance: none;
         transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
         background-color: $gray-800;
@@ -143,13 +143,13 @@ body #page {
         font-weight: 600;
         font-size: 0.9rem;
         letter-spacing: 0.08rem;
-        min-height: 2.3rem;
+        min-height: 1.9rem;
         padding: 0 0.9rem;
         text-align: center;
         text-decoration: none;
         text-transform: $text-transform;
 
-        &:hover {
+        &:hover:not([data-for="sectiontoggler"]) {
             background-color: rgba($gray-800, 0.8);
             color: $white;
             text-decoration: none;
@@ -168,8 +168,12 @@ body #page {
         }
     }
 
-    .btn.btn-icon,
-    .btn.btn-link:not(.activity-add) {
+    .btn.btn-icon {
+        border-radius: $softness;
+    }
+
+    .btn.btn-icon:not([data-for="sectiontoggler"]),
+    .btn.btn-link:not(.activity-add, .activity-icon) {
         background-color: transparent;
         border-radius: $softness;
         border: 0;
@@ -179,7 +183,7 @@ body #page {
         font-weight: 600;
         font-size: 0.9rem;
         letter-spacing: 0.08rem;
-        min-height: 2.3rem;
+        min-height: 1.9rem;
         margin: 0.5rem;
         padding: 0 0.9rem;
         text-align: center;
@@ -200,7 +204,7 @@ body #page {
 
     .btn,
     .btn.small {
-        line-height: 2.7rem;
+        line-height: 1.9rem;
     }
     button {
         &.search-icon {
@@ -211,16 +215,16 @@ body #page {
         }
     }
 
-    //Correct the alignment of the help icon with popover
+    // Correct the alignment of the help icon with popover.
     a.btn[data-toggle="popover"] {
         line-height: 1.5;
     }
 
-    .btn-link:not(.activity-add) {
+    .btn-link:not(.activity-add, .activity-icon) {
         color: $primary;
         background: none;
 
-        &:hover:not(.activity-add) {
+        &:hover:not(.activity-add, .activity-icon) {
             background: none;
             color: darken($primary, 30%);
         }
@@ -244,7 +248,8 @@ body #page {
     input[type="reset"].btn-primary,
     input[type="button"].btn-primary,
     button.btn-primary,
-    .btn.btn-primary {
+    .btn.btn-primary,
+    .messaging-area-container .send-button-container button {
         background-color: $primary;
         color: choose-contrast-color($primary);
 
@@ -281,7 +286,7 @@ body #page {
         @extend .border;
     }
 
-    //form
+    // Form.
     form {
         input[type="text"],
         input[type="password"],
@@ -311,8 +316,8 @@ body #page {
 
     .mform {
         .btn.btn-icon {
-            margin: 0 0.5rem;
-            padding: 0 .5rem 0 .25rem;
+            margin: 0;
+            padding-left: 0.12rem;
             text-align: center;
             line-height: 1;
             height: auto;
@@ -355,7 +360,7 @@ body #page {
         }
     }
 
-    //style for search with downarrow
+    // Style for search with down-arrow.
     .form-autocomplete-suggestions {
         width: 97%;
         padding: 0.5rem 1rem;

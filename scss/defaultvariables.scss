@@ -1,4 +1,4 @@
-// Bootstrap variables
+// Bootstrap variables.
 
 $white:    #ffffff !default;
 $gray-100: #f8f9fa !default;
@@ -23,7 +23,7 @@ $green:   #5cb85c !default;
 $teal:    #20c997 !default;
 $cyan:    #5bc0de !default;
 
-$primary:       #fd647a !default;
+$primary:       #1c6ca3 !default;
 $secondary:     $gray-800 !default;
 $success:       $green !default;
 $info:          $cyan !default;
@@ -32,24 +32,24 @@ $danger:        $red !default;
 $light:         $gray-200 !default;
 $dark:          $gray-800 !default;
 
-// Options
+// Options.
 $enable-rounded: false !default;
 
-// Body
+// Body.
 $body-color: $gray-800 !default;
 $body-bg-color: $white !default;
 
-// Fonts
+// Fonts.
 $font-size-base: 1rem !default;
 $headings-font-weight: 300 !default;
 
-// Navbar
+// Navbar.
 $navbar-dark-hover-color: rgba($white, 1) !default;
 $navbar-light-hover-color: rgba($black, .9) !default;
 $navbar-dark-color: $white;
 $navbar-light-color: $black;
 
-// Breadcrumbs
+// Breadcrumbs.
 $breadcrumb-padding-y: .25rem !default;
 $breadcrumb-padding-x: 0 !default;
 $breadcrumb-item-padding: .5rem !default;
@@ -60,10 +60,10 @@ $breadcrumb-divider-rtl: "/" !default;
 
 $course-content-maxwidth: 1280px !default;
 
-// Alerts
+// Alerts.
 $alert-border-width: 0 !default;
 
-// Cards
+// Cards.
 $card-group-margin: .25rem !default;
 $coursecards-bg-color: $white !default;
 

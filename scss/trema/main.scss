@@ -13,7 +13,6 @@ $drawer-color: choose-contrast-color($drawer-bg-color);
     border: none;
 }
 
-:focus,
 a:focus,
 .aalink.focus,
 .aalink:focus,
@@ -64,8 +63,6 @@ body #page input[type="reset"].btn-secondary:focus,
 body #page input[type="button"].btn-secondary:focus,
 .list-group-item-action.focus,
 .list-group-item-action:focus,
-.modal-dialog[tabindex="0"].focus,
-.modal-dialog[tabindex="0"]:focus,
 .moodle-dialogue-base .closebutton.focus,
 .moodle-dialogue-base .closebutton:focus,
 .nav-link.focus,
@@ -76,6 +73,8 @@ body #page input[type="button"].btn-secondary:focus,
 [role="treeitem"]:not([aria-expanded="true"]):focus,
 .sr-only-focusable.focus,
 .sr-only-focusable:focus,
+.carousel-control-prev-icon:focus,
+.carousel-control-next-icon:focus,
 selection.focus {
     // Works on both dark and light backgrounds.
     outline: 2px #f9f9f9 solid;
@@ -87,6 +86,10 @@ selection.focus {
 // Improve colour contrast ratio for input placeholder text.
 ::placeholder {
     color: $placeholder-color !important;
+}
+
+html {
+    scroll-behavior: smooth;
 }
 
 body {

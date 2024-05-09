@@ -61,7 +61,7 @@ $headercontent = $header->export_for_template($renderer);
 $adminblockshtml = $OUTPUT->blocks('side-admin');
 $pluginsettings = get_config("theme_trema");
 $numberofimages = $pluginsettings->numberofimages;
-
+$overlayimage   = $OUTPUT->image_url('frontpage/overlay', 'theme');
 // Frontpage images.
 if ($numberofimages > 1) {
     $frontpagecarrousel = [];
@@ -75,7 +75,9 @@ if ($numberofimages > 1) {
         $url = theme_trema_setting_file_url("frontpageimage{$i}", "frontpageimage{$i}", $PAGE->theme);
 
         if (!empty($url)) {
-            $frontpagecarrousel[$i]['image'] = $url;
+            $frontpagecarrousel[$i]['image'] = !empty($pluginsettings->frontpageenabledarkoverlay) ?
+            "background-image: url('$overlayimage'), url('$url');" :
+            "background-image: url('$url')";
         } else {
             $frontpagecarrousel[$i]['image'] = $OUTPUT->image_url('frontpage/banner2', 'theme');
         }
