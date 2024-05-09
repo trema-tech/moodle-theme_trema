@@ -33,24 +33,50 @@ Trema Theme for Moodle LMS
 
 # Basic Overview
 
-![theme-trema](https://user-images.githubusercontent.com/8494871/150807318-57548da5-ea15-45a3-98d9-170f8495b95b.gif)
+The Trema theme is a free, responsive Moodle theme that offers a clean and modern design. One unique aspect of the Trema theme is its ability to display course information in a grid format, which can be particularly useful for sites with many courses. Additionally, it includes options for a customizable frontpage, login page, and footer. Overall, the Trema theme for Moodle aims to provide a visually appealing and user-friendly interface for Moodle users. The main goal for this theme is to not need another site for information/advertising/marketing.
 
-The Trema theme focused on simplicity, usability and beauty. To achieve this, we work hard to make it clean and easy to use for everyone. The main goal for this theme is to have it provide the basics you need for both your Moodle LMS and information/advertising/marketing without needing a separate website.
+All features from Boost (native Moodle theme) plus these Trema features:  
 
-Trema Features:
-
-- Based on the boost theme: So it will continue to be compatible with Moodle LMS well into the future.
-- Customizable frontpage. You can change the image banner, create up to six beautiful cards with custom content and add custom HTML content with no restrictions.
-- Customize the login page: Add your own background image.
-- Leverages [Bootstrap](https://getbootstrap.com/) to make the theme fully responsive.
-- Highly customizable footer.
-- Special footer area blocks used by the site administrator.
-- The colour scheme can be changed in the theme settings.
-- 15 different font families to choose from for your site base font, front page banner title and the headings.
-- Customizable Primary Navigation including support for FilterCodes filters.
-- Admin panel on the Dashboard page, so that they can see information about your Moodle site in real time.
-
-![image1](pix/examples/admindashboard.png "Dashboard Admin Screenshot")
+- Frontpage 
+  - Configurable optional image banner or content slider with texts. 
+  - Banner title spacing.
+  - Banner title text options for uppercase, lowercase, and capitalized.
+  - Create up to six beautiful cards with custom content with icons.
+  - Add custom HTML content with no restrictions.
+  - Hide links to Page activities.
+- Footer
+  - Option to change to an HTML instead of Boost popup footer.
+  - Add or hide footer info.
+  - Removable Moodle and Trema branding.
+  - Configurable footer background opacity and color.
+- Font and colors
+  - Primary, secondary, navbar, body background, Log In button,  drawer, and footer colors.
+  - Choose from 15 different fonts for the site, page titles, and headings.
+  - Site text options for uppercase, lowercase, and capitalized.
+  - Automatic font color selection. 
+- General
+  - Customizable page background image.
+  - Selectable link style 
+  - Primary menu items can be hidden (Home, Dashboard, My Courses, and Site Administration).
+  - The primary menu can be aligned to the left, center or to the right.
+  - Removable Log out link.
+  - Custom favicon.
+  - Exclusive Admin Dashboard with interesting site information for admins.
+  - Optional decorative Trema Lines.
+  - Enable a softer look by rounding some corners for buttons, cards, secondary navbars, etc...
+- Course cards
+  - Show contacts and categories.
+  - Course summary is available as a Moodle dialog, a popover, or as a link.
+  - Show or hide courses in hidden categories.
+- Course
+  - Show activity navigation buttons.
+  - Hide activity icons on the course page.
+- Login
+  - Optional background image for the login page.
+  - Option to display the 'Create account' section first.
+  - Hide login form (useful for OAuth2 authentication).
+- Hideable the profile fields on the registration page and edit the profile page.
+- Admin area block that can be seen and accessed only by the site administrator.
 
 [(Back to top)](#table-of-contents)
 
