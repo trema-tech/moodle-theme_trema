@@ -88,6 +88,10 @@ selection.focus {
     color: $placeholder-color !important;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     font-family: $body-font-family;
     a {
