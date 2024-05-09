@@ -44,7 +44,8 @@ body#page-site-index {
         }
     }
 
-    #frontpage-banner {
+    #frontpage-banner,
+    .frontpage-banner {
         position: relative;
         min-height: calc(100vh - 4em);
         background-attachment: scroll, fixed;
@@ -251,7 +252,7 @@ body#page-site-index {
 
         .frontpage-banner-content {
             position: absolute;
-            top: 35%;
+            top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
             text-align: center;
@@ -260,20 +261,22 @@ body#page-site-index {
                 color: #fff;
                 font-size: 2.5rem;
                 font-weight: 700;
-                text-transform: $text-transform;
-                letter-spacing: 1rem;
-                line-height: 1;
+                text-transform: $banner-title-transform;
+                letter-spacing: $banner-title-spacing;
+                line-height: 3rem;
             }
             h3 {
                 font-weight: lighter;
                 color: $white;
                 font-size: 1.5rem;
-                line-height: 1;
+                line-height: 2rem;
             }
         }
         .carousel-control-prev,
         .carousel-control-next {
-            width: 10%;
+            width: 4rem;
+            height: 5rem;
+            margin: auto 0;
         }
     }
     #page-wrapper #page-footer {

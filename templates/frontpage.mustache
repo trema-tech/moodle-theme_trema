@@ -136,11 +136,12 @@
                     </ol>
                     {{#frontpagecarrousel}}
                     <div class="carousel-item {{active}}">
-                        <img src="{{image}}" class="d-block w-100" alt="{{title}}">
+                        <div style="{{image}}"
+                            class="frontpage-banner" alt="{{title}}"></div>
                         <div class="frontpage-banner-content">
                             {{#title}}<h2 class="pb-4 pl-3 mb-3">{{title}}</h2>{{/title}}
-                            {{#subtitle}}<h3 class="mb-3 d-none d-md-block">{{{subtitle}}}</h3>{{/subtitle}}
-                            {{#btntext}}{{#btnhref}}<a href="{{btnhref}}" class="m-3 btn d-none d-md-inline-block {{btnclass}}" role="button">{{{btntext}}}</a>{{/btnhref}}{{/btntext}}
+                            {{#subtitle}}<h3 class="mb-3">{{{subtitle}}}</h3>{{/subtitle}}
+                            {{#btntext}}{{#btnhref}}<a href="{{btnhref}}" class="m-3 btn {{btnclass}}" role="button">{{{btntext}}}</a>{{/btnhref}}{{/btntext}}
                         </div>
                     </div>
                     <a class="carousel-control-prev" href="#carouselTrema" role="button" data-slide="prev">

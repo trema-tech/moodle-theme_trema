@@ -73,6 +73,8 @@ body #page input[type="button"].btn-secondary:focus,
 [role="treeitem"]:not([aria-expanded="true"]):focus,
 .sr-only-focusable.focus,
 .sr-only-focusable:focus,
+.carousel-control-prev-icon:focus,
+.carousel-control-next-icon:focus,
 selection.focus {
     // Works on both dark and light backgrounds.
     outline: 2px #f9f9f9 solid;
