@@ -28,9 +28,7 @@
 
 namespace theme_trema\privacy;
 
-use \core_privacy\local\metadata\collection;
-
-defined('MOODLE_INTERNAL') || die();
+use core_privacy\local\metadata\collection;
 
 /**
  * The trema theme stores a user preference data.
@@ -42,8 +40,7 @@ class provider implements
     // This plugin has data.
     \core_privacy\local\metadata\provider,
     // This plugin has some sitewide user preferences to export.
-    \core_privacy\local\request\user_preference_provider
-{
+    \core_privacy\local\request\user_preference_provider {
 
     /** The user preferences for the course index. */
     const DRAWER_OPEN_INDEX = 'drawer-open-index';

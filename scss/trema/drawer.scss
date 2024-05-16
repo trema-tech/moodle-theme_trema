@@ -75,7 +75,6 @@ body div#page {
     .courseindex .courseindex-item .courseindex-link,
     .courseindex .courseindex-item .courseindex-chevron {
         color: choose-contrast-color($drawer-bg-color);
-
         &:hover {
             text-decoration: underline;
         }
