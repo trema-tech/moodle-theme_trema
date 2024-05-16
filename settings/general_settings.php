@@ -112,15 +112,6 @@ $setting = new admin_setting_configcheckbox($name, $title, $description, $defaul
 $setting->set_updatedcallback('theme_reset_all_caches');
 $page->add($setting);
 
-// Enable Trema Course Style for Topics.
-$name = 'theme_trema/enabletrematopics';
-$title = get_string('enabletrematopics', 'theme_trema');
-$description = get_string('enabletrematopics_desc', 'theme_trema', "$CFG->wwwroot/theme/trema/pix/examples/trematopics.png");
-$default = '1';
-$setting = new admin_setting_configcheckbox($name, $title, $description, $default);
-$setting->set_updatedcallback('theme_reset_all_caches');
-$page->add($setting);
-
 // Enable Trema Lines.
 $name = 'theme_trema/enabletremalines';
 $title = get_string('enabletremalines', 'theme_trema');

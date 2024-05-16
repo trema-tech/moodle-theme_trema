@@ -68,8 +68,6 @@ $string['enableadmindashboard_desc'] = 'Enable if you want to show additional si
 $string['enableadmindashboard'] = 'Admin Dashboard';
 $string['enabletremalines_desc'] = 'Enable Trema Lines: <br> <img class="img-responsive" src="{$a}">';
 $string['enabletremalines'] = 'Enable Trema Lines';
-$string['enabletrematopics_desc'] = 'Enable Trema Course Style for Course format Topics: <br> <img class="img-responsive" src="{$a}">';
-$string['enabletrematopics'] = 'Enable Trema Course Style for Topics';
 $string['favicon_desc'] = 'Upload your own favicon. It should be an .ico file.';
 $string['favicon'] = 'Custom favicon';
 $string['hideprimarynavigationitems_desc'] = 'Choose which of the built-in primary (custom) menu items that you would like to remove.';

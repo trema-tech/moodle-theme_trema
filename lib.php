@@ -259,10 +259,6 @@ function theme_trema_get_main_scss_content($theme) {
     $filename = !empty($theme->settings->preset) ? $theme->settings->preset : 'default.scss';
     $scss .= file_get_contents("$CFG->dirroot/theme/trema/scss/preset/{$filename}");
 
-    if (!empty($theme->settings->enabletrematopics)) {
-        $scss .= file_get_contents("$CFG->dirroot/theme/trema/scss/trema/topics.scss");
-    }
-
     if (empty($theme->settings->enabletremalines)) {
         $scss .= "%border-frequency { &:before, &:after { content: none !important;}}";
     }

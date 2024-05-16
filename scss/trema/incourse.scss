@@ -165,3 +165,22 @@ body.path-grade {
         }
     }
 }
+
+body.pagelayout-course {
+    #region-main {
+        background-color: transparent;
+    }
+    .course-content li.section {
+        background-color: rgb(255, 255, 255);
+        margin-bottom: 1rem;
+        padding: 0.5rem;
+        border-bottom: 1px solid rgba(144, 144, 144, 0.35);
+    }
+}
+
+body#page-course-view-social.pagelayout-course .course-content {
+    background-color: rgb(255, 255, 255);
+    margin-bottom: 1rem;
+    padding: 0.5rem;
+    border-bottom: 1px solid rgba(144, 144, 144, 0.35);
+}
