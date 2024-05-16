@@ -174,13 +174,16 @@ body.pagelayout-course {
         background-color: rgb(255, 255, 255);
         margin-bottom: 1rem;
         padding: 0.5rem;
-        border-bottom: 1px solid rgba(144, 144, 144, 0.35);
     }
 }
 
-body#page-course-view-social.pagelayout-course .course-content {
+body:not(#page-course-view-weeks, #page-course-view-topics, #page-course-view-remuiformat) .course-content {
     background-color: rgb(255, 255, 255);
     margin-bottom: 1rem;
     padding: 0.5rem;
     border-bottom: 1px solid rgba(144, 144, 144, 0.35);
+}
+
+body.pagelayout-course .section {
+    padding: 0.5rem!important;
 }
