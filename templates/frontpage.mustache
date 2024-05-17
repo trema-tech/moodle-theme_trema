@@ -167,6 +167,7 @@
             {{{ output.frontpage_settings_menu }}}
         </div>
         {{/ifcarrousel}}
+        <div id="topofcontent"></div>
         {{/showbanner}}
         {{^showbanner}}
             {{{ output.frontpage_settings_menu }}}
@@ -176,41 +177,40 @@
                 {{> core/moremenu}}
             </div>
         {{/secondarymoremenu}}
-
         {{#hascards}}
             {{> theme_trema/frontpage_cards }}
         {{/hascards}}
-            <div id="page-content" class="pb-3 container d-print-block">
-                <div id="region-main-box">
-                    {{#hasregionmainsettingsmenu}}
-                    <div id="region-main-settings-menu" class="d-print-none">
-                        <div> {{{ regionmainsettingsmenu }}} </div>
-                    </div>
-                    {{/hasregionmainsettingsmenu}}
-                    <section id="region-main" aria-label="{{#str}}content{{/str}}">
-
-                        {{#hasregionmainsettingsmenu}}
-                            <div class="region_main_settings_menu_proxy"></div>
-                        {{/hasregionmainsettingsmenu}}
-                        {{#defaultfrontpagebody}}
-                        <div id="defaultfrontpagebody" class="mb-4">
-                            {{{defaultfrontpagebody}}}
-                        </div>
-                        {{/defaultfrontpagebody}}
-                        {{{ output.course_content_header }}}
-                        {{#headercontent}}
-                            {{> core/activity_header }}
-                        {{/headercontent}}
-                        {{#overflow}}
-                            {{> core/url_select}}
-                        {{/overflow}}
-                        {{{ output.main_content }}}
-                        {{{ output.activity_navigation }}}
-                        {{{ output.course_content_footer }}}
-
-                    </section>
+        <div id="page-content" class="pb-3 container d-print-block">
+            <div id="region-main-box">
+                {{#hasregionmainsettingsmenu}}
+                <div id="region-main-settings-menu" class="d-print-none">
+                    <div> {{{ regionmainsettingsmenu }}} </div>
                 </div>
+                {{/hasregionmainsettingsmenu}}
+                <section id="region-main" aria-label="{{#str}}content{{/str}}">
+
+                    {{#hasregionmainsettingsmenu}}
+                        <div class="region_main_settings_menu_proxy"></div>
+                    {{/hasregionmainsettingsmenu}}
+                    {{#defaultfrontpagebody}}
+                    <div id="defaultfrontpagebody" class="mb-4">
+                        {{{defaultfrontpagebody}}}
+                    </div>
+                    {{/defaultfrontpagebody}}
+                    {{{ output.course_content_header }}}
+                    {{#headercontent}}
+                        {{> core/activity_header }}
+                    {{/headercontent}}
+                    {{#overflow}}
+                        {{> core/url_select}}
+                    {{/overflow}}
+                    {{{ output.main_content }}}
+                    {{{ output.activity_navigation }}}
+                    {{{ output.course_content_footer }}}
+
+                </section>
             </div>
+        </div>
         {{#hasadminblocks}}
         <div id="side-admin-blocks" class="mt-4">
             <div class="container py-3">

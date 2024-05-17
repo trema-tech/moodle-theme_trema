@@ -125,7 +125,7 @@ if ($numberofcarousel == 1) {
     $name = 'theme_trema/frontpagebuttonhref';
     $title = get_string('frontpagebuttonhref', 'theme_trema');
     $description = get_string('frontpagebuttonhref_desc', 'theme_trema');
-    $default = '#frontpage-cards';
+    $default = '#topofcontent';
     $setting = new admin_setting_configtext($name, $title, $description, $default);
     $setting->set_updatedcallback('theme_reset_all_caches');
     $page->add($setting);
@@ -187,6 +187,7 @@ if ($numberofcarousel == 1) {
         $name = 'theme_trema/carrouselbtnhref' . $i;
         $title = get_string('carrouselbtnhref', 'theme_trema', $i);
         $description = get_string('carrouselbtnhref_desc', 'theme_trema', $i);
+        $default = '#topofcontent';
         $setting = new admin_setting_configtext($name, $title, $description, $default);
         $setting->set_updatedcallback('theme_reset_all_caches');
         $page->add($setting);
