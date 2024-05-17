@@ -148,7 +148,16 @@ $setting = new admin_setting_configselect($name, $title, $description, $default,
 $setting->set_updatedcallback('theme_reset_all_caches');
 $page->add($setting);
 
-// Title/H1 Font settings.
+// Front page banner titles font settings.
+$name = 'theme_trema/bannertitlesfont';
+$title = get_string('bannertitlesfont', 'theme_trema');
+$description = get_string('bannertitlesfont_desc', 'theme_trema');
+$default = 'Lato, sans-serif';
+$setting = new admin_setting_configselect($name, $title, $description, $default, $fonts);
+$setting->set_updatedcallback('theme_reset_all_caches');
+$page->add($setting);
+
+// H1 Font settings.
 $name = 'theme_trema/h1font';
 $title = get_string('h1font', 'theme_trema');
 $description = get_string('h1font_desc', 'theme_trema');
