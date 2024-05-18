@@ -55,16 +55,25 @@ $setting = new admin_setting_configselect($name, $title, $description, $default,
 $setting->set_updatedcallback('theme_reset_all_caches');
 $page->add($setting);
 
+// Enable/disable dark overlay on banner.
+$name = 'theme_trema/frontpageenabledarkoverlay';
+$title = get_string('frontpageenabledarkoverlay', 'theme_trema');
+$description = get_string('frontpageenabledarkoverlay_desc', 'theme_trema');
+$default = true;
+$setting = new admin_setting_configcheckbox($name, $title, $description, $default, true, false);
+$setting->set_updatedcallback('theme_reset_all_caches');
+$page->add($setting);
+
 // Frontpage button class.
 $btnchoices = [
-    "btn-primary" => "btn-primary",
-    "btn-secondary" => "btn-secondary",
-    "btn-success" => "btn-success",
-    "btn-danger" => "btn-danger",
-    "btn-warning" => "btn-warning",
-    "btn-info" => "btn-info",
-    "btn-light" => "btn-light",
-    "btn-dark" => "btn-dark",
+    'btn-primary' => 'btn-primary',
+    'btn-secondary' => 'btn-secondary',
+    'btn-success' => 'btn-success',
+    'btn-danger' => 'btn-danger',
+    'btn-warning' => 'btn-warning',
+    'btn-info' => 'btn-info',
+    'btn-light' => 'btn-light',
+    'btn-dark' => 'btn-dark',
 ];
 
 $numberofcarousel = get_config('theme_trema', 'numberofimages');
@@ -203,17 +212,15 @@ if ($numberofcarousel == 1) {
     }
 }
 
-// Enable/disable dark overlay on banner.
-$name = 'theme_trema/frontpageenabledarkoverlay';
-$title = get_string('frontpageenabledarkoverlay', 'theme_trema');
-$description = get_string('frontpageenabledarkoverlay_desc', 'theme_trema');
-$default = true;
-$setting = new admin_setting_configcheckbox($name, $title, $description, $default, true, false);
-$setting->set_updatedcallback('theme_reset_all_caches');
+// Frontpage content.
+$name = 'theme_trema_frontpagecontent';
+$title = get_string('content');
+$description = '';
+$format = FORMAT_MARKDOWN;
+$setting = new admin_setting_heading($name, $title, $description, $format);
 $page->add($setting);
 
 // HTML to include in the main content of frontpage.
-
 $name = 'theme_trema/defaultfrontpagebody';
 $title = get_string('defaultfrontpagebody', 'theme_trema');
 $description = get_string('defaultfrontpagebody_desc', 'theme_trema');
