@@ -196,6 +196,7 @@ if ($numberofcarousel == 1) {
         $name = 'theme_trema/carrouselbtnclass' . $i;
         $title = get_string('carrouselbtnclass', 'theme_trema', $i);
         $description = get_string('carrouselbtnclass_desc', 'theme_trema', $i);
+        $default = 'btn-primary';
         $setting = new admin_setting_configtext($name, $title, $description, $default);
         $setting->set_updatedcallback('theme_reset_all_caches');
         $page->add($setting);
