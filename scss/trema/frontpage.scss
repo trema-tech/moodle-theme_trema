@@ -61,8 +61,8 @@ body#page-site-index {
             text-align: center;
 
             h2 {
-                border-bottom: solid 1px rgba($white, 0.5);
-                color: $white;
+                border-bottom: solid 1px rgba($banner-font-color, 0.5);
+                color: $banner-font-color;
                 font-size: 2.5rem;
                 font-weight: bold;
                 font-family: $banner-title-font-family;
@@ -71,11 +71,12 @@ body#page-site-index {
                 line-height: 3rem;
             }
 
-            h3 {
+            .h3 {
                 font-weight: lighter;
-                color: $white;
+                color: $banner-font-color;
                 font-size: 1.5rem;
                 line-height: 2rem;
+                display: block;
             }
         }
     }
@@ -115,7 +116,7 @@ body#page-site-index {
                 letter-spacing: 0.2rem;
             }
 
-            h3 {
+            .h3 {
                 font-size: 1.3rem;
             }
         }
@@ -258,8 +259,8 @@ body#page-site-index {
             transform: translate(-50%, -50%);
             text-align: center;
             h2 {
-                border-bottom: solid 1px rgba($white, 0.5);
-                color: #fff;
+                border-bottom: solid 1px rgba($banner-font-color, 0.5);
+                color: $banner-font-color;
                 font-size: 2.5rem;
                 font-weight: 700;
                 font-family: $banner-title-font-family;
@@ -267,11 +268,12 @@ body#page-site-index {
                 letter-spacing: $banner-title-spacing;
                 line-height: 3rem;
             }
-            h3 {
+            .h3 {
                 font-weight: lighter;
-                color: $white;
+                color: $banner-font-color;
                 font-size: 1.5rem;
                 line-height: 2rem;
+                display: block;
             }
         }
         .carousel-control-prev,

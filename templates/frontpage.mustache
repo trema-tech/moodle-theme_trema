@@ -140,7 +140,7 @@
                             class="frontpage-banner" alt="{{title}}"></div>
                         <div class="frontpage-banner-content">
                             {{#title}}<h2 class="pb-4 pl-3 mb-3">{{title}}</h2>{{/title}}
-                            {{#subtitle}}<h3 class="mb-3">{{{subtitle}}}</h3>{{/subtitle}}
+                            {{#subtitle}}<p class="h3 mb-3">{{{subtitle}}}</p>{{/subtitle}}
                             {{#btntext}}{{#btnhref}}<a href="{{btnhref}}" class="m-3 btn {{btnclass}}" role="button">{{{btntext}}}</a>{{/btnhref}}{{/btntext}}
                         </div>
                     </div>
@@ -161,7 +161,7 @@
         <div id="frontpage-banner">
             <div id="frontpage-banner-content">
 	            {{#frontpagetitle}}<h2 class="pb-4 pl-3 mb-3">{{{frontpagetitle}}}</h2>{{/frontpagetitle}}
-	            {{#frontpagesubtitle}}<h3 class="mb-3">{{{frontpagesubtitle}}}</h3>{{/frontpagesubtitle}}
+	            {{#frontpagesubtitle}}<p class="h3 mb-3">{{{frontpagesubtitle}}}</p>{{/frontpagesubtitle}}
 	            {{#frontpagebuttontext}}{{#frontpagebuttonhref}}<a href="{{frontpagebuttonhref}}" class="m-3 btn {{frontpagebuttonclass}}" role="button">{{{frontpagebuttontext}}}</a>{{/frontpagebuttonhref}}{{/frontpagebuttontext}}
             </div>
             {{{ output.frontpage_settings_menu }}}
