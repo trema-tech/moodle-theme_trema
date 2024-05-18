@@ -15,35 +15,42 @@
 }
 
 @font-face {
+    font-weight: 500;
+    font-style: normal;
+    font-family: "EBGaramond";
+    src: url([[font:theme|EBGaramond-Medium.ttf]]) format("truetype");
+}
+
+@font-face {
+    font-weight: 500;
+    font-style: italic;
+    font-family: "EBGaramond";
+    src: url([[font:theme|EBGaramond-MediumItalic.ttf]]) format("truetype");
+}
+
+@font-face {
     font-weight: 600;
     font-style: normal;
     font-family: "EBGaramond";
-    src: url([[font:theme|EBGaramond-Bold.ttf]]) format("truetype");
+    src: url([[font:theme|EBGaramond-SemiBold.ttf]]) format("truetype");
 }
 
 @font-face {
-    font-weight: 800;
-    font-style: normal;
-    font-family: "EBGaramond";
-    src: url([[font:theme|EBGaramond-Bold.ttf]]) format("truetype");
-}
-
-@font-face {
-    font-weight: 200;
-    font-style: normal;
-    font-family: "EBGaramond";
-    src: url([[font:theme|EBGaramond-Regular.ttf]]) format("truetype");
-}
-
-@font-face {
-    font-weight: 200;
+    font-weight: 600;
     font-style: italic;
     font-family: "EBGaramond";
-    src: url([[font:theme|EBGaramond-Italic.ttf]]) format("truetype");
+    src: url([[font:theme|EBGaramond-SemiBoldItalic.ttf]]) format("truetype");
 }
 
 @font-face {
-    font-weight: 400;
+    font-weight: 700;
+    font-style: normal;
+    font-family: "EBGaramond";
+    src: url([[font:theme|EBGaramond-Bold.ttf]]) format("truetype");
+}
+
+@font-face {
+    font-weight: 700;
     font-style: italic;
     font-family: "EBGaramond";
     src: url([[font:theme|EBGaramond-BoldItalic.ttf]]) format("truetype");
@@ -51,7 +58,14 @@
 
 @font-face {
     font-weight: 800;
+    font-style: normal;
+    font-family: "EBGaramond";
+    src: url([[font:theme|EBGaramond-ExtraBold.ttf]]) format("truetype");
+}
+
+@font-face {
+    font-weight: 800;
     font-style: italic;
     font-family: "EBGaramond";
-    src: url([[font:theme|EBGaramond-BoldItalic.ttf]]) format("truetype");
+    src: url([[font:theme|EBGaramond-ExtraBoldItalic.ttf]]) format("truetype");
 }

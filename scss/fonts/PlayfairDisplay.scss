@@ -15,35 +15,42 @@
 }
 
 @font-face {
+    font-weight: 500;
+    font-style: normal;
+    font-family: "PlayfairDisplay";
+    src: url([[font:theme|PlayfairDisplay-Medium.ttf]]) format("truetype");
+}
+
+@font-face {
+    font-weight: 500;
+    font-style: italic;
+    font-family: "PlayfairDisplay";
+    src: url([[font:theme|PlayfairDisplay-MediumItalic.ttf]]) format("truetype");
+}
+
+@font-face {
     font-weight: 600;
+    font-style: normal;
+    font-family: "PlayfairDisplay";
+    src: url([[font:theme|PlayfairDisplay-SemiBold.ttf]]) format("truetype");
+}
+
+@font-face {
+    font-weight: 600;
+    font-style: italic;
+    font-family: "PlayfairDisplay";
+    src: url([[font:theme|PlayfairDisplay-SemiBoldItalic.ttf]]) format("truetype");
+}
+
+@font-face {
+    font-weight: 700;
     font-style: normal;
     font-family: "PlayfairDisplay";
     src: url([[font:theme|PlayfairDisplay-Bold.ttf]]) format("truetype");
 }
 
 @font-face {
-    font-weight: 800;
-    font-style: normal;
-    font-family: "PlayfairDisplay";
-    src: url([[font:theme|PlayfairDisplay-Black.ttf]]) format("truetype");
-}
-
-@font-face {
-    font-weight: 200;
-    font-style: normal;
-    font-family: "PlayfairDisplay";
-    src: url([[font:theme|PlayfairDisplay-Regular.ttf]]) format("truetype");
-}
-
-@font-face {
-    font-weight: 200;
-    font-style: italic;
-    font-family: "PlayfairDisplay";
-    src: url([[font:theme|PlayfairDisplay-Italic.ttf]]) format("truetype");
-}
-
-@font-face {
-    font-weight: 400;
+    font-weight: 700;
     font-style: italic;
     font-family: "PlayfairDisplay";
     src: url([[font:theme|PlayfairDisplay-BoldItalic.ttf]]) format("truetype");
@@ -51,6 +58,27 @@
 
 @font-face {
     font-weight: 800;
+    font-style: normal;
+    font-family: "PlayfairDisplay";
+    src: url([[font:theme|PlayfairDisplay-ExtraBold.ttf]]) format("truetype");
+}
+
+@font-face {
+    font-weight: 800;
+    font-style: italic;
+    font-family: "PlayfairDisplay";
+    src: url([[font:theme|PlayfairDisplay-ExtraBoldItalic.ttf]]) format("truetype");
+}
+
+@font-face {
+    font-weight: 900;
+    font-style: normal;
+    font-family: "PlayfairDisplay";
+    src: url([[font:theme|PlayfairDisplay-Black.ttf]]) format("truetype");
+}
+
+@font-face {
+    font-weight: 900;
     font-style: italic;
     font-family: "PlayfairDisplay";
     src: url([[font:theme|PlayfairDisplay-BlackItalic.ttf]]) format("truetype");

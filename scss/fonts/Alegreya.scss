@@ -15,35 +15,42 @@
 }
 
 @font-face {
+    font-weight: 500;
+    font-style: normal;
+    font-family: "Alegreya";
+    src: url([[font:theme|Alegreya-Medium.ttf]]) format("truetype");
+}
+
+@font-face {
+    font-weight: 500;
+    font-style: italic;
+    font-family: "Alegreya";
+    src: url([[font:theme|Alegreya-MediumItalic.ttf]]) format("truetype");
+}
+
+@font-face {
     font-weight: 600;
+    font-style: normal;
+    font-family: "Alegreya";
+    src: url([[font:theme|Alegreya-SemiBold.ttf]]) format("truetype");
+}
+
+@font-face {
+    font-weight: 600;
+    font-style: italic;
+    font-family: "Alegreya";
+    src: url([[font:theme|Alegreya-SemiBoldItalic.ttf]]) format("truetype");
+}
+
+@font-face {
+    font-weight: 700;
     font-style: normal;
     font-family: "Alegreya";
     src: url([[font:theme|Alegreya-Bold.ttf]]) format("truetype");
 }
 
 @font-face {
-    font-weight: 800;
-    font-style: normal;
-    font-family: "Alegreya";
-    src: url([[font:theme|Alegreya-Black.ttf]]) format("truetype");
-}
-
-@font-face {
-    font-weight: 200;
-    font-style: normal;
-    font-family: "Alegreya";
-    src: url([[font:theme|Alegreya-Regular.ttf]]) format("truetype");
-}
-
-@font-face {
-    font-weight: 200;
-    font-style: italic;
-    font-family: "Alegreya";
-    src: url([[font:theme|Alegreya-Italic.ttf]]) format("truetype");
-}
-
-@font-face {
-    font-weight: 400;
+    font-weight: 700;
     font-style: italic;
     font-family: "Alegreya";
     src: url([[font:theme|Alegreya-BoldItalic.ttf]]) format("truetype");
@@ -51,6 +58,27 @@
 
 @font-face {
     font-weight: 800;
+    font-style: normal;
+    font-family: "Alegreya";
+    src: url([[font:theme|Alegreya-ExtraBold.ttf]]) format("truetype");
+}
+
+@font-face {
+    font-weight: 800;
+    font-style: italic;
+    font-family: "Alegreya";
+    src: url([[font:theme|Alegreya-ExtraBoldItalic.ttf]]) format("truetype");
+}
+
+@font-face {
+    font-weight: 900;
+    font-style: normal;
+    font-family: "Alegreya";
+    src: url([[font:theme|Alegreya-Black.ttf]]) format("truetype");
+}
+
+@font-face {
+    font-weight: 900;
     font-style: italic;
     font-family: "Alegreya";
     src: url([[font:theme|Alegreya-BlackItalic.ttf]]) format("truetype");
