@@ -57,8 +57,10 @@ body#page-site-index {
             position: absolute;
             top: 50%;
             left: 50%;
+            right: 50%;
             transform: translate(-50%, -50%);
-            text-align: center;
+            text-align: $banner-text-align;
+            width: if($banner-text-align == 'center', auto, 80%);
 
             h2 {
                 border-bottom: solid 1px rgba($banner-font-color, 0.5);
@@ -256,8 +258,10 @@ body#page-site-index {
             position: absolute;
             top: 50%;
             left: 50%;
+            right: 50%;
             transform: translate(-50%, -50%);
-            text-align: center;
+            text-align: $banner-text-align;
+            width: if($banner-text-align == 'center', auto, 80%);
             h2 {
                 border-bottom: solid 1px rgba($banner-font-color, 0.5);
                 color: $banner-font-color;
@@ -286,4 +290,10 @@ body#page-site-index {
     #page-wrapper #page-footer {
         margin-top: 2rem;
     }
+}
+
+
+:dir(rtl) body#page-site-index #frontpage-banner #frontpage-banner-content,
+:dir(rtl) body#page-site-index .carousel-inner .frontpage-banner-content {
+  transform: translate(50%, -50%);
 }

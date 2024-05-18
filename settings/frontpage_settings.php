@@ -64,6 +64,20 @@ $setting = new admin_setting_configcheckbox($name, $title, $description, $defaul
 $setting->set_updatedcallback('theme_reset_all_caches');
 $page->add($setting);
 
+// Frontpage text alignment.
+$choices = [
+    'left' => get_string('left', 'editor'),
+    'center' => get_string('middle', 'editor'),
+    'right' => get_string('right', 'editor'),
+];
+$name = 'theme_trema/frontpagebannercontentalign';
+$title = get_string('frontpagebannercontentalign', 'theme_trema');
+$description = get_string('frontpagebannercontentalign_desc', 'theme_trema');
+$default = 'center';
+$setting = new admin_setting_configselect($name, $title, $description, $default, $choices);
+$setting->set_updatedcallback('theme_reset_all_caches');
+$page->add($setting);
+
 // Frontpage button class.
 $btnchoices = [
     'btn-primary' => 'btn-primary',

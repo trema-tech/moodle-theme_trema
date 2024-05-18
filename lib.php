@@ -52,6 +52,7 @@ function theme_trema_get_pre_scss($theme) {
         'banner-title-font-family' => 'bannertitlesfont',
         'banner-title-transform' => 'bannertitletransform',
         'banner-title-spacing' => 'bannertitlespacing',
+        'banner-text-align' => 'frontpagebannercontentalign',
         'custom-menu-alignment' => 'custommenualignment',
         'links-decoration' => 'linkdecoration',
         'dropdown-bg-color' => 'bodybackgroundcolor',
