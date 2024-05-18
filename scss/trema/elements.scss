@@ -1,8 +1,8 @@
 body #page {
     // Heading.
-    h1,
+    h1:not([class^="display-"]),
     .h1,
-    h2,
+    h2:not([class^="display-"]),
     .h2,
     h3,
     .h3,
@@ -18,7 +18,7 @@ body #page {
         font-family: $hx-font-family;
     }
 
-    h1,
+    h1:not([class^="display-"]),
     .h1,
     .page-header-headings h1.h2 {
         font-family: $h1-font-family;
@@ -27,7 +27,7 @@ body #page {
         color: choose-contrast-color($body-bg-color);
     }
 
-    h2,
+    h2:not([class^="display-"]),
     .h2 {
         font-size: $h2;
         line-height: 2rem;

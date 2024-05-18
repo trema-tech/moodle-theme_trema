@@ -22,8 +22,14 @@
     Example context (json): {}
 }}
 <div class="container box large bordered">
-    <header class="major special"><h2>Elements</h2>
-        <p>Lorem ipsum dolor sit amet nullam id egestas urna aliquam</p></header>
+    <div class="jumbotron w-100 py-5 mx-auto">
+        <h1 class="display-3">Trema Style Guide</h1>
+        <p class="lead">Examples of various elements styled with Bootstrap in the Trema theme.</p>
+    </div>
+    <header class="major special">
+        <h2>Elements</h2>
+        <p>Lorem ipsum dolor sit amet nullam id egestas urna aliquam</p>
+    </header>
     <section>
         <h3>Text</h3>
         <p>This is <b>bold</b> and this is <strong>strong</strong>. This is <i>italic</i> and this is
@@ -58,9 +64,11 @@ while (!deck.isInOrder()) {
 print 'It took ' + i + ' iterations to sort the deck.';
 </code></pre>
     </section>
-    <section><h3>Lists</h3>
+    <section>
+        <h3>Lists</h3>
         <div class="row">
-            <div class="col-6 col-12-xsmall"><h4>Unordered</h4>
+            <div class="col-6 col-12-xsmall">
+                <h4>Unordered</h4>
                 <ul>
                     <li>Dolor pulvinar etiam magna etiam.</li>
                     <li>Sagittis adipiscing lorem eleifend.</li>
@@ -73,7 +81,8 @@ print 'It took ' + i + ' iterations to sort the deck.';
                     <li>Felis enim feugiat dolore viverra.</li>
                 </ul>
             </div>
-            <div class="col-6 col-12-xsmall"><h4>Ordered</h4>
+            <div class="col-6 col-12-xsmall">
+                <h4>Ordered</h4>
                 <ol>
                     <li>Dolor pulvinar etiam magna etiam.</li>
                     <li>Etiam vel felis at lorem sed viverra.</li>
@@ -84,52 +93,86 @@ print 'It took ' + i + ' iterations to sort the deck.';
                 </ol>
             </div>
         </div>
-        <h4>Icons</h4>
-        <ul class="d-inline list-unstyled">
-            <li class="d-inline m-r-1"><a href=""><i class="icon fa fa-2x fa-twitter" role="tooltip" aria-hidden="true" title="Twitter"></i><span class="fa-sr-only">Twitter</span></a></li>
-            <li class="d-inline m-r-1"><a href=""><i class="icon fa fa-2x fa-facebook" role="tooltip" aria-hidden="true" title="Facebook"></i><span class="fa-sr-only">Facebook</span></a></li>
-            <li class="d-inline m-r-1"><a href=""><i class="icon fa fa-2x fa-instagram" role="tooltip" aria-hidden="true" title="Instagram"></i><span class="fa-sr-only">Instagram</span></a></li>
-            <li class="d-inline m-r-1"><a href=""><i class="icon fa fa-2x fa-github" role="tooltip" aria-hidden="true" title="GitHub"></i><span class="fa-sr-only">GitHub</span></a></li>
-            <li class="d-inline m-r-1"><a href=""><i class="icon fa fa-2x fa-dribbble" role="tooltip" aria-hidden="true" title="Dribbble"></i><span class="fa-sr-only">Dribbble</span></a></li>
-            <li class="d-inline m-r-1"><a href=""><i class="icon fa fa-2x fa-tumblr" role="tooltip" aria-hidden="true" title="Tumblr"></i><span class="fa-sr-only">Tumblr</span></a></li>
-        </ul>
-        <h4>Actions</h4>
-        <ul class="actions">
-            <li><a href="" class="btn btn-primary">Default</a></li>
-            <li><a href="" class="btn">Default</a></li>
-            <li><a href="" class="btn btn-secondary">Default</a></li>
-        </ul>
-        <ul class="actions small">
-            <li><a href="" class="btn btn-primary small">Small</a></li>
-            <li><a href="" class="btn small">Small</a></li>
-            <li><a href="" class="btn btn-secondary small">Small</a></li>
+        <h3>Icons</h3>
+        <ul class="list-group list-group-horizontal list-unstyled mb-3">
+            <li class="d-inline m-r-1"><a href="#"><i class="icon fa fa-2x fa-twitter" role="tooltip" aria-hidden="true" title="Twitter"></i><span class="fa-sr-only">Twitter</span></a></li>
+            <li class="d-inline m-r-1"><a href="#"><i class="icon fa fa-2x fa-facebook" role="tooltip" aria-hidden="true" title="Facebook"></i><span class="fa-sr-only">Facebook</span></a></li>
+            <li class="d-inline m-r-1"><a href="#"><i class="icon fa fa-2x fa-instagram" role="tooltip" aria-hidden="true" title="Instagram"></i><span class="fa-sr-only">Instagram</span></a></li>
+            <li class="d-inline m-r-1"><a href="#"><i class="icon fa fa-2x fa-github" role="tooltip" aria-hidden="true" title="GitHub"></i><span class="fa-sr-only">GitHub</span></a></li>
+            <li class="d-inline m-r-1"><a href="#"><i class="icon fa fa-2x fa-dribbble" role="tooltip" aria-hidden="true" title="Dribbble"></i><span class="fa-sr-only">Dribbble</span></a></li>
+            <li class="d-inline m-r-1"><a href="#"><i class="icon fa fa-2x fa-tumblr" role="tooltip" aria-hidden="true" title="Tumblr"></i><span class="fa-sr-only">Tumblr</span></a></li>
         </ul>
         <h3>Buttons</h3>
-        <ul class="actions">
-            <li><a href="" class="btn btn-primary large">Large</a></li>
-            <li><a href="" class="btn">Default</a></li>
-            <li><a href="" class="btn btn-secondary small">Small</a></li>
+        <h4>Classes</h4>
+        <ul class="list-group list-group-horizontal list-unstyled mb-3">
+            <li><a href="#" class="btn">Default</a> &nbsp;</li>
+            <li><a href="#" class="btn btn-primary">Primary</a> &nbsp;</li>
+            <li><a href="#" class="btn btn-secondary">Secondary</a> &nbsp;</li>
+            <li><a href="#" class="btn btn-success">Success</a> &nbsp;</li>
+            <li><a href="#" class="btn btn-danger">Danger</a> &nbsp;</li>
+            <li><a href="#" class="btn btn-warning">Warning</a> &nbsp;</li>
+            <li><a href="#" class="btn btn-info">Info</a> &nbsp;</li>
+            <li><a href="#" class="btn btn-light">Light</a> &nbsp;</li>
+            <li><a href="#" class="btn btn-dark">Dark</a> &nbsp;</li>
+            <li><a href="#" class="btn btn-outline-primary">Primary Outline</a></li>
         </ul>
+        <h4>Sizes</h4>
+        <ul class="list-group list-group-horizontal list-unstyled mb-3">
+            <li><a href="#" class="btn btn-primary btn-lg">Large</a> &nbsp;</li>
+            <li><a href="#" class="btn btn-primary">Default</a> &nbsp;</li>
+            <li><a href="#" class="btn btn-primary btn-sm">Small</a> &nbsp;</li>
+        </ul>
+        <h4>Fit</h4>
         <div class="row">
             <div class="col-6 col-12-xsmall">
-                <ul class="actions fit small">
-                    <li><a href="" class="btn fit small">Fit + Small</a></li>
-                    <li><a href="" class="btn btn-secondary fit small">Fit + Small</a></li>
+                <ul class="list-group list-group-horizontal list-unstyled fit small mb-3">
+                    <li><a href="#" class="btn btn-primary fit btn-sm">Primary Fit + Small</a> &nbsp;</li>
+                    <li><a href="#" class="btn fit btn-sm">Default Fit + Small</a> &nbsp;</li>
+                    <li><a href="#" class="btn btn-secondary fit btn-sm">Secondary Fit + Small</a> &nbsp;</li>
                 </ul>
             </div>
         </div>
-        <ul class="actions">
-            <li><a href="" class="btn btn-primary"><i class="fa fa-download"></i>&nbsp;Icon</a></li>
-            <li><a href="" class="btn"><i class="fa fa-download"></i>&nbsp;Icon</a></li>
-            <li><a href="" class="btn btn-secondary"><i class="fa fa-download"></i>&nbsp;Icon</a></li>
+        <h4>With icons</h4>
+        <ul class="list-group list-group-horizontal list-unstyled mb-3">
+            <li><a href="#" class="btn btn-primary"><i class="fa fa-download"></i>&nbsp;Primary</a> &nbsp;</li>
+            <li><a href="#" class="btn"><i class="fa fa-download"></i>&nbsp;Default</a> &nbsp;</li>
+            <li><a href="#" class="btn btn-secondary"><i class="fa fa-download"></i>&nbsp;Secondary</a> &nbsp;</li>
         </ul>
-        <ul class="actions">
-            <li><span class="btn primary disabled">Primary</span></li>
-            <li><span class="btn disabled">Default</span></li>
-            <li><span class="btn btn-secondary disabled">Alternate</span></li>
+        <h4>Disabled</h4>
+        <ul class="list-group list-group-horizontal list-unstyled mb-3">
+            <li><span class="btn btn-primary disabled">Primary</span> &nbsp;</li>
+            <li><span class="btn disabled">Default</span> &nbsp;</li>
+            <li><span class="btn btn-secondary disabled">Secondary</span> &nbsp;</li>
         </ul>
+        <h4>Types</h4>
+        <ul class="list-group list-group-horizontal list-unstyled mb-3">
+            <li><a class="btn btn-primary" href="#" role="button">Link</a> &nbsp;</li>
+            <li><button class="btn btn-primary" type="submit">Button</button> &nbsp;</li>
+            <li><input class="btn btn-primary" type="button" value="Input Button"> &nbsp;</li>
+            <li><input class="btn btn-primary" type="submit" value="Input Submit"> &nbsp;</li>
+            <li><input class="btn btn-primary" type="reset" value="Input Reset"> &nbsp;</li>
+        </ul>
+        <h3>Progress bar</h3>
+        <div class="col-md-12">
+            <div class="progress mb-2">
+                <div class="progress-bar bg-primary w-25" role="progressbar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">25%</div>
+            </div>
+        </div>
     </section>
-    <section><h3>Table</h3><h4>Default</h4>
+    <section>
+        <h3>Alerts</h3>
+        <div class="alert alert-primary" role="alert">A simple primary alert—check it out!</div>
+        <div class="alert alert-secondary" role="alert">A simple secondary alert—check it out!</div>
+        <div class="alert alert-success" role="alert">A simple success alert—check it out!</div>
+        <div class="alert alert-danger" role="alert">A simple danger alert—check it out!</div>
+        <div class="alert alert-warning" role="alert">A simple warning alert—check it out!</div>
+        <div class="alert alert-info" role="alert">A simple info alert—check it out!</div>
+        <div class="alert alert-light" role="alert">A simple light alert—check it out!</div>
+        <div class="alert alert-dark" role="alert">A simple dark alert—check it out!</div>
+    </section>
+    <section>
+        <h3>Table</h3>
+        <h4>Default</h4>
         <div class="table-wrapper">
             <table class="table">
                 <thead>
@@ -220,7 +263,8 @@ print 'It took ' + i + ' iterations to sort the deck.';
             </table>
         </div>
     </section>
-    <section><h3>Form</h3>
+    <section>
+        <h3>Form</h3>
         <form method="post" action="#" class="mform">
             <fieldset class="clearfix collapsible" id="id_moodle">
                 <div class="fcontainer clearfix">
@@ -274,7 +318,13 @@ print 'It took ' + i + ' iterations to sort the deck.';
                     </div>
                     <div id="fitem_id_otgcode" class="form-group row fitem">
                         <div class="col-md-9 offset-md-3 form-inline felement">
-                            <input type="text" name="otg-code" id="id_moreinfo" value="" placeholder="OTG code placeholder" class="form-control d-inline-block" data-size="20">
+                            <input type="text" name="otg-code" id="id_moreinfo" value="" placeholder="OTG code placeholder" class="form-control d-inline-block" data-size="20"><br>
+                        </div>
+                    </div>
+                    <div class="form-group form-check row fitem">
+                        <div class="col-md-9 offset-md-3 form-inline felement">
+                            <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                            <label class="form-check-label" for="exampleCheck1">Check me out</label>
                         </div>
                     </div>
                     <div id="fitem_id_dropdown" class="form-group row fitem">
@@ -296,5 +346,15 @@ print 'It took ' + i + ' iterations to sort the deck.';
                 </div>
             </fieldset>
         </form>
+    </section>
+    <section>
+        <div class="col-md-12">
+            <div class="alert alert-primary alert-dismissable show fade" role="alert">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+                <strong>Well done!</strong> After reading tihs message, you can close it.
+            </div>
+        </div>
     </section>
 </div>
