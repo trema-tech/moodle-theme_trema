@@ -247,19 +247,18 @@ class course_renderer extends \core_course_renderer {
         $content .= '<h3 class="h5 card-title m-1">' . $coursenamelink . '</h4>';
         $content .= html_writer::end_tag('div');
 
-        $content .= html_writer::start_tag('div', ['class' => 'card-block text-center']);
-
         // Print enrolmenticons.
+        $content .= html_writer::start_tag('div', ['class' => 'enrolmenticon']);
         if ($icons = enrol_get_course_info_icons($course)) {
             foreach ($icons as $pixicon) {
                 $content .= $this->render($pixicon);
             }
         }
+        $content .= html_writer::end_tag('div'); // End enrolment icon.
 
         $content .= html_writer::start_tag('div', ['class' => 'pull-right']);
         $content .= html_writer::end_tag('div'); // End pull-right.
 
-        $content .= html_writer::end_tag('div'); // End card-block.
 
         // Display course contacts. See core_course_list_element::get_course_contacts().
         if ($showcardcontact && $course->has_course_contacts()) {

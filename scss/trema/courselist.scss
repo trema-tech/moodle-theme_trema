@@ -39,6 +39,18 @@
             height: auto;
         }
     }
+
+    .enrolmenticon {
+        position: absolute;
+        background-color: rgba(255, 255, 255, .9);
+        top: 72px;
+        left: 8px;
+        border-radius: $softness;
+        .img, .icon {
+            padding: 4px;
+            margin: 0px;
+       }
+    }
 }
 
 body #page .card-see-more .btn {
