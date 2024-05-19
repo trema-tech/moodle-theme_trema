@@ -45,24 +45,49 @@ body #page .card-see-more .btn {
     line-height: 1.3rem;
 }
 
+body#page-enrol-index {
+    &:not(.fullwidthgeneralbox) .box.generalbox > div {
+        @extend .course-card-view;
+        position: relative;
+    }
+    &.fullwidthgeneralbox {
+        .course-card-view,
+        .box.generalbox > div {
+            box-shadow: 5px 5px 9px -4px rgba($black, .1);
+            max-width: 100%;
+        }
+        .flex-grow-1 {
+            padding: 0 20px;
+        }
+        div.courseimage img {
+            max-width: 400px;
+        }
+    }
+}
+
 @media (max-width: 769px) {
     #page .card-see-more .btn {
         height: auto;
         font-size: .7rem;
     }
-}
-
-body#page-enrol-index {
-    .box.generalbox > div {
-        @extend .course-card-view;
-        position: relative;
-    }
-    &.fullwidthgeneralbox {
-        .box.generalbox > div {
-            max-width: 100%;
-        }
-        .flex-grow-1 {
-            padding: 0 20px;
+    body#page-enrol-index #region-main {
+        padding: 10px 5px!important;
+        .generalbox.info {
+            div {
+                box-shadow: none;
+            }
+            .d-flex {
+                flex-direction: column;
+                .courseimage {
+                    text-align: center;
+                }
+                .courseimage,
+                .courseimage img,
+                .flex-grow-1 {
+                    padding: 10px 0;
+                    width: 100%;
+                }
+            }
         }
     }
 }
