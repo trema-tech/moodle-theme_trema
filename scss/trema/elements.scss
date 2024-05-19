@@ -535,4 +535,13 @@ body.path-mod-quiz {
     .card-deck .card {
         border-radius: 0.5rem;
     }
+    .badge,
+    [class^="badge-"] {
+        border-radius: 0.2rem;
+    }
+}
+
+.badge-pill,
+.badge-pill [class^="badge-"] {
+    border-radius: 1.5rem;
 }

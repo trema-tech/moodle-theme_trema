@@ -69,8 +69,8 @@ function theme_trema_get_disk_usage() {
 
     $warning = ($bytes <= 104857600); // Warning at 100 MB.
     $freespace = display_size($bytes);
-    if ($warning) {
-        $freespace = '<span class="badge-danger px-1">' . $freespace . '</span>';
+    if (!$warning) {
+        $freespace = '<span class="badge badge-danger px-1">' . $freespace . '</span>';
     }
 
     return $freespace;
