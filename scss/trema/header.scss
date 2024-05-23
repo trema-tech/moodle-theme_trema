@@ -144,6 +144,9 @@
         .usertext {
             color: choose-contrast-color($header-bg-color);
             margin-top: 0.1rem;
+            @media (max-width: 768px) {
+                display:none!important;
+            }
         }
 
         @media (max-width: 768px) {
