@@ -4,7 +4,7 @@ Trema Theme for Moodle LMS
 ==========================
 
 ![PHP](https://img.shields.io/badge/PHP-v7.4%20to%20v8.2-blue.svg)
-![Moodle](https://img.shields.io/badge/Moodle-v4.0%20to%20v4.3-orange.svg)
+![Moodle](https://img.shields.io/badge/Moodle-v4.0%20to%20v4.4-orange.svg)
 [![GitHub Issues](https://img.shields.io/github/issues/trema-tech/moodle-theme_trema.svg)](https://github.com/trema-tech/moodle-theme_trema/issues)
 [![Contributions welcome](https://img.shields.io/badge/contributions-welcome-green.svg)](#contributing)
 [![License](https://img.shields.io/badge/License-GPL%20v3-blue.svg)](#license)
@@ -29,16 +29,14 @@ Trema Theme for Moodle LMS
   - [Contributors](#contributors)
 - [Motivation for this theme](#motivation-for-this-theme)
 - [License](#license)
-- [Donate](#donate)
 
 # Basic Overview
 
 The Trema theme is a free, responsive Moodle theme that offers a clean and modern design. One unique aspect of the Trema theme is its ability to display course information in a grid format, which can be particularly useful for sites with many courses. Additionally, it includes options for a customizable frontpage, login page, and footer. Overall, the Trema theme for Moodle aims to provide a visually appealing and user-friendly interface for Moodle users. The main goal for this theme is to not need another site for information/advertising/marketing.
 
-All features from Boost (native Moodle theme) plus these Trema features:  
-
-- Frontpage 
-  - Configurable optional image banner or content slider with texts. 
+All features from Boost (native Moodle theme) plus these Trema features:
+- Frontpage
+  - Configurable optional image banner or content slider with texts.
   - Banner title spacing.
   - Banner title text options for uppercase, lowercase, and capitalized.
   - Create up to six beautiful cards with custom content with icons.
@@ -50,23 +48,23 @@ All features from Boost (native Moodle theme) plus these Trema features:
   - Removable Moodle and Trema branding.
   - Configurable footer background opacity and color.
 - Font and colors
-  - Primary, secondary, navbar, body background, Log In button,  drawer, and footer colors.
+  - Primary, secondary, navbar, body background, Log In button, drawer, and footer colors.
   - Choose from 15 different fonts for the site, page titles, and headings.
   - Site text options for uppercase, lowercase, and capitalized.
-  - Automatic font color selection. 
+  - Automatic font color selection.
 - General
   - Customizable page background image.
-  - Selectable link style 
+  - Selectable link style.
   - Primary menu items can be hidden (Home, Dashboard, My Courses, and Site Administration).
-  - The primary menu can be aligned to the left, center or to the right.
+  - The primary menu can be aligned to the left, center or the right.
   - Removable Log out link.
   - Custom favicon.
   - Exclusive Admin Dashboard with interesting site information for admins.
   - Optional decorative Trema Lines.
-  - Enable a softer look by rounding some corners for buttons, cards, secondary navbars, etc...
+  - Enable a softer look by rounding some corners for buttons, cards, secondary navbars, etc.
 - Course cards
   - Show contacts and categories.
-  - Course summary is available as a Moodle dialog, a popover, or as a link.
+  - Course summary is available as a Moodle dialogue, a popover, or as a link.
   - Show or hide courses in hidden categories.
 - Course
   - Show activity navigation buttons.
@@ -165,7 +163,7 @@ There are no known security considerations at this time.
 
 ### How can I get answers to other questions?
 
-Got a burning question that is not covered here? If you can't find your answer, submit your question in the Moodle forums or open a new issue on Github at:
+Got a burning question that is not covered here? If you can't find your answer, submit your question in the Moodle forums or open a new issue on GitHub at:
 
 https://github.com/trema-tech/moodle-theme_trema/issues
 
@@ -193,7 +191,7 @@ The development of this theme was motivated by our own experience in Moodle LMS 
 
 Copyright © 2019-2024 Rodrigo Mady and TNG Consulting Inc.
 
-This file is part of Moodle - http://moodle.org/
+This file is part of Moodle - https://moodle.org/
 
 Moodle is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
@@ -206,14 +204,6 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 GNU General Public License for more details.
 
 You should have received a copy of the GNU General Public License
-along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
-
-[(Back to top)](#table-of-contents)
-
-# Donate
-
-[Please donate](https://www.paypal.com/donate/?hosted_button_id=6FBZMX8PFPS3Y&source=qr) to help us to improve Theme Trema:
-
-![QR Code](https://user-images.githubusercontent.com/8494871/150807066-84f999f6-5227-4dc7-9781-b949ed485a3a.png)
+along with Moodle.  If not, see <https://www.gnu.org/licenses/>.
 
 [(Back to top)](#table-of-contents)
