@@ -57,10 +57,9 @@ body#page-site-index {
             position: absolute;
             top: 50%;
             left: 50%;
-            right: 50%;
             transform: translate(-50%, -50%);
             text-align: $banner-text-align;
-            width: if($banner-text-align == 'center', max-content, 80%);
+            width: if($banner-text-align == 'center', auto, 80%);
 
             h2 {
                 border-bottom: solid 1px rgba($banner-font-color, 0.5);
@@ -71,10 +70,6 @@ body#page-site-index {
                 text-transform: $banner-title-transform;
                 letter-spacing: $banner-title-spacing;
                 line-height: 3rem;
-                width: if($banner-text-align == 'center', auto, fit-content);
-                margin-left: if($banner-text-align == 'right', auto, 0);
-                padding-left: if($banner-text-align == 'left', 0, 3rem);
-                padding-right: if($banner-text-align == 'right', 0, 3rem);
             }
 
             .h3 {
@@ -262,10 +257,9 @@ body#page-site-index {
             position: absolute;
             top: 50%;
             left: 50%;
-            right: 50%;
             transform: translate(-50%, -50%);
             text-align: $banner-text-align;
-            width: if($banner-text-align == 'center', max-content, 80%);
+            width: if($banner-text-align == 'center', auto, 80%);
             h2 {
                 border-bottom: solid 1px rgba($banner-font-color, 0.5);
                 color: $banner-font-color;
@@ -275,10 +269,6 @@ body#page-site-index {
                 text-transform: $banner-title-transform;
                 letter-spacing: $banner-title-spacing;
                 line-height: 3rem;
-                width: if($banner-text-align == 'center', auto, fit-content);
-                margin-left: if($banner-text-align == 'right', auto, 0);
-                padding-left: if($banner-text-align == 'left', 0, 3rem);
-                padding-right: if($banner-text-align == 'right', 0, 3rem);
             }
             .h3 {
                 font-weight: 300;
@@ -304,4 +294,5 @@ body#page-site-index {
 :dir(rtl) body#page-site-index #frontpage-banner #frontpage-banner-content,
 :dir(rtl) body#page-site-index .carousel-inner .frontpage-banner-content {
   transform: translate(50%, -50%);
+  right: auto;
 }
