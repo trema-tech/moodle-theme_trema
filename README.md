@@ -24,6 +24,7 @@ Trema Theme for Moodle LMS
 - [Language Support](#language-support)
 - [FAQ](#faq)
   - [Answers to Frequently Asked Questions](#answers-to-frequently-asked-questions)
+    - [What can I override in Trema's Raw Initial SCSS settings?](#what-can-i-override-in-tremas-raw-initial-scss-settings)
     - [Are there any security considerations?](#are-there-any-security-considerations)
     - [How can I get answers to other questions?](#how-can-i-get-answers-to-other-questions)
   - [Contributors](#contributors)
@@ -35,6 +36,7 @@ Trema Theme for Moodle LMS
 The Trema theme is a free, responsive Moodle theme that offers a clean and modern design. One unique aspect of the Trema theme is its ability to display course information in a grid format, which can be particularly useful for sites with many courses. Additionally, it includes options for a customizable frontpage, login page, and footer. Overall, the Trema theme for Moodle aims to provide a visually appealing and user-friendly interface for Moodle users. The main goal for this theme is to not need another site for information/advertising/marketing.
 
 All features from Boost (native Moodle theme) plus these Trema features:
+
 - Frontpage
   - Configurable optional image banner or content slider with texts.
   - Banner title spacing.
@@ -156,6 +158,25 @@ This plugin has not been tested for right-to-left (RTL) language support althoug
 ## Answers to Frequently Asked Questions
 
 IMPORTANT: Although we expect everything to work, this release has not been fully tested in every possible situation. If you find a problem, please help by reporting it in the [Bug Tracker](https://github.com/trema-tech/moodle-theme_trema/issues).
+
+### What can I override in Trema's Raw Initial SCSS settings?
+
+<strong>Important:</strong> Be sure to include trailing semi-colons or Moodle will break the theme's CSS. Example:
+
+Bad:
+
+    $banner-text-color: #462323
+
+Good:
+
+    $banner-text-color: #462323;
+
+| Description                         | SCSS variable        | Default                        | Sample value |
+|:------------------------------------|:---------------------|:-------------------------------|:-------------|
+| Text color of the frontpage banner. | $banner-font-color   | $white                         | #462323      |
+| Set scale of site name font size.   | $sitename-font-scale | 1 (site name > 36 chars: 0.75) | 0.8          |
+
+There are many more already available. These will be documented over time.
 
 ### Are there any security considerations?
 

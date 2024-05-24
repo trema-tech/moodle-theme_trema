@@ -255,7 +255,7 @@ function theme_trema_get_pre_scss($theme) {
  * @return string
  */
 function theme_trema_get_main_scss_content($theme) {
-    global $CFG;
+    global $CFG, $SITE;
 
     $scss = '';
 
@@ -278,6 +278,10 @@ function theme_trema_get_main_scss_content($theme) {
     } else {
         $scss .= "#frontpage-banner {background-image: $darkoverlay url([[pix:theme|frontpage/banner]]);}";
     }
+
+    // Compensate for long site names.
+    $sitenamefontscale = strlen($SITE->shortname) < 36 ? '1' : '0.75';
+    $scss .= '$sitename-font-scale: ' . $sitenamefontscale . ";\n";
 
     return $scss;
 }
