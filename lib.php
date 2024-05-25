@@ -234,7 +234,7 @@ function theme_trema_get_pre_scss($theme) {
     // ....
 
     // Softness: Rounding some corners.
-    $scss .= '$softness: ' . (!empty($theme->settings->softness) ? '.5rem' : '0') . ";\n";
+    $scss .= '$softness: ' . (!empty($theme->settings->softness) ? '.4rem' : '0') . ";\n";
 
     // ....
     // Prepend pre-scss.
