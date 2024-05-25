@@ -55,7 +55,7 @@ $setting = new admin_setting_configselect($name, $title, $description, $default,
 $setting->set_updatedcallback('theme_reset_all_caches');
 $page->add($setting);
 
-// Enable/disable dark overlay on banner.
+// Enable/disable dark banner overlay.
 $name = 'theme_trema/frontpageenabledarkoverlay';
 $title = get_string('frontpageenabledarkoverlay', 'theme_trema');
 $description = get_string('frontpageenabledarkoverlay_desc', 'theme_trema');
@@ -64,7 +64,7 @@ $setting = new admin_setting_configcheckbox($name, $title, $description, $defaul
 $setting->set_updatedcallback('theme_reset_all_caches');
 $page->add($setting);
 
-// Frontpage text alignment.
+// Frontpage banner text alignment.
 $choices = [
     'left' => get_string('left', 'editor'),
     'center' => get_string('middle', 'editor'),
@@ -74,6 +74,16 @@ $name = 'theme_trema/frontpagebannercontentalign';
 $title = get_string('frontpagebannercontentalign', 'theme_trema');
 $description = get_string('frontpagebannercontentalign_desc', 'theme_trema');
 $default = 'center';
+$setting = new admin_setting_configselect($name, $title, $description, $default, $choices);
+$setting->set_updatedcallback('theme_reset_all_caches');
+$page->add($setting);
+
+// Frontpage banner height.
+$choices = ['50vh' => '50%', '60vh' => '60%', '70vh' => '70%', '80vh' => '80%', '90vh' => '90%', '100vh' => '100%'];
+$name = 'theme_trema/bannerheight';
+$title = get_string('bannerheight', 'theme_trema');
+$description = get_string('bannerheight_desc', 'theme_trema');
+$default = '100vh';
 $setting = new admin_setting_configselect($name, $title, $description, $default, $choices);
 $setting->set_updatedcallback('theme_reset_all_caches');
 $page->add($setting);

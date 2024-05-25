@@ -175,6 +175,7 @@ Good:
 |:------------------------------------|:---------------------|:-------------------------------|:-------------|
 | Text color of the frontpage banner. | $banner-font-color   | $white                         | #462323      |
 | Set scale of site name font size.   | $sitename-font-scale | 1 (site name > 36 chars: 0.75) | 0.8          |
+| Height of frontpage banner.         | $banner-height       | 75vh                           | 100vh        |
 
 There are many more already available. These will be documented over time.
 

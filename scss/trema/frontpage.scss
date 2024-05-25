@@ -55,7 +55,7 @@ body#page-site-index {
 
         #frontpage-banner-content {
             position: absolute;
-            top: 50%;
+            top: calc(#{$banner-height} / 2);
             left: 50%;
             transform: translate(-50%, -50%);
             text-align: $banner-text-align;
@@ -251,14 +251,14 @@ body#page-site-index {
 
 #carouselTrema {
     .carousel-inner {
-        max-height: calc(100vh - 4rem);
+        max-height: calc(#{$banner-height} - 4rem);
         a:focus {
             box-shadow: none;
         }
 
         .frontpage-banner-content {
             position: absolute;
-            top: 50%;
+            top: calc(#{$banner-height} / 2);
             left: 50%;
             transform: translate(-50%, -50%);
             text-align: $banner-text-align;
