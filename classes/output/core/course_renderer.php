@@ -259,7 +259,6 @@ class course_renderer extends \core_course_renderer {
         $content .= html_writer::start_tag('div', ['class' => 'pull-right']);
         $content .= html_writer::end_tag('div'); // End pull-right.
 
-
         // Display course contacts. See core_course_list_element::get_course_contacts().
         if ($showcardcontact && $course->has_course_contacts()) {
             $content .= html_writer::start_tag('div', ['class' => 'teachers pt-2']);
