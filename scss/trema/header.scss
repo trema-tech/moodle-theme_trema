@@ -249,6 +249,9 @@
         font-size: calc(0.9rem * #{$sitename-font-scale});
         line-height: calc(0.9rem * #{$sitename-font-scale} + 0.05rem);
     }
+    img {
+        width: -webkit-fill-available;
+    }
 }
 .drawerheader .sitename {
     text-wrap: wrap;
