@@ -131,7 +131,7 @@ body #page {
     input[type="submit"],
     input[type="reset"],
     input[type="button"],
-    .btn:not(.activity-add, .activity-icon, [data-for="sectiontoggler"]) {
+    .btn:not(.activity-add, .activity-icon, [data-for="sectiontoggler"], .qnbutton) {
         appearance: none;
         transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
         background-color: $gray-800;
@@ -504,6 +504,9 @@ body.path-mod-quiz {
             display: inline;
             width: auto;
         }
+    }
+    #mod_quiz_navblock h3.mod_quiz-section-heading {
+        padding: .7em 0 0.4em;
     }
 }
 
