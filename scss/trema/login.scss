@@ -43,10 +43,12 @@ body#page-login-index {
     #region-main-box {
         padding: 0;
     }
-
+      
     #page-content {
         max-width: 550px;
-        margin: 0;
+        margin: if($login-box-align == 'center', 0 auto, 0);
+        margin-left: if($login-box-align == 'left', 0, auto);
+        align-items: if($login-box-align == 'center', center, normal);
     }
 
     #page-footer {
