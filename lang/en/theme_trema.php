@@ -166,7 +166,6 @@ $string['imagelink'] = 'Image link';
 $string['imagelink_desc'] = 'Button with a link in image {$a}.';
 $string['light'] = 'Light';
 $string['link'] = 'Link';
-$string['link'] = 'Link';
 $string['linkdecoration'] = 'Link style';
 $string['linkdecoration_desc'] = 'Links can either be underlined or in bold.';
 $string['login'] = 'Login';
