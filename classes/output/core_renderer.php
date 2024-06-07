@@ -61,6 +61,11 @@ class core_renderer extends \theme_boost\output\core_renderer {
      */
     public function favicon() {
         global $CFG;
+        static $favicon;
+
+        if (!empty($favicon)) {
+            return $favicon;
+        }
 
         // Use favicon configured in theme's settings.
         $favicon = $this->page->theme->setting_file_url('favicon', 'favicon');
