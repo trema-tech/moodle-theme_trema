@@ -111,15 +111,6 @@ class core_renderer extends \theme_boost\output\core_renderer {
     }
 
     /**
-     * Renders the lang menu on the login page.
-     *
-     * @return mixed
-     */
-    public function login_lang_menu() {
-        return $this->render_lang_menu(true);
-    }
-
-    /**
      * Renders the lang menu
      *
      * @param bool $showlang Optional false = just the globe, or 'showlang' to force display globe + current language.
@@ -166,52 +157,6 @@ class core_renderer extends \theme_boost\output\core_renderer {
             }
         }
         return '';
-    }
-
-    /**
-     * Add icons to custom menu.
-     *
-     * @param custom_menu $menu
-     * @return string
-     * @throws \coding_exception
-     * @throws \dml_exception
-     * @throws \moodle_exception
-     */
-    protected function render_custom_menu(custom_menu $menu) {
-        // Change Fontawesome's codes by HTML.
-        $content = '';
-        foreach ($menu->get_children() as $item) {
-            $context = $item->export_for_template($this);
-            $context->text = preg_replace('/^fa-(\w|-)+/', '<i class="fa \0 mr-1" aria-hidden="true"></i>', $context->text);
-            $context->title = trim(preg_replace('/^fa-(\w|-)+/', '', $context->title));
-            $content .= $this->render_from_template('core/custom_menu_item', $context);
-        }
-
-        return $content;
-    }
-
-    /**
-     * We want to show the custom menus as a list of links in the footer on small screens.
-     * Just return the menu object exported so we can render it differently.
-     *
-     * @return array
-     */
-    public function custom_menu_flat() {
-        global $CFG;
-
-        // Render standard custom_menu_flat without the language menu.
-        $oldlangmenu = $CFG->langmenu;
-        $CFG->langmenu = '';
-        $context = parent::custom_menu_flat();
-        $CFG->langmenu = $oldlangmenu;
-
-        // Replace FontAwesome codes with HTML.
-        foreach ($context->children as &$item) {
-            $item->text = preg_replace('/^fa-(\w|-)+/', '<i class="fa \0 mr-1" aria-hidden="true"></i>', $item->text);
-            $item->title = trim(preg_replace('/^fa-(\w|-)+/', '', $item->title));
-        }
-
-        return $context;
     }
 
     /**
