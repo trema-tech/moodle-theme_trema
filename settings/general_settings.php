@@ -57,6 +57,24 @@ $setting = new admin_setting_configselect($name, $title, $description, $default,
 $setting->set_updatedcallback('theme_reset_all_caches');
 $page->add($setting);
 
+// Process primary navigation (custom menu) through Moodle filters.
+$name = 'theme_trema/navfilter';
+$title = get_string('navfilter', 'theme_trema');
+$description = get_string('navfilter_desc', 'theme_trema');
+$default = true;
+$setting = new admin_setting_configcheckbox($name, $title, $description, $default, true, false);
+$setting->set_updatedcallback('theme_reset_all_caches');
+$page->add($setting);
+
+// List of filters that should not be applied to the primary navigation (custom menu).
+$name = 'theme_trema/navfiltersexcluded';
+$title = get_string('navfiltersexcluded', 'theme_trema');
+$description = get_string('navfiltersexcluded_desc', 'theme_trema');
+$default = '';
+$setting = new admin_setting_configtext($name, $title, $description, $default, PARAM_TEXT);
+$setting->set_updatedcallback('theme_reset_all_caches');
+$page->add($setting);
+
 // Hide selected items in the primary navigation (custom menu).
 $hideitemsoptions = [];
 $hideitemsoptions['home'] = get_string('home');
