@@ -172,6 +172,10 @@ body #page {
         border-radius: $softness;
     }
 
+    .btn.btn-icon.icon-size-3 {
+       width: 44px !important;
+    }
+
     .btn.btn-icon:not([data-for="sectiontoggler"]),
     .btn.btn-link:not(.activity-add, .activity-icon) {
         background-color: transparent;
