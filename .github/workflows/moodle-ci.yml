@@ -49,6 +49,7 @@ jobs:
       matrix:
         include:
           # Next version of Moodle (main).
+          # Moodle 4.5.x (MOODLE_405_STABLE).
         #   - php: '8.3'
         #     moodle-branch: 'main'
         #     database: 'pgsql'
@@ -56,6 +57,9 @@ jobs:
         #     moodle-branch: 'main'
         #     database: 'mariadb'
         #   - php: '8.2'
+        #     moodle-branch: 'main'
+        #     database: 'mariadb'
+        #   - php: '8.1'
         #     moodle-branch: 'main'
         #     database: 'mariadb'
           # Moodle 4.4.x (MOODLE_404_STABLE).

@@ -3,7 +3,7 @@
 Trema Theme for Moodle LMS
 ==========================
 
-![PHP](https://img.shields.io/badge/PHP-v7.4%20to%20v8.2-blue.svg)
+![PHP](https://img.shields.io/badge/PHP-v7.4%20to%20v8.3-blue.svg)
 ![Moodle](https://img.shields.io/badge/Moodle-v4.0%20to%20v4.4-orange.svg)
 [![GitHub Issues](https://img.shields.io/github/issues/trema-tech/moodle-theme_trema.svg)](https://github.com/trema-tech/moodle-theme_trema/issues)
 [![Contributions welcome](https://img.shields.io/badge/contributions-welcome-green.svg)](#contributing)
