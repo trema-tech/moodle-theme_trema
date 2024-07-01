@@ -191,4 +191,77 @@ class core_renderer extends \theme_boost\output\core_renderer {
 
         return $this->render_from_template('core/loginform', $context);
     }
+
+    /**
+     * Generates the standard HTML for the head section of the page.
+     *
+     * This method temporarily modifies the global `$CFG->additionalhtmlhead` to apply formatting
+     * options before calling the parent method to generate the standard HTML head. It ensures that
+     * any additional HTML specified in the site configuration is processed through Moodle filters
+     * and included in the head section of the page. After the parent method is called, it restores
+     * the original `$CFG->additionalhtmlhead` value.
+     *
+     * @return string The HTML content for the head section of the page.
+     */
+    public function standard_head_html() {
+        global $CFG;
+        $additionalhtmlhead = $CFG->additionalhtmlhead;
+        if (strpos($additionalhtmlhead, '}') !== false) {
+            $CFG->additionalhtmlhead = format_text($CFG->additionalhtmlhead,
+               FORMAT_HTML, ['noclean' => true, 'context' => $this->page->context]);
+        }
+        $output = parent::standard_head_html();
+        $CFG->additionalhtmlhead = $additionalhtmlhead;
+        return $output;
+    }
+
+    /**
+     * Adds additional HTML at the top of the body for every page.
+     *
+     * This method temporarily modifies the global `$CFG->additionalhtmltopofbody` to apply formatting
+     * options before calling the parent method to generate the top of the HTML body. It ensures that
+     * any additional HTML specified in the site configuration is processed through Moodle filters
+     * and included in the beginning of the body of the page. After the parent method is called, it
+     * restores the original `$CFG->additionalhtmltopofbody` value.
+     *
+     * Credit: GCWeb theme by TNG Consulting Inc.
+     *
+     * @return string Additional HTML to be placed at the top of the body.
+     */
+    public function standard_top_of_body_html() {
+        global $CFG;
+        $additionalhtmltopofbody = $CFG->additionalhtmltopofbody;
+        if (strpos($additionalhtmltopofbody, '}') !== false) {
+            $CFG->additionalhtmltopofbody = format_text($CFG->additionalhtmltopofbody,
+                FORMAT_HTML, ['noclean' => true, $this->page->context]);
+        }
+        $output = parent::standard_top_of_body_html();
+        $CFG->additionalhtmltopofbody = $additionalhtmltopofbody;
+        return $output;
+    }
+
+    /**
+     * Adds additional HTML at the end of the body for every page.
+     *
+     * Credit: GCWeb theme by TNG Consulting Inc.
+     *
+     * This method temporarily modifies the global `$CFG->additionalhtmlfooter` to apply formatting
+     * options before calling the parent method to generate the content at the bottom of the HTML body.
+     * It ensures that any additional HTML specified in the site configuration is processed through
+     * Moodle filters and included in the footer section of the page. After the parent method is called,
+     * it restores the original `$CFG->additionalhtmlfooter` value.
+     *
+     * @return string Additional HTML to be placed at the end of the body.
+     */
+    public function standard_end_of_body_html() {
+        global $CFG;
+        $additionalhtmlfooter = $CFG->additionalhtmlfooter;
+        if (strpos($additionalhtmlfooter, '}') !== false) {
+            $CFG->additionalhtmlfooter = format_text($CFG->additionalhtmlfooter,
+                FORMAT_HTML, ['noclean' => true, 'context' => $this->page->context]);
+        }
+        $output = parent::standard_end_of_body_html();
+        $CFG->additionalhtmlfooter = $additionalhtmlfooter;
+        return $output;
+    }
 }
