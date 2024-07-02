@@ -65,15 +65,11 @@ class primary_navigation extends \core\navigation\output\primary {
             $filteroptions = ['originalformat' => FORMAT_HTML, 'noclean' => true];
             $filtermanager = filter_manager::instance();
             $context = \context_system::instance();
-            $custommenuitems = $filtermanager->filter_text($custommenuitems, $context, $filteroptions, $skipfilters);
+            $CFG->custommenuitems = $filtermanager->filter_text($CFG->custommenuitems, $context, $filteroptions, $skipfilters);
         }
+        $nodes = parent::get_custom_menu($output);
 
-        $currentlang = current_language();
-        $custommenunodes = custom_menu::convert_text_to_menu_nodes($custommenuitems, $currentlang);
-        $nodes = [];
-        foreach ($custommenunodes as $node) {
-            $nodes[] = $node->export_for_template($output);
-        }
+        $CFG->custommenuitems = $custommenuitems;
 
         return $nodes;
     }
