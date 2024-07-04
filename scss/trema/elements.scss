@@ -93,11 +93,12 @@ body #page {
         background-color: lighten($primary, 20%);
     }
 
+    .dropdown-item.text-danger:hover,
     .dropdown-item:hover,
     .dropdown-item:focus,
     .dropdown-item:focus-within {
         background-color: $primary;
-        color: choose-contrast-color($primary);
+        color: choose-contrast-color($primary) !important;
     }
 
     // Lists.
