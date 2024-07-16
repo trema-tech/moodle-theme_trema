@@ -262,6 +262,16 @@ body {
                 background-color: $white;
             }
         }
+
+        [class *="alert-"] {
+            color: #000000;
+        }
+
+        [class *="alert-"] a,
+        .btn-link {
+            text-decoration: underline;
+            color: #005ad8;
+        }
     }
 
     &#page-user-profile {

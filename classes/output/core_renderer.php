@@ -61,6 +61,11 @@ class core_renderer extends \theme_boost\output\core_renderer {
      */
     public function favicon() {
         global $CFG;
+        static $favicon;
+
+        if (!empty($favicon)) {
+            return $favicon;
+        }
 
         // Use favicon configured in theme's settings.
         $favicon = $this->page->theme->setting_file_url('favicon', 'favicon');
@@ -85,8 +90,13 @@ class core_renderer extends \theme_boost\output\core_renderer {
      * @return bool
      */
     public function should_display_navbar_logo() {
-        $logo = $this->get_compact_logo_url();
-        return !empty($logo);
+        static $logo;
+
+        if (!isset($logo)) {
+            $logo = $this->get_compact_logo_url();
+            $logo = !empty($logo);
+        }
+        return $logo;
     }
 
     /**
@@ -98,15 +108,6 @@ class core_renderer extends \theme_boost\output\core_renderer {
         $header = new stdClass();
         $header->settingsmenu = $this->context_header_settings_menu();
         return $this->render_from_template('theme_trema/frontpage_settings_menu', $header);
-    }
-
-    /**
-     * Renders the lang menu on the login page.
-     *
-     * @return mixed
-     */
-    public function login_lang_menu() {
-        return $this->render_lang_menu(true);
     }
 
     /**
@@ -159,52 +160,6 @@ class core_renderer extends \theme_boost\output\core_renderer {
     }
 
     /**
-     * Add icons to custom menu.
-     *
-     * @param custom_menu $menu
-     * @return string
-     * @throws \coding_exception
-     * @throws \dml_exception
-     * @throws \moodle_exception
-     */
-    protected function render_custom_menu(custom_menu $menu) {
-        // Change Fontawesome's codes by HTML.
-        $content = '';
-        foreach ($menu->get_children() as $item) {
-            $context = $item->export_for_template($this);
-            $context->text = preg_replace('/^fa-(\w|-)+/', '<i class="fa \0 mr-1" aria-hidden="true"></i>', $context->text);
-            $context->title = trim(preg_replace('/^fa-(\w|-)+/', '', $context->title));
-            $content .= $this->render_from_template('core/custom_menu_item', $context);
-        }
-
-        return $content;
-    }
-
-    /**
-     * We want to show the custom menus as a list of links in the footer on small screens.
-     * Just return the menu object exported so we can render it differently.
-     *
-     * @return array
-     */
-    public function custom_menu_flat() {
-        global $CFG;
-
-        // Render standard custom_menu_flat without the language menu.
-        $oldlangmenu = $CFG->langmenu;
-        $CFG->langmenu = '';
-        $context = parent::custom_menu_flat();
-        $CFG->langmenu = $oldlangmenu;
-
-        // Replace FontAwesome codes with HTML.
-        foreach ($context->children as &$item) {
-            $item->text = preg_replace('/^fa-(\w|-)+/', '<i class="fa \0 mr-1" aria-hidden="true"></i>', $item->text);
-            $item->title = trim(preg_replace('/^fa-(\w|-)+/', '', $item->title));
-        }
-
-        return $context;
-    }
-
-    /**
      * Renders the login form.
      *
      * @param \core_auth\output\login $form The renderable.
@@ -235,5 +190,78 @@ class core_renderer extends \theme_boost\output\core_renderer {
         $context->loginpagecreatefirst = get_config('theme_trema', 'loginpagecreatefirst');
 
         return $this->render_from_template('core/loginform', $context);
+    }
+
+    /**
+     * Generates the standard HTML for the head section of the page.
+     *
+     * This method temporarily modifies the global `$CFG->additionalhtmlhead` to apply formatting
+     * options before calling the parent method to generate the standard HTML head. It ensures that
+     * any additional HTML specified in the site configuration is processed through Moodle filters
+     * and included in the head section of the page. After the parent method is called, it restores
+     * the original `$CFG->additionalhtmlhead` value.
+     *
+     * @return string The HTML content for the head section of the page.
+     */
+    public function standard_head_html() {
+        global $CFG;
+        $additionalhtmlhead = $CFG->additionalhtmlhead;
+        if (strpos($additionalhtmlhead, '}') !== false) {
+            $CFG->additionalhtmlhead = format_text($CFG->additionalhtmlhead,
+               FORMAT_HTML, ['noclean' => true, 'context' => $this->page->context]);
+        }
+        $output = parent::standard_head_html();
+        $CFG->additionalhtmlhead = $additionalhtmlhead;
+        return $output;
+    }
+
+    /**
+     * Adds additional HTML at the top of the body for every page.
+     *
+     * This method temporarily modifies the global `$CFG->additionalhtmltopofbody` to apply formatting
+     * options before calling the parent method to generate the top of the HTML body. It ensures that
+     * any additional HTML specified in the site configuration is processed through Moodle filters
+     * and included in the beginning of the body of the page. After the parent method is called, it
+     * restores the original `$CFG->additionalhtmltopofbody` value.
+     *
+     * Credit: GCWeb theme by TNG Consulting Inc.
+     *
+     * @return string Additional HTML to be placed at the top of the body.
+     */
+    public function standard_top_of_body_html() {
+        global $CFG;
+        $additionalhtmltopofbody = $CFG->additionalhtmltopofbody;
+        if (strpos($additionalhtmltopofbody, '}') !== false) {
+            $CFG->additionalhtmltopofbody = format_text($CFG->additionalhtmltopofbody,
+                FORMAT_HTML, ['noclean' => true, $this->page->context]);
+        }
+        $output = parent::standard_top_of_body_html();
+        $CFG->additionalhtmltopofbody = $additionalhtmltopofbody;
+        return $output;
+    }
+
+    /**
+     * Adds additional HTML at the end of the body for every page.
+     *
+     * Credit: GCWeb theme by TNG Consulting Inc.
+     *
+     * This method temporarily modifies the global `$CFG->additionalhtmlfooter` to apply formatting
+     * options before calling the parent method to generate the content at the bottom of the HTML body.
+     * It ensures that any additional HTML specified in the site configuration is processed through
+     * Moodle filters and included in the footer section of the page. After the parent method is called,
+     * it restores the original `$CFG->additionalhtmlfooter` value.
+     *
+     * @return string Additional HTML to be placed at the end of the body.
+     */
+    public function standard_end_of_body_html() {
+        global $CFG;
+        $additionalhtmlfooter = $CFG->additionalhtmlfooter;
+        if (strpos($additionalhtmlfooter, '}') !== false) {
+            $CFG->additionalhtmlfooter = format_text($CFG->additionalhtmlfooter,
+                FORMAT_HTML, ['noclean' => true, 'context' => $this->page->context]);
+        }
+        $output = parent::standard_end_of_body_html();
+        $CFG->additionalhtmlfooter = $additionalhtmlfooter;
+        return $output;
     }
 }

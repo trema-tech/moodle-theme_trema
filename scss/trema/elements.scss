@@ -93,11 +93,12 @@ body #page {
         background-color: lighten($primary, 20%);
     }
 
+    .dropdown-item.text-danger:hover,
     .dropdown-item:hover,
     .dropdown-item:focus,
     .dropdown-item:focus-within {
         background-color: $primary;
-        color: choose-contrast-color($primary);
+        color: choose-contrast-color($primary) !important;
     }
 
     // Lists.
@@ -130,8 +131,7 @@ body #page {
 
     input[type="submit"],
     input[type="reset"],
-    input[type="button"],
-    .btn:not(.activity-add, .activity-icon, [data-for="sectiontoggler"], .qnbutton) {
+    input[type="button"] {
         appearance: none;
         transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
         background-color: $gray-800;
@@ -144,7 +144,7 @@ body #page {
         font-size: 0.9rem;
         letter-spacing: 0.08rem;
         min-height: 1.9rem;
-        padding: 0 0.9rem;
+        padding: 4px 0.9rem;
         text-align: center;
         text-decoration: none;
         text-transform: $text-transform;
@@ -172,6 +172,10 @@ body #page {
         border-radius: $softness;
     }
 
+    .btn.btn-icon.icon-size-3 {
+       width: 44px !important;
+    }
+
     .btn.btn-icon:not([data-for="sectiontoggler"]),
     .btn.btn-link:not(.activity-add, .activity-icon) {
         background-color: transparent;
@@ -191,7 +195,6 @@ body #page {
         text-transform: $text-transform;
     }
 
-
     ul.actions.fit li {
         flex-grow: 1;
         flex-shrink: 1;
@@ -205,7 +208,19 @@ body #page {
     .btn,
     .btn.small {
         line-height: 1.9rem;
+        border-radius: $softness;
     }
+
+    .btn {
+        padding: 0.2rem 0.75rem;
+    }
+    .btn-sm {
+        padding: 0 0.6rem;
+    }
+    .btn-lg {
+        padding: 0.375rem 0.9rem;
+    }
+
     button {
         &.search-icon {
             line-height: 1.3rem;

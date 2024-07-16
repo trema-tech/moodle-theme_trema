@@ -53,6 +53,21 @@ if (get_config('theme_trema', 'loginpagestyle') == "image") {
     $page->add($setting);
 }
 
+
+// Login box text alignment.
+$choices = [
+    'left'   => get_string('left', 'editor'),
+    'center' => get_string('middle', 'editor'),
+    'right'  => get_string('right', 'editor'),
+];
+$name = 'theme_trema/loginboxcontentalign';
+$title = get_string('loginboxcontentalign', 'theme_trema');
+$description = get_string('loginboxcontentalign_desc', 'theme_trema');
+$default = 'center';
+$setting = new admin_setting_configselect($name, $title, $description, $default, $choices);
+$setting->set_updatedcallback('theme_reset_all_caches');
+$page->add($setting);
+
 $name = 'theme_trema/loginpagecreatefirst';
 $title = get_string('loginpagecreatefirst', 'theme_trema');
 $description = get_string('loginpagecreatefirst_desc', 'theme_trema');
