@@ -156,8 +156,9 @@ body#page-login-verify_age_location {
 
         #page-content {
             margin-top: 3rem;
-            background: #fff;
+            background: transparent;
             @extend %border-frequency;
+            margin-top: 0;
         }
 
         .login-heading {
@@ -184,6 +185,9 @@ body#page-login-verify_age_location {
     }
     #page-content {
         width: auto;
+    }
+    .pt-5 {
+        padding-top: 0!important;
     }
 }
 
