@@ -110,6 +110,10 @@ body#page-login-index {
     .login-container {
         box-shadow: none;
     }
+
+    button.btn.btn-link.btn-cookie {
+        text-decoration: $links-decoration;
+    }
 }
 
 body#page-login-signup,
