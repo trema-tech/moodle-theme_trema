@@ -125,6 +125,7 @@ body#page-login-verify_age_location {
             background-position: top center;
             background-repeat: no-repeat;
             background-size: cover;
+            background-attachment: fixed;
         }
     }
 
@@ -139,6 +140,7 @@ body#page-login-verify_age_location {
     }
 
     #page-wrapper {
+        background-attachment: fixed;
         .lang-menu .dropdown-menu {
             left: 0;
             top: 65px;
