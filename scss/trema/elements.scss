@@ -270,7 +270,7 @@ body #page {
 
         &:hover {
             background-color: darken($primary, 30%);
-            color: choose-contrast-color($primary);
+            color: choose-contrast-color(darken($primary, 30%));
         }
     }
 
