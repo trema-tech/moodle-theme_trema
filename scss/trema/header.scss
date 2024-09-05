@@ -13,6 +13,10 @@
     top: 0;
     width: 100%;
 
+    &.fixed-top {
+        align-items: center;
+    }
+
     .dropdown-divider {
         border-top: 1px solid fix-color-contrast($secondary, $header-bg-color);
     }
@@ -240,6 +244,7 @@
     font-size: calc(1.25rem * #{$sitename-font-scale});
     line-height: calc(1.25rem * #{$sitename-font-scale} + 0.05rem);
     max-width: 260px;
+    max-height: 42px;
     width: fit-content;
     &:hover,
     &:focus {
