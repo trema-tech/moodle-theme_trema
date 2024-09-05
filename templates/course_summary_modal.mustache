@@ -18,6 +18,22 @@
     @template theme_trema/course_summary_modal
 
     Modal info for /course and list of courses available (site home).
+
+    Context variables required for this template:
+    * title: The title of the course.
+    * body: The body of the course.
+    * courselink: The link to the course.
+    * uniqid: A unique identifier for the modal.
+    * str: The string helper.
+    * quote: The quote helper.
+
+    Example context (json):
+    {
+        "title": "Course title",
+        "body": "<p>Course summary</p>",
+        "courselink": "http://example.com/course/view.php?id=4",
+        "uniqid": "123456"
+    }
 }}
 
 <!-- Button trigger modal -->

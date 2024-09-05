@@ -18,6 +18,14 @@
     @template theme_trema/frontpage_settings_menu
 
     Put the settings menu (cog) in a different place in Frontpage.
+
+    Context variables required for this template:
+    * settingsmenu: The settings menu.
+
+    Example context (json):
+    {
+        "settingsmenu": "<button type=\"button\" class=\"btn btn-secondary m-2 h-auto \" data-toggle=\"modal\" data-target=\"#modal-123456\">Settings</button>"
+    }
 }}
 {{#settingsmenu}}
 <div id="frontpage-settings-menu" class="p-1">

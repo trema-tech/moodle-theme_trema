@@ -18,6 +18,36 @@
     @template theme_trema/footer
 
     Page footer.
+
+    Context variables required for this template:
+    * defaultfooter - The default footer content.
+    * footerinfo - Whether to show the footer info.
+    * output.page_doc_link - The page documentation link.
+    * output.services_support_link - The services support link.
+    * output.supportemail - The support email.
+    * output.login_info - The login info.
+    * output.standard_footer_html - The standard footer html.
+    * output.standard_end_of_body_html - The standard end of body html.
+    * output.moodle_release - The Moodle release.
+    * output.debug_footer_html - The debug footer html.
+    * showbranding - Whether to show the branding.
+
+    Example context (json):
+    {
+        "defaultfooter": "<p>Default footer content</p>",
+        "footerinfo": true,
+        "output": {
+            "page_doc_link": "<a href=\"#\">Page documentation</a>",
+            "services_support_link": "<a href=\"#\">Services support</a>",
+            "supportemail": "<a href=\"#\">Support email</a>",
+            "login_info": "<p>Login info</p>",
+            "standard_footer_html": "<p>Standard footer html</p>",
+            "standard_end_of_body_html": "<p>Standard end of body html</p>",
+            "moodle_release": "4.0.0",
+            "debug_footer_html": "<p>Debug footer html</p>"
+        },
+        "showbranding": true
+    }
 }}
 <footer id="page-footer" class="footer-trema">
     <div class="container p-0">

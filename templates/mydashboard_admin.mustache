@@ -26,6 +26,18 @@
     * activeenrolments - enrolments in active courses
     * enrolments - total enrolments
     * issuestatus - number of issues
+
+    Example context (json):
+    {
+        "disk": "10GB",
+        "activecourses": 10,
+        "totalcourses": 20,
+        "activeenrolments": 100,
+        "enrolments": 200,
+        "issuestatus": {
+            "warning": 1
+        }
+    }
 }}
 <div id="mydashboard-admin" class="container-fluid">
     <h2 class="admin-dashboard sr-only">{{#str}}admindashboard, theme_trema{{/str}}</h2>

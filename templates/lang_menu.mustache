@@ -19,7 +19,39 @@
 
     Custom menu item template for lang options
 
-    Example context (json): {}
+    Context variables required for this template:
+    * title: The title of the menu item.
+    * url: The url of the menu item.
+    * text: The text of the menu item.
+    * children: The children of the menu item.
+    * divider: The divider of the menu item.
+    * uniqid: A unique identifier for the menu item.
+    * haschildren: The haschildren of the menu item.
+
+    Example context (json):
+    {
+        "title": "Language",
+        "url": "http://example.com",
+        "text": "English",
+        "children": [
+            {
+                "text": "English",
+                "url": "http://example.com",
+                "divider": false
+            },
+            {
+                "divider": true
+            },
+            {
+                "text": "French",
+                "url": "http://example.com",
+                "divider": false
+            }
+        ],
+        "divider": false,
+        "uniqid": "123456",
+        "haschildren": true
+    }
 }}
 {{^divider}}
 {{#haschildren}}

@@ -18,6 +18,36 @@
     @template theme_trema/navbar
 
     Page navbar.
+
+    Context variables required for this template:
+    * config.wwwroot: The wwwroot of the site.
+    * sitename: The name of the site.
+    * output.should_display_navbar_logo: Whether the navbar logo should be displayed.
+    * output.get_compact_logo_url: The URL of the compact logo.
+    * output.search_box: The search box.
+    * output.navbar_plugin_output: The navbar plugin output.
+    * output.edit_switch: The edit switch.
+    * output.page_heading_menu: The page heading menu.
+    * output.render_lang_menu: The lang menu.
+    * primarymoremenu: The primary more menu.
+    * langmenu: The lang menu.
+    * usermenu: The user menu.
+
+    Example context (json):
+    {
+        "config.wwwroot": "https://example.com",
+        "sitename": "Moodle",
+        "output.should_display_navbar_logo": true,
+        "output.get_compact_logo_url": "https://example.com/theme/image.php/boost/theme/1610130847/logo",
+        "output.search_box": "<form class=\"form-inline my-2 my-lg-0\" action=\"https://example.com/course/search.php\" method=\"get\"><input class=\"form-control mr-sm-2\" type=\"search\" name=\"search\" placeholder=\"Search courses\" aria-label=\"Search\"><button class=\"btn btn-outline-success my-2 my-sm-0\" type=\"submit\">Search</button></form>",
+        "output.navbar_plugin_output": "<div class=\"navbar-plugin-output\"></div>",
+        "output.edit_switch": "<div class=\"edit-switch\">...</div>",
+        "output.page_heading_menu": "<li class=\"nav-item\"><a class=\"nav-link\" href=\"https://example.com\">Home</a></li>",
+        "output.render_lang_menu": "<a class=\"dropdown-item\" href=\"/?lang=en\">English</a>",
+        "primarymoremenu": true,
+        "langmenu": true,
+        "usermenu": true
+    }
 }}
 <nav class="navbar fixed-top navbar-light bg-white navbar-expand" aria-label="{{#str}}sitemenubar, admin{{/str}}">
 

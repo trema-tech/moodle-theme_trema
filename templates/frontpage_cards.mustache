@@ -18,6 +18,38 @@
     @template theme_trema/fontpage_cards
 
     Card for each available courses on the frontpage and search results.
+
+    Context variables required for this template: None.
+    * cardstitle: The title of the card section.
+    * cardssubtitle: The subtitle of the card section.
+    * cardssettings: The settings for each card.
+        * cardicon: The icon of the card.
+        * cardiconcolor: The color of the icon.
+        * cardtitle: The title of the card.
+        * cardsubtitle: The subtitle of the card.
+        * cardlink: The link of the card.
+
+    Example context (json):
+    {
+        "cardstitle": "Courses",
+        "cardssubtitle": "Choose from a variety of courses",
+        "cardssettings": [
+            {
+                "cardicon": "fa-book",
+                "cardiconcolor": "#007bff",
+                "cardtitle": "Course 1",
+                "cardsubtitle": "Course 1 description",
+                "cardlink": "http://example.com/course/view.php?id=1"
+            },
+            {
+                "cardicon": "fa-book",
+                "cardiconcolor": "#007bff",
+                "cardtitle": "Course 2",
+                "cardsubtitle": "Course 2 description",
+                "cardlink": "http://example.com/course/view.php?id=2"
+            }
+        ]
+    }
 }}
 
 <div id="frontpage-cards" class="container mt-5">
