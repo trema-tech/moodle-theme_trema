@@ -563,3 +563,8 @@ body.path-mod-quiz {
 .badge-pill [class^="badge-"] {
     border-radius: 1.5rem;
 }
+
+// For "Hidden from Student" badge (Moodle 4.4+).
+.badge.rounded-pill.bg-secondary.text-dark {
+    color: white!important;
+}
