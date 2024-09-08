@@ -46,10 +46,11 @@
         top: 72px;
         left: 8px;
         border-radius: $softness;
-        .img, .icon {
+        .img,
+        .icon {
             padding: 4px;
-            margin: 0px;
-       }
+            margin: 0;
+        }
     }
 }
 
@@ -83,7 +84,7 @@ body#page-enrol-index {
         font-size: .7rem;
     }
     body#page-enrol-index #region-main {
-        padding: 10px 5px!important;
+        padding: 10px 5px !important;
         .generalbox.info {
             div {
                 box-shadow: none;

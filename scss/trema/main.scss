@@ -263,11 +263,11 @@ body {
             }
         }
 
-        [class *="alert-"] {
+        [class*="alert-"] {
             color: #000000;
         }
 
-        [class *="alert-"] a,
+        [class*="alert-"] a,
         .btn-link {
             text-decoration: underline;
             color: #005ad8;

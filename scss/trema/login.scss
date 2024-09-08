@@ -43,7 +43,7 @@ body#page-login-index {
     #region-main-box {
         padding: 0;
     }
-      
+
     #page-content {
         max-width: 550px;
         margin: if($login-box-align == 'center', 0 auto, 0);
@@ -159,7 +159,6 @@ body#page-login-verify_age_location {
         }
 
         #page-content {
-            margin-top: 3rem;
             background: transparent;
             @extend %border-frequency;
             margin-top: 0;
@@ -191,7 +190,7 @@ body#page-login-verify_age_location {
         width: auto;
     }
     .pt-5 {
-        padding-top: 0!important;
+        padding-top: 0 !important;
     }
 }
 

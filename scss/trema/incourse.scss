@@ -185,14 +185,14 @@ body:not(#page-course-view-weeks, #page-course-view-topics, #page-course-view-re
 }
 
 body.pagelayout-course .section {
-    padding: 0.5rem!important;
+    padding: 0.5rem !important;
 }
 
 // For Gradebook report.
 .initials-selector .initialswidget,
 .pagination-sm .page-link {
-    padding: 0.25rem 0.5rem!important;
+    padding: 0.25rem 0.5rem !important;
 }
 body.pagelayout-report #page #page-content {
-  max-width: fit-content!important;
+    max-width: fit-content !important;
 }
