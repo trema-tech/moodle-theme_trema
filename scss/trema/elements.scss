@@ -565,6 +565,7 @@ body.path-mod-quiz {
 }
 
 // For "Hidden from Student" badge (Moodle 4.4+).
-.badge.rounded-pill.bg-secondary.text-dark {
+// For "Parent category" when creating a course category.
+.bg-secondary.text-dark {
     color: white !important;
 }
