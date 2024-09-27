@@ -205,11 +205,16 @@ class core_renderer extends \theme_boost\output\core_renderer {
      */
     public function standard_head_html() {
         global $CFG;
+
         $additionalhtmlhead = $CFG->additionalhtmlhead;
-        if (strpos($additionalhtmlhead, '}') !== false) {
-            $CFG->additionalhtmlhead = format_text($CFG->additionalhtmlhead,
-               FORMAT_HTML, ['noclean' => true, 'context' => $this->page->context]);
+
+        // If filtering of the primary custom menu is enabled, apply only the string filters.
+        if (!empty(get_config('theme_trema', 'navfilter')) && strpos($CFG->additionalhtmlhead, '}') !== false) {
+            // Apply filters that are enabled for Content and Headings.
+            $filtermanager = filter_manager::instance();
+            $CFG->additionalhtmlhead = $filtermanager->filter_string($CFG->additionalhtmlhead, \context_system::instance());
         }
+
         $output = parent::standard_head_html();
         $CFG->additionalhtmlhead = $additionalhtmlhead;
         return $output;
