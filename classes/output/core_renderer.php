@@ -63,6 +63,7 @@ class core_renderer extends \theme_boost\output\core_renderer {
         global $CFG;
         static $favicon;
 
+        // Return cached value if available.
         if (!empty($favicon)) {
             return $favicon;
         }
@@ -70,17 +71,33 @@ class core_renderer extends \theme_boost\output\core_renderer {
         // Use favicon configured in theme's settings.
         $favicon = $this->page->theme->setting_file_url('favicon', 'favicon');
 
-        if (empty($favicon)) {
-            if (file_exists($this->page->theme->dir . '/pix/favicon.ico')) {
-                // Use pix/favicon.ico stored in the theme directory.
-                $favicon = $this->page->theme->image_url('favicon', 'theme');
-            } else {
-                // Fallback to the webserver's favicon.ico.
-                $parsedurl = parse_url($CFG->wwwroot);
-                $favicon = $parsedurl['scheme'] . '://' . $parsedurl['host'] . '/favicon.ico';
-                // If there isn't any, the browser will fallback to its own default favicon.
-            }
+        // If no favicon set in the theme, see if theme includeds a favicon.ico file.
+        if (empty($favicon) && (file_exists($this->page->theme->dir . '/pix/favicon.ico'))) {
+            // Use pix/favicon.ico stored in the theme directory.
+            $favicon = $this->page->theme->image_url('favicon', 'theme');
         }
+
+        // If no favicon found yet, check favicon settings in Moodle's Appearance/Logo settings.
+        // Note: Only available in Moodle 4.1+.
+        if (empty($favicon) && $CFG->branch >= 401) {
+            // Use $CFG->themerev to prevent browser caching when the file changes.
+            $favicon = \moodle_url::make_pluginfile_url(
+                \context_system::instance()->id,
+                'core_admin',
+                'favicon',
+                '64x64/',
+                theme_get_revision(),
+                get_config('core_admin', 'favicon')
+            );
+        }
+
+        // If still no favicon found, fallback to the webserver's favicon.ico.
+        if (empty($favicon)) {
+            $parsedurl = parse_url($CFG->wwwroot);
+            $favicon = $parsedurl['scheme'] . '://' . $parsedurl['host'] . '/favicon.ico';
+            // If there isn't any, the browser will fallback to its own default favicon.
+        }
+
         return $favicon;
     }
 
