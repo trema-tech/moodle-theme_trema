@@ -9,7 +9,7 @@ $editmodeon-color: choose-contrast-color($editmodeon-bg-color);
 $dropdown-color: choose-contrast-color($dropdown-bg-color);
 $drawer-color: choose-contrast-color($drawer-bg-color);
 
-.card {
+.card:not(.fp-navbar) {
     border: none;
 }
 
