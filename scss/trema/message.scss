@@ -51,7 +51,7 @@ body.path-message {
 
 body#page-message-output-popup-notifications {
     #page-wrapper #page #page-content {
-        background: #ffffff;
+        background: $white;
         margin-top: 1rem;
         padding: 2rem !important;
 
@@ -60,7 +60,7 @@ body#page-message-output-popup-notifications {
         }
 
         #region-main {
-            background-color: #ffffff;
+            background-color: $white;
             padding: 0;
 
             &:before,

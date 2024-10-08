@@ -75,7 +75,7 @@ body #page input[type="button"].btn-secondary:focus,
 .sr-only-focusable:focus,
 .carousel-control-prev-icon:focus,
 .carousel-control-next-icon:focus,
-selection.focus {
+select.focus {
     // Works on both dark and light backgrounds.
     outline: 2px #f9f9f9 solid;
     outline-offset: 0;
@@ -264,7 +264,7 @@ body {
         }
 
         [class*="alert-"] {
-            color: #000000;
+            color: $black;
         }
 
         [class*="alert-"] a,
@@ -354,7 +354,7 @@ body.format-site.path-calendar {
 
             #region-main {
                 padding: 2rem;
-                background-color: #ffffff;
+                background-color: $white;
             }
         }
     }
