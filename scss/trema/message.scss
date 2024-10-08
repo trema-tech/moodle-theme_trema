@@ -55,8 +55,18 @@ body#page-message-output-popup-notifications {
         margin-top: 1rem;
         padding: 2rem !important;
 
+        &:before {
+            display: none;
+        }
+
         #region-main {
             background-color: #ffffff;
+            padding: 0;
+
+            &:before,
+            &:after {
+                content: none;
+            }
 
             .notification-area {
                 background-color: $white;

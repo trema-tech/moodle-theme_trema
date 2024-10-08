@@ -90,6 +90,11 @@ body#page-mod-quiz-review {
     }
 }
 
+// Fix the width of the quiz report.
+body#page-mod-quiz-report #attempts {
+    width: 100%!important;
+}
+
 body.path-mod-assign.pagelayout-embedded {
     #page {
         padding-top: 0;
@@ -125,6 +130,12 @@ body.path-mod-assign.pagelayout-embedded {
             height: 2rem;
             margin: 0;
         }
+    }
+}
+
+body#page-mod-assign-grading {
+    .gradingtable {
+        overflow-x: scroll;
     }
 }
 

@@ -304,7 +304,7 @@ if (get_config('theme_trema', 'frontpageenablecards')) {
     // Number of cards.
     $name = 'theme_trema/numberofcards';
     $title = get_string('numberofcards', 'theme_trema');
-    $description = '';
+    $description = get_string('numberofcards_desc', 'theme_trema');
     $default = 4;
     $choices = [
         2 => '2',

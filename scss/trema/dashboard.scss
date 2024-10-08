@@ -89,13 +89,17 @@ body.pagelayout-mydashboard {
 }
 
 body#page-message-index {
-    #page-header {
-        display: block;
+    .container-fluid {
+        padding-right: 0;
     }
 
     #mydashboard-admin,
     #side-admin-blocks {
         display: none;
+    }
+
+    #page-wrapper #page #page-content:before {
+        content: none;
     }
 
     .panel-header-container {
@@ -104,5 +108,10 @@ body#page-message-index {
 
     #region-main {
         margin-top: 0;
+    }
+
+    .message-app.main {
+        height: 100%;
+        min-height: 80vh;
     }
 }

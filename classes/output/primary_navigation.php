@@ -55,17 +55,11 @@ class primary_navigation extends \core\navigation\output\primary {
 
         $custommenuitems = $CFG->custommenuitems;
 
-        // If setting is enabled, filter custom menu items but don't apply auto-linking filters.
-        if (!empty(get_config('theme_trema', 'navfilter'))) {
-            // Include default filters to skip.
-            $skipfilters = 'activitynames,data,glossary,sectionnames,bookchapters,urltolink,'
-                . get_config('theme_trema', 'navfiltersexcluded');
-            // Convert to array, trim all items, and remove duplicates and empty values.
-            $skipfilters = array_filter(array_unique(array_map('trim', explode(',', $skipfilters))));
-            $filteroptions = ['originalformat' => FORMAT_HTML, 'noclean' => true];
+        // If filtering of the primary custom menu is enabled, apply only the string filters.
+        if (!empty(get_config('theme_trema', 'navfilter')) && strpos($CFG->custommenuitems, '}') !== false) {
+            // Apply filters that are enabled for Content and Headings.
             $filtermanager = filter_manager::instance();
-            $context = \context_system::instance();
-            $CFG->custommenuitems = $filtermanager->filter_text($CFG->custommenuitems, $context, $filteroptions, $skipfilters);
+            $CFG->custommenuitems = $filtermanager->filter_string($CFG->custommenuitems, \context_system::instance());
         }
         $nodes = parent::get_custom_menu($output);
 
