@@ -133,6 +133,12 @@ body.path-mod-assign.pagelayout-embedded {
     }
 }
 
+body#page-mod-assign-grading {
+    .gradingtable {
+        overflow-x: scroll;
+    }
+}
+
 body.path-mod-forum {
     .forumsearch {
         #search {

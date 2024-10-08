@@ -1,0 +1,19 @@
+body.path-admin-reportbuilder {
+     #page #page-content {
+        max-width: none;
+        padding: 0 2rem;
+        .reportbuilder-sidebar-settings {
+            right: 50px;
+        }
+        .dynamictabs {
+            height: 85vh;
+            .nav-tabs {
+                width: calc(100% - 70px);
+                background-color: transparent;
+            }
+        }
+        .reportbuilder-sidebar-menu-cards {
+            max-height: calc(100vh - 335px);
+        }
+    }
+}
