@@ -54,7 +54,12 @@ if ($PAGE->has_secondary_navigation()) {
     }
 }
 
-$primary = new theme_trema\output\primary_navigation($PAGE);
+if ($CFG->branch > 400) {
+    $primary = new theme_trema\output\primary_navigation($PAGE);
+} else {
+    $primary = new core\navigation\output\primary($PAGE);
+}
+
 $renderer = $PAGE->get_renderer('core');
 $primarymenu = $primary->export_for_template($renderer);
 $buildregionmainsettings = !$PAGE->include_region_main_settings_in_header_actions()  && !$PAGE->has_secondary_navigation();
