@@ -139,3 +139,14 @@ body.path-admin-report-log {
         }
     }
 }
+
+// Show more content on some pages that have wide tables
+body#page-mod-assign-grading #page-content,
+body#page-admin-tool-task-scheduledtasks #page-content,
+body#page-question-edit #page-content {
+    max-width: 100%;
+    .generaltable th,
+    .generaltable td {
+        padding: .75rem 0;
+    }
+}
