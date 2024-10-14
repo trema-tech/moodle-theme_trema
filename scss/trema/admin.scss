@@ -79,7 +79,7 @@ body.pagelayout-admin {
 body.path-badges {
     #page {
         #page-header {
-            background-color: #ffffff;
+            background-color: $white;
             padding: 1rem;
             margin-bottom: 0.5rem;
             @extend %border-frequency;
@@ -137,5 +137,16 @@ body.path-admin-report-log {
             width: auto;
             display: inline-block;
         }
+    }
+}
+
+// Show more content on some pages that have wide tables
+body#page-mod-assign-grading #page-content,
+body#page-admin-tool-task-scheduledtasks #page-content,
+body#page-question-edit #page-content {
+    max-width: 100%;
+    .generaltable th,
+    .generaltable td {
+        padding: .75rem 0;
     }
 }

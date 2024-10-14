@@ -1,24 +1,24 @@
 @media print {
     // Remove underline from all links.
     a {
-      text-decoration: none!important;
+        text-decoration: none !important;
     }
     // Remove margins to maximize space on paper.
     body #page #page-content,
     #region-main-box,
     #page {
-        margin: 0!important;
+        margin: 0 !important;
     }
     // Display the page headers so we can show the logo.
     #page-header {
-      display: block!important;
+        display: block !important;
     }
 
     // Unsticky the nav-bar so it doesn't repeat on every page.
     #page-wrapper nav.navbar {
-      display: block;
-      position:relative;
-      border-bottom: none;
+        display: block;
+        position: relative;
+        border-bottom: none;
     }
 
     // Elements we do not want to appear in print.
@@ -36,6 +36,6 @@
     nav.navbar .primary-navigation,
     nav.navbar #usernavigation,
     ul.nav.nav-tabs {
-        display: none!important;
-  }
+        display: none !important;
+    }
 }

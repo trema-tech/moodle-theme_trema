@@ -1,19 +1,49 @@
 body.path-admin-reportbuilder {
-     #page #page-content {
-        max-width: none;
-        padding: 0 2rem;
-        .reportbuilder-sidebar-settings {
-            right: 50px;
+    #page {
+        div.secondary-navigation {
+            max-width: none;
+            margin: 0 auto;
         }
-        .dynamictabs {
-            height: 85vh;
-            .nav-tabs {
-                width: calc(100% - 70px);
-                background-color: transparent;
+        #page-header {
+            margin-top: 1rem;
+            margin-bottom: 1rem;
+            width: 100%;
+            max-width: none;
+            padding: 0;
+        }
+        #page-content {
+            max-width: none;
+            padding: 0;
+            .reportbuilder-sidebar-settings {
+                right: 50px;
             }
-        }
-        .reportbuilder-sidebar-menu-cards {
-            max-height: calc(100vh - 335px);
+            .dynamictabs {
+                height: auto;
+                .nav-tabs {
+                    width: calc(100% - 70px);
+                    background-color: transparent;
+                }
+            }
+            .table-dynamic {
+                overflow-x: auto;
+            }
+            .reportbuilder-sidebar-menu-cards {
+                max-height: max-content;
+            }
+            .reportbuilder-report-container {
+                max-height: max-content;
+            }
+            @media (min-width: 992px) {
+                .dynamictabs {
+                    height: 87vh;
+                }
+                .reportbuilder-sidebar-menu-cards {
+                    max-height: calc(100vh - 335px);
+                }
+                .reportbuilder-report-container {
+                    max-height: calc(100vh - 215px);
+                }
+            }
         }
     }
 }
