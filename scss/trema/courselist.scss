@@ -4,6 +4,7 @@
     max-width: 16rem;
     min-width: 12rem;
     overflow: hidden;
+    border-bottom: none;
     transition: all .3s ease-in-out;
 
     &:hover {
@@ -79,9 +80,22 @@ body#page-enrol-index {
 }
 
 @media (max-width: 769px) {
-    #page .card-see-more .btn {
-        height: auto;
-        font-size: .7rem;
+    #page {
+        .card-see-more .btn {
+            height: auto;
+            font-size: .7rem;
+        }
+        #frontpage-available-course-list {
+            h2 {
+                text-align: center;
+            }
+            .card-deck {
+                justify-content: center;
+                .course-card-view {
+                    width: 100%;
+                }
+            }
+        }
     }
     body#page-enrol-index #region-main {
         padding: 10px 5px !important;
