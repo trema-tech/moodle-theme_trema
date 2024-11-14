@@ -1,8 +1,19 @@
-body.path-admin-reportbuilder {
+body.pagelayout-report,
+body.path-admin-reportbuilder,
+body#page-admin-setting-reportbuildersettings,
+body.path-admin-tool-mfa,
+body.path-admin-report-eventlist,
+body.path-report-participation,
+body.path-report-competency,
+body.path-admin-tool-brickfield,
+body.path-admin-tool-spamcleaner {
     #page {
         div.secondary-navigation {
             max-width: none;
             margin: 0 auto;
+            .navigation .nav-tabs {
+                margin: 0;
+            }
         }
         #page-header {
             margin-top: 1rem;

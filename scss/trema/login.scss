@@ -101,6 +101,14 @@ body#page-login-index {
             line-height: 1.3rem;
             padding: 10px 20px;
         }
+        .login-form-password .toggle-sensitive-wrapper {
+            input[type="password"] {
+                border-radius: .4rem 0 0 .4rem;
+            }
+            .toggle-sensitive-btn {
+                box-shadow: none;
+            }
+        }
     }
 
     .login-wrapper {
