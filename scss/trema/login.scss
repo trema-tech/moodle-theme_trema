@@ -223,3 +223,14 @@ body#page-admin-tool-mfa-auth {
         }
     }
 }
+
+body.local-login {
+    #login,
+    .loginform {
+        .login-form,
+        .login-form-forgotpassword,
+        .form-group {
+            display: block !important;
+        }
+    }
+}
