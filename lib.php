@@ -153,6 +153,10 @@ function theme_trema_get_pre_scss($theme) {
 
     // Section: Additional Names.
     $fields['showprofileadditionalnames'] = '#id_moodle_additional_names';
+    $fields['showprofilefirstnamephonetic'] = '#fitem_id_firstnamephonetic';
+    $fields['showprofilelastnamephonetic'] = '#fitem_id_lastnamephonetic';
+    $fields['showprofilemiddlename'] = '#fitem_id_middlename';
+    $fields['showprofilealternatename'] = '#fitem_id_alternatename';
 
     // Section: Interests.
     $fields['showprofileinterests'] = '#id_moodle_interests';

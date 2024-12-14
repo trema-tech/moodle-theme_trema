@@ -35,6 +35,7 @@ $page = new admin_settingpage('theme_trema_profile', get_string('profile'));
 $profilefieldsections = ['pictureofuser', 'additionalnames', 'interests', 'optional'];
 
 // List of user profile fields that we can show or hide.
+$profilefields = [];
 $profilefields[] = 'emaildisplay';
 $profilefields[] = 'moodlenetprofile';
 $profilefields[] = 'city';
@@ -45,6 +46,10 @@ $profilefields[] = 'description';
 $profilefields[] = 'pictureofuser';
 // Additional Names section.
 $profilefields[] = 'additionalnames';
+$profilefields[] = 'firstnamephonetic';
+$profilefields[] = 'lastnamephonetic';
+$profilefields[] = 'middlename';
+$profilefields[] = 'alternatename';
 // Interests section.
 $profilefields[] = 'interests';
 // Optional section.
