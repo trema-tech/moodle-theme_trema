@@ -227,6 +227,7 @@ body #page {
         }
         &.text-primary {
             background-color: choose-contrast-color($primary) !important;
+            color: $primary !important;
         }
     }
 
