@@ -18,7 +18,7 @@
  * Settings for Profile fields.
  *
  * @package     theme_trema
- * @copyright   2016-2024 TNG Consulting Inc. <https://www.tngconsulting.ca>
+ * @copyright   2016-2025 TNG Consulting Inc. <https://www.tngconsulting.ca>
  * @author      Michael Milette
  * @license     https://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  *

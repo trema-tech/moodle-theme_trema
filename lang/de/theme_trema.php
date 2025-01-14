@@ -19,7 +19,7 @@
  *
  * @package     theme_trema
  * @copyright   2019 Trema - {@link https://trema.tech/}
- * @copyright   2023-2024 TNG Consulting Inc. - {@link https://www.tngconsulting.ca/}
+ * @copyright   2023-2025 TNG Consulting Inc. - {@link https://www.tngconsulting.ca/}
  * @author      Rodrigo Mady
  * @author      Trevor Furtado
  * @author      Michael Milette

@@ -20,7 +20,7 @@ namespace theme_trema;
  * Unit tests for scss compilation.
  *
  * @package   theme_trema
- * @copyright 2024 TNG Consulting Inc. - {@link https://www.tngconsulting.ca/}
+ * @copyright 2024-2025 TNG Consulting Inc. - {@link https://www.tngconsulting.ca/}
  * @author    Michael Milette
  * @copyright 2016 onwards Ankit Agarwal
  * @license   https://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later

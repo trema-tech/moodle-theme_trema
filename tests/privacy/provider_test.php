@@ -25,7 +25,7 @@ use core_privacy\local\request\writer;
  * @package    theme_trema
  * @category   test
  * @covers     \theme_trema\privacy\provider
- * @copyright  2024 TNG Consulting Inc. - {@link https://www.tngconsulting.ca/}
+ * @copyright  2024-2025 TNG Consulting Inc. - {@link https://www.tngconsulting.ca/}
  * @author     Michael Milette
  * @copyright  2018 Adrian Greeve <adriangreeve.com>
  * @license    https://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
