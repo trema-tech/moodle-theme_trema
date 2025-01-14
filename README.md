@@ -211,7 +211,7 @@ The development of this theme was motivated by our own experience in Moodle LMS 
 
 # License
 
-Copyright © 2019-2024 Rodrigo Mady and TNG Consulting Inc.
+Copyright © 2019-2025 Rodrigo Mady and TNG Consulting Inc.
 
 This file is part of Moodle - https://moodle.org/
 

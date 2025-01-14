@@ -18,8 +18,8 @@
  * Course renderer.
  *
  * @package     theme_trema
- * @copyright   2019-2024 Trema - {@link https://trema.tech/}
- * @copyright   2023-2024 Trema - {@link https://www.tngconsulting.ca/}
+ * @copyright   2019-2025 Trema - {@link https://trema.tech/}
+ * @copyright   2023-2025 Trema - {@link https://www.tngconsulting.ca/}
  * @author      Rodrigo Mady
  * @author      Trevor Furtado
  * @author      Michael Milette
@@ -37,8 +37,8 @@ use stdClass;
 /**
  * Class course_renderer
  * @package theme_trema
- * @copyright   2019-2024 Trema - {@link https://trema.tech/}
- * @copyright   2023-2024 Trema - {@link https://www.tngconsulting.ca/}
+ * @copyright   2019-2025 Trema - {@link https://trema.tech/}
+ * @copyright   2023-2025 Trema - {@link https://www.tngconsulting.ca/}
  * @author      Rodrigo Mady
  * @author      Trevor Furtado
  * @author      Michael Milette
