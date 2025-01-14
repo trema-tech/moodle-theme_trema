@@ -1,8 +1,7 @@
 #page .course-card-view {
     box-shadow: 5px 5px 9px -4px rgba($black, .1);
     padding-bottom: 4rem;
-    max-width: 16rem;
-    min-width: 12rem;
+    min-width: 14rem;
     overflow: hidden;
     border-bottom: none;
     transition: all .3s ease-in-out;
@@ -16,7 +15,8 @@
     }
 
     .course-card-img div {
-        height: 6.5rem;
+        height: auto;
+        aspect-ratio: 7 / 4;
         background-position: top right;
         background-size: cover;
         transition: all .3s ease-in-out;
