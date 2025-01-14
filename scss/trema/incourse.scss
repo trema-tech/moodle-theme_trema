@@ -83,26 +83,6 @@ body#page-my-index.page-mycourses {
         #region-main {
             background: $body-bg-color;
         }
-        section.card {
-            background: $white;
-            padding: 1rem;
-
-            .dashboard-card {
-                box-shadow: 1px 0 11px #a5a5a5;
-
-                .card-body {
-                    border-top: 1px solid #d4d4d4;
-                }
-            }
-
-            #searchinput {
-                height: 2.8rem;
-                text-transform: $text-transform;
-            }
-            button.btn {
-                margin: 0;
-            }
-        }
     }
 }
 

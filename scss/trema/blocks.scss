@@ -25,3 +25,46 @@
         box-shadow: 0 0 3px #bbbdc7;
     }
 }
+
+.block_myoverview.block {
+    background: $white;
+    padding: 1rem;
+
+    .dashboard-card {
+        box-shadow: 1px 0 11px #a5a5a5;
+        margin: 1rem;
+
+        .card-body {
+            border-top: 1px solid #d4d4d4;
+        }
+    }
+
+    #searchinput {
+        height: 2.8rem;
+        text-transform: $text-transform;
+    }
+    button.btn {
+        margin: 0;
+    }
+
+    .dashboard-card-deck .dashboard-card .dashboard-card-img {
+        height: auto;
+        aspect-ratio: 7 / 4;
+    }
+
+    @media (min-width: 600px) {
+        .dashboard-card-deck:not(.fixed-width-cards) .dashboard-card {
+            width: calc(50% - 2rem);
+        }
+    }
+    @media (min-width:840px) {
+        .dashboard-card-deck:not(.fixed-width-cards) .dashboard-card {
+            width: calc(33.33% - 2rem);
+        }
+    }
+    @media (min-width: 1200px) {
+        .dashboard-card-deck:not(.fixed-width-cards) .dashboard-card {
+            width: calc(25% - 2rem);
+        }
+    }
+}
