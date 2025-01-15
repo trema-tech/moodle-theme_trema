@@ -18,8 +18,8 @@
  * Course renderer.
  *
  * @package     theme_trema
- * @copyright   2019-2024 Trema - {@link https://trema.tech/}
- * @copyright   2023-2024 Trema - {@link https://www.tngconsulting.ca/}
+ * @copyright   2019-2025 Trema - {@link https://trema.tech/}
+ * @copyright   2023-2025 Trema - {@link https://www.tngconsulting.ca/}
  * @author      Rodrigo Mady
  * @author      Trevor Furtado
  * @author      Michael Milette
@@ -37,8 +37,8 @@ use stdClass;
 /**
  * Class course_renderer
  * @package theme_trema
- * @copyright   2019-2024 Trema - {@link https://trema.tech/}
- * @copyright   2023-2024 Trema - {@link https://www.tngconsulting.ca/}
+ * @copyright   2019-2025 Trema - {@link https://trema.tech/}
+ * @copyright   2023-2025 Trema - {@link https://www.tngconsulting.ca/}
  * @author      Rodrigo Mady
  * @author      Trevor Furtado
  * @author      Michael Milette
@@ -128,7 +128,7 @@ class course_renderer extends \core_course_renderer {
             // If the course is in a hidden category and we don't want to show these courses...
             if (empty($this->page->theme->settings->showehiddencategorycourses) && !$this->isvisiblecat($course)) {
                 // Show the card dimmed if the user has course edit/update capability.
-                if (has_capability('moodle/course:update', get_context_instance(CONTEXT_COURSE, $course->id))) {
+                if (has_capability('moodle/course:update', \context_course::instance($course->id))) {
                     $content .= $this->coursecat_coursebox($chelper, $course, 'card mb-3 mr-3 course-card-view dimmed');
                     $coursecount++;
                 }

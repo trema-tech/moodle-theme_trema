@@ -18,8 +18,8 @@
  * Version file.
  *
  * @package     theme_trema
- * @copyright   2019-2024 Trema - {@link https://trema.tech/}
- * @copyright   2023-2024 TNG Consulting Inc. - {@link https://www.tngconsulting.ca/}
+ * @copyright   2019-2025 Trema - {@link https://trema.tech/}
+ * @copyright   2023-2025 TNG Consulting Inc. - {@link https://www.tngconsulting.ca/}
  * @author      Rodrigo Mady
  * @author      Trevor Furtado
  * @author      Michael Milette
@@ -28,8 +28,8 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$plugin->version   = 2024111400;
-$plugin->release   = '4.5.0.3';
+$plugin->version   = 2025011401;
+$plugin->release   = '4.5.0.6';
 $plugin->maturity  = MATURITY_STABLE;
 $plugin->requires  = 2022021800; // Moodle 4.0 - Build: 20220218.
 $plugin->component = 'theme_trema';

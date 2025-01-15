@@ -135,8 +135,8 @@ footer#page-footer {
     }
 
     .performanceinfo {
-        background-color: $black;
-        color: $white;
+        background-color: $footer-bg-color;
+        color: choose-contrast-color($footer-bg-color);
         table.table {
             width: 100% !important;
             th {

@@ -18,8 +18,8 @@
  * Lib file.
  *
  * @package     theme_trema
- * @copyright   2019-2024 Trema - {@link https://trema.tech/}
- * @copyright   2023-2024 TNG Consulting Inc. - {@link https://www.tngconsulting.ca/}
+ * @copyright   2019-2025 Trema - {@link https://trema.tech/}
+ * @copyright   2023-2025 TNG Consulting Inc. - {@link https://www.tngconsulting.ca/}
  * @author      Rodrigo Mady
  * @author      Trevor Furtado
  * @author      Michael Milette
@@ -153,6 +153,10 @@ function theme_trema_get_pre_scss($theme) {
 
     // Section: Additional Names.
     $fields['showprofileadditionalnames'] = '#id_moodle_additional_names';
+    $fields['showprofilefirstnamephonetic'] = '#fitem_id_firstnamephonetic';
+    $fields['showprofilelastnamephonetic'] = '#fitem_id_lastnamephonetic';
+    $fields['showprofilemiddlename'] = '#fitem_id_middlename';
+    $fields['showprofilealternatename'] = '#fitem_id_alternatename';
 
     // Section: Interests.
     $fields['showprofileinterests'] = '#id_moodle_interests';
@@ -335,5 +339,53 @@ function theme_trema_pluginfile($course, $cm, $context, $filearea, $args, $force
         return $theme->setting_file_serve($filearea, $args, $forcedownload, $options);
     } else {
         send_file_not_found();
+    }
+}
+
+
+/**
+ * MoodlePage init for adding classes to body tag.
+ *
+ * @param moodle_page $page
+ * @throws coding_exception
+ */
+function theme_trema_page_init(moodle_page $page) {
+    global $COURSE, $USER;
+
+    // Add admin classes.
+    $page->add_body_class(is_siteadmin() ? "is_siteadmin" : "not_siteadmin");
+
+    // Add module idnumber class.
+    if (in_array($page->pagelayout, ['incourse']) && !empty($page->cm->idnumber)) {
+        $page->add_body_class("idnumber-{$page->cm->idnumber}");
+    }
+
+    // Add role classes.
+    if (in_array($page->pagelayout, ['course', 'incourse'])) {
+        $context = context_course::instance($COURSE->id);
+        if (user_has_role_assignment($USER->id, 5, $context->id)) {
+            $page->add_body_class('is_student');
+        }
+        if (user_has_role_assignment($USER->id, 4, $context->id)) {
+            $page->add_body_class('is_teacher');
+        }
+        if (user_has_role_assignment($USER->id, 3, $context->id)) {
+            $page->add_body_class('is_editingteacher');
+        }
+    }
+
+    // Show Login form if URL parameters include saml=off or auth=manual.
+    if (optional_param('saml', '', PARAM_ALPHA) === 'off' || optional_param('auth', '', PARAM_ALPHA) === 'manual') {
+        $page->add_body_class('local-login');
+    }
+
+    // Load course style by shortname from: /style/course/$shortname.css.
+    if ($COURSE->id > 1) {
+        $shortname   = explode('|', $COURSE->shortname);
+        $shortname   = trim($shortname[0]);
+        $coursestyle = "/style/course/{$shortname}.css";
+        if (file_exists($page->theme->dir.$coursestyle)) {
+            $page->requires->css(new moodle_url("/theme/trema{$coursestyle}"));
+        }
     }
 }

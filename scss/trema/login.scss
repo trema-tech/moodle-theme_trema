@@ -223,3 +223,24 @@ body#page-admin-tool-mfa-auth {
         }
     }
 }
+
+body.local-login {
+    #login,
+    .loginform {
+        .login-form,
+        .login-form-forgotpassword,
+        .form-group {
+            display: block !important;
+        }
+    }
+}
+
+// Adjust form label and field alignment on small screens.
+@media only screen and (max-width: 560px) {
+    body #page .signupform .form-group.row.fitem {
+         display: block;
+    }
+    body #page .signupform .form-group.row.fitem .col-form-label {
+         max-width: 100%!important;
+    }
+}

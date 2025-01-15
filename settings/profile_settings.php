@@ -18,7 +18,7 @@
  * Settings for Profile fields.
  *
  * @package     theme_trema
- * @copyright   2016-2024 TNG Consulting Inc. <https://www.tngconsulting.ca>
+ * @copyright   2016-2025 TNG Consulting Inc. <https://www.tngconsulting.ca>
  * @author      Michael Milette
  * @license     https://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  *
@@ -35,6 +35,7 @@ $page = new admin_settingpage('theme_trema_profile', get_string('profile'));
 $profilefieldsections = ['pictureofuser', 'additionalnames', 'interests', 'optional'];
 
 // List of user profile fields that we can show or hide.
+$profilefields = [];
 $profilefields[] = 'emaildisplay';
 $profilefields[] = 'moodlenetprofile';
 $profilefields[] = 'city';
@@ -45,6 +46,10 @@ $profilefields[] = 'description';
 $profilefields[] = 'pictureofuser';
 // Additional Names section.
 $profilefields[] = 'additionalnames';
+$profilefields[] = 'firstnamephonetic';
+$profilefields[] = 'lastnamephonetic';
+$profilefields[] = 'middlename';
+$profilefields[] = 'alternatename';
 // Interests section.
 $profilefields[] = 'interests';
 // Optional section.

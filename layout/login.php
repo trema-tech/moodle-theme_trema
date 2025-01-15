@@ -18,8 +18,8 @@
  * Trema login page layout.
  *
  * @package     theme_trema
- * @copyright   2019-2024 Trema - {@link https://trema.tech/}
- * @copyright   2024 TNG Consulting Inc. - {@link https://www.tngconsulting.ca/}
+ * @copyright   2019-2025 Trema - {@link https://trema.tech/}
+ * @copyright   2024-2025 TNG Consulting Inc. - {@link https://www.tngconsulting.ca/}
  * @author      Rodrigo Mady
  * @author      Trevor Furtado
  * @author      Michael Milette

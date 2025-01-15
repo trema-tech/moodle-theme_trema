@@ -35,9 +35,6 @@ body.path-admin-tool-spamcleaner {
                     background-color: transparent;
                 }
             }
-            .table-dynamic {
-                overflow-x: auto;
-            }
             .reportbuilder-sidebar-menu-cards {
                 max-height: max-content;
             }
@@ -56,5 +53,11 @@ body.path-admin-tool-spamcleaner {
                 }
             }
         }
+    }
+}
+
+#page-admin-reportbuilder-edit {
+    #page {
+        padding: 0 2rem;
     }
 }
