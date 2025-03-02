@@ -70,10 +70,10 @@ $header = $PAGE->activityheader;
 $headercontent = $header->export_for_template($renderer);
 
 $pluginsettings = get_config("theme_trema");
-$context        = context_course::instance(SITEID);
+$context = \context_system::instance();
 
 $templatecontext = [
-    'sitename' => format_string($SITE->shortname, true, ['context' => context_course::instance(SITEID), 'escape' => false]),
+    'sitename' => \format_string($SITE->shortname, true, ['context' => $context, 'escape' => false]),
     'output' => $OUTPUT,
     'sidepreblocks' => $blockshtml,
     'hasadminblocks' => is_siteadmin(),
@@ -91,7 +91,7 @@ $templatecontext = [
     'addblockbutton' => $addblockbutton,
     'regionmainsettingsmenu' => $regionmainsettingsmenu,
     'hasregionmainsettingsmenu' => !empty($regionmainsettingsmenu),
-    'defaultfooter' => format_text($pluginsettings->defaultfooter, FORMAT_HTML, ['context' => $context, 'noclean' => true]),
+    'defaultfooter' => \format_text($pluginsettings->defaultfooter, FORMAT_HTML, ['context' => $context, 'noclean' => true]),
     'enabletremafooter' => $pluginsettings->enabletremafooter,
     'footerinfo' => !empty($pluginsettings->enablefooterinfo),
     'showbranding' => !empty($pluginsettings->showbranding),

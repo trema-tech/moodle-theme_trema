@@ -316,7 +316,7 @@ class course_renderer extends \core_course_renderer {
                         $course,
                         ['overflowdiv' => true, 'noclean' => true, 'para' => false]
                     ),
-                    'title' => format_text($course->fullname, FORMAT_HTML),
+                    'title' => \format_string($course->fullname),
                     'uniqid' => $course->id,
                     'classes' => "modal-$course->id",
                     'courselink' => new moodle_url('/course/view.php', ['id' => $course->id]),

@@ -34,8 +34,7 @@ require_once($CFG->dirroot . '/theme/trema/trema_admin_settings_styleguide.php')
 $page = new admin_settingpage('theme_trema_styleguide', get_string('styleguide', 'theme_trema'));
 
 // Raw Bootstrap HTML to show the options of theme.
-$setting = new trema_admin_settings_styleguide('theme_trema_styleguide',
-    get_string('styleguide', 'theme_trema'));
+$setting = new trema_admin_settings_styleguide('theme_trema_styleguide', get_string('styleguide', 'theme_trema'));
 $page->add($setting);
 
 $settings->add($page);

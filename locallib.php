@@ -41,8 +41,8 @@ function theme_trema_get_cards_settings() {
             $cardsettings = new stdClass();
             $cardsettings->cardicon = $theme->settings->{'cardicon' . $i};
             $cardsettings->cardiconcolor = $theme->settings->{'cardiconcolor' . $i};
-            $cardsettings->cardtitle = format_text($theme->settings->{'cardtitle' . $i}, FORMAT_HTML);
-            $cardsettings->cardsubtitle = format_text($theme->settings->{'cardsubtitle' . $i}, FORMAT_HTML);
+            $cardsettings->cardtitle = \format_string($theme->settings->{'cardtitle' . $i});
+            $cardsettings->cardsubtitle = \format_string($theme->settings->{'cardsubtitle' . $i});
             $cardsettings->cardlink = $theme->settings->{'cardlink' . $i};
 
             $cardssettings[] = $cardsettings;
@@ -220,7 +220,7 @@ function theme_trema_setting_file_url($setting, $filearea, $theme) {
     if (empty($filepath)) {
         return false;
     }
-    $syscontext = context_system::instance();
+    $syscontext = \context_system::instance();
 
     $url = moodle_url::make_file_url("$CFG->wwwroot/pluginfile.php", "/$syscontext->id/$component/$filearea/$itemid".$filepath);
 

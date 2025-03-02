@@ -87,16 +87,11 @@ if ($numberofimages > 1) {
             $frontpagecarrousel[$i]['image'] = $OUTPUT->image_url('frontpage/banner2', 'theme');
         }
         $frontpagecarrousel[$i]['index']    = $i - 1;
-        $frontpagecarrousel[$i]['title']    = !empty($pluginsettings->$title) ?
-            format_text($pluginsettings->$title, FORMAT_HTML) : '';
-        $frontpagecarrousel[$i]['subtitle'] = !empty($pluginsettings->$subtitle) ?
-            format_text($pluginsettings->$subtitle, FORMAT_HTML) : '';
-        $frontpagecarrousel[$i]['btntext']  = !empty($pluginsettings->$btntext) ?
-            format_text($pluginsettings->$btntext, FORMAT_HTML) : '';
-        $frontpagecarrousel[$i]['btnhref']  = !empty($pluginsettings->$btnhref) ?
-            $pluginsettings->$btnhref : '';
-        $frontpagecarrousel[$i]['btnclass'] = !empty($pluginsettings->$btnclass) ?
-            $pluginsettings->$btnclass : '';
+        $frontpagecarrousel[$i]['title']    = !empty($pluginsettings->$title) ? \format_string($pluginsettings->$title) : '';
+        $frontpagecarrousel[$i]['subtitle'] = !empty($pluginsettings->$subtitle) ? \format_string($pluginsettings->$subtitle) : '';
+        $frontpagecarrousel[$i]['btntext']  = !empty($pluginsettings->$btntext) ? \format_string($pluginsettings->$btntext) : '';
+        $frontpagecarrousel[$i]['btnhref']  = !empty($pluginsettings->$btnhref) ? $pluginsettings->$btnhref : '';
+        $frontpagecarrousel[$i]['btnclass'] = !empty($pluginsettings->$btnclass) ? $pluginsettings->$btnclass : '';
         // Must have just one slide active.
         if ($active) {
             $frontpagecarrousel[$i]['active'] = "active";
@@ -109,9 +104,10 @@ if ($numberofimages > 1) {
 }
 
 $regionmainsettingsmenu = $OUTPUT->region_main_settings_menu();
-$context = context_course::instance(SITEID);
+$context = \context_system::instance();
+
 $templatecontext = [
-    'sitename' => format_string($SITE->shortname, true, ['context' => context_course::instance(SITEID), 'escape' => false]),
+    'sitename' => \format_string($SITE->shortname, true, ['context' => $context, 'escape' => false]),
     'output' => $OUTPUT,
     'sidepreblocks' => $blockshtml,
     'sideadminblocks' => $adminblockshtml,
@@ -129,25 +125,27 @@ $templatecontext = [
     'overflow' => $overflow,
     'addblockbutton' => $addblockbutton,
     'defaultfrontpagebody' => !empty($pluginsettings->defaultfrontpagebody) ?
-        format_text($pluginsettings->defaultfrontpagebody, FORMAT_HTML) : '',
-    'defaultfooter' => !empty($pluginsettings->defaultfooter) ? format_text($pluginsettings->defaultfooter, FORMAT_HTML) : '',
+            \format_text($pluginsettings->defaultfrontpagebody, FORMAT_HTML, ['context' => $context]) : '',
+    'defaultfooter' => !empty($pluginsettings->defaultfooter) ?
+            \format_text($pluginsettings->defaultfooter, FORMAT_HTML, ['context' => $context]) : '',
     'showbanner' => ($numberofimages > 0),
     'frontpagecarrousel' => $frontpagecarrousel,
     'ifcarrousel' => ($numberofimages > 1),
-    'frontpagetitle' => !empty($pluginsettings->frontpagetitle) ? format_text($pluginsettings->frontpagetitle, FORMAT_HTML) : '',
+    'frontpagetitle' => !empty($pluginsettings->frontpagetitle) ?
+        \format_string($pluginsettings->frontpagetitle) : '',
     'frontpagesubtitle' => !empty($pluginsettings->frontpagesubtitle) ?
-        format_text($pluginsettings->frontpagesubtitle, FORMAT_HTML) : '',
+        \format_string($pluginsettings->frontpagesubtitle) : '',
     'frontpagebuttontext' => !empty($pluginsettings->frontpagebuttontext) ?
-        format_text($pluginsettings->frontpagebuttontext, FORMAT_HTML) : '',
+        \format_string($pluginsettings->frontpagebuttontext) : '',
     'frontpagebuttonclass' => !empty($pluginsettings->frontpagebuttonclass) ?
         $pluginsettings->frontpagebuttonclass : '',
     'frontpagebuttonhref' => !empty($pluginsettings->frontpagebuttonhref) ?
         $pluginsettings->frontpagebuttonhref : '',
     'hascards' => !empty($pluginsettings->frontpageenablecards),
     'cardstitle' => !empty($pluginsettings->frontpagecardstitle) ?
-        format_text($pluginsettings->frontpagecardstitle, FORMAT_HTML) : '',
+        \format_string($pluginsettings->frontpagecardstitle) : '',
     'cardssubtitle' => !empty($pluginsettings->frontpagecardssubtitle) ?
-        format_text($pluginsettings->frontpagecardssubtitle, FORMAT_HTML) : '',
+        \format_string($pluginsettings->frontpagecardssubtitle) : '',
     'cardssettings' => theme_trema_get_cards_settings(),
     'enabletremafooter' => $pluginsettings->enabletremafooter,
     'footerinfo' => !empty($pluginsettings->enablefooterinfo),
