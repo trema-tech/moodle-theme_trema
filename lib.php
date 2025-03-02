@@ -384,7 +384,7 @@ function theme_trema_page_init(moodle_page $page) {
         $shortname   = explode('|', $COURSE->shortname);
         $shortname   = trim($shortname[0]);
         $coursestyle = "/style/course/{$shortname}.css";
-        if (file_exists($page->theme->dir.$coursestyle)) {
+        if (file_exists($page->theme->dir . $coursestyle)) {
             $page->requires->css(new moodle_url("/theme/trema{$coursestyle}"));
         }
     }

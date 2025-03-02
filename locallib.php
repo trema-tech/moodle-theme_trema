@@ -124,7 +124,7 @@ function theme_trema_get_active_courses() {
         $today = time();
         $sql = "SELECT id FROM {course}
             WHERE visible = 1 AND startdate <= :today AND (enddate > :today2 OR enddate = 0) AND format != 'site'";
-        $activecourses = $DB->get_fieldset_sql($sql, ['today' => $today, 'today2' => $today]);;
+        $activecourses = $DB->get_fieldset_sql($sql, ['today' => $today, 'today2' => $today]);
         $cache->set('activecourses', $activecourses);
     }
     return $activecourses;
@@ -222,7 +222,7 @@ function theme_trema_setting_file_url($setting, $filearea, $theme) {
     }
     $syscontext = \context_system::instance();
 
-    $url = moodle_url::make_file_url("$CFG->wwwroot/pluginfile.php", "/$syscontext->id/$component/$filearea/$itemid".$filepath);
+    $url = moodle_url::make_file_url("$CFG->wwwroot/pluginfile.php", "/$syscontext->id/$component/$filearea/$itemid" . $filepath);
 
     // Now this is tricky because the we can not hardcode http or https here, lets use the relative link.
     // Note: unfortunately moodle_url does not support //urls yet.
