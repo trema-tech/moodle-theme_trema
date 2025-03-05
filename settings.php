@@ -31,14 +31,14 @@ defined('MOODLE_INTERNAL') || die();
 if ($ADMIN->fulltree) {
     $themename = 'theme_trema';
     $settings = new theme_boost_admin_settingspage_tabs('themesettingtrema', get_string('configtitle', $themename));
-    require_once('settings/general_settings.php');
-    require_once('settings/advanced_settings.php');
-    require_once('settings/fontscolors_settings.php');
-    require_once('settings/frontpage_settings.php');
-    require_once('settings/courselist_settings.php');
-    require_once('settings/course_settings.php');
-    require_once('settings/footer_settings.php');
-    require_once('settings/login_settings.php');
-    require_once('settings/profile_settings.php');
-    require_once('settings/styleguide_settings.php');
+    require_once($CFG->dirroot . '/theme/trema/settings/general_settings.php');
+    require_once($CFG->dirroot . '/theme/trema/settings/advanced_settings.php');
+    require_once($CFG->dirroot . '/theme/trema/settings/fontscolors_settings.php');
+    require_once($CFG->dirroot . '/theme/trema/settings/frontpage_settings.php');
+    require_once($CFG->dirroot . '/theme/trema/settings/courselist_settings.php');
+    require_once($CFG->dirroot . '/theme/trema/settings/course_settings.php');
+    require_once($CFG->dirroot . '/theme/trema/settings/footer_settings.php');
+    require_once($CFG->dirroot . '/theme/trema/settings/login_settings.php');
+    require_once($CFG->dirroot . '/theme/trema/settings/profile_settings.php');
+    require_once($CFG->dirroot . '/theme/trema/settings/styleguide_settings.php');
 }
