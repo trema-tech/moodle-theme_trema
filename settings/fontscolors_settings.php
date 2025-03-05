@@ -28,11 +28,11 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$page = new admin_settingpage('theme_trema_fontscolors', get_string('fontscolorssettings', 'theme_trema'));
+$page = new admin_settingpage('theme_trema_fontscolors', get_string('fontscolorssettings', $themename));
 
 // Heading for Colors section.
 $name = 'theme_trema_colors';
-$title = get_string('colors', 'theme_trema');
+$title = get_string('colors', $themename);
 $description = '';
 $format = FORMAT_MARKDOWN;
 $setting = new admin_setting_heading($name, $title, $description, $format);
@@ -40,8 +40,8 @@ $page->add($setting);
 
 // We use an empty default value because the default colour is defined in scss/defaultvariables.
 $name = 'theme_trema/primarycolor';
-$title = get_string('primarycolor', 'theme_trema');
-$description = get_string('primarycolor_desc', 'theme_trema');
+$title = get_string('primarycolor', $themename);
+$description = get_string('primarycolor_desc', $themename);
 $default = '#1c6ca3';
 $setting = new admin_setting_configcolourpicker($name, $title, $description, $default);
 $setting->set_updatedcallback('theme_reset_all_caches');
@@ -49,8 +49,8 @@ $page->add($setting);
 
 // We use an empty default value because the default colour is defined in scss/defaultvariables.
 $name = 'theme_trema/secondarycolor';
-$title = get_string('secondarycolor', 'theme_trema');
-$description = get_string('secondarycolor_desc', 'theme_trema');
+$title = get_string('secondarycolor', $themename);
+$description = get_string('secondarycolor_desc', $themename);
 $default = '#343a40';
 $setting = new admin_setting_configcolourpicker($name, $title, $description, $default);
 $setting->set_updatedcallback('theme_reset_all_caches');
@@ -58,8 +58,8 @@ $page->add($setting);
 
 // We use an empty default value because the default colour is defined in scss/defaultvariables.
 $name = 'theme_trema/bodybackgroundcolor';
-$title = get_string('bodybackgroundcolor', 'theme_trema');
-$description = get_string('bodybackgroundcolor_desc', 'theme_trema');
+$title = get_string('bodybackgroundcolor', $themename);
+$description = get_string('bodybackgroundcolor_desc', $themename);
 $default = '#f1f1f1';
 $setting = new admin_setting_configcolourpicker($name, $title, $description, $default);
 $setting->set_updatedcallback('theme_reset_all_caches');
@@ -67,19 +67,19 @@ $page->add($setting);
 
 // Background colour options for header, footer and drawers.
 $coloroptions = [
-    '$white' => get_string('white', 'theme_trema'),
-    '$black' => get_string('black', 'theme_trema'),
-    '$gray-200' => get_string('light', 'theme_trema'),
-    '$gray-800' => get_string('dark', 'theme_trema'),
-    'primarycolor' => get_string('sameprimarycolor', 'theme_trema'),
-    'secondarycolor' => get_string('samesecondarycolor', 'theme_trema'),
-    'bodybackgroundcolor' => get_string('samebasecolor', 'theme_trema'),
+    '$white' => get_string('white', $themename),
+    '$black' => get_string('black', $themename),
+    '$gray-200' => get_string('light', $themename),
+    '$gray-800' => get_string('dark', $themename),
+    'primarycolor' => get_string('sameprimarycolor', $themename),
+    'secondarycolor' => get_string('samesecondarycolor', $themename),
+    'bodybackgroundcolor' => get_string('samebasecolor', $themename),
 ];
 
 // Background for header.
 $name = 'theme_trema/headerbgcolor';
-$title = get_string('headerbgcolor', 'theme_trema');
-$description = get_string('headerbgcolor_desc', 'theme_trema');
+$title = get_string('headerbgcolor', $themename);
+$description = get_string('headerbgcolor_desc', $themename);
 $default = '$white';
 $setting = new admin_setting_configselect($name, $title, $description, $default, $coloroptions);
 $setting->set_updatedcallback('theme_reset_all_caches');
@@ -87,8 +87,8 @@ $page->add($setting);
 
 // Background for Log In button in header.
 $name = 'theme_trema/loginbtnbgcolor';
-$title = get_string('loginbtnbgcolor', 'theme_trema');
-$description = get_string('loginbtnbgcolor_desc', 'theme_trema');
+$title = get_string('loginbtnbgcolor', $themename);
+$description = get_string('loginbtnbgcolor_desc', $themename);
 $default = 'primarycolor';
 $setting = new admin_setting_configselect($name, $title, $description, $default, $coloroptions);
 $setting->set_updatedcallback('theme_reset_all_caches');
@@ -96,8 +96,8 @@ $page->add($setting);
 
 // Background for drawers.
 $name = 'theme_trema/drawerbgcolor';
-$title = get_string('drawerbgcolor', 'theme_trema');
-$description = get_string('drawerbgcolor_desc', 'theme_trema');
+$title = get_string('drawerbgcolor', $themename);
+$description = get_string('drawerbgcolor_desc', $themename);
 $default = '$gray-200';
 $setting = new admin_setting_configselect($name, $title, $description, $default, $coloroptions);
 $setting->set_updatedcallback('theme_reset_all_caches');
@@ -105,8 +105,8 @@ $page->add($setting);
 
 // Background for footer.
 $name = 'theme_trema/footerbgcolor';
-$title = get_string('footerbgcolor', 'theme_trema');
-$description = get_string('footerbgcolor_desc', 'theme_trema');
+$title = get_string('footerbgcolor', $themename);
+$description = get_string('footerbgcolor_desc', $themename);
 $default = '$gray-800';
 $setting = new admin_setting_configselect($name, $title, $description, $default, $coloroptions);
 $setting->set_updatedcallback('theme_reset_all_caches');
@@ -114,7 +114,7 @@ $page->add($setting);
 
 // Heading for Fonts section.
 $name = 'theme_trema_fonts';
-$title = get_string('fonts', 'theme_trema');
+$title = get_string('fonts', $themename);
 $description = '';
 $format = FORMAT_MARKDOWN;
 $setting = new admin_setting_heading($name, $title, $description, $format);
@@ -141,8 +141,8 @@ $fonts = [
 
 // Site Font settings.
 $name = 'theme_trema/sitefont';
-$title = get_string('sitefont', 'theme_trema');
-$description = get_string('sitefont_desc', 'theme_trema');
+$title = get_string('sitefont', $themename);
+$description = get_string('sitefont_desc', $themename);
 $default = 'Lato, sans-serif';
 $setting = new admin_setting_configselect($name, $title, $description, $default, $fonts);
 $setting->set_updatedcallback('theme_reset_all_caches');
@@ -150,8 +150,8 @@ $page->add($setting);
 
 // Front page banner titles font settings.
 $name = 'theme_trema/bannertitlesfont';
-$title = get_string('bannertitlesfont', 'theme_trema');
-$description = get_string('bannertitlesfont_desc', 'theme_trema');
+$title = get_string('bannertitlesfont', $themename);
+$description = get_string('bannertitlesfont_desc', $themename);
 $default = 'Lato, sans-serif';
 $setting = new admin_setting_configselect($name, $title, $description, $default, $fonts);
 $setting->set_updatedcallback('theme_reset_all_caches');
@@ -159,8 +159,8 @@ $page->add($setting);
 
 // H1 Font settings.
 $name = 'theme_trema/h1font';
-$title = get_string('h1font', 'theme_trema');
-$description = get_string('h1font_desc', 'theme_trema');
+$title = get_string('h1font', $themename);
+$description = get_string('h1font_desc', $themename);
 $default = 'Lato, sans-serif';
 $setting = new admin_setting_configselect($name, $title, $description, $default, $fonts);
 $setting->set_updatedcallback('theme_reset_all_caches');
@@ -168,8 +168,8 @@ $page->add($setting);
 
 // Hx Font settings.
 $name = 'theme_trema/hxfont';
-$title = get_string('hxfont', 'theme_trema');
-$description = get_string('hxfont_desc', 'theme_trema');
+$title = get_string('hxfont', $themename);
+$description = get_string('hxfont_desc', $themename);
 $default = 'Lato, sans-serif';
 $setting = new admin_setting_configselect($name, $title, $description, $default, $fonts);
 $setting->set_updatedcallback('theme_reset_all_caches');
@@ -184,25 +184,25 @@ $setting = new admin_setting_heading($name, $title, $description, $format);
 $page->add($setting);
 
 $transformoptions = [
-    'none' => get_string('texttransform_none', 'theme_trema'),
-    'uppercase' => get_string('texttransform_uppercase', 'theme_trema'),
-    'lowercase' => get_string('texttransform_lowercase', 'theme_trema'),
-    'capitalize' => get_string('texttransform_capitalize', 'theme_trema'),
+    'none' => get_string('texttransform_none', $themename),
+    'uppercase' => get_string('texttransform_uppercase', $themename),
+    'lowercase' => get_string('texttransform_lowercase', $themename),
+    'capitalize' => get_string('texttransform_capitalize', $themename),
 ];
 $default = 'none';
 
 // Text transform for backwards compatibility.
 $name = 'theme_trema/texttransform';
-$title = get_string('texttransform', 'theme_trema');
-$description = get_string('texttransform_desc', 'theme_trema');
+$title = get_string('texttransform', $themename);
+$description = get_string('texttransform_desc', $themename);
 $setting = new admin_setting_configselect($name, $title, $description, $default, $transformoptions);
 $setting->set_updatedcallback('theme_reset_all_caches');
 $page->add($setting);
 
 // Banner title transform for backwards compatibility.
 $name = 'theme_trema/bannertitletransform';
-$title = get_string('bannertitletransform', 'theme_trema');
-$description = get_string('bannertitletransform_desc', 'theme_trema');
+$title = get_string('bannertitletransform', $themename);
+$description = get_string('bannertitletransform_desc', $themename);
 $setting = new admin_setting_configselect($name, $title, $description, $default, $transformoptions);
 $setting->set_updatedcallback('theme_reset_all_caches');
 $page->add($setting);
@@ -216,8 +216,8 @@ $options = [
 $default = 'normal';
 
 $name = 'theme_trema/bannertitlespacing';
-$title = get_string('bannertitlespacing', 'theme_trema');
-$description = get_string('bannertitlespacing_desc', 'theme_trema');
+$title = get_string('bannertitlespacing', $themename);
+$description = get_string('bannertitlespacing_desc', $themename);
 $setting = new admin_setting_configselect($name, $title, $description, $default, $options);
 $setting->set_updatedcallback('theme_reset_all_caches');
 $page->add($setting);

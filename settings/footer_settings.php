@@ -26,12 +26,12 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$page = new admin_settingpage('theme_trema_footer', get_string('defaultfooter', 'theme_trema'));
+$page = new admin_settingpage('theme_trema_footer', get_string('defaultfooter', $themename));
 
 // Toggle between Moodle 4.x footer and a configurable traditional footer.
 $name = 'theme_trema/enabletremafooter';
-$title = get_string('enabletremafooter', 'theme_trema');
-$description = get_string('enabletremafooter_desc', 'theme_trema', "$CFG->wwwroot/theme/trema/pix/examples/footerinfo.png");
+$title = get_string('enabletremafooter', $themename);
+$description = get_string('enabletremafooter_desc', $themename, "$CFG->wwwroot/theme/trema/pix/examples/footerinfo.png");
 $default = true;
 $setting = new admin_setting_configcheckbox($name, $title, $description, $default);
 $setting->set_updatedcallback('theme_reset_all_caches');
@@ -43,8 +43,8 @@ for ($i = 0; $i <= 100; $i += 10) {
     $options['' . ($i / 100)] = $i;
 }
 $name = 'theme_trema/footeropacity';
-$title = get_string('footeropacity', 'theme_trema');
-$description = get_string('footeropacity_desc', 'theme_trema');
+$title = get_string('footeropacity', $themename);
+$description = get_string('footeropacity_desc', $themename);
 $default = '1';
 $setting = new admin_setting_configselect($name, $title, $description, $default, $options);
 $setting->set_updatedcallback('theme_reset_all_caches');
@@ -52,17 +52,17 @@ $page->add($setting);
 
 // HTML to include in the footer content.
 $name = 'theme_trema/defaultfooter';
-$title = get_string('defaultfooter', 'theme_trema');
-$description = get_string('defaultfooter_desc', 'theme_trema');
-$default = get_string('defaultfooter_default', 'theme_trema');
+$title = get_string('defaultfooter', $themename);
+$description = get_string('defaultfooter_desc', $themename);
+$default = get_string('defaultfooter_default', $themename);
 $setting = new admin_setting_confightmleditor($name, $title, $description, $default, PARAM_RAW);
 $setting->set_updatedcallback('theme_reset_all_caches');
 $page->add($setting);
 
 // Show/hide footer information.
 $name = 'theme_trema/enablefooterinfo';
-$title = get_string('enablefooterinfo', 'theme_trema');
-$description = get_string('enablefooterinfo_desc', 'theme_trema', "$CFG->wwwroot/theme/trema/pix/examples/footerinfo.png");
+$title = get_string('enablefooterinfo', $themename);
+$description = get_string('enablefooterinfo_desc', $themename, "$CFG->wwwroot/theme/trema/pix/examples/footerinfo.png");
 $default = true;
 $setting = new admin_setting_configcheckbox($name, $title, $description, $default);
 $setting->set_updatedcallback('theme_reset_all_caches');
@@ -70,8 +70,8 @@ $page->add($setting);
 
 // Show/Hide Moodle branding (e.g. Moodle logo, Powered by Moodle).
 $name = 'theme_trema/showbranding';
-$title = get_string('showbranding', 'theme_trema');
-$description = get_string('showbranding_desc', 'theme_trema');
+$title = get_string('showbranding', $themename);
+$description = get_string('showbranding_desc', $themename);
 $default = true;
 $setting = new admin_setting_configcheckbox($name, $title, $description, $default);
 $setting->set_updatedcallback('theme_reset_all_caches');

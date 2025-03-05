@@ -66,7 +66,7 @@ $profilefields[] = 'address';
 //
 $name = 'theme_trema/showprofileeheading';
 $title = '';
-$description = get_string('showprofile_heading', 'theme_trema');
+$description = get_string('showprofile_heading', $themename);
 $setting = new admin_setting_heading($name, $title, $description);
 $setting->set_updatedcallback('theme_reset_all_caches');
 $page->add($setting);
@@ -89,7 +89,7 @@ foreach ($profilefields as $field) {
         $setting = new admin_setting_heading($name, $title, $description);
         $setting->set_updatedcallback('theme_reset_all_caches');
         $page->add($setting);
-        $description = get_string('showprofilesection_desc', 'theme_trema');
+        $description = get_string('showprofilesection_desc', $themename);
     } else {
         $description = '';
     }

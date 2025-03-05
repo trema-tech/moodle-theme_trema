@@ -31,10 +31,10 @@ global $CFG;
 require_once($CFG->dirroot . '/theme/trema/trema_admin_settings_styleguide.php');
 
 // Style Guide.
-$page = new admin_settingpage('theme_trema_styleguide', get_string('styleguide', 'theme_trema'));
+$page = new admin_settingpage('theme_trema_styleguide', get_string('styleguide', $themename));
 
 // Raw Bootstrap HTML to show the options of theme.
-$setting = new trema_admin_settings_styleguide('theme_trema_styleguide', get_string('styleguide', 'theme_trema'));
+$setting = new trema_admin_settings_styleguide('theme_trema_styleguide', get_string('styleguide', $themename));
 $page->add($setting);
 
 $settings->add($page);
