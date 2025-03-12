@@ -248,7 +248,7 @@ class core_renderer extends \theme_boost\output\core_renderer {
         // Check if we're on the site frontpage: course ID equals site ID.
         if (!empty($this->page->course->id) && $this->page->course->id == $SITE->id) {
             // Determine the heading: use $this->page->heading if set, otherwise fallback to $SITE->fullname.
-            $heading = !empty($this->page->heading) ? $this->page->heading : $SITE->fullname;
+            $heading = $this->page->heading ?? $SITE->fullname;
             // Set the filtered heading back to $this->page.
             $this->page->set_heading(\format_string($heading, true, ['context' => \context_system::instance()]));
             // Now call the parent header() to produce the rest of the header output.
