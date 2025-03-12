@@ -142,6 +142,7 @@ body.path-admin-report-log {
 
 // Show more content on some pages that have wide tables
 body#page-mod-assign-grading #page-content,
+body#page-mod-assign-grading #page-content,
 body#page-admin-tool-task-scheduledtasks #page-content,
 body#page-question-edit #page-content {
     max-width: 100%;
@@ -149,4 +150,13 @@ body#page-question-edit #page-content {
     .generaltable td {
         padding: .75rem 0;
     }
+}
+
+body.path-admin #page-header,
+body.path-admin #page #page-header,
+body.path-admin .secondary-navigation,
+body.path-admin #page #page-content,
+body.path-admin div#page div.secondary-navigation {
+    width: 100%;
+    max-width: 100%;
 }
