@@ -222,7 +222,7 @@ class course_renderer extends \core_course_renderer {
         // Course name.
         $coursename = $chelper->get_course_formatted_name($course);
         $courseurl = new moodle_url('/course/view.php', ['id' => $course->id]);
-        $coursenamelink = html_writer::link($courseurl, $coursename, ['class' => $course->visible ? 'aalink' : 'aalink dimmed']);
+        $coursenamelink = html_writer::link($courseurl, $coursename, ['class' => 'aalink h5' . ($course->visible ? '' : ' dimmed')]);
 
         $summarytype = get_config('theme_trema', 'summarytype');
         $showcardcontact = get_config('theme_trema', 'cardcontacts');
@@ -244,7 +244,7 @@ class course_renderer extends \core_course_renderer {
         $content .= html_writer::end_tag('a');
 
         $content .= html_writer::start_tag('div', ['class' => 'card-body']);
-        $content .= '<h3 class="h5 card-title m-1">' . $coursenamelink . '</h4>';
+        $content .= html_writer::tag('h3', $coursenamelink, ['class' => 'card-title m-1']);
         $content .= html_writer::end_tag('div');
 
         // Print enrolmenticons.
