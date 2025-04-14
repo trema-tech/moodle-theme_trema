@@ -286,6 +286,9 @@ body#page-site-index {
             height: 5rem;
             margin: auto 0;
         }
+        .carousel-indicators {
+            list-style-type: none;
+        }
     }
     #page-wrapper #page-footer {
         margin-top: 2rem;
