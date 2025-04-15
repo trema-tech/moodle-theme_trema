@@ -32,11 +32,11 @@ function xmldb_theme_trema_install() {
 
     $usertours = $DB->get_records('tool_usertours_tours');
 
-    if ($usertours) {
+    if (!empty($usertours) && is_iterable($usertours)) {
         foreach ($usertours as $usertour) {
             $configdata = json_decode($usertour->configdata);
 
-            if (in_array('boost', $configdata->filtervalues->theme)) {
+            if (isset($configdata->filtervalues->theme) && in_array('boost', $configdata->filtervalues->theme)) {
                 $configdata->filtervalues->theme[] = 'trema';
             }
 
