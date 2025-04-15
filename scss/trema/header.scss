@@ -250,6 +250,10 @@
         background-color: $primary;
         color: choose-contrast-color($primary);
     }
+
+    .form-switch .form-check-input {
+        border-radius: 2em;
+    }
 }
 
 #page-wrapper .navbar-light .navbar-brand {
