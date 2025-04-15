@@ -28,8 +28,8 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$plugin->version   = 2025031100;
-$plugin->release   = '4.5.0.6';
+$plugin->version   = 2025041500;
+$plugin->release   = '5.0.0.0';
 $plugin->maturity  = MATURITY_STABLE;
 $plugin->requires  = 2022021800; // Moodle 4.0 - Build: 20220218.
 $plugin->component = 'theme_trema';

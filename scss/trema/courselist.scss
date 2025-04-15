@@ -1,8 +1,9 @@
 #page .course-card-view {
     box-shadow: 5px 5px 9px -4px rgba($black, .1);
-    padding-bottom: 4rem;
+    padding: 0 0 4rem;
     min-width: 14rem;
     overflow: hidden;
+    border: 1px solid $gray-100;
     border-bottom: none;
     transition: all .3s ease-in-out;
 
@@ -16,6 +17,7 @@
 
     .course-card-img div {
         height: auto;
+        border: 0;
         aspect-ratio: 7 / 4;
         background-position: top right;
         background-size: cover;
@@ -24,6 +26,12 @@
 
     .teachers {
         font-size: .9rem;
+        padding: 0 .5rem;
+    }
+
+    .coursecat,
+    .card-body {
+        padding: 0 .5rem;
     }
 
     .card-course-link,

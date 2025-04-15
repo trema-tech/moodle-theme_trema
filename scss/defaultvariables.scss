@@ -1,5 +1,8 @@
 // Bootstrap variables.
 
+// Prefix for all CSS variables
+$prefix: bs- !default;
+
 $white:    white !default;
 $gray-100: #f8f9fa !default;
 $gray-200: #e9ecef !default;
@@ -48,6 +51,7 @@ $navbar-dark-hover-color: rgba($white, 1) !default;
 $navbar-light-hover-color: rgba($black, .9) !default;
 $navbar-dark-color: $white;
 $navbar-light-color: $black;
+
 
 // Breadcrumbs.
 $breadcrumb-padding-y: .25rem !default;

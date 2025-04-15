@@ -314,6 +314,9 @@ body#page-user-profile {
 }
 
 body#page-calendar-view {
+    #page-content:before {
+        content: none;
+    }
     .maincalendar .select.custom-select.cal_courses_flt {
         margin: 0.5rem;
     }
