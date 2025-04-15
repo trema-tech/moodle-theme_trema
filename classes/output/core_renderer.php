@@ -170,6 +170,9 @@ class core_renderer extends \theme_boost\output\core_renderer {
             }
 
             if (isset($context)) {
+                global $CFG;
+                $databs = $CFG->branch >= 500 ? 'bs-' : '';
+                $context->databs = $databs;
                 return $this->render_from_template('theme_trema/lang_menu', $context);
             }
         }

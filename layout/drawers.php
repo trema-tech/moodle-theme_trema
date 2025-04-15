@@ -101,6 +101,7 @@ $regionmainsettingsmenu = $buildregionmainsettings ? $OUTPUT->region_main_settin
 $header = $PAGE->activityheader;
 $headercontent = $header->export_for_template($renderer);
 $context = \context_system::instance();
+$databs = $CFG->branch >= 500 ? 'bs-' : '';
 
 $templatecontext = [
     'sitename' => \format_string($SITE->shortname, true, ['context' => $context, "escape" => false]),
@@ -126,6 +127,7 @@ $templatecontext = [
     'defaultfooter' => \format_text($pluginsettings->defaultfooter, FORMAT_HTML, ['context' => $context, 'noclean' => true]),
     'footerinfo' => !empty($pluginsettings->enablefooterinfo),
     'showbranding' => !empty($pluginsettings->showbranding),
+    'databs' => $databs,
 ];
 
 echo $OUTPUT->render_from_template('theme_trema/drawers', $templatecontext);

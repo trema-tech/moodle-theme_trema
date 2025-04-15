@@ -105,6 +105,7 @@ if ($numberofimages > 1) {
 
 $regionmainsettingsmenu = $OUTPUT->region_main_settings_menu();
 $context = \context_system::instance();
+$databs = $CFG->branch >= 500 ? 'bs-' : '';
 
 $templatecontext = [
     'sitename' => \format_string($SITE->shortname, true, ['context' => $context, 'escape' => false]),
@@ -150,6 +151,7 @@ $templatecontext = [
     'enabletremafooter' => $pluginsettings->enabletremafooter,
     'footerinfo' => !empty($pluginsettings->enablefooterinfo),
     'showbranding' => !empty($pluginsettings->showbranding),
+    'databs' => $databs,
 ];
 
 echo $OUTPUT->render_from_template('theme_trema/frontpage', $templatecontext);

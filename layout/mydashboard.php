@@ -71,6 +71,7 @@ $headercontent = $header->export_for_template($renderer);
 
 $pluginsettings = get_config("theme_trema");
 $context = \context_system::instance();
+$databs = $CFG->branch >= 500 ? 'bs-' : '';
 
 $templatecontext = [
     'sitename' => \format_string($SITE->shortname, true, ['context' => $context, 'escape' => false]),
@@ -95,6 +96,7 @@ $templatecontext = [
     'enabletremafooter' => $pluginsettings->enabletremafooter,
     'footerinfo' => !empty($pluginsettings->enablefooterinfo),
     'showbranding' => !empty($pluginsettings->showbranding),
+    'databs' => $databs,
 ];
 
 if (is_siteadmin() && $pluginsettings->enableadmindashboard) {
