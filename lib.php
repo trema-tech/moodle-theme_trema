@@ -146,7 +146,11 @@ function theme_trema_get_pre_scss($theme) {
     $fields['showprofilecity'] = '#fitem_id_city'; // City.
     $fields['showprofilecountry'] = '#fitem_id_country'; // Country.
     $fields['showprofiletimezone'] = '#fitem_id_timezone'; // Timezone.
-    $fields['showprofiledescription'] = '#fitem_id_description_editor'; // Description.
+
+    // Description.
+    $fields['showprofiledescription'] = 'body#page-user-editadvanced #fitem_id_description_editor,';
+    $fields['showprofiledescription'] .= 'body#page-user-edit #fitem_id_description_editor,';
+    $fields['showprofiledescription'] .= 'body#page-login-signup #fitem_id_description_editor';
 
     // Section: User Picture.
     $fields['showprofilepictureofuser'] = '#id_moodle_picture';
@@ -167,7 +171,9 @@ function theme_trema_get_pre_scss($theme) {
     // MoodleNet profile ID.
     $fields['showprofilemoodlenetprofile'] = '#fitem_id_moodlenetprofile';
     // ID number.
-    $fields['showprofileidnumber'] = '#fitem_id_idnumber';
+    $fields['showprofileidnumber'] = 'body#page-user-editadvanced #fitem_id_idnumber,';
+    $fields['showprofileidnumber'] .= 'body#page-user-edit #fitem_id_idnumber,';
+    $fields['showprofileidnumber'] .= 'body#page-login-signup #fitem_id_idnumber';
     // Institution.
     $fields['showprofileinstitution'] = '#fitem_id_institution';
     // Department.
