@@ -20,6 +20,13 @@ jobs:
 
     # DB services you need for testing.
     services:
+      selenium:
+        image: selenium/standalone-chrome:latest
+        ports:
+          - 4444:4444
+        options: >-
+          --shm-size=2g
+
       postgres:
         image: postgres:13
         env:
@@ -49,19 +56,32 @@ jobs:
       matrix:
         include:
           # Next version of Moodle (main).
+          # Moodle 5.0.x (MOODLE_500_STABLE).
+          - php: '8.3'
+            moodle-branch: 'MOODLE_500_STABLE'
+            database: 'pgsql'
+          - php: '8.3'
+            moodle-branch: 'MOODLE_500_STABLE'
+            database: 'mariadb'
+          - php: '8.2'
+            moodle-branch: 'MOODLE_500_STABLE'
+            database: 'mariadb'
+          - php: '8.1'
+            moodle-branch: 'MOODLE_500_STABLE'
+            database: 'mariadb'
           # Moodle 4.5.x (MOODLE_405_STABLE).
-        #   - php: '8.3'
-        #     moodle-branch: 'main'
-        #     database: 'pgsql'
-        #   - php: '8.3'
-        #     moodle-branch: 'main'
-        #     database: 'mariadb'
-        #   - php: '8.2'
-        #     moodle-branch: 'main'
-        #     database: 'mariadb'
-        #   - php: '8.1'
-        #     moodle-branch: 'main'
-        #     database: 'mariadb'
+          - php: '8.3'
+            moodle-branch: 'MOODLE_405_STABLE'
+            database: 'pgsql'
+          - php: '8.3'
+            moodle-branch: 'MOODLE_405_STABLE'
+            database: 'mariadb'
+          - php: '8.2'
+            moodle-branch: 'MOODLE_405_STABLE'
+            database: 'mariadb'
+          - php: '8.1'
+            moodle-branch: 'MOODLE_405_STABLE'
+            database: 'mariadb'
           # Moodle 4.4.x (MOODLE_404_STABLE).
           - php: '8.3'
             moodle-branch: 'MOODLE_404_STABLE'
@@ -207,14 +227,14 @@ jobs:
         if: ${{ !cancelled() }}
         run: moodle-plugin-ci phpunit --fail-on-warning
 
+      
       - name: Behat features
         id: behat
         if: ${{ !cancelled() }}
         run: moodle-plugin-ci behat --profile chrome --suite trema
+        env:
+          BEHAT_SELENIUM_URL: http://localhost:4444/wd/hub
 
-      # This step allows to upload Behat faildump (screenshots) as workflow artifact
-      # so it can be downloaded and inspected. You don't need this step if you
-      # are not running Behat test. Artifact will be retained for 7 days.
 
       - name: Upload Behat Faildump
         if: ${{ failure() && steps.behat.outcome == 'failure' }}
