@@ -41,11 +41,11 @@ $page->add($setting);
 
 // Course enrolment page format.
 $name = 'theme_trema/courseenrolmentpageformat';
-$title = get_string('courseenrolmentpageformat', 'theme_trema');
-$description = get_string('courseenrolmentpageformat_desc', 'theme_trema');
+$title = get_string('courseenrolmentpageformat', $themename);
+$description = get_string('courseenrolmentpageformat_desc', $themename);
 $choices = [
-    "card" => get_string('courseenrolmentpagecard', 'theme_trema'),
-    "fullwidth" => get_string('courseenrolmentpagefull', 'theme_trema'),
+    "card" => get_string('courseenrolmentpagecard', $themename),
+    "fullwidth" => get_string('courseenrolmentpagefull', $themename),
 ];
 $default = 'fullwidth';
 $setting = new admin_setting_configselect($name, $title, $description, $default, $choices);
@@ -54,8 +54,8 @@ $page->add($setting);
 
 // Show activity navigation.
 $name = 'theme_trema/shownactivitynavigation';
-$title = get_string('shownactivitynavigation', 'theme_trema');
-$description = get_string('shownactivitynavigation_desc', 'theme_trema');
+$title = get_string('shownactivitynavigation', $themename);
+$description = get_string('shownactivitynavigation_desc', $themename);
 $default = false;
 $setting = new admin_setting_configcheckbox($name, $title, $description, $default, true, false);
 $setting->set_updatedcallback('theme_reset_all_caches');
@@ -63,8 +63,8 @@ $page->add($setting);
 
 // Show activity icons.
 $name = 'theme_trema/showactivityicons';
-$title = get_string('showactivityicons', 'theme_trema');
-$description = get_string('showactivityicons_desc', 'theme_trema');
+$title = get_string('showactivityicons', $themename);
+$description = get_string('showactivityicons_desc', $themename);
 $default = true;
 $setting = new admin_setting_configcheckbox($name, $title, $description, $default, true, false);
 $setting->set_updatedcallback('theme_reset_all_caches');

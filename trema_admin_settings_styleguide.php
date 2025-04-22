@@ -34,11 +34,10 @@
  * @license     http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class trema_admin_settings_styleguide extends admin_setting_heading {
-
     /**
-     * not a setting, just text
+     * Not a setting, just text.
      * @param string $name unique ascii name, either 'mysetting' for settings that in config, or 'myplugin/mysetting'
-     *  for ones in config_plugins.
+     *  For ones in config_plugins.
      * @param string $heading heading
      * @param string $description text in box
      */
@@ -62,5 +61,4 @@ class trema_admin_settings_styleguide extends admin_setting_heading {
         $context->descriptionformatted = highlight($query, markdown_to_html($this->description));
         return $OUTPUT->render_from_template('theme_trema/admin_setting_styleguide', $context);
     }
-
 }

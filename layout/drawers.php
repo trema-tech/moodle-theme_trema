@@ -100,10 +100,11 @@ $regionmainsettingsmenu = $buildregionmainsettings ? $OUTPUT->region_main_settin
 
 $header = $PAGE->activityheader;
 $headercontent = $header->export_for_template($renderer);
-$context = context_course::instance(SITEID);
+$context = \context_system::instance();
+$databs = $CFG->branch >= 500 ? 'bs-' : '';
 
 $templatecontext = [
-    'sitename' => format_string($SITE->shortname, true, ['context' => $context, "escape" => false]),
+    'sitename' => \format_string($SITE->shortname, true, ['context' => $context, "escape" => false]),
     'output' => $OUTPUT,
     'sidepreblocks' => $blockshtml,
     'hasblocks' => $hasblocks,
@@ -123,9 +124,10 @@ $templatecontext = [
     'headercontent' => $headercontent,
     'addblockbutton' => $addblockbutton,
     'enabletremafooter' => $pluginsettings->enabletremafooter ?? false,
-    'defaultfooter' => format_text($pluginsettings->defaultfooter, FORMAT_HTML, ['context' => $context, 'noclean' => true]),
+    'defaultfooter' => \format_text($pluginsettings->defaultfooter, FORMAT_HTML, ['context' => $context, 'noclean' => true]),
     'footerinfo' => !empty($pluginsettings->enablefooterinfo),
     'showbranding' => !empty($pluginsettings->showbranding),
+    'databs' => $databs,
 ];
 
 echo $OUTPUT->render_from_template('theme_trema/drawers', $templatecontext);

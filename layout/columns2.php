@@ -69,10 +69,10 @@ $header = $PAGE->activityheader;
 $headercontent = $header->export_for_template($renderer);
 
 $pluginsettings = get_config("theme_trema");
-$context = context_course::instance(SITEID);
+$context = \context_system::instance();
 
 $templatecontext = [
-    'sitename' => format_string($SITE->shortname, true, ['context' => $context, "escape" => false]),
+    'sitename' => \format_string($SITE->shortname, true, ['context' => $context, "escape" => false]),
     'output' => $OUTPUT,
     'sidepreblocks' => $blockshtml,
     'hasblocks' => $hasblocks,
@@ -87,7 +87,7 @@ $templatecontext = [
     'headercontent' => $headercontent,
     'overflow' => $overflow,
     'addblockbutton' => $addblockbutton,
-    'defaultfooter' => format_text($pluginsettings->defaultfooter, FORMAT_HTML, ['context' => $context, 'noclean' => true]),
+    'defaultfooter' => \format_text($pluginsettings->defaultfooter, FORMAT_HTML, ['context' => $context, 'noclean' => true]),
     'showbranding' => $pluginsettings->showbranding,
 ];
 

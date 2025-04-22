@@ -28,14 +28,14 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$page = new admin_settingpage('theme_trema_login', get_string('login', 'theme_trema'));
+$page = new admin_settingpage('theme_trema_login', get_string('login', $themename));
 
 // Login page style.
 $name = 'theme_trema/loginpagestyle';
-$title = get_string('loginpagestyle', 'theme_trema');
+$title = get_string('loginpagestyle', $themename);
 $description = '';
 $choices = [
-    "image" => get_string('image', 'theme_trema', ''),
+    "image" => get_string('image', $themename, ''),
     "none" => get_string('none'),
 ];
 $default = 'none';
@@ -43,10 +43,10 @@ $setting = new admin_setting_configselect($name, $title, $description, $default,
 $setting->set_updatedcallback('theme_reset_all_caches');
 $page->add($setting);
 
-if (get_config('theme_trema', 'loginpagestyle') == "image") {
+if (get_config($themename, 'loginpagestyle') == "image") {
     // Login background image.
     $name = 'theme_trema/loginbackgroundimage';
-    $title = get_string('loginbackgroundimage', 'theme_trema');
+    $title = get_string('loginbackgroundimage', $themename);
     $description = '';
     $setting = new admin_setting_configstoredfile($name, $title, $description, 'loginbackgroundimage');
     $setting->set_updatedcallback('theme_reset_all_caches');
@@ -61,24 +61,24 @@ $choices = [
     'right'  => get_string('right', 'editor'),
 ];
 $name = 'theme_trema/loginboxcontentalign';
-$title = get_string('loginboxcontentalign', 'theme_trema');
-$description = get_string('loginboxcontentalign_desc', 'theme_trema');
+$title = get_string('loginboxcontentalign', $themename);
+$description = get_string('loginboxcontentalign_desc', $themename);
 $default = 'center';
 $setting = new admin_setting_configselect($name, $title, $description, $default, $choices);
 $setting->set_updatedcallback('theme_reset_all_caches');
 $page->add($setting);
 
 $name = 'theme_trema/loginpagecreatefirst';
-$title = get_string('loginpagecreatefirst', 'theme_trema');
-$description = get_string('loginpagecreatefirst_desc', 'theme_trema');
+$title = get_string('loginpagecreatefirst', $themename);
+$description = get_string('loginpagecreatefirst_desc', $themename);
 $default = 0;
 $setting = new admin_setting_configcheckbox($name, $title, $description, $default);
 $setting->set_updatedcallback('theme_reset_all_caches');
 $page->add($setting);
 
 $name = 'theme_trema/loginshowloginform';
-$title = get_string('loginshowloginform', 'theme_trema');
-$description = get_string('loginshowloginform_desc', 'theme_trema');
+$title = get_string('loginshowloginform', $themename);
+$description = get_string('loginshowloginform_desc', $themename);
 $default = 1;
 $setting = new admin_setting_configcheckbox($name, $title, $description, $default);
 $setting->set_updatedcallback('theme_reset_all_caches');

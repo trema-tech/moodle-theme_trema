@@ -98,8 +98,8 @@
                             data-toggler="drawers"
                             data-action="toggle"
                             data-target="theme_boost-drawers-courseindex"
-                            data-toggle="tooltip"
-                            data-placement="right"
+                            data-{{databs}}toggle="tooltip"
+                            data-{{databs}}placement="right"
                             title="{{#str}}opendrawerindex, core{{/str}}"
                         >
                             <span class="sr-only">{{#str}}opendrawerindex, core{{/str}}</span>
@@ -113,9 +113,9 @@
                             class="btn icon-no-margin"
                             data-toggler="drawers"
                             data-action="toggle"
-                            data-target="theme_boost-drawers-blocks"
-                            data-toggle="tooltip"
-                            data-placement="right"
+                            data-target="theme_boost-drawers-courseindex"
+                            data-{{databs}}toggle="tooltip"
+                            data-{{databs}}placement="right"
                             title="{{#str}}opendrawerblocks, core{{/str}}"
                         >
                             <span class="sr-only">{{#str}}opendrawerblocks, core{{/str}}</span>
@@ -127,11 +127,11 @@
             <h1 class="sr-only container pb-0 mb-0 mt-5">{{sitename}}</h1>
         {{#showbanner}}
         {{#ifcarrousel}}
-            <div id="carouselTrema" class="carousel slide {{^frontpagecarrousel}}d-none{{/frontpagecarrousel}}" data-ride="carousel">
-                <div class="carousel-inner" data-interval="false">
-                    <ol class="carousel-indicators">
+            <div id="carouselTrema" class="carousel slide {{^frontpagecarrousel}}d-none{{/frontpagecarrousel}}" data-{{databs}}ride="carousel">
+                <div class="carousel-inner" data-{{databs}}interval="false">
+                    <ol class="carousel-indicators ">
                         {{#frontpagecarrousel}}
-                            <li data-target="#carouselTrema" data-slide-to="{{index}}" class="{{active}}"></li>
+                            <li data-{{databs}}target="#carouselTrema" data-{{databs}}slide-to="{{index}}" class="{{active}}"></li>
                         {{/frontpagecarrousel}}
                     </ol>
                     {{#frontpagecarrousel}}
@@ -144,13 +144,13 @@
                             {{#btntext}}{{#btnhref}}<a href="{{btnhref}}" class="px-3 py-1 btn {{btnclass}}" role="button">{{{btntext}}}</a>{{/btnhref}}{{/btntext}}
                         </div>
                     </div>
-                    <a class="carousel-control-prev" href="#carouselTrema" role="button" data-slide="prev">
+                    <a class="carousel-control-prev" href="#carouselTrema" role="button" data-{{databs}}target="#carouselTrema" data-{{databs}}slide="prev">
                         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                        <span class="sr-only">{{#str}} previous, core {{/str}}</span>
+                        <span class="sr-only visually-hidden">{{#str}} previous, core {{/str}}</span>
                     </a>
-                    <a class="carousel-control-next" href="#carouselTrema" role="button" data-slide="next">
+                    <a class="carousel-control-next" href="#carouselTrema" role="button" data-{{databs}}slide="next" data-{{databs}}target="#carouselTrema">
                         <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                        <span class="sr-only">{{#str}} next, core {{/str}}</span>
+                        <span class="sr-only visually-hidden">{{#str}} next, core {{/str}}</span>
                     </a>
                     {{/frontpagecarrousel}}
                 </div>

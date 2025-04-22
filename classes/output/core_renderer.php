@@ -170,6 +170,9 @@ class core_renderer extends \theme_boost\output\core_renderer {
             }
 
             if (isset($context)) {
+                global $CFG;
+                $databs = $CFG->branch >= 500 ? 'bs-' : '';
+                $context->databs = $databs;
                 return $this->render_from_template('theme_trema/lang_menu', $context);
             }
         }
@@ -201,7 +204,7 @@ class core_renderer extends \theme_boost\output\core_renderer {
             $url = $url->out(false);
         }
         $context->logourl = $url;
-        $sitename = format_string($SITE->fullname, true, ['context' => \context_course::instance(SITEID), 'escape' => false]);
+        $sitename = \format_string($SITE->fullname, true, ['context' => \context_system::instance(), 'escape' => false]);
         $context->sitename = $sitename;
 
         $context->loginpagecreatefirst = get_config('theme_trema', 'loginpagecreatefirst');
@@ -238,6 +241,25 @@ class core_renderer extends \theme_boost\output\core_renderer {
     }
 
     /**
+     * Override the header method to ensure the page heading is always filtered using the system context.
+     *
+     * @return string;
+     */
+    public function header(): string {
+        global $SITE;
+
+        // Check if we're on the site frontpage: course ID equals site ID.
+        if (!empty($this->page->course->id) && $this->page->course->id == $SITE->id) {
+            // Determine the heading: use $this->page->heading if set, otherwise fallback to $SITE->fullname.
+            $heading = $this->page->heading ?? $SITE->fullname;
+            // Set the filtered heading back to $this->page.
+            $this->page->set_heading(\format_string($heading, true, ['context' => \context_system::instance()]));
+            // Now call the parent header() to produce the rest of the header output.
+        }
+        return parent::header();
+    }
+
+    /**
      * Adds additional HTML at the top of the body for every page.
      *
      * This method temporarily modifies the global `$CFG->additionalhtmltopofbody` to apply formatting
@@ -254,8 +276,11 @@ class core_renderer extends \theme_boost\output\core_renderer {
         global $CFG;
         $additionalhtmltopofbody = $CFG->additionalhtmltopofbody;
         if (strpos($additionalhtmltopofbody, '}') !== false) {
-            $CFG->additionalhtmltopofbody = format_text($CFG->additionalhtmltopofbody,
-                FORMAT_HTML, ['noclean' => true, $this->page->context]);
+            $CFG->additionalhtmltopofbody = \format_text(
+                $CFG->additionalhtmltopofbody,
+                FORMAT_HTML,
+                ['noclean' => true, $this->page->context]
+            );
         }
         $output = parent::standard_top_of_body_html();
         $CFG->additionalhtmltopofbody = $additionalhtmltopofbody;
@@ -279,11 +304,23 @@ class core_renderer extends \theme_boost\output\core_renderer {
         global $CFG;
         $additionalhtmlfooter = $CFG->additionalhtmlfooter;
         if (strpos($additionalhtmlfooter, '}') !== false) {
-            $CFG->additionalhtmlfooter = format_text($CFG->additionalhtmlfooter,
-                FORMAT_HTML, ['noclean' => true, 'context' => $this->page->context]);
+            $CFG->additionalhtmlfooter = \format_text(
+                $CFG->additionalhtmlfooter,
+                FORMAT_HTML,
+                ['noclean' => true, 'context' => $this->page->context]
+            );
         }
         $output = parent::standard_end_of_body_html();
         $CFG->additionalhtmlfooter = $additionalhtmlfooter;
         return $output;
+    }
+
+    /**
+     * Returns the title to use on the page - processed through Moodle filters.
+     *
+     * @return string
+     */
+    public function page_title() {
+        return \format_string($this->page->title, true, ['context' => \context_system::instance()]);
     }
 }

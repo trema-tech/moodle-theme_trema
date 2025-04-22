@@ -49,8 +49,8 @@ $page->add($setting);
 
 // Links.
 $name = 'theme_trema/linkdecoration';
-$title = get_string('linkdecoration', 'theme_trema');
-$description = get_string('linkdecoration_desc', 'theme_trema');
+$title = get_string('linkdecoration', $themename);
+$description = get_string('linkdecoration_desc', $themename);
 $default = 'underline';
 $choices = ["none" => get_string('none'), 'underline' => get_string('underline', 'editor')];
 $setting = new admin_setting_configselect($name, $title, $description, $default, $choices);
@@ -60,8 +60,8 @@ $page->add($setting);
 if ($CFG->branch > 400) {
     // Process primary navigation (custom menu) through Moodle filters.
     $name = 'theme_trema/navfilter';
-    $title = get_string('navfilter', 'theme_trema');
-    $description = get_string('navfilter_desc', 'theme_trema');
+    $title = get_string('navfilter', $themename);
+    $description = get_string('navfilter_desc', $themename);
     $default = true;
     $setting = new admin_setting_configcheckbox($name, $title, $description, $default, true, false);
     $setting->set_updatedcallback('theme_reset_all_caches');
@@ -77,16 +77,16 @@ if (!empty($CFG->enabledashboard)) {
 $hideitemsoptions['courses'] = get_string('mycourses');
 $hideitemsoptions['siteadminnode'] = get_string('administrationsite');
 $name = 'theme_trema/hideprimarynavigationitems';
-$title = get_string('hideprimarynavigationitems', 'theme_trema', null, true);
-$description = get_string('hideprimarynavigationitems_desc', 'theme_trema', null, true);
+$title = get_string('hideprimarynavigationitems', $themename, null, true);
+$description = get_string('hideprimarynavigationitems_desc', $themename, null, true);
 $setting = new admin_setting_configmulticheckbox($name, $title, $description, [], $hideitemsoptions);
 $setting->set_updatedcallback('theme_reset_all_caches');
 $page->add($setting);
 
 // Primary navigation (custom menu) alignment.
 $name = 'theme_trema/custommenualignment';
-$title = get_string('custommenualignment', 'theme_trema');
-$description = get_string('custommenualignment_desc', 'theme_trema');
+$title = get_string('custommenualignment', $themename);
+$description = get_string('custommenualignment_desc', $themename);
 $default = 'left';
 $choices = [
     'left' => get_string('left', 'editor'),
@@ -99,8 +99,8 @@ $page->add($setting);
 
 // Hide the User menu / Logout link.
 $name = 'theme_trema/showumlogoutlink';
-$title = get_string('showumlogoutlink', 'theme_trema');
-$description = get_string('showumlogoutlink_desc', 'theme_trema');
+$title = get_string('showumlogoutlink', $themename);
+$description = get_string('showumlogoutlink_desc', $themename);
 $default = true;
 $setting = new admin_setting_configcheckbox($name, $title, $description, $default, true, false);
 $setting->set_updatedcallback('theme_reset_all_caches');
@@ -108,16 +108,16 @@ $page->add($setting);
 
 // Favicon image setting.
 $name = 'theme_trema/favicon';
-$title = get_string('favicon', 'theme_trema');
-$description = get_string('favicon_desc', 'theme_trema');
+$title = get_string('favicon', $themename);
+$description = get_string('favicon_desc', $themename);
 $setting = new admin_setting_configstoredfile($name, $title, $description, 'favicon');
 $setting->set_updatedcallback('theme_reset_all_caches');
 $page->add($setting);
 
 // Enable Admin Dashboard.
 $name = 'theme_trema/enableadmindashboard';
-$title = get_string('enableadmindashboard', 'theme_trema');
-$description = get_string('enableadmindashboard_desc', 'theme_trema', "$CFG->wwwroot/theme/trema/pix/examples/admindashboard.png");
+$title = get_string('enableadmindashboard', $themename);
+$description = get_string('enableadmindashboard_desc', $themename, "$CFG->wwwroot/theme/trema/pix/examples/admindashboard.png");
 $default = '1';
 $setting = new admin_setting_configcheckbox($name, $title, $description, $default);
 $setting->set_updatedcallback('theme_reset_all_caches');
@@ -125,8 +125,8 @@ $page->add($setting);
 
 // Enable Trema Lines.
 $name = 'theme_trema/enabletremalines';
-$title = get_string('enabletremalines', 'theme_trema');
-$description = get_string('enabletremalines_desc', 'theme_trema', "$CFG->wwwroot/theme/trema/pix/examples/tremalines.png");
+$title = get_string('enabletremalines', $themename);
+$description = get_string('enabletremalines_desc', $themename, "$CFG->wwwroot/theme/trema/pix/examples/tremalines.png");
 $default = '1';
 $setting = new admin_setting_configcheckbox($name, $title, $description, $default);
 $setting->set_updatedcallback('theme_reset_all_caches');
@@ -134,8 +134,8 @@ $page->add($setting);
 
 // Enable a softer look by rounding some corners.
 $name = 'theme_trema/softness';
-$title = get_string('softness', 'theme_trema');
-$description = get_string('softness_desc', 'theme_trema');
+$title = get_string('softness', $themename);
+$description = get_string('softness_desc', $themename);
 $default = '1';
 $setting = new admin_setting_configcheckbox($name, $title, $description, $default);
 $setting->set_updatedcallback('theme_reset_all_caches');

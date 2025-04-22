@@ -207,6 +207,7 @@ class course_renderer extends \core_course_renderer {
      * @return string
      */
     protected function coursecat_coursebox_content(coursecat_helper $chelper, $course) {
+        global $CFG;
         if ($course instanceof stdClass) {
             $course = new core_course_list_element($course);
         }
@@ -222,7 +223,7 @@ class course_renderer extends \core_course_renderer {
         // Course name.
         $coursename = $chelper->get_course_formatted_name($course);
         $courseurl = new moodle_url('/course/view.php', ['id' => $course->id]);
-        $coursenamelink = html_writer::link($courseurl, $coursename, ['class' => $course->visible ? 'aalink' : 'aalink dimmed']);
+        $coursenamelink = html_writer::link($courseurl, $coursename, ['class' => 'aalink h5' . ($course->visible ? '' : ' dimmed')]);
 
         $summarytype = get_config('theme_trema', 'summarytype');
         $showcardcontact = get_config('theme_trema', 'cardcontacts');
@@ -244,7 +245,7 @@ class course_renderer extends \core_course_renderer {
         $content .= html_writer::end_tag('a');
 
         $content .= html_writer::start_tag('div', ['class' => 'card-body']);
-        $content .= '<h3 class="h5 card-title m-1">' . $coursenamelink . '</h4>';
+        $content .= html_writer::tag('h3', $coursenamelink, ['class' => 'card-title m-1']);
         $content .= html_writer::end_tag('div');
 
         // Print enrolmenticons.
@@ -289,6 +290,7 @@ class course_renderer extends \core_course_renderer {
         }
 
         // Display course summary.
+        $databs = $CFG->branch >= 500 ? 'bs-' : '';
         if (!empty($summarytype) && ($course->has_summary())) {
             if ($summarytype == 'popover') { // See more button.
                 $content .= html_writer::start_tag('div', ['class' => 'card-see-more text-center']);
@@ -298,16 +300,16 @@ class course_renderer extends \core_course_renderer {
                         'class' => 'btn btn-secondary m-2',
                         'id' => "course-popover-{$course->id}",
                         'role' => 'button',
-                        'data-region' => 'popover-region-toggle',
-                        'data-toggle' => 'popover',
-                        'data-placement' => 'right',
-                        'data-content' => $chelper->get_course_formatted_summary($course, ['noclean' => true, 'para' => false]),
-                        'data-html' => 'true',
                         'tabindex' => '0',
-                        'data-trigger' => 'focus',
+                        "data-{$databs}region" => 'popover-region-toggle',
+                        "data-{$databs}toggle" => 'popover',
+                        "data-{$databs}placement" => 'right',
+                        "data-{$databs}content" => $chelper->get_course_formatted_summary($course, ['noclean' => true, 'para' => false]),
+                        "data-{$databs}html" => 'true',
+                        "data-{$databs}trigger" => 'focus',
                     ]
                 );
-                $content .= get_string('seemore', 'theme_trema');
+                $content .= get_string('summarybutton_text', 'theme_trema');
                 $content .= html_writer::end_tag('div');
                 $content .= html_writer::end_tag('div'); // End summary.
             } else if ($summarytype == 'modal') { // Description button.
@@ -316,8 +318,9 @@ class course_renderer extends \core_course_renderer {
                         $course,
                         ['overflowdiv' => true, 'noclean' => true, 'para' => false]
                     ),
-                    'title' => format_text($course->fullname, FORMAT_HTML),
+                    'title' => \format_string($course->fullname),
                     'uniqid' => $course->id,
+                    'databs' => $databs,
                     'classes' => "modal-$course->id",
                     'courselink' => new moodle_url('/course/view.php', ['id' => $course->id]),
                 ];

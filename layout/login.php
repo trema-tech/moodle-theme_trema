@@ -32,9 +32,10 @@
 $loginstyle = get_config('theme_trema', 'loginpagestyle');
 $additionalclasses = [$loginstyle == 'image' ? 'style-image' : 'style-none'];
 $bodyattributes = $OUTPUT->body_attributes($additionalclasses);
+$context = \context_system::instance();
 
 $templatecontext = [
-    'sitename' => format_string($SITE->shortname, true, ['context' => context_course::instance(SITEID), 'escape' => false]),
+    'sitename' => \format_string($SITE->shortname, true, ['context' => $context, 'escape' => false]),
     'output' => $OUTPUT,
     'bodyattributes' => $bodyattributes,
 ];
