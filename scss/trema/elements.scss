@@ -570,3 +570,10 @@ body.path-mod-quiz {
 .bg-secondary.text-dark {
     color: white !important;
 }
+
+// Make popup calendar appear above other elements.
+// This is a temporary workaround  for the calendar popup appearing behind the page nav
+// until the issue is resolved in Moodle core. See https://tracker.moodle.org/browse/MDL-74422
+div#dateselector-calendar-panel {
+    z-index: 3100!important;
+}
