@@ -25,9 +25,15 @@
  *
  * @class MoodleScroll
  */
-export const init = () => {
-    // Get the element with the classes "dropdown" and "show"
-    const dropdown = document.querySelector(".dropdown.show");
-    // Remove the class "show" from the element
-    dropdown.classList.remove("show");
-};
+define([], function() {
+    return {
+        init: function() {
+            // Get the element with the classes "dropdown" and "show"
+            const dropdown = document.querySelector(".dropdown.show");
+            // Remove the class "show" from the element if it exists
+            if (dropdown) {
+                dropdown.classList.remove("show");
+            }
+        }
+    };
+});
