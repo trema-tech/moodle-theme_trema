@@ -1,4 +1,4 @@
-// This file is part of Moodle - http://moodle.org/
+// This file is part of Moodle - https://moodle.org/
 //
 // Moodle is free software: you can redistribute it and/or modify
 // it under the terms of the GNU General Public License as published by
@@ -11,23 +11,29 @@
 // GNU General Public License for more details.
 //
 // You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+// along with Moodle.  If not, see <https://www.gnu.org/licenses/>.
 
 /**
- * Manage user scroll in Moodle for future floating elements.
- *
- * @copyright  2023 Rodrigo Mady <rodrigo.mady@moodle.org>
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @module theme_trema/main
+ * @description Removes the "show" class from the usermenu dropdown to hide an incorrect arrow
+ *              that appears on initial load in Moodle versions 3.9, 4.0, 4.1, and 4.2.
+ *              This ensures the arrow is hidden the first time the page is loaded.
+ * @copyright   2023 Rodrigo Mady <rodrigo.mady@moodle.org>
+ * @copyright   2025 TNG Consulting Inc. - {@link https://www.tngconsulting.ca/}
+ * @author      Rodrigo Mady
+ * @author      Michael Milette
+ * @license     https://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-/**
- * Trema main.
- *
- * @class MoodleScroll
- */
-export const init = () => {
-    // Get the element with the classes "dropdown" and "show"
-    const dropdown = document.querySelector(".dropdown.show");
-    // Remove the class "show" from the element
-    dropdown.classList.remove("show");
-};
+define([], function() {
+    return {
+        init: function() {
+            // Get the element with the classes "dropdown" and "show"
+            const dropdown = document.querySelector(".dropdown.show");
+            // Remove the class "show" from the element if it exists
+            if (dropdown) {
+                dropdown.classList.remove("show");
+            }
+        }
+    };
+});
