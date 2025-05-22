@@ -68,6 +68,9 @@ body #page .card-see-more .btn {
 }
 
 body#page-enrol-index {
+    #page-content:before {
+        content: none;
+    }
     &:not(.fullwidthgeneralbox) .box.generalbox > div {
         @extend .course-card-view;
         position: relative;
@@ -105,8 +108,8 @@ body#page-enrol-index {
             }
         }
     }
-    body#page-enrol-index #region-main {
-        padding: 10px 5px !important;
+    body#page-enrol-index #page-content #region-main {
+        padding: 10px 5px;
         .generalbox.info {
             div {
                 box-shadow: none;
