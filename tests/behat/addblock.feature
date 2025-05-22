@@ -1,5 +1,5 @@
-@javascript @theme_trema
-Feature: Add a block using trema theme
+@javascript @theme @theme_trema
+Feature: Add a block using Trema theme
   In order to decide the blocks to display in the Add a block list for a theme
   As an administrator
   I need to define them using the unaddableblocks setting
