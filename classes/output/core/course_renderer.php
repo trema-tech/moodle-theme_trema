@@ -223,7 +223,8 @@ class course_renderer extends \core_course_renderer {
         // Course name.
         $coursename = $chelper->get_course_formatted_name($course);
         $courseurl = new moodle_url('/course/view.php', ['id' => $course->id]);
-        $coursenamelink = html_writer::link($courseurl, $coursename, ['class' => 'aalink h5' . ($course->visible ? '' : ' dimmed')]);
+        $options = ['class' => 'aalink h5' . ($course->visible ? '' : ' dimmed')];
+        $coursenamelink = html_writer::link($courseurl, $coursename, $options);
 
         $summarytype = get_config('theme_trema', 'summarytype');
         $showcardcontact = get_config('theme_trema', 'cardcontacts');
@@ -293,6 +294,7 @@ class course_renderer extends \core_course_renderer {
         $databs = $CFG->branch >= 500 ? 'bs-' : '';
         if (!empty($summarytype) && ($course->has_summary())) {
             if ($summarytype == 'popover') { // See more button.
+                $options = ['noclean' => true, 'para' => false];
                 $content .= html_writer::start_tag('div', ['class' => 'card-see-more text-center']);
                 $content .= html_writer::start_tag(
                     'div',
@@ -304,7 +306,7 @@ class course_renderer extends \core_course_renderer {
                         "data-{$databs}region" => 'popover-region-toggle',
                         "data-{$databs}toggle" => 'popover',
                         "data-{$databs}placement" => 'right',
-                        "data-{$databs}content" => $chelper->get_course_formatted_summary($course, ['noclean' => true, 'para' => false]),
+                        "data-{$databs}content" => $chelper->get_course_formatted_summary($course, $options),
                         "data-{$databs}html" => 'true',
                         "data-{$databs}trigger" => 'focus',
                     ]
