@@ -481,10 +481,6 @@ body #page {
     z-index: 1040;
 }
 
-.modal {
-    z-index: 10050;
-}
-
 .modal.course-summary-modal {
 
     .modal-content {
@@ -569,4 +565,11 @@ body.path-mod-quiz {
 // For "Parent category" when creating a course category.
 .bg-secondary.text-dark {
     color: white !important;
+}
+
+// Make popup calendar appear above other elements.
+// This is a temporary workaround  for the calendar popup appearing behind the page nav
+// until the issue is resolved in Moodle core. See https://tracker.moodle.org/browse/MDL-74422
+div#dateselector-calendar-panel {
+    z-index: 3100!important;
 }

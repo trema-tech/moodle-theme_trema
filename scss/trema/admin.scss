@@ -152,6 +152,12 @@ body#page-question-edit #page-content {
     }
 }
 
+// Right align the Search Courses form in Manage Courses and Categories.
+// This will be fixed in MDL-85354.
+body#page-course-management .navitem:last-child {
+    margin-left: auto;
+}
+
 body.path-admin #page-header,
 body.path-admin #page #page-header,
 body.path-admin .secondary-navigation,

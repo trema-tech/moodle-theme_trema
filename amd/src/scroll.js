@@ -27,45 +27,49 @@
  *
  * @class MoodleScroll
  */
-export default class MoodleScroll {
+define([], function() {
+    class MoodleScroll {
 
-    /**
-     * Initialise the scroll monitoring.
-     *
-     * @method  init
-     * @chainable
-     * @return {Object} this.
-     */
-    init() {
-        this.scrollY = 0;
-        window.addEventListener("scroll", this.scrollHandler.bind(this));
-        return this;
-    }
+        /**
+         * Initialise the scroll monitoring.
+         *
+         * @method  init
+         * @chainable
+         * @return {Object} this.
+         */
+        init() {
+            this.scrollY = 0;
+            window.addEventListener("scroll", this.scrollHandler.bind(this));
+            return this;
+        }
 
-    /**
-     * Add special classes to body depending on scroll position.
-     *
-     * @method  update
-     * @chainable
-     * @return {Integer} current scroll position.
-     */
-    getScrollPosition() {
-        return window.pageYOffset || document.documentElement.scrollTop;
-    }
+        /**
+         * Add special classes to body depending on scroll position.
+         *
+         * @method  update
+         * @chainable
+         * @return {Integer} current scroll position.
+         */
+        getScrollPosition() {
+            return window.pageYOffset || document.documentElement.scrollTop;
+        }
 
-    /**
-     * Add special classes to body depending on scroll position.
-     *
-     * @method  update
-     * @chainable
-     */
-    scrollHandler() {
-        const body = document.querySelector('body');
-        const scrollY = this.getScrollPosition();
-        if (scrollY >= window.innerHeight) {
-            body.classList.add('scrolled');
-        } else {
-            body.classList.remove('scrolled');
+        /**
+         * Add special classes to body depending on scroll position.
+         *
+         * @method  update
+         * @chainable
+         */
+        scrollHandler() {
+            const body = document.querySelector('body');
+            const scrollY = this.getScrollPosition();
+            if (scrollY >= window.innerHeight) {
+                body.classList.add('scrolled');
+            } else {
+                body.classList.remove('scrolled');
+            }
         }
     }
-}
+
+    return MoodleScroll;
+});
