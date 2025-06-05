@@ -571,5 +571,5 @@ body.path-mod-quiz {
 // This is a temporary workaround  for the calendar popup appearing behind the page nav
 // until the issue is resolved in Moodle core. See https://tracker.moodle.org/browse/MDL-74422
 div#dateselector-calendar-panel {
-    z-index: 3100!important;
+    z-index: 3100 !important;
 }
