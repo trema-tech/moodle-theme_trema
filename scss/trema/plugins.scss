@@ -1,0 +1,7 @@
+// 3rd Party Plugin Improvements.
+
+// Configurable Reports: Import report from repository > Categories and Report dropdowns.
+body#page-blocks-configurable_reports-managereport #id_crreportcategories,
+body#page-blocks-configurable_reports-managereport #id_crreportnames{
+    margin: 10px
+}
