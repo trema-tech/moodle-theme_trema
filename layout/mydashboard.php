@@ -36,11 +36,28 @@ require_once("$CFG->dirroot/theme/trema/locallib.php");
 
 // Add block button in editing mode.
 $addblockbutton = $OUTPUT->addblockbutton();
+$forceblockdraweropen = $OUTPUT->firstview_fakeblocks();
+$pluginsettings = get_config("theme_trema");
+
+if (isloggedin()) {
+    $blockdraweropen = (get_user_preferences('drawer-open-block') == true);
+} else if (isset($pluginsettings->frontpagedraweropen) && $pluginsettings->frontpagedraweropen) {
+    $blockdraweropen = true;
+} else {
+    $blockdraweropen = false;
+}
+
+if (defined('BEHAT_SITE_RUNNING') && get_user_preferences('behat_keep_drawer_closed') != 1) {
+    $blockdraweropen = true;
+}
 
 $extraclasses = [];
 $bodyattributes = $OUTPUT->body_attributes($extraclasses);
 $blockshtml = $OUTPUT->blocks('side-pre');
 $hasblocks = (strpos($blockshtml, 'data-block=') !== false || !empty($addblockbutton));
+if (!$hasblocks) {
+    $blockdraweropen = false;
+}
 $adminblockshtml = $OUTPUT->blocks('side-admin');
 
 $secondarynavigation = false;
@@ -80,6 +97,8 @@ $templatecontext = [
     'hasadminblocks' => is_siteadmin(),
     'sideadminblocks' => $adminblockshtml,
     'hasblocks' => $hasblocks,
+    'blockdraweropen' => $blockdraweropen,
+    'forceblockdraweropen' => $forceblockdraweropen,
     'showdashboardadmin' => false,
     'bodyattributes' => $bodyattributes,
     'primarymoremenu' => $primarymenu['moremenu'],

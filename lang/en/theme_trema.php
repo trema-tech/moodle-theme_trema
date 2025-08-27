@@ -146,6 +146,8 @@ $string['frontpageenablecards'] = 'Enable frontpage cards';
 $string['frontpageenablecards_desc'] = 'Uncheck if you want to hide the area below: <img class="img-responsive" src="{$a}">';
 $string['frontpageenabledarkoverlay'] = 'Frontpage banner dark overlay';
 $string['frontpageenabledarkoverlay_desc'] = 'When enabled, this will apply a dark overlay to the banner image on the frontpage.';
+$string['frontpagedraweropen'] = 'Open frontpage drawer by default';
+$string['frontpagedraweropen_desc'] = 'When enabled, the blocks drawer will be open by default, if we have blocks, on the frontpage, making content in the drawer immediately visible to users.';
 $string['frontpageimage'] = 'Frontpage banner image {$a}';
 $string['frontpageimage_desc'] = 'Image {$a} to show in frontpage banner.';
 $string['frontpageimages'] = 'Frontpage banner';

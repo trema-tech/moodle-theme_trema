@@ -32,6 +32,9 @@ require_once($CFG->dirroot . '/course/lib.php');
 // Add block button in editing mode.
 $addblockbutton = $OUTPUT->addblockbutton();
 
+// Get theme settings
+$pluginsettings = get_config("theme_trema");
+
 if ($CFG->branch <= 402) {
     user_preference_allow_ajax_update('drawer-open-nav', PARAM_ALPHA);
     user_preference_allow_ajax_update('drawer-open-index', PARAM_BOOL);
@@ -64,8 +67,6 @@ $courseindex = core_course_drawer();
 if (!$courseindex) {
     $courseindexopen = false;
 }
-
-$pluginsettings = get_config("theme_trema");
 
 if ($PAGE->pagetype == 'enrol-index' && $pluginsettings->courseenrolmentpageformat == 'fullwidth') {
     $extraclasses[] = 'fullwidthgeneralbox';

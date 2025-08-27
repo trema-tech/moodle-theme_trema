@@ -64,6 +64,15 @@ $setting = new admin_setting_configcheckbox($name, $title, $description, $defaul
 $setting->set_updatedcallback('theme_reset_all_caches');
 $page->add($setting);
 
+// Enable frontpage drawer by default.
+$name = 'theme_trema/frontpagedraweropen';
+$title = get_string('frontpagedraweropen', $themename);
+$description = get_string('frontpagedraweropen_desc', $themename);
+$default = false;
+$setting = new admin_setting_configcheckbox($name, $title, $description, $default, true, false);
+$setting->set_updatedcallback('theme_reset_all_caches');
+$page->add($setting);
+
 // Frontpage banner text alignment.
 $choices = [
     'left' => get_string('left', 'editor'),

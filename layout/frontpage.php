@@ -27,15 +27,37 @@
  */
 
 defined('MOODLE_INTERNAL') || die();
+
 require_once("$CFG->dirroot/theme/trema/locallib.php");
+require_once($CFG->libdir . '/behat/lib.php');
 
 // Add block button in editing mode.
 $addblockbutton = $OUTPUT->addblockbutton();
+$forceblockdraweropen = $OUTPUT->firstview_fakeblocks();
+$pluginsettings = get_config("theme_trema");
 
-$extraclasses = [];
+if (isloggedin()) {
+    $blockdraweropen = (get_user_preferences('drawer-open-block') == true);
+} else if (isset($pluginsettings->frontpagedraweropen) && $pluginsettings->frontpagedraweropen) {
+    $blockdraweropen = true;
+} else {
+    $blockdraweropen = false;
+}
+
+if (defined('BEHAT_SITE_RUNNING') && get_user_preferences('behat_keep_drawer_closed') != 1) {
+    $blockdraweropen = true;
+}
+
+$extraclasses = ['uses-drawers'];
+if ($blockdraweropen) {
+    $extraclasses[] = 'drawer-open-block';
+}
 $bodyattributes = $OUTPUT->body_attributes($extraclasses);
 $blockshtml = $OUTPUT->blocks('side-pre');
 $hasblocks = (strpos($blockshtml, 'data-block=') !== false || !empty($addblockbutton));
+if (!$hasblocks) {
+    $blockdraweropen = false;
+}
 
 $secondarynavigation = false;
 $overflow = '';
@@ -64,7 +86,6 @@ $header = $PAGE->activityheader;
 $headercontent = $header->export_for_template($renderer);
 
 $adminblockshtml = $OUTPUT->blocks('side-admin');
-$pluginsettings = get_config("theme_trema");
 $numberofimages = $pluginsettings->numberofimages;
 $overlayimage   = $OUTPUT->image_url('frontpage/overlay', 'theme');
 // Frontpage images.
@@ -114,6 +135,8 @@ $templatecontext = [
     'sideadminblocks' => $adminblockshtml,
     'hasblocks' => $hasblocks,
     'hasadminblocks' => is_siteadmin(),
+    'blockdraweropen' => $blockdraweropen,
+    'forceblockdraweropen' => $forceblockdraweropen,
     'bodyattributes' => $bodyattributes,
     'primarymoremenu' => $primarymenu['moremenu'],
     'secondarymoremenu' => $secondarynavigation ?: false,
