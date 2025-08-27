@@ -350,7 +350,7 @@ body #page {
         margin-bottom: 0.8rem;
     }
 
-    select {
+    select:not('.dataTable-selector') {
         background-image: url([[pix:theme|select]]);
         background-size: 1rem;
         background-repeat: no-repeat;
