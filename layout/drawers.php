@@ -32,7 +32,7 @@ require_once($CFG->dirroot . '/course/lib.php');
 // Add block button in editing mode.
 $addblockbutton = $OUTPUT->addblockbutton();
 
-// Get theme settings
+// Get theme settings.
 $pluginsettings = get_config("theme_trema");
 
 if ($CFG->branch <= 402) {

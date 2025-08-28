@@ -1,23 +1,40 @@
 body.uses-drawers {
     @media screen and (min-width: 576px) {
-        #page.drawers footer#page-footer,
-        footer#page-footer {
+        #page.drawers footer#page-footer {
             margin-left: -3rem;
             margin-right: -3rem;
             width: calc(100% + 6rem);
         }
     }
 
-    .show-drawer-right {
+    #page.drawers.show-drawer-right {
         footer#page-footer {
             margin-right: 0;
+            width: calc(100% + 3rem);
         }
     }
 
-    .show-drawer-left {
+    #page.drawers.show-drawer-left {
         footer#page-footer {
             margin-left: 0;
+            width: calc(100% + 3rem);
         }
+    }
+
+    #page.drawers.show-drawer-right.show-drawer-left {
+        footer#page-footer {
+            margin-left: 0;
+            margin-right: 0;
+            width: 100%;
+        }
+    }
+}
+
+body.uses-drawers#page-site-index {
+    #page.drawers footer#page-footer {
+        margin-left: 0;
+        margin-right: 0;
+        width: 100%;
     }
 }
 
