@@ -50,7 +50,7 @@ define(['jquery', 'core/str', 'core/notification'], function($, Str, Notificatio
      */
     var addFormValidation = function(fields) {
         // Get the form element
-        var $form = $('#id_mform1');
+        var form = $('#id_mform1');
 
         // Get the required string for validation messages
         var requiredString = 'Required';
@@ -59,58 +59,67 @@ define(['jquery', 'core/str', 'core/notification'], function($, Str, Notificatio
             return true;
         }).catch(Notification.exception);
 
+        // Track categories that contain required fields to expand them
+        var categoriesToExpand = [];
+
         // Process each profile field that is required.
         fields.forEach(function(field) {
             var fieldId = 'id_profile_field_' + field;
-            var $field = $('#' + fieldId);
+            var field = $('#' + fieldId);
 
-            if ($field.length > 0) {
-                var $formGroup = $field.closest('.form-group');
+            if (field.length > 0) {
+                var formGroup = field.closest('.form-group');
 
-                $field.attr('required', 'required');
+                // Find the parent category/section for this field
+                var category = field.closest('fieldset.collapsible');
+                if (category.length > 0 && categoriesToExpand.indexOf(category.attr('id')) === -1) {
+                    categoriesToExpand.push(category.attr('id'));
+                }
 
-                $field.attr('aria-required', 'true');
+                field.attr('required', 'required');
 
-                var $labelCol = $formGroup.find('.col-form-label');
-                var $labelAddon = $labelCol.find('.form-label-addon');
+                field.attr('aria-required', 'true');
 
-                if ($labelAddon.length === 0) {
-                    $labelAddon = $('<div class="form-label-addon d-flex align-items-center align-self-start"></div>');
-                    $labelCol.append($labelAddon);
+                var labelCol = formGroup.find('.col-form-label');
+                var labelAddon = labelCol.find('.form-label-addon');
+
+                if (labelAddon.length === 0) {
+                    labelAddon = $('<div class="form-label-addon d-flex align-items-center align-self-start"></div>');
+                    labelCol.append(labelAddon);
                 }
 
                 // Add the required icon if not present
-                if ($labelAddon.find('.text-danger').length === 0) {
-                    var $requiredIcon = $(
+                if (labelAddon.find('.text-danger').length === 0) {
+                    var requiredIcon = $(
                         '<div class="text-danger" title="Required">' +
                         '<i class="icon fa fa-exclamation-circle text-danger fa-fw " ' +
                         'title="Required" role="img" aria-label="Required"></i>' +
                         '</div>'
                     );
-                    $labelAddon.append($requiredIcon);
+                    labelAddon.append(requiredIcon);
                 }
 
                 var errorId = fieldId + '_error';
-                var $felement = $formGroup.find('.felement');
-                if ($felement.length > 0 && !$felement.find('#' + errorId).length) {
-                    var $errorContainer = $('<div class="form-control-feedback invalid-feedback" id="' + errorId + '"></div>');
-                    $felement.append($errorContainer);
+                var felement = formGroup.find('.felement');
+                if (felement.length > 0 && !felement.find('#' + errorId).length) {
+                    var errorContainer = $('<div class="form-control-feedback invalid-feedback" id="' + errorId + '"></div>');
+                    felement.append(errorContainer);
                 }
 
-                $field.on('blur', function() {
-                    validateField($field, requiredString);
+                field.on('blur', function() {
+                    validateField(field, requiredString);
                 });
 
-                if (!$form.data('validation-added')) {
-                    $form.on('submit', function(e) {
+                if (!form.data('validation-added')) {
+                    form.on('submit', function(e) {
                         var isValid = true;
 
                         // Validate all required profile fields
                         fields.forEach(function(fieldName) {
                             var fieldSelector = '#id_profile_field_' + fieldName;
-                            var $fieldToValidate = $(fieldSelector);
+                            var fieldToValidate = $(fieldSelector);
 
-                            if ($fieldToValidate.length > 0 && !validateField($fieldToValidate, requiredString)) {
+                            if (fieldToValidate.length > 0 && !validateField(fieldToValidate, requiredString)) {
                                 isValid = false;
                             }
                         });
@@ -118,16 +127,34 @@ define(['jquery', 'core/str', 'core/notification'], function($, Str, Notificatio
                         if (!isValid) {
                             e.preventDefault();
                             // Scroll to the first invalid field
-                            var $firstInvalidField = $('.form-group.has-danger').first();
-                            if ($firstInvalidField.length > 0) {
+                            var firstInvalidField = $('.form-group.has-danger').first();
+                            if (firstInvalidField.length > 0) {
                                 $('html, body').animate({
-                                    scrollTop: $firstInvalidField.offset().top - 100
+                                    scrollTop: firstInvalidField.offset().top - 100
                                 }, 200);
                             }
                         }
                     });
 
-                    $form.data('validation-added', true);
+                    form.data('validation-added', true);
+                }
+            }
+        });
+
+        // Expand all categories that contain required fields
+        categoriesToExpand.forEach(function(categoryId) {
+            var category = $('#' + categoryId);
+            if (category.length > 0) {
+                // Find the toggle link and the container
+                var toggleLink = category.find('a.fheader');
+                var containerId = toggleLink.attr('aria-controls');
+                var container = $('#' + containerId);
+
+                if (toggleLink.hasClass('collapsed')) {
+                    toggleLink.removeClass('collapsed');
+                    toggleLink.attr('aria-expanded', 'true');
+                    container.addClass('show');
+                    container.attr('aria-hidden', 'false');
                 }
             }
         });
@@ -136,22 +163,22 @@ define(['jquery', 'core/str', 'core/notification'], function($, Str, Notificatio
     /**
      * Validate a single field.
      *
-     * @param {jQuery} $field - The field to validate
+     * @param {jQuery} field - The field to validate
      * @param {String} requiredString - The text to display for required fields
      * @return {boolean} - Whether the field is valid
      */
-    var validateField = function($field, requiredString) {
-        var fieldId = $field.attr('id');
-        var $formGroup = $field.closest('.form-group');
-        var $errorContainer = $('#' + fieldId + '_error');
+    var validateField = function(field, requiredString) {
+        var fieldId = field.attr('id');
+        var formGroup = field.closest('.form-group');
+        var errorContainer = $('#' + fieldId + '_error');
 
         // Get the field value, handling different input types
-        var value = $field.val();
-        if ($field.is('input[type="checkbox"]')) {
-            value = $field.is(':checked');
-        } else if ($field.is('input[type="radio"]')) {
-            value = $formGroup.find('input[type="radio"]:checked').length > 0;
-        } else if ($field.is('select')) {
+        var value = field.val();
+        if (field.is('input[type="checkbox"]')) {
+            value = field.is(':checked');
+        } else if (field.is('input[type="radio"]')) {
+            value = formGroup.find('input[type="radio"]:checked').length > 0;
+        } else if (field.is('select')) {
             // For select elements, empty string or default "choose" option is invalid
             if (value === '' || value === '0' || value === '-1') {
                 value = '';
@@ -163,17 +190,17 @@ define(['jquery', 'core/str', 'core/notification'], function($, Str, Notificatio
 
         if (isValid) {
             // Field is valid - remove error styling
-            $formGroup.removeClass('has-danger');
-            $field.removeClass('is-invalid');
-            if ($errorContainer.length) {
-                $errorContainer.empty();
+            formGroup.removeClass('has-danger');
+            field.removeClass('is-invalid');
+            if (errorContainer.length) {
+                errorContainer.empty();
             }
         } else {
             // Field is invalid - add error styling
-            $formGroup.addClass('has-danger');
-            $field.addClass('is-invalid');
-            if ($errorContainer.length) {
-                $errorContainer.text(requiredString);
+            formGroup.addClass('has-danger');
+            field.addClass('is-invalid');
+            if (errorContainer.length) {
+                errorContainer.text(requiredString);
             }
         }
 
