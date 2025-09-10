@@ -396,4 +396,40 @@ function theme_trema_page_init(moodle_page $page) {
             $page->requires->css(new moodle_url("/theme/trema{$coursestyle}"));
         }
     }
+
+    // Load profilefields JS if the setting is enabled
+    $enforcerequiredprofilefields = get_config('theme_trema', 'enforcerequiredprofilefields');
+    if (!empty($enforcerequiredprofilefields)) {
+        $pagepath = $page->url->get_path();
+        $isusercreationpage = (strpos($pagepath, '/user/editadvanced.php') !== false && $page->url->get_param('id') == -1);
+
+        // If this is the user creation page, prepare the required fields data.
+        $profilefieldsdata = theme_trema_get_profilefields_data();
+        if ($isusercreationpage && !empty($profilefieldsdata)) {
+            $page->requires->js_call_amd('theme_trema/profilefields', 'init', $profilefieldsdata);
+        }
+    }
+}
+
+/**
+ * Get profile fields data for the user creation page.
+ *
+ * @return array Array containing required profile fields
+ */
+function theme_trema_get_profilefields_data(): ?array {
+    global $DB, $CFG;
+    require_once("{$CFG->dirroot}/user/profile/lib.php");
+
+    $requiredfields = [];
+    // Get all profile fields.
+    $profilefields = $DB->get_records('user_info_field');
+
+    // Extract the required fields.
+    foreach ($profilefields as $field) {
+        if ($field->required) {
+            $requiredfields[] = $field->shortname;
+        }
+    }
+
+    return !empty($requiredfields) ? ['requiredfields' => $requiredfields] : null;
 }

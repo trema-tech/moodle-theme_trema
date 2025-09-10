@@ -31,6 +31,14 @@ defined('MOODLE_INTERNAL') || die;
 // User Profile Fields tab.
 $page = new admin_settingpage('theme_trema_profile', get_string('profile'));
 
+// Enforce required and locked profile fields during user creation.
+$name = 'theme_trema/enforcerequiredprofilefields';
+$title = get_string('enforcerequiredprofilefields', 'theme_trema');
+$description = get_string('enforcerequiredprofilefields_desc', 'theme_trema');
+$default = false;
+$setting = new admin_setting_configcheckbox($name, $title, $description, $default);
+$page->add($setting);
+
 // List of user profile fields sections that we can show or hide.
 $profilefieldsections = ['pictureofuser', 'additionalnames', 'interests', 'optional'];
 

@@ -240,3 +240,5 @@ $string['title_desc']  = 'Title to show in frontpage image {$a}';
 $string['total'] = 'Total';
 $string['totop'] = 'Go to top';
 $string['white'] = 'White';
+$string['enforcerequiredprofilefields'] = 'Enforce required profile fields on user creation';
+$string['enforcerequiredprofilefields_desc'] = 'When enabled, user profile fields that are required will be enforced during user creation.';
