@@ -397,7 +397,7 @@ function theme_trema_page_init(moodle_page $page) {
         }
     }
 
-    // Load profilefields JS if the setting is enabled
+    // Load profilefields JS if the setting is enabled.
     $enforcerequiredprofilefields = get_config('theme_trema', 'enforcerequiredprofilefields');
     if (!empty($enforcerequiredprofilefields)) {
         $pagepath = $page->url->get_path();
