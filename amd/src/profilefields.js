@@ -69,6 +69,9 @@ define(['jquery', 'core/str', 'core/notification'], function($, Str, Notificatio
 
             if (field.length > 0) {
                 var formGroup = field.closest('.form-group');
+                if (formGroup.length === 0) {
+                    formGroup = field.closest('.fitem');
+                }
 
                 // Find the parent category/section for this field
                 var category = field.closest('fieldset.collapsible');
