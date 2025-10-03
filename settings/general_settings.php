@@ -123,6 +123,71 @@ $setting = new admin_setting_configcheckbox($name, $title, $description, $defaul
 $setting->set_updatedcallback('theme_reset_all_caches');
 $page->add($setting);
 
+// Dashboard Box Settings (only shown if admin dashboard is enabled).
+// Get available boxes dynamically.
+$boxoptions = ['none' => get_string('none')];
+
+// Manually include box files since autoloader may not work in settings.
+$boxdir = $CFG->dirroot . '/theme/trema/classes/dashboard/boxes';
+if (is_dir($boxdir)) {
+    $files = scandir($boxdir);
+    foreach ($files as $file) {
+        if (substr($file, 0, 5) === 'dash-' && substr($file, -4) === '.php') {
+            require_once($boxdir . '/' . $file);
+
+            // Extract box ID from filename.
+            $boxid = str_replace(['dash-', '.php'], '', $file);
+            $classname = 'theme_trema\\dashboard\\boxes\\dash_' . $boxid;
+
+            if (class_exists($classname)) {
+                try {
+                    $box = new $classname();
+                    $boxoptions[$box->get_id()] = $box->get_name();
+                } catch (Exception $e) {
+                    // Skip boxes that fail.
+                    unset($e);
+                }
+            }
+        }
+    }
+}
+
+// Dashboard Box 1.
+$name = 'theme_trema/dashboardbox1';
+$title = get_string('dashboardbox1', $themename);
+$description = get_string('dashboardbox1_desc', $themename);
+$default = 'diskusage';
+$setting = new admin_setting_configselect($name, $title, $description, $default, $boxoptions);
+$setting->set_updatedcallback('theme_reset_all_caches');
+$page->add($setting);
+
+// Dashboard Box 2.
+$name = 'theme_trema/dashboardbox2';
+$title = get_string('dashboardbox2', $themename);
+$description = get_string('dashboardbox2_desc', $themename);
+$default = 'courses';
+$setting = new admin_setting_configselect($name, $title, $description, $default, $boxoptions);
+$setting->set_updatedcallback('theme_reset_all_caches');
+$page->add($setting);
+
+// Dashboard Box 3.
+$name = 'theme_trema/dashboardbox3';
+$title = get_string('dashboardbox3', $themename);
+$description = get_string('dashboardbox3_desc', $themename);
+$default = 'enrolments';
+$setting = new admin_setting_configselect($name, $title, $description, $default, $boxoptions);
+$setting->set_updatedcallback('theme_reset_all_caches');
+$page->add($setting);
+
+// Dashboard Box 4.
+$name = 'theme_trema/dashboardbox4';
+$title = get_string('dashboardbox4', $themename);
+$description = get_string('dashboardbox4_desc', $themename);
+$default = 'security';
+$setting = new admin_setting_configselect($name, $title, $description, $default, $boxoptions);
+$setting->set_updatedcallback('theme_reset_all_caches');
+$page->add($setting);
+
 // Enable Trema Lines.
 $name = 'theme_trema/enabletremalines';
 $title = get_string('enabletremalines', $themename);
@@ -143,3 +208,9 @@ $page->add($setting);
 
 // Must add the page after definiting all the settings!
 $settings->add($page);
+
+// Add hide_if dependencies AFTER adding page to settings (for tabs container).
+$settings->hide_if('theme_trema/dashboardbox1', 'theme_trema/enableadmindashboard');
+$settings->hide_if('theme_trema/dashboardbox2', 'theme_trema/enableadmindashboard');
+$settings->hide_if('theme_trema/dashboardbox3', 'theme_trema/enableadmindashboard');
+$settings->hide_if('theme_trema/dashboardbox4', 'theme_trema/enableadmindashboard');

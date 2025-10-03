@@ -127,7 +127,9 @@
             </div>
             {{{ output.full_header }}}
             {{#showdashboardadmin}}
-                {{> theme_trema/mydashboard_admin }}
+                {{#dashboardadmin}}
+                    {{> theme_trema/mydashboard_admin }}
+                {{/dashboardadmin}}
             {{/showdashboardadmin}}
             {{#secondarymoremenu}}
                 <div class="secondary-navigation">

@@ -108,6 +108,23 @@ $string['defaultfooter_desc'] = 'Default content from footer';
 $string['defaultfrontpagebody'] = 'Frontpage Body';
 $string['defaultfrontpagebody_desc'] = 'Default content from frontpage body';
 $string['diskusage'] = 'Data storage space';
+
+// Dashboard box settings.
+$string['dashboardbox1'] = 'Dashboard Box 1';
+$string['dashboardbox1_desc'] = 'Select which box to display in the first position of the admin dashboard';
+$string['dashboardbox2'] = 'Dashboard Box 2';
+$string['dashboardbox2_desc'] = 'Select which box to display in the second position of the admin dashboard';
+$string['dashboardbox3'] = 'Dashboard Box 3';
+$string['dashboardbox3_desc'] = 'Select which box to display in the third position of the admin dashboard';
+$string['dashboardbox4'] = 'Dashboard Box 4';
+$string['dashboardbox4_desc'] = 'Select which box to display in the fourth position of the admin dashboard';
+
+// Dashboard box names.
+$string['dashbox_diskusage'] = 'Disk Usage';
+$string['dashbox_courses'] = 'Courses';
+$string['dashbox_enrolments'] = 'Enrolments';
+$string['dashbox_security'] = 'Security';
+
 $string['drawerbgcolor'] = 'Drawer Background Color';
 $string['drawerbgcolor_desc']  = 'The background color of the drawers.';
 $string['enableadmindashboard'] = 'Admin Dashboard';
