@@ -20,60 +20,27 @@
     Admin dashboard present in mydashboard layout.
 
     Context variables required for this template:
-    * disk - size of the Moodledata directory
-    * activecourses - active courses
-    * totalcourses - total number of courses
-    * activeenrolments - enrolments in active courses
-    * enrolments - total enrolments
-    * issuestatus - number of issues
+    * boxes - Array of dashboard boxes to display
+    * colclass - Column class for responsive width
 
     Example context (json):
     {
-        "disk": "10GB",
-        "activecourses": 10,
-        "totalcourses": 20,
-        "activeenrolments": 100,
-        "enrolments": 200,
-        "issuestatus": {
-            "warning": 1
-        }
+        "boxes": [
+            {
+                "content": "<div>Box HTML</div>",
+                "cssclass": "dashboard-box-diskusage"
+            }
+        ],
+        "colclass": "col-sm-3"
     }
 }}
 <div id="mydashboard-admin" class="container-fluid">
     <h2 class="admin-dashboard sr-only">{{#str}}admindashboard, theme_trema{{/str}}</h2>
     <div class="row">
-        <div class="col-sm-3">
-            <div class="card-body">
-                <i class="fa fa-3x fa-database float-left pr-3"></i>
-                <h3 class="h5 pt-1">{{#str}}diskusage, theme_trema{{/str}}</h3>
-                <p>{{#str}}available, theme_trema{{/str}} {{{disk}}}</p>
-            </div>
+        {{#boxes}}
+        <div class="{{colclass}} {{cssclass}}">
+            {{{content}}}
         </div>
-
-        <div class="col-sm-3">
-            <div class="card-body">
-                <i class="fa fa-3x fa-graduation-cap float-left pr-3"></i>
-                <h3 class="h5 pt-1">{{#str}}courses{{/str}}</h3>
-                <p>{{#str}}active{{/str}} {{activecourses}} | {{#str}}total{{/str}} {{totalcourses}}</p>
-            </div>
-        </div>
-
-        <div class="col-sm-3">
-            <div class="card-body">
-                <i class="fa fa-3x fa-users float-left pr-3"></i>
-                <h3 class="h5 pt-1">{{#str}}enrolments, enrol{{/str}}</h3>
-                <p>{{#str}}active{{/str}} {{activeenrolments}} | {{#str}}total{{/str}} {{enrolments}}</p>
-            </div>
-        </div>
-
-        {{#issuestatus.warning}}
-        <div class="col-sm-3">
-            <div class="card-body">
-                <i class="fa fa-3x fa-ambulance float-left pr-3"></i>
-                <h3 class="h5 pt-1"><a href="{{config.wwwroot}}/report/security/index.php">{{#str}}security, admin{{/str}}</a></h3>
-                <p>{{#str}}alert, theme_trema{{/str}} <span class="badge-danger pl-1 pr-1">{{issuestatus.warning}}</span></p>
-            </div>
-        </div>
-        {{/issuestatus.warning}}
+        {{/boxes}}
     </div>
 </div>

@@ -118,14 +118,23 @@ $templatecontext = [
     'databs' => $databs,
 ];
 
-if (is_siteadmin() && $pluginsettings->enableadmindashboard) {
+if (is_siteadmin() && !empty($pluginsettings->enableadmindashboard)) {
     $templatecontext['showdashboardadmin'] = true;
-    $templatecontext['disk']               = theme_trema_get_disk_usage();
-    $templatecontext['totalcourses']       = theme_trema_count_courses();
-    $templatecontext['activecourses']      = theme_trema_count_active_courses();
-    $templatecontext['activeenrolments']   = theme_trema_count_active_enrolments();
-    $templatecontext['enrolments']         = theme_trema_count_users_enrolments();
-    $templatecontext['issuestatus']        = theme_trema_get_environment_issues();
+
+    // Get configured dashboard boxes.
+    $boxids = [
+        get_config('theme_trema', 'dashboardbox1') ?: 'diskusage',
+        get_config('theme_trema', 'dashboardbox2') ?: 'courses',
+        get_config('theme_trema', 'dashboardbox3') ?: 'enrolments',
+        get_config('theme_trema', 'dashboardbox4') ?: 'security',
+    ];
+
+    // Use box manager to get boxes for rendering.
+    $boxes = \theme_trema\dashboard\box_manager::get_boxes_for_rendering($boxids, $OUTPUT);
+    $templatecontext['dashboardadmin'] = [
+        'boxes' => $boxes,
+        'colclass' => \theme_trema\dashboard\box_manager::get_column_class(count($boxes)),
+    ];
 }
 
 echo $OUTPUT->render_from_template('theme_trema/mydashboard', $templatecontext);
