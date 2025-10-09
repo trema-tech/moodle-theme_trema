@@ -129,3 +129,18 @@ body#page-enrol-index {
         }
     }
 }
+
+.course-summaryitem .align-items-center {
+    align-items: normal!important
+}
+
+body #page .course-summaryitem {
+    a.aalink.coursename {
+        font-weight: bold;
+        font-size: large;
+    }
+    .categoryname {
+        font-size: small;
+        font-style: italic;
+    }
+}
