@@ -64,6 +64,11 @@
         }
     }
 }
+.block_myoverview .summary-image {
+    height: auto;
+    width: 100%;
+    aspect-ratio: 7 / 4;
+}
 
 #page .course-card-view {
     @media (min-width: 580px) {
