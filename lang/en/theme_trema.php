@@ -136,7 +136,7 @@ $string['enabletremafooter_desc'] = 'Enable Trema Footer instead of Boost popup 
 $string['enabletremalines'] = 'Enable Trema Lines';
 $string['enabletremalines_desc'] = 'Enable Trema Lines: <br> <img class="img-responsive" src="{$a}">';
 $string['enforcerequiredprofilefields'] = 'Enforce required profile fields on user creation';
-$string['enforcerequiredprofilefields_desc'] = 'When enabled, user profile fields that are required will be enforced during user creation.';
+$string['enforcerequiredprofilefields_desc'] = 'When enabled, user profile fields that are required will be enforced during user creation by admins and users that have the capability to create a new user.';
 $string['favicon'] = 'Custom favicon';
 $string['favicon_desc'] = 'Upload your own favicon. It should be an .ico file.';
 $string['fonts'] = 'Fonts';

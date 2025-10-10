@@ -4,7 +4,7 @@ Trema Theme for Moodle LMS
 ==========================
 
 ![PHP](https://img.shields.io/badge/PHP-v7.4%20to%20v8.3-blue.svg)
-![Moodle](https://img.shields.io/badge/Moodle-v4.0%20to%20v5.0-orange.svg)
+![Moodle](https://img.shields.io/badge/Moodle-v4.0%20to%20v5.1-orange.svg)
 [![GitHub Issues](https://img.shields.io/github/issues/trema-tech/moodle-theme_trema.svg)](https://github.com/trema-tech/moodle-theme_trema/issues)
 [![Contributions welcome](https://img.shields.io/badge/contributions-welcome-green.svg)](#contributing)
 [![License](https://img.shields.io/badge/License-GPL%20v3-blue.svg)](#license)
@@ -39,6 +39,7 @@ All features from Boost (native Moodle theme) plus these Trema features:
 
 - Frontpage
   - Configurable optional image banner or content slider with texts.
+  - Frontpage drawer enable by default.
   - Banner title spacing.
   - Banner title text options for uppercase, lowercase, and capitalized.
   - Create up to six beautiful cards with custom content with icons.
@@ -51,7 +52,7 @@ All features from Boost (native Moodle theme) plus these Trema features:
   - Configurable footer background opacity and color.
 - Font and colors
   - Primary, secondary, navbar, body background, Log In button, drawer, and footer colors.
-  - Choose from 15 different fonts for the site, page titles, and headings.
+  - Choose from 15 different fonts for the site, banner titles, page titles, and headings.
   - Site text options for uppercase, lowercase, and capitalized.
   - Automatic font color selection.
 - General
@@ -61,7 +62,7 @@ All features from Boost (native Moodle theme) plus these Trema features:
   - The primary menu can be aligned to the left, center or the right.
   - Removable Log out link.
   - Custom favicon.
-  - Exclusive Admin Dashboard with interesting site information for admins.
+  - Exclusive Admin Dashboard with customizable site information for admins.
   - Optional decorative Trema Lines.
   - Enable a softer look by rounding some corners for buttons, cards, secondary navbars, etc.
 - Course cards
@@ -69,12 +70,14 @@ All features from Boost (native Moodle theme) plus these Trema features:
   - Course summary is available as a Moodle dialogue, a popover, or as a link.
   - Show or hide courses in hidden categories.
 - Course
+  - Course enrolment page format as a list or card.
   - Show activity navigation buttons.
   - Hide activity icons on the course page.
 - Login
   - Optional background image for the login page.
   - Option to display the 'Create account' section first.
   - Hide login form (useful for OAuth2 authentication).
+- Enforce required profile fields on user creation by admins and users that have the capability to create a new user.
 - Hideable the profile fields on the registration page and edit the profile page.
 - Admin area block that can be seen and accessed only by the site administrator.
 
