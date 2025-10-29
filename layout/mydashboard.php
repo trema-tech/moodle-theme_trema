@@ -97,7 +97,6 @@ $templatecontext = [
     'hasadminblocks' => is_siteadmin(),
     'sideadminblocks' => $adminblockshtml,
     'hasblocks' => $hasblocks,
-    'blockdraweropen' => $blockdraweropen,
     'forceblockdraweropen' => $forceblockdraweropen,
     'showdashboardadmin' => false,
     'bodyattributes' => $bodyattributes,
@@ -117,6 +116,11 @@ $templatecontext = [
     'showbranding' => !empty($pluginsettings->showbranding),
     'databs' => $databs,
 ];
+
+// Just enter in this if the debug mode is not enabled.
+if ($blockdraweropen && debugging() == false) {
+    $templatecontext['blockdraweropen'] = $blockdraweropen;
+}
 
 if (is_siteadmin() && !empty($pluginsettings->enableadmindashboard)) {
     $templatecontext['showdashboardadmin'] = true;

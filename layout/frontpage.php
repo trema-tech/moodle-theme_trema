@@ -135,7 +135,6 @@ $templatecontext = [
     'sideadminblocks' => $adminblockshtml,
     'hasblocks' => $hasblocks,
     'hasadminblocks' => is_siteadmin(),
-    'blockdraweropen' => $blockdraweropen,
     'forceblockdraweropen' => $forceblockdraweropen,
     'bodyattributes' => $bodyattributes,
     'primarymoremenu' => $primarymenu['moremenu'],
@@ -176,5 +175,10 @@ $templatecontext = [
     'showbranding' => !empty($pluginsettings->showbranding),
     'databs' => $databs,
 ];
+
+// Just enter in this if the debug mode is not enabled.
+if ($blockdraweropen && debugging() == false) {
+    $templatecontext['blockdraweropen'] = $blockdraweropen;
+}
 
 echo $OUTPUT->render_from_template('theme_trema/frontpage', $templatecontext);
