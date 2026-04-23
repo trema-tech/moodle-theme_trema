@@ -170,7 +170,7 @@ $templatecontext = [
     'cardssubtitle' => !empty($pluginsettings->frontpagecardssubtitle) ?
         \format_string($pluginsettings->frontpagecardssubtitle) : '',
     'cardssettings' => theme_trema_get_cards_settings(),
-    'enabletremafooter' => $pluginsettings->enabletremafooter,
+    'enabletremafooter' => $pluginsettings->enabletremafooter ?? false,
     'footerinfo' => !empty($pluginsettings->enablefooterinfo),
     'showbranding' => !empty($pluginsettings->showbranding),
     'databs' => $databs,

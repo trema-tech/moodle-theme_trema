@@ -127,10 +127,10 @@ function theme_trema_get_pre_scss($theme) {
         'Roboto, Arial, Helvetica, sans-serif' => 'Roboto',
     ];
 
-    $scss .= '$bodyfontfile: "' . $fonts[$theme->settings->sitefont] . '";' . PHP_EOL;
-    $scss .= '$bannertitlesfontfile: "' . $fonts[$theme->settings->bannertitlesfont] . '";' . PHP_EOL;
-    $scss .= '$h1fontfile: "' . $fonts[$theme->settings->h1font] . '";' . PHP_EOL;
-    $scss .= '$hxfontfile: "' . $fonts[$theme->settings->hxfont] . '";' . PHP_EOL;
+    $scss .= '$bodyfontfile: "' . ($fonts[$theme->settings->sitefont ?? ''] ?? 'Arial') . '";' . PHP_EOL;
+    $scss .= '$bannertitlesfontfile: "' . ($fonts[$theme->settings->bannertitlesfont ?? ''] ?? 'Arial') . '";' . PHP_EOL;
+    $scss .= '$h1fontfile: "' . ($fonts[$theme->settings->h1font ?? ''] ?? 'Arial') . '";' . PHP_EOL;
+    $scss .= '$hxfontfile: "' . ($fonts[$theme->settings->hxfont ?? ''] ?? 'Arial') . '";' . PHP_EOL;
 
     // ....
     // Show/hide User profile fields.

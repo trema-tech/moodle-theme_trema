@@ -87,8 +87,8 @@ $templatecontext = [
     'headercontent' => $headercontent,
     'overflow' => $overflow,
     'addblockbutton' => $addblockbutton,
-    'defaultfooter' => \format_text($pluginsettings->defaultfooter, FORMAT_HTML, ['context' => $context, 'noclean' => true]),
-    'showbranding' => $pluginsettings->showbranding,
+    'defaultfooter' => \format_text($pluginsettings->defaultfooter ?? '', FORMAT_HTML, ['context' => $context, 'noclean' => true]),
+    'showbranding' => $pluginsettings->showbranding ?? false,
 ];
 
 echo $OUTPUT->render_from_template('theme_trema/columns2', $templatecontext);
