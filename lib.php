@@ -140,8 +140,9 @@ function theme_trema_get_pre_scss($theme) {
 
     // Section: General.
     $fields['showprofileemaildisplay'] = '#fitem_id_maildisplay'; // Email display.
-    if (empty($theme->settings->showmoodlenetprofile)) {
-        $fields['showmoodlenetprofile'] = '#fitem_id_moodlenetprofile'; // MoodleNet Profile.
+    if ($CFG->branch < 502 && empty($theme->settings->showmoodlenetprofile)) {
+        // MoodleNet profile field removed from user table in Moodle 5.2+.
+        $fields['showmoodlenetprofile'] = '#fitem_id_moodlenetprofile';
     }
     $fields['showprofilecity'] = '#fitem_id_city'; // City.
     $fields['showprofilecountry'] = '#fitem_id_country'; // Country.
@@ -169,8 +170,10 @@ function theme_trema_get_pre_scss($theme) {
     // Section: Optional.
     $fields['showprofileoptional'] = '#id_moodle_optional';
 
-    // MoodleNet profile ID.
-    $fields['showprofilemoodlenetprofile'] = '#fitem_id_moodlenetprofile';
+    // MoodleNet profile ID (removed from user table in Moodle 5.2+).
+    if ($CFG->branch < 502) {
+        $fields['showprofilemoodlenetprofile'] = '#fitem_id_moodlenetprofile';
+    }
     // ID number.
     $fields['showprofileidnumber'] = 'body#page-user-editadvanced #fitem_id_idnumber,';
     $fields['showprofileidnumber'] .= 'body#page-admin-user-editadvanced #fitem_id_idnumber,';
