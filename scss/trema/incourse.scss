@@ -44,7 +44,8 @@
     }
 
     .section-navigation {
-        .custom-select.jumpmenu {
+        .custom-select.jumpmenu,
+        .form-select.jumpmenu {
             width: auto;
             margin: 0 auto;
         }
@@ -88,7 +89,8 @@ body#page-my-index.page-mycourses {
 
 body#page-course-view-topics {
     #topofscroll {
-        [data-toggle='collapse'].btn-icon {
+        [data-toggle='collapse'].btn-icon,
+        [data-bs-toggle='collapse'].btn-icon {
             background-color: $white;
             color: fix-color-contrast($primary);
             height: auto;

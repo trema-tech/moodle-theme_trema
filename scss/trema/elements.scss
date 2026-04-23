@@ -232,7 +232,8 @@ body #page {
     }
 
     // Correct the alignment of the help icon with popover.
-    a.btn[data-toggle="popover"] {
+    a.btn[data-toggle="popover"],
+    a.btn[data-bs-toggle="popover"] {
         line-height: 1.5;
     }
 
@@ -346,7 +347,8 @@ body #page {
         }
     }
 
-    .form-group {
+    .form-group,
+    .mb-3 {
         margin-bottom: 0.8rem;
     }
 
@@ -368,7 +370,8 @@ body #page {
         input[type="text"] {
             display: inline-block;
         }
-        .sr-only + select {
+        .sr-only + select,
+        .visually-hidden + select {
             display: inline-block;
             width: 70%;
             background-position: 98%;
@@ -529,7 +532,9 @@ body.path-mod-quiz {
     .input-group > .input-group-prepend:not(:first-child) > .btn,
     .input-group > .input-group-prepend:not(:first-child) > .input-group-text,
     .input-group > .input-group-prepend:first-child > .btn:not(:first-child),
-    .input-group > .input-group-prepend:first-child > .input-group-text:not(:first-child) {
+    .input-group > .input-group-prepend:first-child > .input-group-text:not(:first-child),
+    .input-group > .btn:not(:first-child),
+    .input-group > .input-group-text:not(:first-child) {
         border-top-left-radius: 0 !important;
         border-bottom-left-radius: 0 !important;
     }

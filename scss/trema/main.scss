@@ -38,8 +38,11 @@ body #page .btn.btn-secondary:focus,
 .btn-secondary.focus,
 button.close.focus,
 button.close:focus,
+button.btn-close.focus,
+button.btn-close:focus,
 .custom-control-input,
 .custom-select:focus,
+.form-select:focus,
 .drawer-toggles .drawer-toggler .btn:focus,
 .editor_atto_toolbar button.focus,
 .editor_atto_toolbar button:focus,
@@ -73,6 +76,8 @@ body #page input[type="button"].btn-secondary:focus,
 [role="treeitem"]:not([aria-expanded="true"]):focus,
 .sr-only-focusable.focus,
 .sr-only-focusable:focus,
+.visually-hidden-focusable.focus,
+.visually-hidden-focusable:focus,
 .carousel-control-prev-icon:focus,
 .carousel-control-next-icon:focus,
 select.focus {
@@ -316,7 +321,8 @@ body#page-calendar-view {
     #page-content:before {
         content: none;
     }
-    .maincalendar .select.custom-select.cal_courses_flt {
+    .maincalendar .select.custom-select.cal_courses_flt,
+    .maincalendar .select.form-select.cal_courses_flt {
         margin: 0.5rem;
     }
 }
@@ -367,7 +373,8 @@ body#page-contentbank {
         width: 100%;
     }
 
-    .searchbar .input-group-append .input-group-text {
+    .searchbar .input-group-append .input-group-text,
+    .searchbar > .input-group-text {
         padding: 0;
         .search-icon .btn {
             height: calc(1.5em + 0.75rem + 2px);

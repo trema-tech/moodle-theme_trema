@@ -132,7 +132,8 @@ body.path-admin.pagelayout-maintenance {
 
 body.path-admin-report-log {
     #page form {
-        .custom-select {
+        .custom-select,
+        .form-select {
             width: auto;
             display: inline-block;
         }
