@@ -52,7 +52,7 @@ function xmldb_theme_trema_upgrade($oldversion): bool {
             foreach ($usertours as $usertour) {
                 $configdata = json_decode($usertour->configdata);
 
-                if (in_array('boost', $configdata->filtervalues->theme)) {
+                if (isset($configdata->filtervalues->theme) && in_array('boost', $configdata->filtervalues->theme)) {
                     $configdata->filtervalues->theme[] = 'trema';
                 }
 
