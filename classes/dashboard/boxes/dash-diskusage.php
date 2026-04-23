@@ -105,7 +105,7 @@ class dash_diskusage implements box_interface {
         $warning = ($bytes <= 104857600); // Warning at 100 MB.
         $freespace = display_size($bytes);
         if (!$warning) {
-            $freespace = '<span class="badge badge-danger px-1">' . $freespace . '</span>';
+            $freespace = '<span class="badge badge-danger bg-danger text-white px-1">' . $freespace . '</span>';
         }
 
         return $freespace;

@@ -51,14 +51,14 @@
 }}
 <nav class="navbar fixed-top navbar-light bg-white navbar-expand" aria-label="{{#str}}sitemenubar, admin{{/str}}">
 
-    <button class="navbar-toggler aabtn d-block d-md-none my-1 mr-2" data-toggler="drawers" data-action="toggle" data-target="theme_boost-drawers-primary">
+    <button class="navbar-toggler aabtn d-block d-md-none my-1 mr-2 me-2" data-toggler="drawers" data-action="toggle" data-target="theme_boost-drawers-primary">
         <span class="navbar-toggler-icon"></span>
-        <span class="sr-only">{{#str}}sidepanel, core{{/str}}</span>
+        <span class="sr-only visually-hidden">{{#str}}sidepanel, core{{/str}}</span>
     </button>
 
-    <a href="{{{ config.wwwroot }}}" class="navbar-brand d-flex align-items-center p-0 mr-4 aabtn">
+    <a href="{{{ config.wwwroot }}}" class="navbar-brand d-flex align-items-center p-0 mr-4 me-4 aabtn">
         {{# output.should_display_navbar_logo }}
-            <img src="{{output.get_compact_logo_url}}" class="logo mr-1" alt="{{sitename}}">
+            <img src="{{output.get_compact_logo_url}}" class="logo mr-1 me-1" alt="{{sitename}}">
         {{/ output.should_display_navbar_logo }}
         {{^ output.should_display_navbar_logo }}
             {{{ sitename }}}
@@ -74,14 +74,14 @@
         <!-- page_heading_menu -->
         {{{ output.page_heading_menu }}}
     </ul>
-    <div id="usernavigation" class="navbar-nav ml-auto">
+    <div id="usernavigation" class="navbar-nav ml-auto ms-auto">
         {{# output.search_box }}
             {{{ output.search_box }}}
-            <div class="divider border-left h-75 align-self-center mx-1"></div>
+            <div class="divider border-left border-start h-75 align-self-center mx-1"></div>
         {{/output.search_box}}
         {{#langmenu}}
             {{{ output.render_lang_menu }}}
-            <div class="divider border-left h-75 align-self-center mx-1"></div>
+            <div class="divider border-left border-start h-75 align-self-center mx-1"></div>
         {{/langmenu}}
         {{{ output.navbar_plugin_output }}}
         <div class="d-flex align-items-stretch usermenu-container" data-region="usermenu">
