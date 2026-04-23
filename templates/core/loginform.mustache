@@ -108,7 +108,7 @@
     {{#logourl}}
         <div id="loginlogo" class="login-logo">
             <img id="logoimage" src="{{logourl}}" class="img-fluid login-heading" alt="">
-            <h1 class="login-heading sr-only">{{sitename}}</h1>
+            <h1 class="login-heading sr-only visually-hidden">{{sitename}}</h1>
         </div>
     {{/logourl}}
     {{^logourl}}
@@ -137,12 +137,12 @@
         <div class="login-divider"></div>
         <h2 class="login-heading">{{#str}}login{{/str}}</h2>
         {{#error}}
-            <a href="#" id="loginerrormessage" class="sr-only">{{error}}</a>
+            <a href="#" id="loginerrormessage" class="sr-only visually-hidden">{{error}}</a>
             <div class="alert alert-danger" role="alert">{{error}}</div>
         {{/error}}
         <input type="hidden" name="logintoken" value="{{logintoken}}">
-        <div class="login-form-username form-group">
-            <label for="username" class="sr-only">
+        <div class="login-form-username form-group mb-3">
+            <label for="username" class="sr-only visually-hidden">
                 {{^canloginbyemail}}
                     {{#str}} username {{/str}}
                 {{/canloginbyemail}}
@@ -157,22 +157,22 @@
                 !}}{{#canloginbyemail}}{{#cleanstr}}usernameemail{{/cleanstr}}{{/canloginbyemail}}" {{!
                 !}}autocomplete="username">
         </div>
-        <div class="login-form-password form-group">
-            <label for="password" class="sr-only">{{#str}} password {{/str}}</label>
+        <div class="login-form-password form-group mb-3">
+            <label for="password" class="sr-only visually-hidden">{{#str}} password {{/str}}</label>
             <input type="password" name="password" id="password" value="" {{!
                 !}}class="form-control form-control-lg" {{!
                 !}}placeholder="{{#cleanstr}}password{{/cleanstr}}" {{!
                 !}}autocomplete="current-password">
         </div>
         {{#recaptcha}}
-            <div class="login-form-recaptcha form-group">
+            <div class="login-form-recaptcha form-group mb-3">
                 {{{recaptcha}}}
             </div>
         {{/recaptcha}}
-        <div class="login-form-submit form-group">
+        <div class="login-form-submit form-group mb-3">
             <button class="btn btn-primary col-12 col-md-6 col-lg-auto" type="submit" id="loginbtn">{{#str}}login{{/str}}</button>
         </div>
-        <div class="login-form-forgotpassword form-group">
+        <div class="login-form-forgotpassword form-group mb-3">
             <a href="{{forgotpasswordurl}}">{{#str}}forgotaccount{{/str}}</a>
         </div>
     </form>

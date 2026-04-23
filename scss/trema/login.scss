@@ -229,7 +229,8 @@ body.local-login {
     .loginform {
         .login-form,
         .login-form-forgotpassword,
-        .form-group {
+        .form-group,
+        .mb-3 {
             display: block !important;
         }
     }
@@ -237,10 +238,12 @@ body.local-login {
 
 // Adjust form label and field alignment on small screens.
 @media only screen and (max-width: 560px) {
-    body #page .signupform .form-group.row.fitem {
+    body #page .signupform .form-group.row.fitem,
+    body #page .signupform .mb-3.row.fitem {
         display: block;
     }
-    body #page .signupform .form-group.row.fitem .col-form-label {
+    body #page .signupform .form-group.row.fitem .col-form-label,
+    body #page .signupform .mb-3.row.fitem .col-form-label {
         max-width: 100% !important;
     }
 }
