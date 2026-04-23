@@ -28,11 +28,11 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$plugin->version   = 2025100900;
-$plugin->release   = '5.1.0.0';
+$plugin->version   = 2026042300;
+$plugin->release   = '5.2.0.0';
 $plugin->maturity  = MATURITY_STABLE;
-$plugin->requires  = 2022021800; // Moodle 4.0 - Build: 20220218.
+$plugin->requires  = 2022112800; // Moodle 4.1 LTS - Build: 20221128.
 $plugin->component = 'theme_trema';
 $plugin->dependencies = [
-    'theme_boost'  => 2018051400,
+    'theme_boost'  => 2022112800, // Moodle 4.1 LTS.
 ];
