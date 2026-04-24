@@ -3,8 +3,8 @@
 Trema Theme for Moodle LMS
 ==========================
 
-![PHP](https://img.shields.io/badge/PHP-v7.4%20to%20v8.3-blue.svg)
-![Moodle](https://img.shields.io/badge/Moodle-v4.0%20to%20v5.1-orange.svg)
+![PHP](https://img.shields.io/badge/PHP-v8.0%20to%20v8.4-blue.svg)
+![Moodle](https://img.shields.io/badge/Moodle-v4.1%20to%20v5.2-orange.svg)
 [![GitHub Issues](https://img.shields.io/github/issues/trema-tech/moodle-theme_trema.svg)](https://github.com/trema-tech/moodle-theme_trema/issues)
 [![Contributions welcome](https://img.shields.io/badge/contributions-welcome-green.svg)](#contributing)
 [![License](https://img.shields.io/badge/License-GPL%20v3-blue.svg)](#license)
@@ -85,7 +85,7 @@ All features from Boost (native Moodle theme) plus these Trema features:
 
 # Requirements
 
-This theme requires Moodle LMS 4.0+ from https://moodle.org/.
+This theme requires Moodle LMS 4.1+ from https://moodle.org/.
 
 [(Back to top)](#table-of-contents)
 

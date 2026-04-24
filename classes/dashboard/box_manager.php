@@ -119,7 +119,7 @@ class box_manager {
      * @return string Bootstrap column class
      */
     public static function get_column_class($count) {
-        return match($count) {
+        return match ($count) {
             1 => 'col-12',
             2 => 'col-sm-6',
             3 => 'col-sm-4',
