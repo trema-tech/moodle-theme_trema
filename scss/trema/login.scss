@@ -190,6 +190,15 @@ body#page-login-verify_age_location {
     }
     .login-container {
         width: auto !important;
+        background-color: #fff;
+        padding: 3rem;
+        box-shadow: 0 .5rem 1rem rgb(0 0 0 / .15);
+        margin-bottom: 2rem;
+    }
+    .login-wrapper {
+        display: flex;
+        align-items: center;
+        min-height: 100vh;
     }
     #region-main-box.col-12 {
         max-width: 800px;

@@ -246,6 +246,29 @@ function theme_trema_get_pre_scss($theme) {
         $scss .= "body.pagelayout-login #page-wrapper { background-image: none; }\n";
     }
 
+    // Login page fixes for Moodle 5.2+.
+    if ($CFG->branch >= 502) {
+        $scss .= '
+        $spacer: 1rem !default;
+            body#page-login-index {
+                .loginform {
+                    h1.login-heading {
+                        margin: ($spacer * 2) 0;
+                    }
+                    .login-divider {
+                        margin: ($spacer * 0.5) 0;
+                    }
+                }
+            }
+            .pagelayout-login .login-container {
+                background-color: #fff;
+                padding: 3rem;
+                box-shadow: 0 .5rem 1rem rgb(0 0 0 / .15);
+                margin-bottom: 2rem;
+            }
+        ';
+    }
+
     // ....
     // Other settings.
     // ....
