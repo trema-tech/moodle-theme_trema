@@ -70,11 +70,23 @@ if ($CFG->branch > 400) {
 
 // Hide selected items in the primary navigation (custom menu).
 $hideitemsoptions = [];
-$hideitemsoptions['home'] = get_string('home');
-if (!empty($CFG->enabledashboard)) {
-    $hideitemsoptions['myhome'] = get_string('myhome');
+if ($CFG->branch > 520) {
+    if (!empty($CFG->enablemyhome)) {
+        $hideitemsoptions['home'] = get_string('home');
+    }
+    if (!empty($CFG->enabledashboard)) {
+        $hideitemsoptions['myhome'] = get_string('myhome');
+    }
+    if (!empty($CFG->enablemycourses)) {
+        $hideitemsoptions['courses'] = get_string('mycourses');
+    }
+} else {
+    $hideitemsoptions['home'] = get_string('home');
+    if (!empty($CFG->enabledashboard)) {
+        $hideitemsoptions['myhome'] = get_string('myhome');
+    }
+    $hideitemsoptions['courses'] = get_string('mycourses');
 }
-$hideitemsoptions['courses'] = get_string('mycourses');
 $hideitemsoptions['siteadminnode'] = get_string('administrationsite');
 $name = 'theme_trema/hideprimarynavigationitems';
 $title = get_string('hideprimarynavigationitems', $themename, null, true);
