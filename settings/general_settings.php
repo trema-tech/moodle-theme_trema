@@ -70,7 +70,7 @@ if ($CFG->branch > 400) {
 
 // Hide selected items in the primary navigation (custom menu).
 $hideitemsoptions = [];
-if ($CFG->branch > 520) {
+if ($CFG->branch >= 502) {
     if (!empty($CFG->enablemyhome)) {
         $hideitemsoptions['home'] = get_string('home');
     }
