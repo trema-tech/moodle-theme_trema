@@ -80,15 +80,18 @@ class core_renderer extends \theme_boost\output\core_renderer {
         // If no favicon found yet, check favicon settings in Moodle's Appearance/Logo settings.
         // Note: Only available in Moodle 4.1+.
         if (empty($favicon) && $CFG->branch >= 401) {
-            // Use $CFG->themerev to prevent browser caching when the file changes.
-            $favicon = \moodle_url::make_pluginfile_url(
-                \context_system::instance()->id,
-                'core_admin',
-                'favicon',
-                '64x64/',
-                theme_get_revision(),
-                get_config('core_admin', 'favicon')
-            );
+            $corefavicon = get_config('core_admin', 'favicon');
+            if (!empty($corefavicon)) {
+                // Use $CFG->themerev to prevent browser caching when the file changes.
+                $favicon = \moodle_url::make_pluginfile_url(
+                    \context_system::instance()->id,
+                    'core_admin',
+                    'favicon',
+                    '64x64/',
+                    theme_get_revision(),
+                    $corefavicon
+                );
+            }
         }
 
         // If still no favicon found, fallback to the webserver's favicon.ico.
