@@ -45,7 +45,7 @@ $profilefieldsections = ['pictureofuser', 'additionalnames', 'interests', 'optio
 // List of user profile fields that we can show or hide.
 $profilefields = [];
 $profilefields[] = 'emaildisplay';
-if ($CFG->branch < 502) {
+if (!empty($CFG->branch) && $CFG->branch < 502) {
     // MoodleNet profile field removed from user table in Moodle 5.2+.
     $profilefields[] = 'moodlenetprofile';
 }

@@ -45,4 +45,19 @@ final class scss_test extends \advanced_testcase {
             \theme_config::load('trema')->get_css_content_debug('scss', null, null)
         );
     }
+
+    /**
+     * Test that trema can be compiled using scssphp (the built-in PHP implementation).
+     *
+     * @covers \theme_trema
+     *
+     * @return void
+     */
+    public function test_scss_compilation_with_scssphp(): void {
+        $this->resetAfterTest();
+
+        $this->assertNotEmpty(
+            \theme_config::load('trema')->get_css_content_debug('scss', null, null)
+        );
+    }
 }
