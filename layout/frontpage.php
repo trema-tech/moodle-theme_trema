@@ -99,14 +99,12 @@ if ($numberofimages > 1) {
         $btnhref = "carrouselbtnhref{$i}";
         $btnclass = "carrouselbtnclass{$i}";
         $url = theme_trema_setting_file_url("frontpageimage{$i}", "frontpageimage{$i}", $PAGE->theme);
-
-        if (!empty($url)) {
-            $frontpagecarrousel[$i]['image'] = !empty($pluginsettings->frontpageenabledarkoverlay) ?
-            "background-image: url('$overlayimage'), url('$url');" :
-            "background-image: url('$url')";
-        } else {
-            $frontpagecarrousel[$i]['image'] = $OUTPUT->image_url('frontpage/banner2', 'theme');
+        if (empty($url)) {
+            $url = $OUTPUT->image_url('frontpage/banner' . $i, 'theme');
         }
+        $frontpagecarrousel[$i]['image'] = !empty($pluginsettings->frontpageenabledarkoverlay)
+            ? "background-image: url('$overlayimage'), url('$url');"
+            : "background-image: url('$url');";
         $frontpagecarrousel[$i]['index']    = $i - 1;
         $frontpagecarrousel[$i]['title']    = !empty($pluginsettings->$title) ? \format_string($pluginsettings->$title) : '';
         $frontpagecarrousel[$i]['subtitle'] = !empty($pluginsettings->$subtitle) ? \format_string($pluginsettings->$subtitle) : '';
