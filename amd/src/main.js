@@ -15,9 +15,10 @@
 
 /**
  * @module theme_trema/main
- * @description Removes the "show" class from the usermenu dropdown to hide an incorrect arrow
- *              that appears on initial load in Moodle versions 3.9, 4.0, 4.1, and 4.2.
- *              This ensures the arrow is hidden the first time the page is loaded.
+ * @description Frontpage init: hides a stray dropdown "show" class on initial load
+ *              (Moodle 3.9-4.2 quirk) and explicitly initializes the frontpage
+ *              carousel so it auto-cycles. Bootstrap 5's data-API auto-init can
+ *              miss carousels when the JS module loads after DOMContentLoaded.
  * @copyright   2023 Rodrigo Mady <rodrigo.mady@moodle.org>
  * @copyright   2025 TNG Consulting Inc. - {@link https://www.tngconsulting.ca/}
  * @author      Rodrigo Mady
@@ -25,14 +26,17 @@
  * @license     https://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-define([], function() {
+define(['theme_boost/bootstrap/carousel'], function(CarouselModule) {
+    const Carousel = CarouselModule.default || CarouselModule;
     return {
         init: function() {
-            // Get the element with the classes "dropdown" and "show"
             const dropdown = document.querySelector(".dropdown.show");
-            // Remove the class "show" from the element if it exists
             if (dropdown) {
                 dropdown.classList.remove("show");
+            }
+            const carouselEl = document.getElementById('carouselTrema');
+            if (carouselEl) {
+                Carousel.getOrCreateInstance(carouselEl, {ride: 'carousel'});
             }
         }
     };
