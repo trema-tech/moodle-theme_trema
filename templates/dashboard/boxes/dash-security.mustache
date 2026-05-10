@@ -33,8 +33,8 @@
 }}
 {{#haswarning}}
 <div class="card-body">
-    <i class="fa fa-3x fa-ambulance float-start float-left pe-3 pr-3"></i>
-    <h3 class="h5 pt-1"><a href="{{wwwroot}}/report/security/index.php">{{#str}}security, admin{{/str}}</a></h3>
-    <p>{{#str}}alert, theme_trema{{/str}} <span class="badge badge-danger bg-danger text-white ps-1 pe-1 pl-1 pr-1">{{warningcount}}</span></p>
+    <i class="fa fa-3x fa-ambulance float-start float-left pe-3"></i>
+    <h3 class="h5"><a href="{{wwwroot}}/report/security/index.php">{{#str}}security, admin{{/str}}</a></h3>
+    <div>{{#str}}alert, theme_trema{{/str}} <span class="badge badge-danger bg-danger text-white ps-1 pe-1 pl-1 pr-1">{{warningcount}}</span></div>
 </div>
 {{/haswarning}}

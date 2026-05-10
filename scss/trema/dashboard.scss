@@ -5,11 +5,28 @@ body.pagelayout-mydashboard {
     }
 
     #mydashboard-admin {
-        margin: 1rem 0;
-        .card-body {
-            padding: .25rem;
-            .fa {
-                color: rgba(choose-contrast-color($body-bg-color), 0.85);
+        .row {
+            .card-body {
+                .fa {
+                    color: rgba(choose-contrast-color($body-bg-color), 0.85);
+                }
+                background: white;
+                border-radius: 0.5rem;
+                padding: 1.4rem !important;
+                box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            }
+
+            > div {
+                display: flex; /* Ensure it's flex (Bootstrap rows already are) */
+                flex-wrap: wrap;
+                padding: 0 !important;
+                margin: 0;
+            }
+            @media (min-width: 576px) {
+                gap: 1.3%;
+                .col-sm-3 {
+                    width: 24%;
+                }
             }
         }
         .h5,
