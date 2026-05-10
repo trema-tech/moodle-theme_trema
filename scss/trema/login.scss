@@ -38,6 +38,11 @@ body#page-login-index {
                 padding-top: 60px;
             }
         }
+        h2,
+        .h2 {
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
     }
 
     #region-main-box {
@@ -47,7 +52,7 @@ body#page-login-index {
     #page-content {
         max-width: 550px;
         margin: if($login-box-align == 'center', 0 auto, 0);
-        margin-left: if($login-box-align == 'left', 0, auto);
+        margin-left: if($login-box-align == 'left' or $login-box-align == 'halfleft', 0, auto);
         align-items: if($login-box-align == 'center', center, normal);
     }
 
@@ -123,6 +128,22 @@ body#page-login-index {
 
     button.btn.btn-link.btn-cookie {
         text-decoration: $links-decoration;
+    }
+
+    @if $login-box-align == 'halfleft' or $login-box-align == 'halfright' {
+        @media (min-width: 1120px) {
+            #page-content {
+                max-width: 50%;
+            }
+        }
+        #region-main-box {
+            .login-container {
+                max-width: 550px;
+            }
+            .login-wrapper > div {
+                margin: 0 auto;
+            }
+        }
     }
 }
 

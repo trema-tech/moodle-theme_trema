@@ -56,9 +56,11 @@ if (get_config($themename, 'loginpagestyle') == "image") {
 
 // Login box text alignment.
 $choices = [
-    'left'   => get_string('left', 'editor'),
-    'center' => get_string('middle', 'editor'),
-    'right'  => get_string('right', 'editor'),
+    'left'      => get_string('left', 'editor'),
+    'halfleft'  => get_string('halfleft', $themename),
+    'center'    => get_string('middle', 'editor'),
+    'halfright' => get_string('halfright', $themename),
+    'right'     => get_string('right', 'editor'),
 ];
 $name = 'theme_trema/loginboxcontentalign';
 $title = get_string('loginboxcontentalign', $themename);
