@@ -130,12 +130,132 @@ body#page-login-index {
         text-decoration: $links-decoration;
     }
 
+    // Login-instructions overlay: at >=1120px the .login-instructions block is rendered once in the
+    // form column (in DOM) and visually relocated as an overlay onto the opposite half. Below 1120px
+    // these rules are not applied, so the block flows naturally below the Log in button. Applies to
+    // all non-center alignments (left, right, halfleft, halfright). Center is excluded because the
+    // form occupies the middle of the viewport and there is no obvious off-form half.
+    @if $login-box-align == 'left'
+        or $login-box-align == 'right'
+        or $login-box-align == 'halfleft'
+        or $login-box-align == 'halfright' {
+
+        @media (min-width: 1120px) {
+            // Anchor for the absolutely-positioned login-instructions overlay below.
+            #page-wrapper {
+                position: relative;
+            }
+
+            // Bootstrap 4 (Moodle 4.x) sets `position: relative` on every `.col-*` via the
+            // make-col-ready mixin, which Bootstrap 5 (Moodle 5.x) dropped. Without this override
+            // the closest positioned ancestor in 4.x becomes `#region-main.col-12` (constrained by
+            // `#page-content { max-width: 550px }`) instead of `#page-wrapper`, collapsing the
+            // overlay to a narrow strip. Force static so the absolute positioning falls through.
+            #region-main-box,
+            #region-main {
+                position: static;
+            }
+
+            // Overlay color knobs. Adjust these three values to tune the overlay appearance:
+            //   $overlay-base    - solid base color derived from the theme primary; bump the
+            //                      darken() percentage for a richer/darker tone.
+            //   $overlay-alpha   - opacity of the overlay (0 transparent .. 1 opaque).
+            //   $overlay-fg      - text/link color, picked automatically for WCAG contrast
+            //                      against the SOLID base color (alpha is not factored in).
+            $overlay-base: darken($primary, 15%);
+            $overlay-bg: rgba($overlay-base, .85);
+            $overlay-fg: choose-contrast-color($overlay-base);
+
+            .login-instructions {
+                // Constrain the absolute box to the off-form region via paired left/right, then
+                // centre with margin-inline: auto. rtlcss flips left<->right so this remains
+                // correctly mirrored in RTL without any /* rtl:ignore */ directives.
+                // For halfleft/halfright the off-form region is half the viewport. For left/right
+                // the form is only 550px wide and the off-form region is the rest of the viewport,
+                // so the overlay is allowed to be wider for visual balance.
+                position: absolute;
+                top: 50%;
+                transform: translateY(-50%);
+                @if $login-box-align == 'left' or $login-box-align == 'right' {
+                    max-width: 720px;
+                } @else {
+                    max-width: 480px;
+                }
+                max-height: 80vh;
+                overflow-y: auto;
+                margin-block: 0;
+                margin-inline: auto;
+                padding: 2rem;
+                background-color: $overlay-bg;
+                color: $overlay-fg;
+                border-radius: .5rem;
+                @if $overlay-fg == $white {
+                    text-shadow: 0 1px 2px rgba(0, 0, 0, .6);
+                } @else {
+                    text-shadow: 0 1px 2px rgba(255, 255, 255, .6);
+                }
+                z-index: 5;
+
+                @if $login-box-align == 'halfleft' {
+                    // Form pinned to left half -> overlay confined to right half.
+                    left: 50%;
+                    right: 0;
+                } @else if $login-box-align == 'halfright' {
+                    // Form pinned to right half -> overlay confined to left half.
+                    left: 0;
+                    right: 50%;
+                } @else if $login-box-align == 'left' {
+                    // Form pinned to left at 550px wide -> overlay fills the remaining width.
+                    left: 550px;
+                    right: 0;
+                } @else {
+                    // Form pinned to right at 550px wide -> overlay fills the remaining width.
+                    left: 0;
+                    right: 550px;
+                }
+
+                .login-heading,
+                h1,
+                h2,
+                h3,
+                a {
+                    color: $overlay-fg;
+                }
+
+                a {
+                    text-decoration: underline;
+                }
+            }
+
+            // Hide the divider that precedes the overlaid .login-instructions so the form column
+            // does not show a dangling separator. Falls back gracefully where :has() is unsupported.
+            .loginform .login-divider:has(+ .login-instructions) {
+                display: none;
+            }
+        }
+
+        // Print: restore the in-flow rendering of instructions; the overlay is screen-only.
+        @media print {
+            .login-instructions {
+                position: static;
+                max-height: none;
+                background: none;
+                color: inherit;
+                text-shadow: none;
+                transform: none;
+            }
+        }
+    }
+
+    // The halfleft/halfright settings additionally constrain the form column to half-viewport width
+    // so the overlay sits flush against the form. left/right keep the existing 550px form width.
     @if $login-box-align == 'halfleft' or $login-box-align == 'halfright' {
         @media (min-width: 1120px) {
             #page-content {
                 max-width: 50%;
             }
         }
+
         #region-main-box {
             .login-container {
                 max-width: 550px;

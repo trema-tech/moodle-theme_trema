@@ -77,6 +77,7 @@ All features from Boost (native Moodle theme) plus these Trema features:
   - Optional background image for the login page.
   - Option to display the 'Create account' section first.
   - Hide login form (useful for OAuth2 authentication).
+  - Login box alignment: left, center, right, half-left, or half-right. The half-left and half-right options additionally constrain the login form to half of the viewport at 1120 pixels and above. When authentication instructions have been configured (Site administration > Plugins > Authentication > Manage authentication > Instructions), the left, right, half-left, and half-right alignments display the instructions as a styled overlay on the side opposite the login form at viewport widths of 1120 pixels or more. Below 1120 pixels (or when no instructions are configured, or when the center alignment is used), the instructions appear below the Log in button. Note: the left, right, half-left, and half-right options use physical positioning and do not currently mirror in right-to-left languages.
 - Enforce required profile fields on user creation by admins and users that have the capability to create a new user.
 - Hideable the profile fields on the registration page and edit the profile page.
 - Admin area block that can be seen and accessed only by the site administrator.

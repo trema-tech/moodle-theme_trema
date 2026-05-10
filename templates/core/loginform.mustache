@@ -176,20 +176,6 @@
             <button class="btn btn-primary col-12" type="submit" id="loginbtn">{{#str}}login{{/str}}</button>
         </div>
     </form>
-    {{#hasidentityproviders}}
-        <div class="login-divider"></div>
-        <div class="login-identityproviders">
-            <h2 class="login-heading">{{#str}} potentialidps, auth {{/str}}</h2>
-            {{#identityproviders}}
-                <a class="btn login-identityprovider-btn col-12 mb-2" href="{{url}}">
-                    {{#iconurl}}
-                        <img src="{{iconurl}}" alt="" width="24" height="24">
-                    {{/iconurl}}
-                    {{name}}
-                </a>
-            {{/identityproviders}}
-        </div>
-    {{/hasidentityproviders}}
     {{^loginpagecreatefirst}}
         {{#hasinstructions}}
             <div class="login-divider"></div>
@@ -204,6 +190,20 @@
             </div>
         {{/cansignup}}
     {{/loginpagecreatefirst}}
+    {{#hasidentityproviders}}
+        <div class="login-divider"></div>
+        <div class="login-identityproviders">
+            <h2 class="login-heading">{{#str}} potentialidps, auth {{/str}}</h2>
+            {{#identityproviders}}
+                <a class="btn login-identityprovider-btn col-12 mb-2" href="{{url}}">
+                    {{#iconurl}}
+                        <img src="{{iconurl}}" alt="" width="24" height="24">
+                    {{/iconurl}}
+                    {{name}}
+                </a>
+            {{/identityproviders}}
+        </div>
+    {{/hasidentityproviders}}
     {{#canloginasguest}}
         <div class="login-divider"></div>
         <h2 class="login-heading">{{#str}}someallowguest{{/str}}</h2>

@@ -212,6 +212,10 @@ class core_renderer extends \theme_boost\output\core_renderer {
 
         $context->loginpagecreatefirst = get_config('theme_trema', 'loginpagecreatefirst');
 
+        // MDL-87546 (Moodle 5.2) dropped $data->hasinstructions from core_auth\output\login::export_for_template().
+        // Restore the flag so the "First time here?" panel keeps rendering on 4.1+ (idempotent on releases that still set it).
+        $context->hasinstructions = !empty($context->instructions) || !empty($context->cansignup);
+
         return $this->render_from_template('core/loginform', $context);
     }
 
