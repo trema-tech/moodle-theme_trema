@@ -170,7 +170,7 @@
             </div>
         {{/recaptcha}}
         <div class="login-form-submit form-group mb-3">
-            <button class="btn btn-primary col-12 col-md-6 col-lg-auto" type="submit" id="loginbtn">{{#str}}login{{/str}}</button>
+            <button class="btn btn-primary col-12" type="submit" id="loginbtn">{{#str}}login{{/str}}</button>
         </div>
         <div class="login-form-forgotpassword form-group mb-3">
             <a href="{{forgotpasswordurl}}">{{#str}}forgotaccount{{/str}}</a>
@@ -181,7 +181,7 @@
         <div class="login-identityproviders">
             <h2 class="login-heading">{{#str}} potentialidps, auth {{/str}}</h2>
             {{#identityproviders}}
-                <a class="btn login-identityprovider-btn col-12 col-md-6 col-lg-auto" href="{{url}}">
+                <a class="btn login-identityprovider-btn col-12 mb-2" href="{{url}}">
                     {{#iconurl}}
                         <img src="{{iconurl}}" alt="" width="24" height="24">
                     {{/iconurl}}
@@ -200,7 +200,7 @@
         {{/hasinstructions}}
         {{#cansignup}}
             <div class="login-signup">
-                <a class="btn btn-secondary col-12 col-md-6 col-lg-auto" href="{{signupurl}}">{{#str}}startsignup{{/str}}</a>
+                <a class="btn btn-secondary col-12" href="{{signupurl}}">{{#str}}startsignup{{/str}}</a>
             </div>
         {{/cansignup}}
     {{/loginpagecreatefirst}}
@@ -211,7 +211,7 @@
             <input type="hidden" name="logintoken" value="{{logintoken}}">
             <input type="hidden" name="username" value="guest">
             <input type="hidden" name="password" value="guest">
-            <button class="btn btn-secondary col-12 col-md-6 col-lg-auto" type="submit" id="loginguestbtn">{{#str}}loginguest{{/str}}</button>
+            <button class="btn btn-secondary col-12" type="submit" id="loginguestbtn">{{#str}}loginguest{{/str}}</button>
         </form>
     {{/canloginasguest}}
     <div class="login-divider"></div>
