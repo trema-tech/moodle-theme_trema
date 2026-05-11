@@ -5,6 +5,10 @@ body.pagelayout-mydashboard {
     }
 
     #mydashboard-admin {
+        // RTL-safe icon spacing.
+        i.fa {
+            padding-inline-end: 16px !important;
+        }
         .row {
             .card-body {
                 .fa {
@@ -24,8 +28,9 @@ body.pagelayout-mydashboard {
             }
             @media (min-width: 576px) {
                 gap: 1.3%;
+                // 4-col grid at 25% minus 1.3% gap across 3 gutters.
                 .col-sm-3 {
-                    width: 24%;
+                    flex: 0 0 calc(25% - (3 * 1.3%) / 4);
                 }
             }
         }

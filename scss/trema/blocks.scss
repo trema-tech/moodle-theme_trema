@@ -63,6 +63,42 @@
             width: calc(25% - 2rem);
         }
     }
+
+    // Auto-fill course card grid (Moodle 4.4+ markup).
+    .card-grid {
+        &.row {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)) !important;
+            gap: 20px;
+            > .col {
+                max-width: none;
+                width: 100%;
+                min-width: 0;
+            }
+        }
+        .card {
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            contain: paint;
+            @media (min-width: 992px) {
+                .card-img-top {
+                    aspect-ratio: 7 / 4;
+                    height: auto;
+                }
+            }
+            // Honour reduced-motion preference (WCAG 2.3.3) and skip touch devices.
+            @media (hover: hover) and (prefers-reduced-motion: no-preference) {
+                &.course-card:hover .card-img-top {
+                    transform: scale(1.1);
+                    transition: transform 0.3s ease-in;
+                }
+                .card-img-top {
+                    transition: transform 0.3s ease-out;
+                }
+            }
+        }
+    }
 }
 .block_myoverview .summary-image {
     height: auto;
