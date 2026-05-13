@@ -26,8 +26,8 @@
  * @license     https://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-define(['theme_boost/bootstrap/carousel'], function(CarouselModule) {
-    const Carousel = CarouselModule.default || CarouselModule;
+define(['jquery', 'theme_boost/bootstrap/carousel'], function($, CarouselModule) {
+    const Carousel = (CarouselModule && (CarouselModule.default || CarouselModule)) || null;
     return {
         init: function() {
             const dropdown = document.querySelector(".dropdown.show");
@@ -35,8 +35,17 @@ define(['theme_boost/bootstrap/carousel'], function(CarouselModule) {
                 dropdown.classList.remove("show");
             }
             const carouselEl = document.getElementById('carouselTrema');
-            if (carouselEl) {
+            if (!carouselEl) {
+                return;
+            }
+            // Bootstrap 5 (Moodle 4.5+): static getOrCreateInstance.
+            if (Carousel && typeof Carousel.getOrCreateInstance === 'function') {
                 Carousel.getOrCreateInstance(carouselEl, {ride: 'carousel'});
+                return;
+            }
+            // Bootstrap 4 (Moodle 4.1-4.4): jQuery plugin.
+            if ($.fn && typeof $.fn.carousel === 'function') {
+                $(carouselEl).carousel({ride: 'carousel'});
             }
         }
     };
