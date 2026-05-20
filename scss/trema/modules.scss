@@ -1,10 +1,14 @@
 body.path-mod-quiz {
     #page {
 
-        #region-main > .card > .card-body {
+        #region-main {
             padding: 0;
+
             .que {
                 margin-bottom: 0;
+                gap: 1rem;
+                display: flex;
+                flex-wrap: wrap;
 
                 .info {
                     background: $white;
@@ -13,11 +17,15 @@ body.path-mod-quiz {
                     width: 9rem;
                     padding: 1rem;
                     margin: 0;
+                    h3.no {
+                        font-size: .8rem;
+                    }
                 }
 
                 .content {
                     border-left: 1px solid rgba(0, 0, 0, .1);
-                    margin-left: 9rem;
+                    margin-left: 0;
+                    flex-grow: 1;
 
                     .formulation {
                         background: $white;
