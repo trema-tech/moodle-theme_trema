@@ -69,9 +69,11 @@
     <div id="frontpage-cards-content" class="row">
     {{#cardssettings}}
         <div class="frontpage-card col-sm-6 p-5">
+            {{#cardicon}}
             {{#cardlink}}<a href="{{cardlink}}">{{/cardlink}}
                 <span class="fa {{cardicon}} fa-4x float-start float-left me-4 mr-4 mt-2" style="color: {{cardiconcolor}};"></span>
             {{#cardlink}}</a>{{/cardlink}}
+            {{/cardicon}}
             {{#cardlink}}<a href="{{cardlink}}">{{/cardlink}}
                 <h3>{{{cardtitle}}}</h3>
             {{#cardlink}}</a>{{/cardlink}}
