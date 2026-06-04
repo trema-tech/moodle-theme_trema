@@ -26,6 +26,7 @@ Trema Theme for Moodle LMS
   - [Answers to Frequently Asked Questions](#answers-to-frequently-asked-questions)
     - [What can I override in Trema's Raw Initial SCSS settings?](#what-can-i-override-in-tremas-raw-initial-scss-settings)
     - [What is the recommended image size for course cards?](#what-is-the-recommended-image-size-for-course-cards)
+    - [What is the recommended image size for the frontpage banner?](#what-is-the-recommended-image-size-for-the-frontpage-banner)
     - [Are there any security considerations?](#are-there-any-security-considerations)
     - [How can I get answers to other questions?](#how-can-i-get-answers-to-other-questions)
   - [Contributors](#contributors)
@@ -198,6 +199,24 @@ Tips for course images:
 - **Target under 100 KB per image** where possible. Course listings load many images at once; a single 2 MB image can noticeably slow down the Dashboard.
 
 Note: some sites reuse the course image for other purposes (course certificates, course banners). If you need a larger original for those uses, consider uploading an optimized copy specifically for the course image so the Dashboard remains fast.
+
+### What is the recommended image size for the frontpage banner?
+
+The frontpage banner (carousel or single image) displays full-width with a configurable height. Trema scales the image to fill the banner using CSS `cover`, which means the image is scaled to fill the banner area and any overflow is cropped. Because the banner's proportions change with the browser width and your "Frontpage banner height" setting, **you cannot pixel-match an image to the banner** — the visible crop will differ from one screen to the next. Instead, follow the "safe zone" approach:
+
+- **Use a large landscape image, at least 1920 pixels wide** (for example 1920 × 1080, a 16:9 ratio or wider). One generous image serves every screen size; the browser scales it down as needed.
+- **Keep important content (text, faces, logos) in the centre "safe zone".** The edges and the top/bottom are cropped differently depending on the visitor's screen, so never place key content near the edges.
+- **Leave the centre relatively uncluttered.** The banner title, subtitle, and button overlay the centre of the image, so a busy centre competes with that text.
+- **Don't try to match the height setting exactly.** A taller image simply gives you more vertical safe-margin on narrow or tall (mobile) viewports — when in doubt, go taller.
+
+Tips for banner images:
+
+- **Use WebP (preferred) for photographs** — WebP is typically 25-35% smaller than JPG at equivalent quality, and all current browsers support it.
+- **Use JPG for photographs** when WebP is not available.
+- **Use PNG or GIF for logos or designs with flat colors and text** — they compress better for non-photographic content.
+- **Optimize before uploading.** Moodle does not optimize images. Tools such as [Squoosh](https://squoosh.app) (by Google), [TinyPNG](https://tinypng.com), or your image editor's "Save for web" feature can reduce file size by 50-80% with no visible quality loss.
+- **Target under 200 KB per image** where possible — banner images load on every frontpage view, so file size affects site performance.
+- **Enable "Frontpage banner dark overlay" for best readability** — the overlay darkens the image, ensuring text content is always legible over photographs.
 
 ### Are there any security considerations?
 
