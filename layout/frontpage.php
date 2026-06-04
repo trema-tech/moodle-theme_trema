@@ -88,6 +88,7 @@ $headercontent = $header->export_for_template($renderer);
 $adminblockshtml = $OUTPUT->blocks('side-admin');
 $numberofimages = $pluginsettings->numberofimages;
 $overlayimage   = $OUTPUT->image_url('frontpage/overlay', 'theme');
+$context = \context_system::instance();
 // Frontpage images.
 if ($numberofimages > 1) {
     $frontpagecarrousel = [];
@@ -107,7 +108,8 @@ if ($numberofimages > 1) {
             : "background-image: url('$url');";
         $frontpagecarrousel[$i]['index']    = $i - 1;
         $frontpagecarrousel[$i]['title']    = !empty($pluginsettings->$title) ? \format_string($pluginsettings->$title) : '';
-        $frontpagecarrousel[$i]['subtitle'] = !empty($pluginsettings->$subtitle) ? \format_string($pluginsettings->$subtitle) : '';
+        $frontpagecarrousel[$i]['subtitle'] = !empty($pluginsettings->$subtitle)
+            ? \format_text($pluginsettings->$subtitle, FORMAT_HTML, ['context' => $context]) : '';
         $frontpagecarrousel[$i]['btntext']  = !empty($pluginsettings->$btntext) ? \format_string($pluginsettings->$btntext) : '';
         $frontpagecarrousel[$i]['btnhref']  = !empty($pluginsettings->$btnhref) ? $pluginsettings->$btnhref : '';
         $frontpagecarrousel[$i]['btnclass'] = !empty($pluginsettings->$btnclass) ? $pluginsettings->$btnclass : '';
@@ -123,7 +125,6 @@ if ($numberofimages > 1) {
 }
 
 $regionmainsettingsmenu = $OUTPUT->region_main_settings_menu();
-$context = \context_system::instance();
 $databs = $CFG->branch >= 500 ? 'bs-' : '';
 
 $templatecontext = [
@@ -155,7 +156,7 @@ $templatecontext = [
     'frontpagetitle' => !empty($pluginsettings->frontpagetitle) ?
         \format_string($pluginsettings->frontpagetitle) : '',
     'frontpagesubtitle' => !empty($pluginsettings->frontpagesubtitle) ?
-        \format_string($pluginsettings->frontpagesubtitle) : '',
+        \format_text($pluginsettings->frontpagesubtitle, FORMAT_HTML, ['context' => $context]) : '',
     'frontpagebuttontext' => !empty($pluginsettings->frontpagebuttontext) ?
         \format_string($pluginsettings->frontpagebuttontext) : '',
     'frontpagebuttonclass' => !empty($pluginsettings->frontpagebuttonclass) ?
