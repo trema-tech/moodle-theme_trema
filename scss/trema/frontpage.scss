@@ -48,7 +48,7 @@ body#page-site-index {
     .frontpage-banner {
         position: relative;
         min-height: calc(#{$banner-height} - 4em);
-        background-attachment: scroll, fixed;
+        background-attachment: scroll;
         background-position: center center;
         background-size: cover;
         color: $white;

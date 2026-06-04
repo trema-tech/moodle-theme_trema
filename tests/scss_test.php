@@ -60,4 +60,35 @@ final class scss_test extends \advanced_testcase {
             \theme_config::load('trema')->get_css_content_debug('scss', null, null)
         );
     }
+
+    /**
+     * Regression test: banner carousel images must not use background-attachment: fixed.
+     *
+     * background-attachment: scroll, fixed positions the banner image relative to the
+     * viewport rather than the element, causing a zoom/parallax effect. This test ensures
+     * the fix remains in place.
+     *
+     * @covers \theme_trema
+     *
+     * @return void
+     */
+    public function test_banner_background_attachment_not_fixed(): void {
+        $this->resetAfterTest();
+
+        $css = \theme_config::load('trema')->get_css_content_debug('scss', null, null);
+
+        // The bug pattern must not exist: "scroll, fixed" is the culprit.
+        $this->assertStringNotContainsString(
+            'background-attachment: scroll, fixed',
+            $css,
+            'Banner must not use "background-attachment: scroll, fixed" (causes zoom/parallax bug)'
+        );
+
+        // Regression guard: both overlay and banner must scroll naturally.
+        $this->assertStringContainsString(
+            'background-attachment: scroll',
+            $css,
+            'Banner must use "background-attachment: scroll" for natural scrolling'
+        );
+    }
 }
