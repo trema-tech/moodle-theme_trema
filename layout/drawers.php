@@ -87,11 +87,7 @@ if ($PAGE->has_secondary_navigation()) {
     }
 }
 
-if ($CFG->branch > 400) {
-    $primary = new theme_trema\output\primary_navigation($PAGE);
-} else {
-    $primary = new core\navigation\output\primary($PAGE);
-}
+$primary = new theme_trema\output\primary_navigation($PAGE);
 
 $renderer = $PAGE->get_renderer('core');
 $primarymenu = $primary->export_for_template($renderer);
