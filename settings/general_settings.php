@@ -57,16 +57,14 @@ $setting = new admin_setting_configselect($name, $title, $description, $default,
 $setting->set_updatedcallback('theme_reset_all_caches');
 $page->add($setting);
 
-if ($CFG->branch > 400) {
-    // Process primary navigation (custom menu) through Moodle filters.
-    $name = 'theme_trema/navfilter';
-    $title = get_string('navfilter', $themename);
-    $description = get_string('navfilter_desc', $themename);
-    $default = true;
-    $setting = new admin_setting_configcheckbox($name, $title, $description, $default, true, false);
-    $setting->set_updatedcallback('theme_reset_all_caches');
-    $page->add($setting);
-}
+// Process primary navigation (custom menu) through Moodle filters.
+$name = 'theme_trema/navfilter';
+$title = get_string('navfilter', $themename);
+$description = get_string('navfilter_desc', $themename);
+$default = true;
+$setting = new admin_setting_configcheckbox($name, $title, $description, $default, true, false);
+$setting->set_updatedcallback('theme_reset_all_caches');
+$page->add($setting);
 
 // Hide selected items in the primary navigation (custom menu).
 $hideitemsoptions = [];

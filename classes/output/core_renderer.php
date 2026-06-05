@@ -78,8 +78,7 @@ class core_renderer extends \theme_boost\output\core_renderer {
         }
 
         // If no favicon found yet, check favicon settings in Moodle's Appearance/Logo settings.
-        // Note: Only available in Moodle 4.1+.
-        if (empty($favicon) && $CFG->branch >= 401) {
+        if (empty($favicon)) {
             $corefavicon = get_config('core_admin', 'favicon');
             if (!empty($corefavicon)) {
                 // Use $CFG->themerev to prevent browser caching when the file changes.
