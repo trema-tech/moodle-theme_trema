@@ -2,7 +2,7 @@
     "name": "trema-tech/moodle-theme_trema",
     "type": "moodle-theme",
     "require": {
-        "composer/installers": "~1.0"
+        "composer/installers": "^1.0 || ^2.0"
     },
     "extra": {
         "installer-name": "trema"
