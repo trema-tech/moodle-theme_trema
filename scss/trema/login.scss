@@ -361,6 +361,15 @@ body#page-login-verify_age_location {
 }
 
 body#page-admin-tool-mfa-auth {
+    &.style-image {
+        #page-wrapper {
+            background-image: url($login-backgroundimage);
+            background-position: top center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-attachment: fixed;
+        }
+    }
     #region-main {
         &:before {
             content: none;
@@ -373,6 +382,23 @@ body#page-admin-tool-mfa-auth {
         .login-container {
             width: auto !important;
         }
+    }
+    #page {
+        padding-top: 0 !important;
+        // Clear the .pagelayout-login #page grey gradient, which otherwise paints over the login
+        // background image (background-color: transparent leaves the gradient background-image).
+        background: none;
+    }
+    // The login layout renders the standard (Boost) footer; hide it as on the main login page.
+    #page-footer {
+        display: none;
+    }
+    #page-wrapper #page #page-content {
+        flex: 1 0 auto;
+        max-width: 550px;
+        margin: 0 auto;
+        margin-left: auto;
+        align-items: center;
     }
 }
 
