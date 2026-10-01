@@ -299,6 +299,11 @@ function theme_trema_get_main_scss_content($theme) {
 
     $scss = '';
 
+    // Moodle 5.2+: Boost SCSS uses the Moodle Design System tokens, which must be imported before Bootstrap.
+    if (file_exists("$CFG->dirroot/theme/boost/scss/design-system.scss")) {
+        $scss .= '@import "design-system";' . "\n";
+    }
+
     $filename = !empty($theme->settings->preset) ? $theme->settings->preset : 'default.scss';
     $scss .= file_get_contents("$CFG->dirroot/theme/trema/scss/preset/{$filename}");
 
