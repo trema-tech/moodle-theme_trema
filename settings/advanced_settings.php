@@ -35,8 +35,18 @@ $name = 'theme_trema/preset';
 $title = get_string('preset', 'theme_boost');
 $description = get_string('preset_desc', 'theme_boost');
 $default = 'default.scss';
+
+// These are the uploaded presets.
+$context = context_system::instance();
+$fs = get_file_storage();
+$files = $fs->get_area_files($context->id, 'theme_trema', 'preset', 0, 'itemid, filepath, filename', false);
+$choices = [];
+foreach ($files as $file) {
+    $choices[$file->get_filename()] = $file->get_filename();
+}
 // These are the built in presets.
-$choices = ['default.scss' => 'default.scss', 'plain.scss' => 'plain.scss'];
+$choices['default.scss'] = 'default.scss';
+$choices['plain.scss'] = 'plain.scss';
 $setting = new admin_setting_configthemepreset($name, $title, $description, $default, $choices, 'trema');
 $setting->set_updatedcallback('theme_reset_all_caches');
 $page->add($setting);
