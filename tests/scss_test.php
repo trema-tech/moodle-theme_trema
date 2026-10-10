@@ -16,8 +16,18 @@
 
 namespace theme_trema;
 
+#[\PHPUnit\Framework\Attributes\CoversFunction('theme_trema_get_pre_scss')]
+#[\PHPUnit\Framework\Attributes\CoversFunction('theme_trema_get_main_scss_content')]
+#[\PHPUnit\Framework\Attributes\CoversFunction('theme_trema_get_extra_scss')]
 /**
  * Unit tests for scss compilation.
+ *
+ * Keep annotations for PHPUnit 9 and attributes for PHPUnit 10+.
+ * Attributes precede the docblock so older Moodle code checkers can read the annotations.
+ *
+ * @covers ::theme_trema_get_pre_scss
+ * @covers ::theme_trema_get_main_scss_content
+ * @covers ::theme_trema_get_extra_scss
  *
  * @package   theme_trema
  * @copyright 2024-2026 TNG Consulting Inc. - {@link https://www.tngconsulting.ca/}
@@ -28,8 +38,6 @@ namespace theme_trema;
 final class scss_test extends \advanced_testcase {
     /**
      * Test that trema can be compiled using SassC (the defacto implemention).
-     *
-     * @covers \theme_trema
      *
      * @return void
      */
@@ -49,8 +57,6 @@ final class scss_test extends \advanced_testcase {
     /**
      * Test that trema can be compiled using scssphp (the built-in PHP implementation).
      *
-     * @covers \theme_trema
-     *
      * @return void
      */
     public function test_scss_compilation_with_scssphp(): void {
@@ -67,8 +73,6 @@ final class scss_test extends \advanced_testcase {
      * background-attachment: scroll, fixed positions the banner image relative to the
      * viewport rather than the element, causing a zoom/parallax effect. This test ensures
      * the fix remains in place.
-     *
-     * @covers \theme_trema
      *
      * @return void
      */
