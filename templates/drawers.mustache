@@ -61,6 +61,9 @@
     {{#courseindex}}
         {{< theme_boost/drawer }}
             {{$id}}theme_boost-drawers-courseindex{{/id}}
+            {{$drawerheading}}
+                {{#hascourseindexheading}}{{> theme_boost/courseindexdrawerheading}}{{/hascourseindexheading}}
+            {{/drawerheading}}
             {{! Moodle 4.3 to 5.2. }}
             {{$drawerheadercontent}}
                 {{> theme_boost/courseindexdrawercontrols}}

@@ -100,6 +100,16 @@ $headercontent = $header->export_for_template($renderer);
 $context = \context_system::instance();
 $databs = $CFG->branch >= 500 ? 'bs-' : '';
 
+// Course index drawer heading (Moodle 5.2+).
+$hascourseindexheading = $CFG->branch >= 502 && !empty($courseindex);
+$coursefullname = '';
+$courseurl = null;
+if ($hascourseindexheading) {
+    $coursecontext = \context_course::instance($PAGE->course->id);
+    $coursefullname = \format_string($PAGE->course->fullname, true, ['context' => $coursecontext, 'escape' => false]);
+    $courseurl = (new \moodle_url('/course/view.php', ['id' => $PAGE->course->id]))->out(false);
+}
+
 $templatecontext = [
     'sitename' => \format_string($SITE->shortname, true, ['context' => $context, "escape" => false]),
     'output' => $OUTPUT,
@@ -109,6 +119,9 @@ $templatecontext = [
     'courseindexopen' => $courseindexopen,
     'blockdraweropen' => $blockdraweropen,
     'courseindex' => $courseindex,
+    'hascourseindexheading' => $hascourseindexheading,
+    'coursefullname' => $coursefullname,
+    'courseurl' => $courseurl,
     'primarymoremenu' => $primarymenu['moremenu'],
     'secondarymoremenu' => $secondarynavigation ?: false,
     'mobileprimarynav' => $primarymenu['mobileprimarynav'],
