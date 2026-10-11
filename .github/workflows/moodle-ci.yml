@@ -18,10 +18,10 @@ jobs:
     # Virtual environment to use.
     runs-on: ubuntu-22.04
 
-    # DB services you need for testing.
+    # DB services you need for testing. Only the one used by the job is started (empty image = skipped).
     services:
       postgres:
-        image: ${{ contains(fromJSON('["main", "MOODLE_501_STABLE", "MOODLE_502_STABLE", "MOODLE_503_STABLE"]'), matrix.moodle-branch) && 'postgres:16' || 'postgres:14' }}
+        image: ${{ matrix.database == 'pgsql' && (contains(fromJSON('["main", "MOODLE_503_STABLE"]'), matrix.moodle-branch) && 'postgres:17' || (contains(fromJSON('["MOODLE_501_STABLE", "MOODLE_502_STABLE"]'), matrix.moodle-branch) && 'postgres:16' || 'postgres:14')) || '' }}
         env:
           POSTGRES_USER: 'postgres'
           POSTGRES_HOST_AUTH_METHOD: 'trust'
@@ -30,15 +30,14 @@ jobs:
         options: --health-cmd pg_isready --health-interval 10s --health-timeout 5s --health-retries 3
 
       mariadb:
-        image: mariadb:10.11
+        image: ${{ matrix.database == 'mariadb' && (contains(fromJSON('["main", "MOODLE_503_STABLE"]'), matrix.moodle-branch) && 'mariadb:11.4' || 'mariadb:10.11') || '' }}
         env:
-          MYSQL_USER: 'root'
-          MYSQL_ALLOW_EMPTY_PASSWORD: "true"
+          MARIADB_ALLOW_EMPTY_ROOT_PASSWORD: '1'
           MYSQL_CHARACTER_SET_SERVER: "utf8mb4"
           MYSQL_COLLATION_SERVER: "utf8mb4_unicode_ci"
         ports:
           - 3306:3306
-        options: --health-cmd="mysqladmin ping" --health-interval 10s --health-timeout 5s --health-retries 3
+        options: --health-cmd="healthcheck.sh --connect --innodb_initialized" --health-interval 10s --health-timeout 5s --health-retries 3
 
     # Determines build matrix. This is a list of PHP versions, databases and
     # branches to test our project against. For each combination a separate
@@ -214,6 +213,10 @@ jobs:
         id: behat
         if: ${{ !cancelled() }}
         run: moodle-plugin-ci behat --profile chrome --scss-deprecations
+        env:
+          # The PHP built-in web server is single-threaded by default. Pages that request the site
+          # itself (e.g. the public paths security check on the admin dashboard) would hang.
+          PHP_CLI_SERVER_WORKERS: 4
 
       - name: Upload Behat Faildump
         if: ${{ failure() && steps.behat.outcome == 'failure' }}
