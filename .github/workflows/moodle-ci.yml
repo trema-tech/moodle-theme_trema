@@ -202,7 +202,15 @@ jobs:
       - name: Grunt
         continue-on-error: true # This step will show errors but will not fail
         if: ${{ !cancelled() }}
-        run: moodle-plugin-ci grunt --max-lint-warnings 0
+        # The amd task is skipped: it rebuilds amd/build and compares it with the committed files, which can only
+        # match one Moodle version's build tools. The theme supports several, so its JavaScript is linted below instead.
+        run: moodle-plugin-ci grunt --max-lint-warnings 0 --tasks=gherkinlint --tasks=stylelint
+
+      - name: ESLint
+        continue-on-error: true # This step will show errors but will not fail
+        if: ${{ !cancelled() }}
+        working-directory: moodle
+        run: npx eslint --max-warnings 0 "$([ -d public ] && echo public/)theme/trema/amd/src"
 
       - name: PHPUnit tests
         continue-on-error: true # This step will show errors but will not fail
