@@ -299,6 +299,14 @@
             border-bottom: 3px solid #7a7a7a;
         }
     }
+    // Moodle 5.3+ navigation component.
+    .navigation .mds-nav-pill {
+        color: fix-color-contrast($primary);
+        text-decoration: none;
+        &.active {
+            color: $dark;
+        }
+    }
 }
 
 .sr-only-focusable,

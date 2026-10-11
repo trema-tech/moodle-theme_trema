@@ -145,7 +145,9 @@
             {{/showdashboardadmin}}
             {{#secondarymoremenu}}
                 <div class="secondary-navigation">
-                    {{> core/moremenu}}
+                    {{! Moodle 5.3+ provides reactprops for the new navigation component. }}
+                    {{#reactprops}}{{> core/secondarymoremenu}}{{/reactprops}}
+                    {{^reactprops}}{{> core/moremenu}}{{/reactprops}}
                 </div>
             {{/secondarymoremenu}}
             <div id="page-content" class="pb-3 d-print-block">

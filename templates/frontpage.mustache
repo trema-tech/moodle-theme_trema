@@ -188,7 +188,9 @@
         {{/showbanner}}
         {{#secondarymoremenu}}
             <div class="secondary-navigation">
-                {{> core/moremenu}}
+                {{! Moodle 5.3+ provides reactprops for the new navigation component. }}
+                {{#reactprops}}{{> core/secondarymoremenu}}{{/reactprops}}
+                {{^reactprops}}{{> core/moremenu}}{{/reactprops}}
             </div>
         {{/secondarymoremenu}}
         {{#hascards}}
