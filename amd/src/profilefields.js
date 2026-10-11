@@ -68,10 +68,7 @@ define(['jquery', 'core/str', 'core/notification'], function($, Str, Notificatio
             var field = $('#' + fieldId);
 
             if (field.length > 0) {
-                var formGroup = field.closest('.form-group');
-                if (formGroup.length === 0) {
-                    formGroup = field.closest('.fitem');
-                }
+                var formGroup = field.closest('.fitem');
 
                 // Find the parent category/section for this field
                 var category = field.closest('fieldset.collapsible');
@@ -130,7 +127,7 @@ define(['jquery', 'core/str', 'core/notification'], function($, Str, Notificatio
                         if (!isValid) {
                             e.preventDefault();
                             // Scroll to the first invalid field
-                            var firstInvalidField = $('.form-group.has-danger').first();
+                            var firstInvalidField = $('.fitem.has-danger').first();
                             if (firstInvalidField.length > 0) {
                                 $('html, body').animate({
                                     scrollTop: firstInvalidField.offset().top - 100
@@ -172,7 +169,7 @@ define(['jquery', 'core/str', 'core/notification'], function($, Str, Notificatio
      */
     var validateField = function(field, requiredString) {
         var fieldId = field.attr('id');
-        var formGroup = field.closest('.form-group');
+        var formGroup = field.closest('.fitem');
         var errorContainer = $('#' + fieldId + '_error');
 
         // Get the field value, handling different input types
