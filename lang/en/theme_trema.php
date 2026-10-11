@@ -98,7 +98,7 @@ $string['defaultfooter_default'] = '<div class="row">
       veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
       commodo consequat.</p>
   </div>
-  <div class="col-md-3 col-sm-12 ml-auto">
+  <div class="col-md-3 col-sm-12 ms-auto">
     <h3 class="h5 mb-4">Contact Us</h3>
     <ul class="labeled-icons">
       <li class="mb-2"><i class="fa fa-info-circle fa-fw"></i>&nbsp;<a href="#">FAQ</a></li>

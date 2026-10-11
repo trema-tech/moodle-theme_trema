@@ -1,0 +1,68 @@
+// Bootstrap 5 classes used by Trema's templates that Moodle 4.x (Bootstrap 4) does not provide.
+// Only loaded on Moodle < 5.0. See theme_trema_get_main_scss_content().
+// Moodle 5.0+ provides these natively and flags their Bootstrap 4 equivalents as deprecated.
+
+$trema-bs5-bridge: false !default;
+
+.visually-hidden {
+    @include sr-only();
+}
+
+.fw-light {
+    font-weight: $font-weight-light !important;
+}
+
+.form-select {
+    @extend .custom-select;
+}
+
+@each $color, $value in $theme-colors {
+    .text-bg-#{$color} {
+        color: color-yiq($value) !important;
+        background-color: $value !important;
+    }
+}
+
+// Moodle 4.5 provides the following in theme/boost/scss/moodle/bs5-bridge.scss. Same rules for Moodle 4.1-4.4.
+@if $trema-bs5-bridge {
+    // ps-1 > pl-1, pe-1 > pr-1, me-sm-1 > mr-sm-1, ...
+    @each $breakpoint in map-keys($grid-breakpoints) {
+        $infix: breakpoint-infix($breakpoint, $grid-breakpoints);
+        @each $prop, $abbrev in (margin: m, padding: p) {
+            @each $size, $length in $spacers {
+                .#{$abbrev}s#{$infix}-#{$size} {
+                    @extend .#{$abbrev}l#{$infix}-#{$size};
+                }
+                .#{$abbrev}e#{$infix}-#{$size} {
+                    @extend .#{$abbrev}r#{$infix}-#{$size};
+                }
+            }
+        }
+        .ms#{$infix}-auto {
+            @extend .ml#{$infix}-auto;
+        }
+        .me#{$infix}-auto {
+            @extend .mr#{$infix}-auto;
+        }
+        .float#{$infix}-start {
+            @extend .float#{$infix}-left;
+        }
+        .float#{$infix}-end {
+            @extend .float#{$infix}-right;
+        }
+        .text#{$infix}-start {
+            @extend .text#{$infix}-left;
+        }
+        .text#{$infix}-end {
+            @extend .text#{$infix}-right;
+        }
+    }
+
+    .border-start {
+        @extend .border-left;
+    }
+
+    .border-end {
+        @extend .border-right;
+    }
+}

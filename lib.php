@@ -198,7 +198,7 @@ function theme_trema_get_pre_scss($theme) {
     $fields['showactivityicons'] = '.page-header-image,.activityiconcontainer.courseicon';
 
     // Login form.
-    $fields['loginshowloginform'] = '#login, .loginform .login-form, .login-form-forgotpassword form-group';
+    $fields['loginshowloginform'] = '#login, .loginform .login-form';
 
     // User menu - Hide the Logout link.
     $fields['showumlogoutlink'] = '#carousel-item-main a:last-of-type, #carousel-item-main .dropdown-divider:last-of-type';
@@ -314,6 +314,13 @@ function theme_trema_get_main_scss_content($theme) {
     } else {
         // Safety fallback - the uploaded preset may have been deleted.
         $scss .= file_get_contents("$CFG->dirroot/theme/trema/scss/preset/default.scss");
+    }
+
+    // Moodle 4.x (Bootstrap 4): add the Bootstrap 5 classes used in Trema's templates.
+    if ((int)$CFG->branch < 500) {
+        // Moodle 4.5 already provides the start/end spacing, float, text and border classes.
+        $scss .= '$trema-bs5-bridge: ' . ((int)$CFG->branch < 405 ? 'true' : 'false') . ";\n";
+        $scss .= file_get_contents("$CFG->dirroot/theme/trema/scss/bs5-compat.scss");
     }
 
     if (empty($theme->settings->enabletremalines)) {

@@ -102,7 +102,7 @@
                             data-{{databs}}placement="right"
                             title="{{#str}}opendrawerindex, core{{/str}}"
                         >
-                            <span class="sr-only">{{#str}}opendrawerindex, core{{/str}}</span>
+                            <span class="visually-hidden">{{#str}}opendrawerindex, core{{/str}}</span>
                             {{#hassidebaricons}}
                                 <span class="dir-rtl-hide">{{#pix}} e/sidebar_left, core {{/pix}}</span>
                                 <span class="dir-ltr-hide">{{#pix}} e/sidebar_right, core {{/pix}}</span>
@@ -114,7 +114,7 @@
                     </div>
                 {{/courseindex}}
                 {{#hasblocks}}
-                    <div class="drawer-toggler drawer-right-toggle ml-auto">
+                    <div class="drawer-toggler drawer-right-toggle ms-auto">
                         <button
                             class="btn icon-no-margin"
                             data-toggler="drawers"
@@ -124,7 +124,7 @@
                             data-{{databs}}placement="right"
                             title="{{#str}}opendrawerblocks, core{{/str}}"
                         >
-                            <span class="sr-only">{{#str}}opendrawerblocks, core{{/str}}</span>
+                            <span class="visually-hidden">{{#str}}opendrawerblocks, core{{/str}}</span>
                             {{#hassidebaricons}}
                                 <span class="dir-rtl-hide">{{#pix}} e/sidebar_right, core {{/pix}}</span>
                                 <span class="dir-ltr-hide">{{#pix}} e/sidebar_left, core {{/pix}}</span>
@@ -136,7 +136,7 @@
                     </div>
                 {{/hasblocks}}
             </div>
-            <h1 class="sr-only container pb-0 mb-0 mt-5">{{sitename}}</h1>
+            <h1 class="visually-hidden container pb-0 mb-0 mt-5">{{sitename}}</h1>
         {{#showbanner}}
         {{#ifcarrousel}}
             <div id="carouselTrema" class="carousel slide {{^frontpagecarrousel}}d-none{{/frontpagecarrousel}}" data-{{databs}}ride="carousel">
@@ -160,11 +160,11 @@
                     {{#ifcarrousel}}
                     <a class="carousel-control-prev" href="#carouselTrema" role="button" data-{{databs}}target="#carouselTrema" data-{{databs}}slide="prev">
                         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                        <span class="sr-only visually-hidden">{{#str}} previous, core {{/str}}</span>
+                        <span class="visually-hidden">{{#str}} previous, core {{/str}}</span>
                     </a>
                     <a class="carousel-control-next" href="#carouselTrema" role="button" data-{{databs}}slide="next" data-{{databs}}target="#carouselTrema">
                         <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                        <span class="sr-only visually-hidden">{{#str}} next, core {{/str}}</span>
+                        <span class="visually-hidden">{{#str}} next, core {{/str}}</span>
                     </a>
                     {{/ifcarrousel}}
                 </div>

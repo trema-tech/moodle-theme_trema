@@ -59,7 +59,7 @@
                 <h2 class="border-bottom p-3 m-2 mb-4">{{{cardstitle}}}</h2>
             {{/cardstitle}}
             {{#cardssubtitle}}
-                <p class="font-weight-light fw-light">
+                <p class="fw-light">
                     {{{cardssubtitle}}}
                 </p>
             {{/cardssubtitle}}
@@ -71,13 +71,13 @@
         <div class="frontpage-card col-sm-6 p-5">
             {{#cardicon}}
             {{#cardlink}}<a href="{{cardlink}}">{{/cardlink}}
-                <span class="fa {{cardicon}} fa-4x float-start float-left me-4 mr-4 mt-2" style="color: {{cardiconcolor}};"></span>
+                <span class="fa {{cardicon}} fa-4x float-start me-4 mt-2" style="color: {{cardiconcolor}};"></span>
             {{#cardlink}}</a>{{/cardlink}}
             {{/cardicon}}
             {{#cardlink}}<a href="{{cardlink}}">{{/cardlink}}
                 <h3>{{{cardtitle}}}</h3>
             {{#cardlink}}</a>{{/cardlink}}
-            <p class="font-weight-light fw-light">{{{cardsubtitle}}}</p>
+            <p class="fw-light">{{{cardsubtitle}}}</p>
         </div>
         {{/cardssettings}}
     </div>

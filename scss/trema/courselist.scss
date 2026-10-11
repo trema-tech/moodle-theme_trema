@@ -1,3 +1,26 @@
+// Replaces Bootstrap 4 .card-deck (removed in Bootstrap 5) with the same layout on all Moodle versions.
+$trema-card-deck-margin: 15px;
+
+.course-card-deck {
+    .card {
+        margin-bottom: $trema-card-deck-margin;
+    }
+
+    @include media-breakpoint-up(sm) {
+        display: flex;
+        flex-flow: row wrap;
+        margin-right: -$trema-card-deck-margin;
+        margin-left: -$trema-card-deck-margin;
+
+        .card {
+            flex: 1 0 0%;
+            margin-right: $trema-card-deck-margin;
+            margin-bottom: 0;
+            margin-left: $trema-card-deck-margin;
+        }
+    }
+}
+
 #page .course-card-view {
     box-shadow: 5px 5px 9px -4px rgba($black, .1);
     padding: 0 0 4rem;
@@ -100,7 +123,8 @@ body#page-enrol-index {
             h2 {
                 text-align: center;
             }
-            .card-deck {
+            .card-deck,
+            .course-card-deck {
                 justify-content: center;
                 .course-card-view {
                     width: 100%;

@@ -123,18 +123,18 @@ class course_renderer extends \core_course_renderer {
         }
 
         $coursecount = 1;
-        $content .= html_writer::start_tag('div', ['class' => ' row card-deck my-4']);
+        $content .= html_writer::start_tag('div', ['class' => 'row course-card-deck my-4']);
         foreach ($courses as $course) {
             // If the course is in a hidden category and we don't want to show these courses...
             if (empty($this->page->theme->settings->showehiddencategorycourses) && !$this->isvisiblecat($course)) {
                 // Show the card dimmed if the user has course edit/update capability.
                 if (has_capability('moodle/course:update', \context_course::instance($course->id))) {
-                    $content .= $this->coursecat_coursebox($chelper, $course, 'card mb-3 mr-3 course-card-view dimmed');
+                    $content .= $this->coursecat_coursebox($chelper, $course, 'card mb-3 me-3 course-card-view dimmed');
                     $coursecount++;
                 }
             } else {
                 // Otherwise, just display the course.
-                $content .= $this->coursecat_coursebox($chelper, $course, 'card mb-3 mr-3 course-card-view');
+                $content .= $this->coursecat_coursebox($chelper, $course, 'card mb-3 me-3 course-card-view');
                 $coursecount++;
             }
         }
@@ -264,7 +264,7 @@ class course_renderer extends \core_course_renderer {
         // Display course contacts. See core_course_list_element::get_course_contacts().
         if ($showcardcontact && $course->has_course_contacts()) {
             $content .= html_writer::start_tag('div', ['class' => 'teachers pt-2']);
-            $content .= html_writer::start_tag('ul', ['class' => 'list-unstyled m-0 font-weight-light']);
+            $content .= html_writer::start_tag('ul', ['class' => 'list-unstyled m-0 fw-light']);
             foreach ($course->get_course_contacts() as $userid => $coursecontact) {
                 $name = $coursecontact['rolename'] . ': ' . html_writer::link(
                     new moodle_url('/user/view.php', ['id' => $userid, 'course' => SITEID]),
