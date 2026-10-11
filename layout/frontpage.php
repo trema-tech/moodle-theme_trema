@@ -169,6 +169,7 @@ $templatecontext = [
     'footerinfo' => !empty($pluginsettings->enablefooterinfo),
     'showbranding' => !empty($pluginsettings->showbranding),
     'databs' => $databs,
+    'hassidebaricons' => $CFG->branch >= 502, // Moodle 5.2+ drawer toggle icons.
 ];
 
 // Just enter in this if the debug mode is not enabled.

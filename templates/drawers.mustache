@@ -115,7 +115,13 @@
                             title="{{#str}}opendrawerindex, core{{/str}}"
                         >
                             <span class="sr-only">{{#str}}opendrawerindex, core{{/str}}</span>
-                            {{#pix}} t/index_drawer, moodle {{/pix}}
+                            {{#hassidebaricons}}
+                                <span class="dir-rtl-hide">{{#pix}} e/sidebar_left, core {{/pix}}</span>
+                                <span class="dir-ltr-hide">{{#pix}} e/sidebar_right, core {{/pix}}</span>
+                            {{/hassidebaricons}}
+                            {{^hassidebaricons}}
+                                {{#pix}} t/index_drawer, moodle {{/pix}}
+                            {{/hassidebaricons}}
                         </button>
                     </div>
                 {{/courseindex}}
@@ -131,8 +137,14 @@
                             title="{{#str}}opendrawerblocks, core{{/str}}"
                         >
                             <span class="sr-only">{{#str}}opendrawerblocks, core{{/str}}</span>
-                            <span class="dir-rtl-hide">{{#pix}}t/blocks_drawer, core{{/pix}}</span>
-                            <span class="dir-ltr-hide">{{#pix}}t/blocks_drawer_rtl, core{{/pix}}</span>
+                            {{#hassidebaricons}}
+                                <span class="dir-rtl-hide">{{#pix}} e/sidebar_right, core {{/pix}}</span>
+                                <span class="dir-ltr-hide">{{#pix}} e/sidebar_left, core {{/pix}}</span>
+                            {{/hassidebaricons}}
+                            {{^hassidebaricons}}
+                                <span class="dir-rtl-hide">{{#pix}}t/blocks_drawer, core{{/pix}}</span>
+                                <span class="dir-ltr-hide">{{#pix}}t/blocks_drawer_rtl, core{{/pix}}</span>
+                            {{/hassidebaricons}}
                         </button>
                     </div>
                 {{/hasblocks}}

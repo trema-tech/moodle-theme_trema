@@ -138,6 +138,7 @@ $templatecontext = [
     'footerinfo' => !empty($pluginsettings->enablefooterinfo),
     'showbranding' => !empty($pluginsettings->showbranding),
     'databs' => $databs,
+    'hassidebaricons' => $CFG->branch >= 502, // Moodle 5.2+ drawer toggle icons.
 ];
 
 echo $OUTPUT->render_from_template('theme_trema/drawers', $templatecontext);
