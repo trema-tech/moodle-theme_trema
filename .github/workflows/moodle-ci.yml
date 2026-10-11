@@ -48,6 +48,13 @@ jobs:
       fail-fast: false
       matrix:
         include:
+          # Moodle 5.3.x LTS (MOODLE_503_STABLE).
+          - php: '8.4'
+            moodle-branch: 'MOODLE_503_STABLE'
+            database: 'mariadb'
+          - php: '8.3'
+            moodle-branch: 'MOODLE_503_STABLE'
+            database: 'pgsql'
           # Moodle 5.2.x (MOODLE_502_STABLE).
           - php: '8.4'
             moodle-branch: 'MOODLE_502_STABLE'
@@ -69,7 +76,7 @@ jobs:
           - php: '8.2'
             moodle-branch: 'MOODLE_500_STABLE'
             database: 'pgsql'
-          # Moodle 4.5.x (MOODLE_405_STABLE).
+          # Moodle 4.5.x LTS (MOODLE_405_STABLE).
           - php: '8.3'
             moodle-branch: 'MOODLE_405_STABLE'
             database: 'pgsql'
@@ -97,7 +104,7 @@ jobs:
           - php: '8.0'
             moodle-branch: 'MOODLE_402_STABLE'
             database: 'pgsql'
-          # Moodle 4.1.x (MOODLE_401_STABLE).
+          # Moodle 4.1.x LTS (MOODLE_401_STABLE).
           - php: '8.1'
             moodle-branch: 'MOODLE_401_STABLE'
             database: 'pgsql'
