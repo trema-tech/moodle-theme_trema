@@ -1,59 +1,147 @@
+###############################################################################
+#                                                                             #
+#  .gitignore for Moodle development                                          #
+#                                                                             #
+#  1. GENERIC PHP DEVELOPMENT  - editors, OS clutter, backups, tooling        #
+#  2. MOODLE SPECIFIC          - rules that only make sense for Moodle        #
+#  3. AI ASSISTANTS            - agent instructions, rules, transcripts       #
+#  4. CUSTOM / PERSONAL        - team and individual conventions              #
+#                                                                             #
+#  Anything that is yours alone (your editor, your scratch folders) is better #
+#  kept out of this shared file. Use your own global excludes instead:        #
+#      git config --global core.excludesFile ~/.gitignore_global              #
+#  or, for one repository only, edit .git/info/exclude.                       #
+#                                                                             #
+#   Copyright 2017-2026 TNG Consulting Inc.                                   #
+#   License: MIT                                                              #
+#                                                                             #
+###############################################################################
+
+
+###############################################################################
+# 1. GENERIC PHP DEVELOPMENT                                                  #
+###############################################################################
+
+#------------------------------------------------------------------------------
+# 1.1 Operating system clutter
+#------------------------------------------------------------------------------
+
 ##### Windows
-# Windows thumbnail cache files
 Thumbs.db
 Thumbs.db:encryptable
 ehthumbs.db
 ehthumbs_vista.db
+desktop.ini
+$RECYCLE.BIN/
 
 # Windows shortcuts
 *.lnk
 
-# KDE directory preferences
-.directory
-
-##### MacOS
-# General
+##### macOS
 .DS_Store
+.DS_Store?
 .AppleDouble
 .LSOverride
+.Spotlight-V100
+.Trashes
+.AppleDB
+.AppleDesktop
+Network Trash Folder
+Temporary Items
+.apdisk
 
-# Thumbnails
+# Thumbnails / resource forks
 ._*
 
-##### Backup
-backups/
-*.bak
-*.bakup
-*.gho
-*.old
-*.ori
-*.orig
-*.original
-*.tmp
-*.temp
+##### Linux
+.directory
+.fuse_hidden*
+.nfs*
+.Trash-*
 
-# Log file - the following switch allows to specify the file that will be
-# used to write all messages from simulation:  -l <filename>
-*.log
-
-##### Dropbox
-# Dropbox settings and caches
+##### File sync clients
 .dropbox
 .dropbox.attr
 .dropbox.cache
 
-##### Vim
-# Swap
+#------------------------------------------------------------------------------
+# 1.2 Editors and IDEs
+#------------------------------------------------------------------------------
+
+##### Visual Studio Code / VSCodium
+# VSCodium is a rebuild of the same source and uses the same .vscode/ folder
+# and *.code-workspace files, so it needs no rules of its own. The Cursor and
+# Windsurf forks below also write .vscode/ alongside their own directories.
+#
+# The whole folder is ignored: developers bring their own extensions and
+# settings. Note that adding a "!.vscode/settings.json" exception below would
+# NOT work, because git does not descend into an ignored directory. Use
+# ".vscode/*" plus the exception if that ever changes.
+.vscode/
+*.code-workspace
+
+# Local History for Visual Studio Code
+.history/
+
+##### Cursor
+# VS Code fork, so its editor state is the .vscode/ folder above. It has no
+# editor-only files of its own; its agent rules, ignore and index files are
+# listed under Cursor in section 3.
+
+##### Windsurf
+# VS Code fork (Codeium). Editor state is .vscode/ above; its agent rules and
+# ignore files are listed under Windsurf in section 3.
+
+##### Kiro
+# Built on Code OSS, so editor state is .vscode/ above. Its specs and steering
+# directory is listed under Kiro in section 3.
+
+##### Zed
+# Editor settings only. Zed's assistant does not add project files of its own.
+.zed/
+
+##### JetBrains
+# Covers IntelliJ, RubyMine, PhpStorm, AppCode, PyCharm, CLion, Android Studio,
+# WebStorm and Rider.
+.idea/
+.phpstorm.*
+atlassian-ide-plugin.xml
+
+##### Vim / Neovim
+# Swap files
 [._]*.s[a-v][a-z]
-!*.svg  # comment out if you don't need vector files
+# Keep vector graphics: the swap pattern above also matches .svg files whose
+# name begins with "." or "_". Comment out if you do not need vector files.
+!*.svg
 [._]*.sw[a-p]
 [._]s[a-rt-v][a-z]
 [._]ss[a-gi-z]
 [._]sw[a-p]
 
-# Session
+# Persistent undo
+*.un~
+
+# Sessions
 Session.vim
 Sessionx.vim
+
+# Project-local config read by :set exrc - machine specific
+.exrc
+.vimrc
+.nvimrc
+.nvim.lua
+.lvimrc
+
+# netrw history
+.netrwhist
+
+##### Code navigation (ctags, cscope)
+# Index files generated on demand by Vim, Emacs, Sublime and others. Anchored
+# to the repository root: unanchored, "tags" would match any directory or file
+# of that name anywhere in the tree.
+/tags
+/TAGS
+/cscope.*
 
 ##### Emacs
 # -*- mode: gitignore; -*-
@@ -66,8 +154,7 @@ auto-save-list
 tramp
 .\#*
 
-##### SublimeText
-# Cache files for Sublime Text
+##### Sublime Text
 *.tmlanguage.cache
 *.tmPreferences.cache
 *.stTheme.cache
@@ -79,96 +166,210 @@ tramp
 # proportion of contributors will probably not be using Sublime Text
 # *.sublime-project
 
-##### TextMate
-*.tmproj
-*.tmproject
-tmtags
-
-##### VisualStudioCode
-.vscode/
-.vscode/*
-!.vscode/settings.json
-!.vscode/tasks.json
-!.vscode/launch.json
-!.vscode/extensions.json
-*.code-workspace
-
-# Local History for Visual Studio Code
-.history/
+##### Notepad++
+# Notepad++ writes its session and periodic backups under %AppData%, not in the
+# working tree. Its "backup on save" copies land next to the file as *.bak,
+# which section 1.3 already covers. This catches a custom backup directory.
+nppBackup/
 
 ##### NetBeans
-**/nbproject/private/
-**/nbproject/Makefile-*.mk
-**/nbproject/Package-*.bash
-nbbuild/
-dist/
-nbdist/
+# The whole project folder is ignored, consistent with the other editors above.
+# A shared nbproject/project.xml carries machine-specific include paths and PHP
+# interpreter settings, so it is not useful to other developers.
+nbproject/
+/nbbuild/
+/nbdist/
 .nb-gradle/
+# A bare "dist/" is deliberately NOT listed: unanchored, it matches at any
+# depth and silently swallows committed build output.
 
-##### JetBrains
-# Covers JetBrains IDEs: IntelliJ, RubyMine, PhpStorm, AppCode, PyCharm, CLion, Android Studio, WebStorm and Rider
-# Reference: https://intellij-support.jetbrains.com/hc/en-us/articles/206544839
-
-# User-specific stuff
-.idea/**/workspace.xml
-.idea/**/tasks.xml
-.idea/**/usage.statistics.xml
-.idea/**/dictionaries
-.idea/**/shelf
-
-# Generated files
-.idea/**/contentModel.xml
-
-# Sensitive or high-churn files
-.idea/**/dataSources/
-.idea/**/dataSources.ids
-.idea/**/dataSources.local.xml
-.idea/**/sqlDataSources.xml
-.idea/**/dynamic.xml
-.idea/**/uiDesigner.xml
-.idea/**/dbnavigator.xml
-
-##### Eclipse
+##### Eclipse / Eclipse PDT
 .metadata
-bin/
-tmp/
-*~.nib
+.project
+.buildpath
 local.properties
 .settings/
 .loadpath
 .recommenders
+# A bare "bin/" and "tmp/" are deliberately NOT listed: unanchored, they match
+# at any depth and can swallow legitimate plugin directories. If you need them,
+# anchor them to the repository root:
+# /bin/
+# /tmp/
 
-##### Dreamweaver
-# DW Dreamweaver added files
-_notes
-_compareTemp
-configs/
-dwsync.xml
-dw_php_codehinting.config
-*.mno
+#------------------------------------------------------------------------------
+# 1.3 Backup and scratch files
+#------------------------------------------------------------------------------
+# NOTE: "backups/" with an s. Do NOT change this to "backup/" - that is a
+# Moodle plugin subdirectory holding course backup and restore code, and it
+# must stay tracked.
+backups/
+*.bak
+*.backup
+*.old
+*.ori
+*.orig
+*.original
+*.tmp
+*.temp
 
-##### CodeKit
-# General CodeKit files to ignore
-config.codekit
-config.codekit3
-/min
+# Log files
+*.log
 
-##### Composer
+#------------------------------------------------------------------------------
+# 1.4 PHP tooling
+#------------------------------------------------------------------------------
 composer.phar
-vendor/
-
-# Commit your application's lock file https://getcomposer.org/doc/01-basic-usage.md#commit-your-composer-lock-file-to-version-control
-# You may choose to ignore a library lock file http://getcomposer.org/doc/02-libraries.md#lock-file
+.phpunit.result.cache
+.phpunit.cache/
+.php-cs-fixer.cache
+.php_cs.cache
 composer.lock
 
-##### PHP CodeSniffer
-# gitignore for the PHP Codesniffer framework
-# website: https://github.com/squizlabs/PHP_CodeSniffer
-#
-# Recommended template: PHP.gitignore
+#------------------------------------------------------------------------------
+# 1.5 JavaScript build chain (Grunt, ESLint, Stylelint)
+#------------------------------------------------------------------------------
+node_modules/
+.eslintcache
+.stylelintcache
+npm-debug.log*
+yarn-error.log*
 
-wpcs/
+#------------------------------------------------------------------------------
+# 1.6 Secrets - never commit these
+#------------------------------------------------------------------------------
+.env
+.env.*
+!.env.example
+
+#------------------------------------------------------------------------------
+# 1.7 Local development environment
+# Per-developer overrides for containerised or virtualised setups.
+#------------------------------------------------------------------------------
+docker-compose.override.yml
+docker-compose.override.yaml
+compose.override.yml
+compose.override.yaml
+.vagrant/
+
+
+###############################################################################
+# 2. MOODLE SPECIFIC                                                          #
+###############################################################################
+
+#------------------------------------------------------------------------------
+# 2.1 Files Moodle generates in the working tree
+# Moodle writes a phpunit.xml into each component directory as well as the site
+# root, so this pattern must NOT be anchored. Moodle core leaves it unanchored
+# for exactly this reason, while anchoring /config.php and /behat.yml.
+#------------------------------------------------------------------------------
+phpunit.xml
+moodle-plugin-ci.phar
+
+#------------------------------------------------------------------------------
+# 2.2 Site-level files
+# Only relevant when this repository is a full Moodle checkout rather than a
+# single plugin. Uncomment the ones that apply.
+#------------------------------------------------------------------------------
+# /config.php
+# /moodledata/
+# /behat.yml
+
+#------------------------------------------------------------------------------
+# 2.3 Composer dependencies
+# Moodle installs plugins from a ZIP and never runs "composer install", so a
+# plugin that depends on third-party libraries usually MUST commit vendor/.
+# Uncomment only when this repository is an application, not a shipped plugin.
+#
+# Do NOT ignore composer.json or composer.lock. Moodle core says outright that
+# both should be shipped, and the lock file is what makes a build reproducible.
+#------------------------------------------------------------------------------
+# /vendor/
+
+#------------------------------------------------------------------------------
+# 2.4 Never ignore the AMD build output
+# Moodle serves amd/build/*.min.js directly; a site never runs a build step, so
+# the minified output MUST be committed. Many generic templates ignore build/,
+# and such a rule in a developer's own global excludes file would otherwise
+# make these files vanish from their commits with no warning.
+#
+# Rules in this file take precedence over core.excludesFile and over
+# .git/info/exclude, so the two lines below actively protect the build output.
+# Within THIS file, however, the last matching pattern wins - so never add a
+# build/ or dist/ rule below this point.
+#------------------------------------------------------------------------------
+!**/amd/build/
+!**/amd/build/**
+
+
+###############################################################################
+# 3. AI ASSISTANTS AND AGENTIC CODING TOOLS                                   #
+#                                                                             #
+# Each developer brings their own assistant, so its instructions, rules       #
+# and indexes are treated as personal configuration. Several of these         #
+# tools also write chat transcripts into the working tree, which can          #
+# capture source and occasionally credentials - a second reason to keep       #
+# them out of commits.                                                        #
+#                                                                             #
+# Never ignore .github/ itself: your workflows live there.                    #
+###############################################################################
+
+##### Claude Code
 .claude/
-docs/
 CLAUDE.md
+
+##### Project-scoped MCP server configuration
+# Shared by default upstream. Ignored here so that one developer's server
+# list is not imposed on everyone else.
+.mcp.json
+
+##### Common agent instruction file (Codex CLI, OpenCode and others)
 AGENTS.md
+
+##### Cursor
+.cursor/
+.cursorrules
+.cursorignore
+.cursorindexingignore
+
+##### Windsurf / Codeium
+.windsurf/
+.windsurfrules
+.codeiumignore
+
+##### Kiro
+.kiro/
+
+##### Aider
+# Catches .aider.chat.history.md, .aider.input.history and the tags cache.
+.aider*
+
+##### Continue.dev
+.continue/
+
+##### Gemini CLI
+GEMINI.md
+.gemini/
+
+##### Cline
+# Exists as both a file and a directory; this pattern catches both.
+.clinerules
+
+##### GitHub Copilot
+# The instructions file only - never ignore .github/ itself.
+.github/copilot-instructions.md
+
+
+###############################################################################
+# 4. CUSTOM / PERSONAL                                                        #
+#                                                                             #
+# Team and individual conventions. Add your own below, or better still put    #
+# purely personal entries in your global excludes or .git/info/exclude so     #
+# that other developers do not inherit them.                                  #
+###############################################################################
+
+##### Personal notes and scratch directories
+# Anchored to the repository root so they cannot swallow a docs/ directory
+# belonging to a plugin further down the tree.
+docs
+vendor
