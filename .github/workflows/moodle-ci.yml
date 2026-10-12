@@ -114,7 +114,7 @@ jobs:
     steps:
       # Check out this repository code in ./plugin directory
       - name: Check out repository code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
         with:
           path: plugin
 
@@ -170,7 +170,6 @@ jobs:
       # can be re-ordered or removed to your liking.  And of course, you can
       # add any of your own custom steps.
       - name: PHP Lint
-        continue-on-error: true # This step will show errors but will not fail
         if: ${{ !cancelled() }}
         run: moodle-plugin-ci phplint
 
@@ -200,22 +199,31 @@ jobs:
         run: moodle-plugin-ci mustache
 
       - name: Grunt
-        continue-on-error: true # This step will show errors but will not fail
+        continue-on-error: true # TODO: Remove once the existing failures are fixed. Failures are otherwise hidden.
         if: ${{ !cancelled() }}
         # The amd task is skipped: it rebuilds amd/build and compares it with the committed files, which can only
         # match one Moodle version's build tools. The theme supports several, so its JavaScript is linted below instead.
         run: moodle-plugin-ci grunt --max-lint-warnings 0 --tasks=gherkinlint --tasks=stylelint
 
       - name: ESLint
-        continue-on-error: true # This step will show errors but will not fail
+        continue-on-error: true # TODO: Remove once the existing failures are fixed. Failures are otherwise hidden.
         if: ${{ !cancelled() }}
         working-directory: moodle
         run: npx eslint --max-warnings 0 "$([ -d public ] && echo public/)theme/trema/amd/src"
 
+      # PHPUnit 11.5+ (Moodle 5.x) can also report and fail on its own deprecations, such as test
+      # metadata in doc comments. moodle-plugin-ci cannot pass those options, and older PHPUnit
+      # versions do not have them, so PHPUnit is run directly when it supports them.
       - name: PHPUnit tests
-        continue-on-error: true # This step will show errors but will not fail
+        continue-on-error: true # TODO: Remove once the existing failures are fixed. Failures are otherwise hidden.
         if: ${{ !cancelled() }}
-        run: moodle-plugin-ci phpunit --fail-on-warning
+        run: |
+          if moodle/vendor/bin/phpunit --help | grep -q -- '--fail-on-phpunit-deprecation'; then
+            cd moodle
+            vendor/bin/phpunit --testsuite theme_trema_testsuite --fail-on-warning --display-phpunit-deprecations --fail-on-phpunit-deprecation
+          else
+            moodle-plugin-ci phpunit --fail-on-warning
+          fi
 
       - name: Behat features
         id: behat
@@ -228,7 +236,7 @@ jobs:
 
       - name: Upload Behat Faildump
         if: ${{ failure() && steps.behat.outcome == 'failure' }}
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v5
         with:
           name: Behat Faildump (${{ join(matrix.*, ', ') }})
           path: ${{ github.workspace }}/moodledata/behat_dump
