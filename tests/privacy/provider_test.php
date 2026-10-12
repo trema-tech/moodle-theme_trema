@@ -19,6 +19,7 @@ namespace theme_trema\privacy;
 use context_user;
 use core_privacy\local\request\writer;
 
+#[\PHPUnit\Framework\Attributes\CoversClass(\theme_trema\privacy\provider::class)]
 /**
  * Privacy tests for theme_trema.
  *
@@ -45,6 +46,7 @@ final class provider_test extends \core_privacy\tests\provider_testcase {
         ];
     }
 
+    #[\PHPUnit\Framework\Attributes\DataProvider('export_user_preference_provider')]
     /**
      * Test for provider::test_export_user_preferences().
      *
@@ -54,7 +56,6 @@ final class provider_test extends \core_privacy\tests\provider_testcase {
      *
      * @dataProvider export_user_preference_provider
      */
-    #[\PHPUnit\Framework\Attributes\DataProvider('export_user_preference_provider')]
     public function test_export_user_preferences(string $preference, bool $value, string $expectdescription): void {
         $this->resetAfterTest();
 
