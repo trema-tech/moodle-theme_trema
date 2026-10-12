@@ -451,8 +451,10 @@ function theme_trema_page_init(moodle_page $page) {
     ]]);
 
     // Moodle sends users with an incomplete profile to their profile page without saying what is missing.
-    if ($page->url->compare(new moodle_url('/user/edit.php'), URL_MATCH_BASE)
-            && in_array($page->url->get_param('id'), [null, $USER->id])) {
+    if (
+        $page->url->compare(new moodle_url('/user/edit.php'), URL_MATCH_BASE)
+        && in_array($page->url->get_param('id'), [null, $USER->id])
+    ) {
         $missingfields = theme_trema_get_missing_profile_fields();
         if (!empty($missingfields)) {
             $links = [];
@@ -522,8 +524,10 @@ function theme_trema_get_missing_profile_fields(): array {
         }
     }
     foreach (profile_get_user_fields_with_data($USER->id) as $field) {
-        if ($field->is_required() && !$field->is_locked() && $field->is_empty()
-                && $field->get_field_config_for_external()['visible']) {
+        if (
+            $field->is_required() && !$field->is_locked() && $field->is_empty()
+            && $field->get_field_config_for_external()['visible']
+        ) {
             $missingfields['id_' . $field->inputname] = format_string($field->field->name);
         }
     }
