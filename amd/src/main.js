@@ -41,8 +41,12 @@ define(['jquery', 'theme_boost/bootstrap/carousel'], function($, CarouselModule)
             if (!carouselEl) {
                 return;
             }
-            let goNext = function() {};
-            let goPrev = function() {};
+            let goNext = function() {
+                // Placeholder until a carousel implementation is found below.
+            };
+            let goPrev = function() {
+                // Placeholder until a carousel implementation is found below.
+            };
             // Bootstrap 5 (Moodle 4.5+): static getOrCreateInstance.
             if (Carousel && typeof Carousel.getOrCreateInstance === 'function') {
                 const instance = Carousel.getOrCreateInstance(carouselEl, {ride: 'carousel'});
