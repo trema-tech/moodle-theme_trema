@@ -62,7 +62,7 @@ $choices = [
 $name = 'theme_trema/loginboxcontentalign';
 $title = get_string('loginboxcontentalign', $themename);
 $description = get_string('loginboxcontentalign_desc', $themename);
-$default = 'center';
+$default = 'left';
 $setting = new admin_setting_configselect($name, $title, $description, $default, $choices);
 $setting->set_updatedcallback('theme_reset_all_caches');
 $page->add($setting);
