@@ -43,16 +43,13 @@ $setting = new admin_setting_configselect($name, $title, $description, $default,
 $setting->set_updatedcallback('theme_reset_all_caches');
 $page->add($setting);
 
-if (get_config($themename, 'loginpagestyle') == "image") {
-    // Login background image.
-    $name = 'theme_trema/loginbackgroundimage';
-    $title = get_string('loginbackgroundimage', $themename);
-    $description = '';
-    $setting = new admin_setting_configstoredfile($name, $title, $description, 'loginbackgroundimage');
-    $setting->set_updatedcallback('theme_reset_all_caches');
-    $page->add($setting);
-}
-
+// Login background image.
+$name = 'theme_trema/loginbackgroundimage';
+$title = get_string('loginbackgroundimage', $themename);
+$description = '';
+$setting = new admin_setting_configstoredfile($name, $title, $description, 'loginbackgroundimage');
+$setting->set_updatedcallback('theme_reset_all_caches');
+$page->add($setting);
 
 // Login box text alignment.
 $choices = [
@@ -87,3 +84,7 @@ $setting->set_updatedcallback('theme_reset_all_caches');
 $page->add($setting);
 
 $settings->add($page);
+
+// Add hide_if dependencies AFTER adding page to settings (for tabs container).
+// Only show the background image when the image style is selected. Uses 'eq' as Moodle 4.1 has no 'neq'.
+$settings->hide_if('theme_trema/loginbackgroundimage', 'theme_trema/loginpagestyle', 'eq', 'none');
