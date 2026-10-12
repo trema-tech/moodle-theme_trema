@@ -74,6 +74,6 @@ final class provider_test extends \core_privacy\tests\provider_testcase {
         $exportedpreferences = $writer->get_user_preferences('theme_trema');
         $this->assertCount(1, (array) $exportedpreferences);
         $this->assertEquals($value, (bool) $exportedpreferences->{$preference}->value);
-        $this->assertEquals(get_string($expectdescription, 'theme_trema'), $exportedpreferences->{$preference}->description);
+        $this->assertEquals(get_string($expectdescription, 'theme_boost'), $exportedpreferences->{$preference}->description);
     }
 }

@@ -215,7 +215,6 @@ jobs:
       # metadata in doc comments. moodle-plugin-ci cannot pass those options, and older PHPUnit
       # versions do not have them, so PHPUnit is run directly when it supports them.
       - name: PHPUnit tests
-        continue-on-error: true # TODO: Remove once the existing failures are fixed. Failures are otherwise hidden.
         if: ${{ !cancelled() }}
         run: |
           if moodle/vendor/bin/phpunit --help | grep -q -- '--fail-on-phpunit-deprecation'; then
