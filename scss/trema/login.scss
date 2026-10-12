@@ -178,7 +178,8 @@ body#page-login-index {
                 transform: translateY(-50%);
                 @if $login-box-align == 'left' or $login-box-align == 'right' {
                     max-width: 720px;
-                } @else {
+                }
+                @else {
                     max-width: 480px;
                 }
                 max-height: 80vh;
@@ -191,7 +192,8 @@ body#page-login-index {
                 border-radius: .5rem;
                 @if $overlay-fg == $white {
                     text-shadow: 0 1px 2px rgba(0, 0, 0, .6);
-                } @else {
+                }
+                @else {
                     text-shadow: 0 1px 2px rgba(255, 255, 255, .6);
                 }
                 z-index: 5;
@@ -200,15 +202,18 @@ body#page-login-index {
                     // Form pinned to left half -> overlay confined to right half.
                     left: 50%;
                     right: 0;
-                } @else if $login-box-align == 'halfright' {
+                }
+                @else if $login-box-align == 'halfright' {
                     // Form pinned to right half -> overlay confined to left half.
                     left: 0;
                     right: 50%;
-                } @else if $login-box-align == 'left' {
+                }
+                @else if $login-box-align == 'left' {
                     // Form pinned to left at 550px wide -> overlay fills the remaining width.
                     left: 550px;
                     right: 0;
-                } @else {
+                }
+                @else {
                     // Form pinned to right at 550px wide -> overlay fills the remaining width.
                     left: 0;
                     right: 550px;

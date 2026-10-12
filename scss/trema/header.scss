@@ -260,6 +260,8 @@
 #page-wrapper .navbar-light .navbar-brand {
     color: choose-contrast-color($header-bg-color);
     font-weight: 400;
+    // text-wrap is valid modern CSS that csstree does not know yet.
+    // stylelint-disable-next-line csstree/validator
     text-wrap: wrap;
     overflow: hidden;
     font-size: calc(1.25rem * #{$sitename-font-scale});
@@ -276,10 +278,14 @@
         line-height: calc(0.9rem * #{$sitename-font-scale} + 0.05rem);
     }
     img {
+        // -webkit-fill-available is a valid WebKit value that csstree does not know.
+        // stylelint-disable-next-line csstree/validator
         width: -webkit-fill-available;
     }
 }
 .drawerheader .sitename {
+    // text-wrap is valid modern CSS that csstree does not know yet.
+    // stylelint-disable-next-line csstree/validator
     text-wrap: wrap;
     overflow: hidden;
     line-height: 1.1rem;
@@ -337,7 +343,7 @@
             display: none;
         }
         .d-inline-block.mr-3 button,
-    .d-inline-block.me-3 button {
+        .d-inline-block.me-3 button {
             border: 0 none;
             padding: 0;
         }
