@@ -12,6 +12,10 @@ $trema-bs5-bridge: false !default;
     font-weight: $font-weight-light !important;
 }
 
+.fw-bold {
+    font-weight: $font-weight-bold !important;
+}
+
 .form-select {
     @extend .custom-select;
 }

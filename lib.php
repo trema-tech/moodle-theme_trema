@@ -444,6 +444,25 @@ function theme_trema_page_init(moodle_page $page) {
         }
     }
 
+    // Help users find form fields with validation errors.
+    $page->requires->js_call_amd('theme_trema/formerrors', 'init', [[
+        'one' => get_string('formerrorsone', 'theme_trema'),
+        'many' => get_string('formerrorsmany', 'theme_trema', '{count}'),
+    ]]);
+
+    // Moodle sends users with an incomplete profile to their profile page without saying what is missing.
+    if ($page->url->compare(new moodle_url('/user/edit.php'), URL_MATCH_BASE)
+            && in_array($page->url->get_param('id'), [null, $USER->id])) {
+        $missingfields = theme_trema_get_missing_profile_fields();
+        if (!empty($missingfields)) {
+            $links = [];
+            foreach ($missingfields as $elementid => $fieldname) {
+                $links[] = html_writer::link('#fitem_' . $elementid, $fieldname);
+            }
+            \core\notification::warning(get_string('profilemissingfields', 'theme_trema', implode(', ', $links)));
+        }
+    }
+
     // Load profilefields JS if the setting is enabled.
     $enforcerequiredprofilefields = get_config('theme_trema', 'enforcerequiredprofilefields');
     if (!empty($enforcerequiredprofilefields)) {
@@ -479,4 +498,34 @@ function theme_trema_get_profilefields_data(): ?array {
     }
 
     return !empty($requiredfields) ? ['requiredfields' => $requiredfields] : null;
+}
+
+/**
+ * Get the required profile fields the current user has not filled in yet.
+ *
+ * Uses the same rules as user_not_fully_set_up() and profile_has_required_custom_fields_set().
+ *
+ * @return array Form element ID => field name.
+ */
+function theme_trema_get_missing_profile_fields(): array {
+    global $CFG, $USER;
+    require_once("{$CFG->dirroot}/user/profile/lib.php");
+
+    if (!isloggedin() || isguestuser()) {
+        return [];
+    }
+
+    $missingfields = [];
+    foreach (['firstname', 'lastname', 'email'] as $field) {
+        if (empty($USER->$field)) {
+            $missingfields['id_' . $field] = get_string($field);
+        }
+    }
+    foreach (profile_get_user_fields_with_data($USER->id) as $field) {
+        if ($field->is_required() && !$field->is_locked() && $field->is_empty()
+                && $field->get_field_config_for_external()['visible']) {
+            $missingfields['id_' . $field->inputname] = format_string($field->field->name);
+        }
+    }
+    return $missingfields;
 }

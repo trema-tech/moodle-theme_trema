@@ -579,3 +579,9 @@ body.path-mod-quiz {
 div#dateselector-calendar-panel {
     z-index: 3100 !important;
 }
+
+// Keep form fields and the form error summary clear of the fixed navbar when scrolled to.
+.mform .fitem,
+.trema-errorsummary {
+    scroll-margin-top: calc(#{$navbar-height} + 1rem);
+}

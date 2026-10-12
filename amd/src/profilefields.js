@@ -125,14 +125,8 @@ define(['jquery', 'core/str', 'core/notification'], function($, Str, Notificatio
                         });
 
                         if (!isValid) {
+                            // The errors are then shown by theme_trema/formerrors.
                             e.preventDefault();
-                            // Scroll to the first invalid field
-                            var firstInvalidField = $('.fitem.has-danger').first();
-                            if (firstInvalidField.length > 0) {
-                                $('html, body').animate({
-                                    scrollTop: firstInvalidField.offset().top - 100
-                                }, 200);
-                            }
                         }
                     });
 
