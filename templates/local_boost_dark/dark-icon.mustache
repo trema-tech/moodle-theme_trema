@@ -1,0 +1,77 @@
+{{!
+    This file is part of Moodle - https://moodle.org/
+
+    Moodle is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    Moodle is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+}}
+{{!
+    @template local_boost_dark/dark-icon
+
+    Theme override of the local_boost_dark dark mode toggle.
+
+    The plugin shows two pill buttons. This override shows a single on/off switch
+    (the same markup as the core/toggle component) between a sun and a moon icon. It lives in the theme,
+    so the third-party plugin does not need to be modified.
+
+    The switch starts checked when the page is dark. The plugin does not pass the
+    current mode to this template, so it is read from data-bs-theme on <html>.
+    Changing the switch updates the page at once and saves the choice with the
+    plugin's web service (local_boost_dark_userpreference).
+
+    Context variables required for this template:
+    * enable - boolean, whether the plugin is enabled (the switch is only shown when true)
+
+    Example context (json):
+    {
+        "enable": true
+    }
+}}
+{{#enable}}
+<div class="kraus-layout-dark d-flex align-items-center" style="order:-1;gap:.4rem;">
+    <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+         stroke-width="1.5" stroke="currentColor" aria-hidden="true"
+         style="width:1.1rem;height:1.1rem;flex:0 0 auto;">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v2.25m6.364.386-1.591 1.591M21 12h-2.25m-.386 6.364-1.591-1.591M12 18.75V21m-4.773-4.227-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0Z"></path>
+    </svg>
+    {{! Same markup as the core/toggle template, written here so it also works on Moodle versions without it. }}
+    <div class="form-check form-switch mb-0">
+        <input type="checkbox" autocomplete="off" class="form-check-input pe-auto" id="toggle-darkmode-input">
+        <label class="form-check-label visually-hidden" for="toggle-darkmode-input">{{#str}} darkmode, local_boost_dark {{/str}}</label>
+    </div>
+    <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
+         aria-hidden="true" style="width:1.1rem;height:1.1rem;flex:0 0 auto;">
+        <path fill-rule="evenodd" d="M9.528 1.718a.75.75 0 0 1 .162.819A8.97 8.97 0 0 0 9 6a9 9 0 0 0 9 9 8.97 8.97 0 0 0 3.463-.69.75.75 0 0 1 .981.98 10.503 10.503 0 0 1-9.694 6.46c-5.799 0-10.5-4.7-10.5-10.5 0-4.368 2.667-8.112 6.46-9.694a.75.75 0 0 1 .818.162Z" clip-rule="evenodd"></path>
+    </svg>
+</div>
+{{#js}}
+    require(["jquery", "core/ajax"], function($, ajax) {
+        var $input = $("#toggle-darkmode-input");
+
+        // Start checked when the page is already dark.
+        $input.prop("checked", $("html").attr("data-bs-theme") === "dark");
+
+        $input.on("change", function() {
+            var darkmode = this.checked ? "dark" : "light";
+            $("body").addClass("dark-animation");
+            setTimeout(function() {
+                $("body").removeClass("dark-animation");
+            }, 500);
+            $("html").attr("data-bs-theme", darkmode);
+            ajax.call([{
+                methodname: "local_boost_dark_userpreference",
+                args: {darkmode: darkmode}
+            }]);
+        });
+    });
+{{/js}}
+{{/enable}}

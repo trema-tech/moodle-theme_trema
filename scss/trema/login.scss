@@ -106,7 +106,8 @@ body#page-login-index {
             padding: 10px 20px;
         }
         .login-form-password .toggle-sensitive-wrapper {
-            input[type="password"] {
+            // Match the field by class, not by type: "show password" changes the type to "text".
+            .form-control {
                 border-radius: .4rem 0 0 .4rem;
             }
             .toggle-sensitive-btn {

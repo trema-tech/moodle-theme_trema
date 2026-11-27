@@ -211,8 +211,9 @@ function theme_trema_get_pre_scss($theme) {
 
     $customscss = '';
     // Automatically hide guest login button if Auto-login Guests is enabled and Guest Login button is visible.
+    // .login-guest wraps the whole block, so its heading is hidden too (not only the button).
     if (!empty($CFG->autologinguests) && !empty($CFG->guestloginbutton)) {
-        $customscss .= '#guestlogin,';
+        $customscss .= '#guestlogin, .loginform .login-guest,';
     }
 
     // ....
@@ -338,6 +339,11 @@ function theme_trema_get_main_scss_content($theme) {
         $scss .= "#frontpage-banner {background-image: $darkoverlay url('$frontpagebannerurl');}";
     } else {
         $scss .= "#frontpage-banner {background-image: $darkoverlay url([[pix:theme|frontpage/banner]]);}";
+    }
+
+    // Dark mode support for local_boost_dark.
+    if ((int)$CFG->branch >= 500) {
+        $scss .= file_get_contents("$CFG->dirroot/theme/trema/scss/trema/darkmode.scss");
     }
 
     // Compensate for long site names.

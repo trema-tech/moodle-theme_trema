@@ -1,0 +1,212 @@
+// This file is part of Moodle - https://moodle.org/
+//
+// Moodle is free software: you can redistribute it and/or modify
+// it under the terms of the GNU General Public License as published by
+// the Free Software Foundation, either version 3 of the License, or
+// (at your option) any later version.
+//
+// Moodle is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU General Public License for more details.
+//
+// You should have received a copy of the GNU General Public License
+// along with Moodle.  If not, see <https://www.gnu.org/licenses/>.
+
+/**
+ * Dark mode support for Trema (works with the local_boost_dark plugin).
+ *
+ * Why this file exists:
+ * Trema sets many colors at compile time (white panels, black or primary text). In dark mode
+ * Bootstrap switches its CSS variables, but those fixed colors stay the same, so you get white
+ * panels on a dark page and dark text on dark backgrounds. local_boost_dark adds its own dark
+ * rules, but Trema's selectors (for example "body #page a") are more specific and win.
+ * Secondary buttons are not touched here: local_boost_dark already styles them for dark mode.
+ *
+ * How it works:
+ * Every rule below only applies inside [data-bs-theme="dark"], so light mode is not changed.
+ * Each selector repeats the Trema selector it fixes, so it is at least as specific, and it uses
+ * Bootstrap's color mode variables (--bs-body-bg, --bs-body-color, --bs-link-color...) instead
+ * of fixed colors. The file is loaded last (see theme_trema_get_main_scss_content) and only on
+ * Moodle 5.0+, which ships the Bootstrap 5.3 color modes.
+ *
+ * @package    theme_trema
+ * @copyright  2026 Jhon Rangel <jrangelardila@gmail.com>
+ * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ */
+
+[data-bs-theme="dark"] {
+
+    // Page background (Trema sets $body-bg-color on body at compile time).
+    body {
+        background: var(--bs-body-bg);
+    }
+
+    // Panels that Trema paints white. They become the dark page background.
+    body:not(#page-course-view-weeks, #page-course-view-topics, #page-course-view-remuiformat) .course-content,
+    body.pagelayout-course .course-content li.section,
+    body#page-course-view-topics.pagelayout-incourse #topofscroll #region-main-box [role='main'],
+    body#page-my-index.page-mycourses #topofscroll #region-main,
+    body#page-site-index #page-content #region-main,
+    body#page-site-index #frontpage-cards,
+    body#page-site-index #defaultfrontpagebody .card-box,
+    body.format-site.path-calendar #page-content #region-main-box #region-main,
+    body.path-user:not(#page-course-view-participants) #page #page-header,
+    body.format-site.path-grade #page #page-header,
+    body.path-badges #page #page-header,
+    body.pagelayout-maintenance #page-wrapper #page,
+    body.path-message #page-wrapper #page,
+    body.path-message #page-wrapper #page #page-content,
+    body#page-message-output-popup-notifications #page-wrapper #page #page-content,
+    body#page-message-output-popup-notifications #page-wrapper #page #page-content #region-main,
+    body#page-message-output-popup-notifications #page-wrapper #page #page-content #region-main .notification-area,
+    body.pagelayout-mydashboard #mydashboard-admin .row .card-body,
+    body.path-mod-quiz #page #region-main .que .info,
+    body.path-mod-quiz #page #region-main .que .content .formulation,
+    body.format-tiles .sectionbutton,
+    body.format-tiles #page .completioncheckbox .btn,
+    .block_myoverview.block,
+    .courses .card,
+    #page .activity-navigation #jump-to-activity,
+    body#page-course-view-topics #topofscroll [data-bs-toggle='collapse'].btn-icon {
+        background-color: var(--bs-body-bg);
+    }
+
+    // Light grey boxes (activity dates and completion, dropdown menus) become a slightly lighter surface.
+    .path-mod .activity-details:not(:empty),
+    body .dropdown-menu,
+    #page-wrapper .navbar .usermenu .dropdown-menu #usermenu-carousel {
+        background-color: var(--bs-tertiary-bg);
+    }
+
+    // Search boxes and other white form fields.
+    body #page .simplesearchform input[type="text"],
+    body.path-message #page .simplesearchform input,
+    #page-admin-search .simplesearchform input.form-control[type='text'],
+    body #page [data-filterregion='filter'] .btn[data-filteraction='remove'],
+    body #page .atto_group button {
+        background-color: var(--bs-body-bg);
+        color: var(--bs-body-color);
+    }
+
+    // Links. Trema uses the primary color, tuned for a white background; use the dark mode link color.
+    body #page a:not(.dropdown-item, .btn) {
+        color: var(--bs-link-color);
+
+        &:hover {
+            color: var(--bs-link-hover-color);
+        }
+    }
+
+    // Course and category names in course lists.
+    body #page a.aalink,
+    body #page .course-summaryitem a.aalink.coursename,
+    body #page .categoryname a {
+        color: var(--bs-link-color);
+    }
+
+    // Link-style buttons (next discussion, message panels...) and icon buttons. Trema makes them black.
+    body #page .btn.btn-link:not(.activity-add, .activity-icon),
+    body #page .btn-link:not(.activity-add, .activity-icon) {
+        color: var(--bs-link-color);
+
+        &:hover:not(.activity-add, .activity-icon) {
+            color: var(--bs-link-hover-color);
+        }
+    }
+
+    body #page .btn.btn-icon:not([data-for="sectiontoggler"]) {
+        color: var(--bs-body-color);
+    }
+
+    // "Message" button in the profile header (primary color in Trema).
+    body#page-user-profile #message-user-button {
+        color: var(--bs-link-color);
+
+        &:hover {
+            color: var(--bs-link-hover-color);
+        }
+    }
+
+    // Breadcrumb in the page header (black in Trema).
+    body #page #page-header .breadcrumb,
+    body #page #page-header .breadcrumb a,
+    body #page #page-header .breadcrumb a:hover {
+        color: var(--bs-body-color);
+    }
+
+    // Outline buttons on the dashboard (timeline filters, "Add submission"...).
+    body.pagelayout-mydashboard #page .btn.btn-outline-secondary,
+    body.pagelayout-mydashboard #page .btn.btn-outline-secondary:focus {
+        color: var(--bs-body-color);
+    }
+
+    // Tabs shown as pills.
+    body #page ul.nav-pills li.nav-item a.nav-link {
+        background-color: var(--bs-body-bg);
+    }
+
+    // Small headings and muted text that Trema sets to a fixed grey.
+    body #page .h6 {
+        color: var(--bs-secondary-color);
+    }
+
+    // Alerts: Trema forces black text and local_boost_dark forces grey on every child of .alert-info.
+    // Use the alert's own text color, which Bootstrap already adapts to dark mode.
+    body #page [class*="alert-"],
+    body #page .alert *:not(a, .btn, .btn *) {
+        color: var(--bs-alert-color);
+    }
+
+    body #page [class*="alert-"] a {
+        color: var(--bs-alert-link-color);
+    }
+
+    // "Edit mode" label in the navbar.
+    #page-wrapper .navbar .editmode-switch-form .form-check-label {
+        color: var(--bs-body-color);
+    }
+
+    // Course index drawer: Trema picks black text for its light drawer at compile time.
+    // The current page item keeps Trema's colors (it sits on the primary color).
+    #theme_boost-drawers-courseindex {
+        .courseindex .courseindex-item .completioninfo.completion_incomplete .icon,
+        .courseindex .courseindex-item .courseindex-link,
+        .courseindex .courseindex-item .courseindex-chevron {
+            color: var(--bs-body-color);
+        }
+    }
+
+    .drawer .drawerheader .icon {
+        color: var(--bs-body-color);
+    }
+
+    // Quiz question menu toggles.
+    body.path-mod-quiz #page #region-main .dropdown-toggle {
+        color: var(--bs-body-color);
+    }
+
+    // "Back to top" button: Trema uses .btn-light with a light grey glow. In dark mode the button
+    // keeps its light background while the icon turns light too, so the icon disappears.
+    // Use a dark surface with light text, and a dark shadow instead of the light glow.
+    #goto-top-link {
+        box-shadow: 0 0 6px rgba(0, 0, 0, .6);
+
+        .btn.btn-light {
+            background-color: var(--bs-tertiary-bg);
+            border-color: var(--bs-border-color);
+            color: var(--bs-body-color);
+
+            &:hover,
+            &:focus {
+                background-color: var(--bs-secondary-bg);
+                color: var(--bs-emphasis-color);
+            }
+        }
+    }
+
+    // Footer popover links (black in Trema; the popover is dark in dark mode).
+    footer#page-footer .popover-body a:not(.button) {
+        color: var(--bs-link-color);
+    }
+}
