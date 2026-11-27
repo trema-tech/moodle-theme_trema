@@ -48,6 +48,46 @@ require_once($CFG->dirroot . '/course/format/lib.php');
  * @license     http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class core_renderer extends \theme_boost\output\core_renderer {
+    // Light mode until the user logs in (see the trait for the details).
+    use forces_light_mode;
+
+    /**
+     * Returns the content that plugins add to the navigation bar.
+     *
+     * The local_boost_dark toggle is left out for guests and logged-out users: the chosen
+     * mode is saved in the user account, so the toggle only makes sense with a session.
+     *
+     * @return string
+     */
+    public function navbar_plugin_output() {
+        if (isloggedin() && !isguestuser()) {
+            return parent::navbar_plugin_output();
+        }
+
+        // Same as core_renderer::navbar_plugin_output(), but without local_boost_dark.
+        // The plugin is skipped as a whole, which is safer than removing its HTML afterwards.
+        $output = '';
+
+        foreach (\core_component::get_core_subsystems() as $name => $path) {
+            if ($path) {
+                $output .= component_callback($name, 'render_navbar_output', [$this], '');
+            }
+        }
+
+        if ($pluginsfunction = get_plugins_with_function('render_navbar_output')) {
+            foreach ($pluginsfunction as $plugintype => $plugins) {
+                foreach ($plugins as $pluginname => $pluginfunction) {
+                    if ($plugintype === 'local' && $pluginname === 'boost_dark') {
+                        continue;
+                    }
+                    $output .= $pluginfunction($this);
+                }
+            }
+        }
+
+        return $output;
+    }
+
     /**
      * Returns the url of the favicon.
      *

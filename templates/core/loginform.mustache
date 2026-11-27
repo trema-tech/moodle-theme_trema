@@ -100,11 +100,6 @@
 }}
 
 <div class="loginform">
-    {{#languagemenu}}
-        <div class="login-languagemenu">
-            {{>core/action_menu}}
-        </div>
-    {{/languagemenu}}
     {{#logourl}}
         <div id="loginlogo" class="login-logo">
             <img id="logoimage" src="{{logourl}}" class="img-fluid login-heading" alt="">
@@ -133,13 +128,18 @@
             </div>
         {{/cansignup}}
     {{/loginpagecreatefirst}}
+    {{#showloginform}}
     <form class="login-form" action="{{loginurl}}" method="post" id="login">
         <div class="login-divider"></div>
         <h2 class="login-heading">{{#str}}login{{/str}}</h2>
         {{#error}}
-            <a href="#" id="loginerrormessage" class="visually-hidden">{{error}}</a>
-            <div class="alert alert-danger" role="alert">{{error}}</div>
+            <div class="alert alert-danger" id="loginerrormessage" role="alert">{{error}}</div>
         {{/error}}
+        {{#info}}
+            <div class="alert alert-info" id="logininfomessage" role="status">{{info}}</div>
+        {{/info}}
+        <input id="anchor" type="hidden" name="anchor" value="">
+        <script>document.getElementById('anchor').value = location.hash;</script>
         <input type="hidden" name="logintoken" value="{{logintoken}}">
         <div class="login-form-username mb-3">
             <label for="username" class="visually-hidden">
@@ -176,6 +176,7 @@
             <button class="btn btn-primary col-12" type="submit" id="loginbtn">{{#str}}login{{/str}}</button>
         </div>
     </form>
+    {{/showloginform}}
     {{^loginpagecreatefirst}}
         {{#hasinstructions}}
             <div class="login-divider"></div>
@@ -205,37 +206,79 @@
         </div>
     {{/hasidentityproviders}}
     {{#canloginasguest}}
-        <div class="login-divider"></div>
-        <h2 class="login-heading">{{#str}}someallowguest{{/str}}</h2>
-        <form action="{{loginurl}}" method="post" id="guestlogin">
-            <input type="hidden" name="logintoken" value="{{logintoken}}">
-            <input type="hidden" name="username" value="guest">
-            <input type="hidden" name="password" value="guest">
-            <button class="btn btn-secondary col-12" type="submit" id="loginguestbtn">{{#str}}loginguest{{/str}}</button>
-        </form>
+        {{! The whole block (divider, heading and form) is hidden when guests are logged in automatically. }}
+        <div class="login-guest">
+            <div class="login-divider"></div>
+            <h2 class="login-heading">{{#str}}someallowguest{{/str}}</h2>
+            <form action="{{loginurl}}" method="post" id="guestlogin">
+                <input type="hidden" name="logintoken" value="{{logintoken}}">
+                <input type="hidden" name="username" value="guest">
+                <input type="hidden" name="password" value="guest">
+                <button class="btn btn-secondary col-12" type="submit" id="loginguestbtn">{{#str}}loginguest{{/str}}</button>
+            </form>
+        </div>
     {{/canloginasguest}}
     <div class="login-divider"></div>
-    <button role="link" class="btn btn-link btn-cookie col-12 col-md-6 col-lg-auto p-0 m-0" {{!
-    }} data-modal="alert"{{!
-    }} data-modal-title-str='["cookiesenabled", "core"]' {{!
-    }} data-modal-content-str='["cookiesenabled_help_html", "core"]'{{!
-    }}>{{#str}}cookiesnotice{{/str}}</button>
+    {{! Same place as the Moodle 5.2 login: language menu and cookies notice at the bottom. }}
+    <div class="d-flex flex-wrap align-items-center">
+        {{#languagemenu}}
+            <div class="login-languagemenu">
+                {{>core/action_menu}}
+            </div>
+            <div class="divider border-start align-self-center mx-3"></div>
+        {{/languagemenu}}
+        <button role="link" class="btn btn-link btn-cookie col-12 col-md-6 col-lg-auto p-0 m-0" {{!
+        }} data-modal="alert"{{!
+        }} data-modal-title-str='["cookiesenabled", "core"]' {{!
+        }} data-modal-content-str='["cookiesenabled_help_html", "core"]'{{!
+        }}>{{#str}}cookiesnotice{{/str}}</button>
+    </div>
 </div>
 
 {{#js}}
     {{^error}}
         {{#autofocusform}}
-            var userNameField = document.getElementById('username');
-            if (userNameField.value.length == 0) {
-                userNameField.focus();
-            } else {
-                document.getElementById('password').focus();
-            }
+            require(['core_form/events'], function(FormEvent) {
+                // Focus the username field, or the password field when the username is already filled in.
+                function autoFocus() {
+                    const userNameField = document.getElementById('username');
+                    const passwordField = document.getElementById('password');
+                    if (userNameField && userNameField.value.length == 0) {
+                        userNameField.focus();
+                    } else if (passwordField) {
+                        passwordField.focus();
+                    }
+                }
+                autoFocus();
+                // Focus again after the password field is rebuilt (for example by the show password button).
+                window.addEventListener(FormEvent.eventTypes.fieldStructureChanged, autoFocus);
+            });
         {{/autofocusform}}
     {{/error}}
-    {{#error}}
-        document.getElementById('loginerrormessage').focus();
-    {{/error}}
+    require(['core/pending'], function(Pending) {
+        const errorMessageDiv = document.getElementById('loginerrormessage');
+        const infoMessageDiv = document.getElementById('logininfomessage');
+        const errorMessage = errorMessageDiv?.textContent.trim();
+        const infoMessage = infoMessageDiv?.textContent.trim();
+        if (errorMessage || infoMessage) {
+            const pendingJS = new Pending('login-move-focus');
+            const usernameField = document.getElementById('username');
+            setTimeout(function() {
+                // Focus on the username field on error.
+                if (errorMessage && usernameField) {
+                    usernameField.focus();
+                }
+                // Append a non-breaking space so screen readers announce the message after page load.
+                if (errorMessage) {
+                    errorMessageDiv.innerHTML += "&nbsp;";
+                }
+                if (infoMessage) {
+                    infoMessageDiv.innerHTML += "&nbsp;";
+                }
+                pendingJS.resolve();
+            }, 500);
+        }
+    });
     {{#togglepassword}}
         require(['core/togglesensitive'], function(ToggleSensitive) {
             ToggleSensitive.init("password", {{smallscreensonly}});
